@@ -40,6 +40,14 @@ to create a Forge App for this tutorial. In the *Add Services to Forge* stage se
 
     2. Drag the file you downloaded in step 1, on to the area marked Drop files here.
 
+### 4. Get a Revit Add-in that is Design Automation Ready 
+
+- Follow the [Convert Revit Add-in Task](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step1-convert-addin/?sha=6120_10) on the Forge portal.
+
+or
+
+- Download a Design Automation ready add-in *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
+
 
 
 
