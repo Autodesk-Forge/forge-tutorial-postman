@@ -27,7 +27,7 @@ to create a Forge App. In the *Add Services to Forge* stage, select  "Design Aut
 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
-3. Click the **Environment drop-down** on the upper-right, and select **das-prd **. The das-prd environment loads.
+3. Click the **Environment drop-down** on the upper-right, and select **das-prd**. The das-prd environment loads.
    ![Postman Environment drop-down](images/postman_environment_dropdown.png "Postman Environment drop-down")
 
 ### 3. Import the Postman Collection for the Tutorial.
