@@ -13,7 +13,7 @@ Individual requests in Postman have the same names as the correspondong step in 
 ### 1. Create a Forge App
 
 1. Follow the instructions on [Get Started with Forge in Three Steps](https://dev.forge.autodesk.com/developer/start-now/signup) 
-to create a Forge App. In the *Add Services to Forge* stage select  "Design Automation API V3 (Beta)" and "Data Management API".
+to create a Forge App. In the *Add Services to Forge* stage, select  "Design Automation API V3 (Beta)" and "Data Management API".
 
 2. Jot down the Client ID and Client Secret of the Forge App you created.
 
