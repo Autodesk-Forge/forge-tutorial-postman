@@ -19,7 +19,7 @@ to create a Forge App. In the *Add Services to Forge* stage select  "Design Auto
 
 ### 2. Import the Environment for the Tutorial
 
-1. Download the file *das-prd.postman_environment.json* from the collections folder.
+1. Download the file *das-prd.postman_environment.json* from the *collections* folder of this repository.
 
 2. Import *das-prd.postman_environment.json*
 
@@ -32,7 +32,7 @@ to create a Forge App. In the *Add Services to Forge* stage select  "Design Auto
 
 ### 3. Import the Postman Collection for the Tutorial.
 
-1. Download the file *Design Automation For Revit Tutorial.postman_collection.json* from the collections folder.
+1. Download the file *Design Automation For Revit Tutorial.postman_collection.json* from  the *collections* folder of this repository.
 
 2. Import *Design Automation For Revit Tutorial.postman_collection*
 
