@@ -2,7 +2,7 @@
 
 This folder contains a Postman Collection that contains the requests used in the [Design Automation for Revit Step-by-Step tutorial](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/?sha=6120_10) on the Forge Portal. 
 
-The Postman sidebar, Requests have been stored in folders that have the same name as the corresponding task in the Forge portal.
+On the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the Forge portal.
 ![Forge portal menu to Postman](images/forge_portal_menu_2_postman_menu.png "Forge portal task to Postman mapping")
 
 Individual requests in Postman have the same names as the correspondong step in the Forge portal.
@@ -13,7 +13,7 @@ Individual requests in Postman have the same names as the correspondong step in 
 ### 1. Create a Forge App
 
 1. Follow the instructions on [Get Started with Forge in Three Steps](https://dev.forge.autodesk.com/developer/start-now/signup) 
-to create a Forge App for this tutorial. In the *Add Services to Forge* stage select  "Design Automation API V3 (Beta)" and "Data Management API".
+to create a Forge App. In the *Add Services to Forge* stage select  "Design Automation API V3 (Beta)" and "Data Management API".
 
 2. Jot down the Client ID and Client Secret of the Forge App you created.
 
@@ -42,11 +42,11 @@ to create a Forge App for this tutorial. In the *Add Services to Forge* stage se
 
 ### 4. Get a Revit Add-in that is Design Automation Ready 
 
-- Follow the [Convert Revit Add-in Task](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step1-convert-addin/?sha=6120_10) on the Forge portal.
+- On the Forge portal, follow the instructions in the topic [Convert Revit Add-in Task](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step1-convert-addin/?sha=6120_10).
 
 or
 
-- Download a Design Automation ready add-in *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
+- Download a Design Automation ready add-in, *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
 
 
 
