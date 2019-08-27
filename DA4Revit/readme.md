@@ -56,7 +56,7 @@ In the das-prd environment that you selected earlier, there are two Postman Envi
 
 To set the environment variables:
 
-1. Click the Environment icon on the upper right corner of Postman. 
+1. Click the **Environment quick look** icon on the upper right corner of Postman. 
    ![Environment quick look icon](images/task2-environment_quick_look_icon.png "Environment quick look icon")
 
 2. Click **Edit** on the upper right corner. The Manage Environments dialog displays.
