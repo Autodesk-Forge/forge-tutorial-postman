@@ -60,7 +60,7 @@ To set the environment variables:
    ![Environment quick look icon](images/task2-environment_quick_look_icon.png "Environment quick look icon")
 
 2. Click **Edit** on the upper right corner. The Manage Environment dialog displays.
-   ![Environment edit button](images/task2-task2-environment_edit_button.png "Environment edit button")
+   ![Environment edit button](images/task2-environment_edit_button.png "Environment edit button")
 
 3. In the **CURRENT VALUE** column, enter the Client ID and Client Secret you jotted down earlier, in the corresponding rows.
    ![Client Id and Client Secret](images/task2-environment_variables_grid.png "Client Id and Client Secret") 
