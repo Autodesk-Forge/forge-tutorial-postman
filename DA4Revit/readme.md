@@ -10,43 +10,62 @@ Individual requests in Postman have the same names as the correspondong step in 
 
 ## Before you Begin...
 
-### 1. Create a Forge App
+### 1. Import the Environment for the Tutorial
 
-1. Follow the instructions on [Get Started with Forge in Three Steps](https://dev.forge.autodesk.com/developer/start-now/signup) 
-to create a Forge App. In the *Add Services to Forge* stage, select  "Design Automation API V3 (Beta)" and "Data Management API".
+1. Download the file *DA4Revit-Environment.postman_environment.json* from the *collections* folder of this repository.
 
-2. Jot down the Client ID and Client Secret of the Forge App you created.
-
-### 2. Import the Environment for the Tutorial
-
-1. Download the file *das-prd.postman_environment.json* from the *collections* folder of this repository.
-
-2. Import *das-prd.postman_environment.json*
+2. Import *DA4Revit-Environment.postman_environment.json*
 
     1. In the Postman header bar, click **Import**. A dialog displays.
 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
-3. Click the **Environment drop-down** on the upper-right, and select **das-prd**. The das-prd environment loads.
+3. Click the **Environment drop-down** on the upper-right, and select **DA4Revit**. The das-prd environment loads.
    ![Postman Environment drop-down](images/postman_environment_dropdown.png "Postman Environment drop-down")
 
-### 3. Import the Postman Collection for the Tutorial.
+### 2. Import the Postman Collection for the Tutorial.
 
-1. Download the file *Design Automation For Revit Tutorial.postman_collection.json* from  the *collections* folder of this repository.
+1. Download the file *DA4Revit-Collection.postman_collection.json* from  the *collections* folder of this repository.
 
-2. Import *Design Automation For Revit Tutorial.postman_collection*
+2. Import *DA4Revit-Collection.postman_collection.json*
 
     1. In the Postman header bar, click **Import**. A dialog displays.
 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
-### 4. Get a Revit Add-in that is Design Automation Ready 
+### 3. Get a Revit Add-in that is Design Automation Ready 
 
 - On the Forge portal, follow the instructions in the topic [Convert Revit Add-in Task](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step1-convert-addin/?sha=6120_10).
 
 or
 
 - Download a Design Automation ready add-in, *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
+
+## Task 2 - Obtain an Access Token
+
+### Create a Forge App
+
+1. Follow the instructions on [Get Started with Forge in Three Steps](https://dev.forge.autodesk.com/developer/start-now/signup) 
+to create a Forge App. In the *Add Services to Forge* stage, select  "Design Automation API V3 (Beta)" and "Data Management API".
+
+2. Jot down the Client ID and Client Secret of the Forge App you created.
+
+### Save Client ID and Client Secret to Postman Environment Variables
+
+In the das-prd environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables to the values of the Client ID and Client Secret you jotted down, you can save yourself the trouble of specifying them when you send HTTP requests to Forge. 
+
+To set the environment variables:
+
+1. Click the Environment icon on the upper right corner of Postman. 
+   ![Environment quick look icon](images/task2-environment_quick_look_icon.png "Environment quick look icon")
+
+2. Click **Edit** on the upper right corner. The Manage Environment dialog displays.
+   ![Environment edit button](images/task2-task2-environment_edit_button.png "Environment edit button")
+
+3. In the **CURRENT VALUE** column, enter the Client ID and Client Secret you jotted down earlier, in the corresponding rows.
+   ![Client Id and Client Secret](images/task2-environment_variables_grid.png "Client Id and Client Secret") 
+
+4. CLick **Update**.
 
 
 
