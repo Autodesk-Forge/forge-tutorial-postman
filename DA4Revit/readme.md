@@ -59,23 +59,23 @@ To set the environment variables:
 1. Click the Environment icon on the upper right corner of Postman. 
    ![Environment quick look icon](images/task2-environment_quick_look_icon.png "Environment quick look icon")
 
-2. Click **Edit** on the upper right corner. The Manage Environment dialog displays.
+2. Click **Edit** on the upper right corner. The Manage Environments dialog displays.
    ![Environment edit button](images/task2-environment_edit_button.png "Environment edit button")
 
-3. In the **CURRENT VALUE** column, enter the Client ID and Client Secret you jotted down earlier, in the corresponding rows.
+3. In the **CURRENT VALUE** column, enter the values of the Client ID and Client Secret you jotted down earlier.
    ![Client Id and Client Secret](images/task2-environment_variables_grid.png "Client Id and Client Secret") 
 
 4. Click **Update**.
 
 ### Get an Access Token
 
-To get an Access Token, you must send an `authenticate` request to Forge. The Postman collection has a pre-populated authentication request that you can send Forge. To send the request:
+To get an Access Token, you must send an `authenticate` request to Forge. The Postman collection has a pre-populated authenticate request that you can send. To send the request to Forge:
 
 1. On the Postman sidebar click **Task 2 - Obtain an Access Token > POST Get an Access Token**. The request loads.
 
 2. Click the **Body** tab.
 
-3. Move the mouse pointer over the **Value** column of the **client_id** and **client_secret**, and verify that the values you specified as environment variables are displayed.
+3. Move the cursor over the **Value** column of the **client_id** and **client_secret**, and verify that the values you specified as environment variables are displayed.
    ![Preview Client Id and Client Secret](images/task2-preview_environment_variables.png "Preview Client Id and Client Secret") 
 
 4. Click **Send**. The request is sent to Forge. If your request authenticates successfully, you should see a response similar to the following:
