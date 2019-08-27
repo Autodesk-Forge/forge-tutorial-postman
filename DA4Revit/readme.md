@@ -12,7 +12,7 @@ Individual requests in Postman have the same names as the correspondong step in 
 
 ### 1. Import the Environment for the Tutorial
 
-1. Download the file *DA4Revit-Environment.postman_environment.json* from the *collections* folder of this repository.
+1. Download the file *DA4Revit-Environment.postman_environment.json* from the [*collections*](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/collections) folder of this repository.
 
 2. Import *DA4Revit-Environment.postman_environment.json*
 
@@ -25,7 +25,7 @@ Individual requests in Postman have the same names as the correspondong step in 
 
 ### 2. Import the Postman Collection for the Tutorial.
 
-1. Download the file *DA4Revit-Collection.postman_collection.json* from  the *collections* folder of this repository.
+1. Download the file *DA4Revit-Collection.postman_collection.json* from  the [*collections*](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/collections) folder of this repository.
 
 2. Import *DA4Revit-Collection.postman_collection.json*
 
@@ -81,7 +81,7 @@ To get an Access Token, you must send an `authenticate` request to Forge. The Po
 4. Click **Send**. The request is sent to Forge. If your request authenticates successfully, you should see a response similar to the following:
 ![Successfull authentication](images/task2-authenticate_successfull.png "Successfull authentication") 
 
-Postman saves the Access Token in the Postman Environment Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need to repeatedly specify the value of the token.
+Postman saves the Access Token in the Postman Environment Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token.
 
 
 
