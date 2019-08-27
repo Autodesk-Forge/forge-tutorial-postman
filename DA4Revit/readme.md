@@ -39,7 +39,7 @@ Individual requests in Postman have the same names as the correspondong step in 
 
 or
 
-- Download a Design Automation ready add-in, *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
+- Download the Design Automation ready add-in, *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
 
 ## Task 2 - Obtain an Access Token
 
@@ -79,7 +79,7 @@ To get an Access Token, you must send an `authenticate` request to Forge. The Po
    ![Preview Client Id and Client Secret](images/task2-preview_environment_variables.png "Preview Client Id and Client Secret") 
 
 4. Click **Send**. The request is sent to Forge. If your request authenticates successfully, you should see a response similar to the following:
-![Successfull authentication (images/task2-authenticate_successfull.png "Successfull authentication") 
+![Successfull authentication](images/task2-authenticate_successfull.png "Successfull authentication") 
 
 Postman saves the Access Token in the Postman Environment Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need to repeatedly specify the value of the token.
 
