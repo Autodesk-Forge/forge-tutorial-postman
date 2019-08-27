@@ -65,7 +65,25 @@ To set the environment variables:
 3. In the **CURRENT VALUE** column, enter the Client ID and Client Secret you jotted down earlier, in the corresponding rows.
    ![Client Id and Client Secret](images/task2-environment_variables_grid.png "Client Id and Client Secret") 
 
-4. CLick **Update**.
+4. Click **Update**.
+
+### Get an Access Token
+
+To get an Access Token, you must send an `authenticate` request to Forge. The Postman collection has a pre-populated authentication request that you can send Forge. To send the request:
+
+1. On the Postman sidebar click **Task 2 - Obtain an Access Token > POST Get an Access Token**. The request loads.
+
+2. Click the **Body** tab.
+
+3. Move the mouse pointer over the **Value** column of the **client_id** and **client_secret**, and verify that the values you specified as environment variables are displayed.
+   ![Preview Client Id and Client Secret](images/task2-preview_environment_variables.png "Preview Client Id and Client Secret") 
+
+4. Click **Send**. The request is sent to Forge. If your request authenticates successfully, you should see a response similar to the following:
+![Successfull authentication (images/task2-authenticate_successfull.png "Successfull authentication") 
+
+Postman saves the Access Token in the Postman Environment Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need to repeatedly specify the value of the token.
+
+
 
 
 
