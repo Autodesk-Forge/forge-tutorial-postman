@@ -19,7 +19,7 @@ Postman Environments are named configurations that implement variables to store 
 
 Postman Collections are groups of prepopulated HTTP requests. To import the requests you need for this tutorial:
 
-1. Download the file *DA4Revit-Collection.postman_collection.json* from the [*collections folder of this repository](../collections).
+1. Download the file *DA4Revit-Collection.postman_collection.json* from the [*collections* folder of this repository](../collections).
 
 2. Import *DA4Revit-Collection.postman_collection.json*
 
