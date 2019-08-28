@@ -2,7 +2,7 @@
 
 ## 1. Import the Environment for the Tutorial
 
-1. Download the file *DA4Revit-Environment.postman_environment.json* from the [*collections*](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/collections) folder of this repository.
+1. Download the file *DA4Revit-Environment.postman_environment.json* from the [*collections* folder of this repository](../collections).
 
 2. Import *DA4Revit-Environment.postman_environment.json*
 
@@ -10,12 +10,12 @@
 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
-3. Click the **Environment drop-down** on the upper-right, and select **DA4Revit**. The das-prd environment loads.
+3. Click the **Environment drop-down** on the upper-right, and select **DA4Revit**. The DA4Revitenvironment loads.
    ![Postman Environment drop-down](../images/postman_environment_dropdown.png "Postman Environment drop-down")
 
 ## 2. Import the Postman Collection for the Tutorial.
 
-1. Download the file *DA4Revit-Collection.postman_collection.json* from  the [*collections*](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/collections) folder of this repository.
+1. Download the file *DA4Revit-Collection.postman_collection.json* from  the [*collections*  folder of this repository](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/collections).
 
 2. Import *DA4Revit-Collection.postman_collection.json*
 
