@@ -8,6 +8,10 @@ On the Postman sidebar, requests are stored in folders that have the same name a
 Individual requests in Postman have the same names as the correspondong step in the Forge portal.
 ![Forge portal steps to Postman](images/forge_portal_steps_2_postman_menu.png "Forge portal task to Postman mapping")
 
+Topics:
+
+- [Before you begin](before_you_begin.md)
+
 ## Before you Begin...
 
 ### 1. Import the Environment for the Tutorial
