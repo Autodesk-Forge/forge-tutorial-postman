@@ -10,7 +10,7 @@ Individual requests in Postman have the same names as the correspondong step in 
 
 Topics:
 
-- [Before you begin](before_you_begin.md)
+- [Before you begin](instructions/before_you_begin.md)
 
 ## Before you Begin...
 
