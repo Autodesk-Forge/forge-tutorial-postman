@@ -28,4 +28,4 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
 2. Click  **Send**. If the request is sucessful, you should see a response similar to the following image. Note that the response has only a header and no body.
 ![Successful nickname](../images/task3-successfull.png "Successful Nickname") 
 
-[:arrow_backward](task-2.md)  [:arrow_forward:](task-4.md)
+[:arrow_backward:](task-2.md)  [:arrow_forward:](task-4.md)
