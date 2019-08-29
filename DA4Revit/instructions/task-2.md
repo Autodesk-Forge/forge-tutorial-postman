@@ -39,3 +39,5 @@ To get an Access Token, you must send an `authenticate` request to Forge. The Po
 ![Successful authentication](../images/task2-authenticate_successfull.png "Successful authentication") 
 
 Postman saves the Access Token in the Postman Environment Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token.
+
+[:arrow_backward](before_you_begin.md)  [:arrow_forward:](task-3.md)
