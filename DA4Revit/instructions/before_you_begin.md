@@ -36,5 +36,5 @@ Or
 - Download the Design Automation ready add-in, *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
 
 
-:arrow_forward:
+[:arrow_forward:](task-2.md)
 
