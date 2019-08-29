@@ -8,10 +8,11 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Register the APpBundle**. The request loads.
 
-2, Click the **Body** tab, and verify that the `id`, and `engine` are set to `DeleteWallsApp`, and `Autodesk.Revit+2018`.
+2. Click the **Body** tab, and verify that the `id`, and `engine` are set to `DeleteWallsApp`, and `Autodesk.Revit+2018`.
+
 ![AppBundle Body](../images/task4-appbundle_body.png "AppBundle Body") 
 
 
 ## Upload the AppBundle
 
-[:arrow_backward:](task-2.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-4.md)
+[:arrow_backward:](task-3.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-4.md)
