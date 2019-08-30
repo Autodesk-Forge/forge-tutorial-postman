@@ -18,7 +18,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 The `endpointURL` and `formData` information required to upload the APpBundle is saved to Postman Environment variables.
 
-![formData](../images/task4-appbundle_formdata.png "formData")
+![formData](../images/task4-appbundle_form_data.png "formData")
 
 ## Upload the AppBundle
 
@@ -30,17 +30,17 @@ The `endpointURL` and `formData` information required to upload the APpBundle is
 
 3. Move the cursor over **file**, and from the drop-down that displays, select **File**. 
 
-![File drop-down](../images/task4-appbundle_file_dropdown "File drop-down")
+![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
 
 4. Click **Select Files**, and pick *DeletWallsApp.zip*, which you downloaded earlier.
 
-![Pick DeleteWalls.zip](../images/task4-appbundle_select_file "Pick DeleteWalls.zip")
+![Pick DeleteWalls.zip](../images/task4-appbundle_select_file.png "Pick DeleteWalls.zip")
 
 5. Click **Send**. You should see a screen similar to the following. Note that the response has only a header and no body.
 
-![AppBundle uploaded](../images/task4-appbundle_select_file "AppBundle uploaded")
+![AppBundle uploaded](../images/task4-appbundle_uploaded.png "AppBundle uploaded")
 
-## Create an alias for the AppBundle
+## Create an Alias for the AppBundle
 
 When you registered the AppBundle earlier, it was registered as version 1 of the AppBundle. Now, you create an alias named test to reference that version.
 
@@ -48,11 +48,11 @@ When you registered the AppBundle earlier, it was registered as version 1 of the
 
 2. Click the **Body** tab. and note how `id` is set to`test`.
 
-![Alias](../imsages/task4-appbundle_alias.png "Alias")
+![Alias](../images/task4-appbundle_alias.png "Alias")
 
 3. Click **Send**. You should see a response similar to the following image.
 
-[Alias response](../images/task4-appbundle_alias_set.png "Alias respose")
+![Alias response](../images/task4-appbundle_alias_set.png "Alias response")
 
 ## Update an Existing AppBundle
 
@@ -79,9 +79,5 @@ To register a new version:
 4. Click **Select Files**, and pick *DeletWallsApp.zip*, which you downloaded earlier.
 
 5. Click **Send**.
-
-
-
-
 
 [:arrow_backward:](task-3.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-5.md)
