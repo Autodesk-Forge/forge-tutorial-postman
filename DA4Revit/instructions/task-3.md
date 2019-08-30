@@ -16,8 +16,13 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
    **Notes:**
 
     - If your Forge App doesn't have any data, you can map the Forge App to another nickname, and the new nickname will overwrite the old one. Once your Forge App has data, you cannot ``PATCH`` a nickname for your Forge App anymore. This is true even if you have not yet assigned a nickname for the app. The only way you can assign a nickname to an app with data is by first calling the `[DELETE] /forgeapps/me` endpoint. This deletes all data associated with that app, including the nickname.
+    
+    ![Delete Forge App Data](../images/task3-delete_forge_app.png "Delete Forge App")
 
-    - Nicknames must be globally unique.  If the nickname is already in use, even by someone else, the PATCH request will return a ``409 Conflict`` error.
+    - If you get stuck while working on this tutorial, and are unable to procede because data has already been uploaded to the app, use this request to clear all data from the app, and restart from Task 2.
+ 
+
+    - Nicknames must be globally unique.  If the nickname is already in use, even by someone else, the PATCH request will return a 409 Conflict error.
 
 4. Click **Update** and close the Manage Environments dialog.
 
@@ -26,6 +31,7 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
 1. On the Postman sidebar, click **Task 3 - Obtain an Access Token > PATCH Create Nickname**. The request loads.
 
 2. Click  **Send**. If the request is sucessful, you should see a response similar to the following image. Note that the response has only a header and no body.
+
 ![Successful nickname](../images/task3-successfull.png "Successful Nickname") 
 
-[:arrow_backward:](task-2.md)  [:arrow_forward:](task-4.md)
+[:arrow_backward:](task-2.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-4.md)
