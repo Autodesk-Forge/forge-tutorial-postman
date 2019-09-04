@@ -10,7 +10,7 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
 
 ![Delete Forge App Data](../images/task3-delete_forge_app.png "Delete Forge App")
 
-- If you get stuck while working on this tutorial, and are unable to procede because your app has data, you can use **DEL Delete Forge App**) to clear all data from the app, and restart from Task 2.
+- If you get stuck while working on this tutorial, and are unable to procede because your app has data, you can use **DEL Delete Forge App** to clear all data from the app, and restart from Task 2.
 
 
 - Nicknames must be globally unique.  If the nickname is already in use, even by someone else, Forge returns a `409 Conflict` error when you try to set the Nickname.
