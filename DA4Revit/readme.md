@@ -14,7 +14,9 @@ Instructions on how to run the Postman tutorial are as below:
 - [Task 2 - Obtain an Access Token](instructions/task-2.md)
 - [Task 3 - Create a Nickname](instructions/task-3.md)
 - [Task 4 - Upload an AppBundle to Design Automation](instructions/task-4.md)
-- [Task 5 - Create an ACtivity](instructions/task-5.md)
+- [Task 5 - Create an Activity](instructions/task-5.md)
+- [Task 6 - Prepare cloud storage](instructions/task-6.md)
+- [Task 7 - Submit a WorkItem](instructions/task-7.md)
 
 
 
