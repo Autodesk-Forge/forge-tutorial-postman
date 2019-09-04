@@ -26,8 +26,6 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
-    ![Body tab](../images/task4-appbundle_file.png "Body tab")
-
 3. Move the cursor to the **VALUE** column on the **file** row, and close the box shown in the following image. 
 
     ![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
