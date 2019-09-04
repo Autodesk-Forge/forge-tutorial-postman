@@ -16,7 +16,7 @@ For this exercise, you will apply the DeleteWalls Activity on the Revit file you
 
 3. Click **Send**. If the request is successfull you should see a screen similar to the following image.
 
-![deleteWallsResultUrl](../images/task6-result_url.png "deleteWallsResultUrl")
+    ![deleteWallsResultUrl](../images/task7-result_url.png "deleteWallsResultUrl")
 
 ## Check Status of a WorkItem
 
@@ -24,6 +24,9 @@ Design Automation WorkItems are queued before they are processed. Processing its
 
 1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Check Status of a WorkItem**. The request loads.
 
-3. Click **Send**. If the request is successfull you should see a screen similar to the following image.
+2. Click **Send**. You should see a screen similar to the following image.
+
+    ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
+
 
 [:arrow_backward:](task-6.md)  [:arrow_up_small:](../readme.md)  

@@ -27,7 +27,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 ## Upload input file to OSS
 
-1. Download the input file, *DeleteWalls.rvt*  from the [*tutorial_data* folder of this repository](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/tutorial_data) and zip it up.
+1. Download the input file, *DeleteWalls.rvt*  from the [*tutorial_data* folder of this repository](../tutorial_data) and zip it up.
 
 2. Click the **Environment quick look** icon on the upper right corner of Postman. 
 
@@ -39,15 +39,11 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 6. Click the **Body** tab.
 
-7. In the **Data Type** drop-down, select **binary**.
-
-    ![Data type drop-down](../images/task6-data_type_dropdown.png "Data type drop-down")
-
-8. Click **Select File** and pick the zip file you created in step 1.
+7. Click **Select File** and pick the zip file you created in step 1.
 
     ![Select file button](../images/task6-select_files_button.png "Select file button")
 
-9. Click **Send**. If your request is successful, you should see a screen similar to the one below:
+8. Click **Send**. If your request is successful, you should see a screen similar to the one below:
 
     ![Succesful upload of input file](../images/task6-successful_upload.png "Succesful upload of input file")
 

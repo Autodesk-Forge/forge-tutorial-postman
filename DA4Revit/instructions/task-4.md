@@ -1,6 +1,6 @@
 # Task 4 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step4-publish-appbundle/?sha=6201_3) for an explanantion of AppBundles and learn how to create an AppBundle. For the purpose of this Postman tutorial,  download *DeletWallsApp.zip*, which is stored in the [*tutorial_data* folder of this repository](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/tutorial_data). The file *DeleteWalls.dll* that is contained within this AppBundle is designed to run on Revit 2018.
+An AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step4-publish-appbundle/?sha=6201_3) for an explanantion of AppBundles and learn how to create an AppBundle. For the purpose of this Postman tutorial,  download *DeletWallsApp.zip*, which is stored in the [*tutorial_data* folder of this repository](../tutorial_data). The file *DeleteWalls.dll* that is contained within this AppBundle is designed to run on Revit 2018.
 
 ## Register the AppBundle
 
@@ -28,7 +28,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
     ![Body tab](../images/task4-appbundle_file.png "Body tab")
 
-3. Move the cursor over **file**, and from the drop-down that displays, select **File**. 
+3. Move the cursor to the **VALUE** column on the **file** row, and close the box shown in the following image. 
 
     ![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
 
@@ -74,7 +74,7 @@ To register a new version:
 
 2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
-3. Move the cursor over **file**, and from the drop-down that displays, select **File**. 
+3. Move the cursor to the **VALUE** column on the **file** row, and close the box there. The *Select Files** button displays.
 
 4. Click **Select Files**, and pick *DeletWallsApp.zip*, which you downloaded earlier.
 
