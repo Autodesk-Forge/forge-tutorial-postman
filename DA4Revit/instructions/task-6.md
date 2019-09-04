@@ -74,7 +74,7 @@ Design Automation needs a signed URL to upload the output that the DeleteWalls a
 
     ![Signed upload URL](../images/task6-signed_uploadurl.png "Signed upload URL")
 
-[:arrow_backward:](task-4.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-6.md)
+[:arrow_backward:](task-5.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-7.md)
 
 
 
