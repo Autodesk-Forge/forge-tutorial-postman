@@ -8,7 +8,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
 2. Click the **Body** tab. Observe the body parameters.
 
-![Body tab of Create Activity](../images/task5-create_activity.png "Body tab of Create Activity")
+    ![Body tab of Create Activity](../images/task5-create_activity.png "Body tab of Create Activity")
 
 **Notes**
  - `id` is the name given to the new Activity. 
@@ -19,7 +19,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
 3. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
 
-![Successful creation of an Activity](../images/task5-activity_create_success.png "Successful creation of an Activity")
+    ![Successful creation of an Activity](../images/task5-activity_create_success.png "Successful creation of an Activity")
 
 ## Create an Alias to the Activity
 
@@ -31,12 +31,12 @@ To create an alias named `test`, which refers to version `1` of the `DeleteWalls
 
 2. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
 
-![Successfull creation of Alias](../images/task5-activity_alias_create_success.png "Successfull creation of Alias")
+    ![Successfull creation of Alias](../images/task5-activity_alias_create_success.png "Successfull creation of Alias")
 
 ## Update an Existing Activity
 
 Design Automation does not let you overwrite an Activity once you have created it. If you want to modify/update an existing Activity,
-you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Revit throws a 409 Conflict error.
+you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Revit throws a `409 Conflict` error.
 
 To create a new version of an Activity:
 
@@ -46,7 +46,7 @@ To create a new version of an Activity:
 
 3. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
 
-![Successfull update of an existing activity](../images/task5-sucessful_update_of_activity.png "Successfull update of an existing activity")
+    ![Successfull update of an existing activity](../images/task5-sucessful_update_of_activity.png "Successfull update of an existing activity")
 
 ## Assign an existing Alias to the updated Activity
 
@@ -58,7 +58,7 @@ To send the PATCH request:
 
 2. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
 
-![Successfull update of Alias](../images/task5-sucessful_update_of_alias.png "Successfull update of Alias")
+    ![Successfull update of Alias](../images/task5-sucessful_update_of_alias.png "Successfull update of Alias")
 
 
 [:arrow_backward:](task-4.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-6.md)

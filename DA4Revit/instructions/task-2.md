@@ -16,13 +16,15 @@ To set the environment variables:
 1. Click the **Environment quick look** icon on the upper right corner of Postman. 
    ![Environment quick look icon](../images/task2-environment_quick_look_icon.png "Environment quick look icon")
 
-2. Click **Edit** on the upper right corner. The Manage Environments dialog displays.
-   ![Environment edit button](../images/task2-environment_edit_button.png "Environment edit button")
+2. Click in the **CURRENT VALUE** column on the **client_id** row. The Edit icon displays.
 
-3. In the **CURRENT VALUE** column, enter the values of the Client ID and Client Secret you jotted down in the previous exercise.
-   ![Client Id and Client Secret](../images/task2-environment_variables_grid.png "Client Id and Client Secret") 
+    ![Edit Environment Variable](../images/task2-envoronment_edit_variable.png "Edit Environment Variable")
 
-4. Click **Update** and close the Manage Environments dialog.
+3. Click the Edit icon, and enter the Client ID you jotted down earlier.
+
+4. Similarly, enter the Client Secret you jotted down earlier in the **CURRENT VALUE** column on the **client_secret** row.
+
+5. Click the **Environment quick look** icon again. 
 
 ## Get an Access Token
 

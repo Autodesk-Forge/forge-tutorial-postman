@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c96cd9c4-0381-4a8b-8ef5-4fe7b5a987af",
+		"_postman_id": "1530bc32-a587-40f9-ace1-1aae933cc513",
 		"name": "Design Automation For Revit Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -54,7 +54,7 @@
 								},
 								{
 									"key": "scope",
-									"value": "code:all",
+									"value": "code:all data:write data:read bucket:create bucket:delete",
 									"type": "text"
 								}
 							]
@@ -318,8 +318,8 @@
 								},
 								{
 									"key": "file",
-									"type": "file",
-									"src": "/Users/pereraj/Postman_Collections/DA4Revit/tutorial_data/DeleteWallsApp.zip"
+									"value": "",
+									"type": "file"
 								}
 							]
 						},
@@ -514,8 +514,8 @@
 								},
 								{
 									"key": "file",
-									"type": "file",
-									"src": "/Users/pereraj/Postman_Collections/DA4Revit/tutorial_data/DeleteWallsApp_V2.zip"
+									"value": "",
+									"type": "file"
 								}
 							]
 						},
@@ -782,21 +782,237 @@
 			]
 		},
 		{
-			"name": "Task 6 - Post a Workitem",
+			"name": "Task 6 - Prepare Cloud Storage",
 			"item": [
 				{
-					"name": "Create a  Workitem",
+					"name": "Create a Bucket",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n    \"access\": \"full\",\n    \"policyKey\": \"transient\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oss/v2/buckets",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Input File to OSS",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oss/v2/buckets/:BUCKET_KEY/objects/:OBJECT_KEY",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":BUCKET_KEY",
+								"objects",
+								":OBJECT_KEY"
+							],
+							"variable": [
+								{
+									"key": "BUCKET_KEY",
+									"value": "{{ossBucketKey}}"
+								},
+								{
+									"key": "OBJECT_KEY",
+									"value": "{{ossInputFileObjectKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Download URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "65d0ec49-0122-43d6-bf5d-a84e43e04e3d",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossDownloadURL\", body[\"signedUrl\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oss/v2/buckets/:BUCKET_KEY/objects/:OBJECT_KEY/signed",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":BUCKET_KEY",
+								"objects",
+								":OBJECT_KEY",
+								"signed"
+							],
+							"variable": [
+								{
+									"key": "BUCKET_KEY",
+									"value": "{{ossBucketKey}}"
+								},
+								{
+									"key": "OBJECT_KEY",
+									"value": "{{ossInputFileObjectKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Upload URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "98b626f6-40d1-49e2-b121-6ed5a089934c",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossUploadURL\", body[\"signedUrl\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/oss/v2/buckets/:BUCKET_KEY/objects/:OBJECT_KEY/signed?access=readwrite",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								":BUCKET_KEY",
+								"objects",
+								":OBJECT_KEY",
+								"signed"
+							],
+							"query": [
+								{
+									"key": "access",
+									"value": "readwrite"
+								}
+							],
+							"variable": [
+								{
+									"key": "BUCKET_KEY",
+									"value": "{{ossBucketKey}}"
+								},
+								{
+									"key": "OBJECT_KEY",
+									"value": "{{ossObjectKey}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 7 - Submit a WorkItem",
+			"item": [
+				{
+					"name": "Create a  WorkItem",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
 								"id": "bba6b291-c09f-4f45-b6a3-f7b727b6b38c",
-								"type": "text/javascript",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsWorkitemId\", body[\"id\"]);",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -814,7 +1030,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"https://s3-us-west-2.amazonaws.com/revitio-dev/test-data/DeleteWalls.rvt\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{deleteWallsResultUrl}}\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/workitems",
@@ -829,7 +1045,7 @@
 					"response": []
 				},
 				{
-					"name": "Check Status of a  Workitem",
+					"name": "Check Status of a  WorkItem",
 					"request": {
 						"method": "GET",
 						"header": [

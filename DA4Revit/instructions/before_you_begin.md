@@ -33,7 +33,7 @@ Postman Collections are groups of prepopulated HTTP requests. To import the requ
 
 Or
 
-- Download the Design Automation ready add-in, *DeleteWalls.dll* from [here](/en/docs/design-automation/v3/tutorial_data/DeleteWalls-dll.zip)
+- Download the Design Automation ready add-in, *DeleteWalls.dll* (and all other files required for this tutorial) from the [*tutorial_data* folder of this repository](https://git.autodesk.com/ASRD-CPUX/Postman_Collections/tree/master/DA4Revit/tutorial_data)
 
 
 [:arrow_backward:](../readme.md)  [:arrow_forward:](task-2.md)
