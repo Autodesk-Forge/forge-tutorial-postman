@@ -9,7 +9,7 @@ Individual requests in Postman have the same names as the correspondong step in 
 
 ![Forge portal steps to Postman](images/forge_portal_steps_2_postman_menu.png "Forge portal task to Postman mapping")
 
-Instructions on how to run the Postman tutorial are as below:
+Instructions to run the Postman tutorial are as below:
 
 - [Before you begin](instructions/before_you_begin.md)
 - [Task 2 - Obtain an Access Token](instructions/task-2.md)
