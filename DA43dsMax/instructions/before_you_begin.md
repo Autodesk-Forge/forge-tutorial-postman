@@ -13,6 +13,7 @@ Postman Environments are named configurations that implement variables to store 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
 3. Click the **Environment drop-down** on the upper-right, and select **DA43dsMax Tutorial**. The DA43dsMax Tutorial environment loads.
+
    ![Postman Environment drop-down](../images/postman_environment_dropdown.png "Postman Environment drop-down")
 
 ## 2. Import the Postman Collection for the tutorial.
