@@ -20,7 +20,7 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
 1. Click the **Environment quick look** icon on the upper right corner of Postman. 
 
 2. In the **CURRENT VALUE** column, in the **dasNickName** row, enter a Nickname for your app.
-   ![Client Id and Client Secret](../images/task3-environment_variables_grid.png "Client Id and Client Secret")
+   ![Nickname Variable](../images/task3-environment_variables_grid.png "Nickname Variable")
 
 
 3. Click the **Environment quick look** icon again, to hide the variables.
