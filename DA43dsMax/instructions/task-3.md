@@ -1,6 +1,6 @@
-# Create an Activity
+# Task 3 - Create an Activity
 
-An Activity is an action that can be executed in Design Automation. You create and post Activities to run specific AppBundles.
+An Activity is an action that can be executed in Design Automation. In this task you create and post an Activity to run a MAXScript.
 
 ## Create a New Activity
 
@@ -14,7 +14,7 @@ An Activity is an action that can be executed in Design Automation. You create a
  - `id` is the name given to the new Activity. 
  - `commandLine` is the command run by this Activity. The variables used in the command line are replaced with actual values before executing the Activity. This mechanism lets you replace file path(s) you used in the command line testing locally, with file paths that makes sense in the Design Automation environment.
 
-    The variables used in this HTTP request are:
+    The variables used on the command line are:
 
     - `$(engine.path)` - The full path to the  folder containing *3dsmaxbatch.exe*.  The variable``$(engine.path)`` will be replaced by the path to where the engine is installed. The engine is defined in the request body as "engine": "Autodesk.3dsMax+2019. **Do not edit or alter this commandLine in the request body of Activity posts.** 
 
@@ -22,6 +22,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
     -  `$(args[MaxscriptToExecute].path)` - Will be replaced by the path to a file specified by a parameter named MaxscriptToExecute.
 
+- `engine` is the Design Automation engine that the Activity must run on (3ds Max 2019 in this case).
 
 3. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
 
