@@ -1,4 +1,4 @@
-# Prepare cloud storage
+# Task 6 - Prepare cloud storage
 
 The DeleteWalls add-in takes a Revit file as an input and produces another Revit file as output. In this task we prepare the cloud storage (OSS) to hold these files.
 
@@ -52,7 +52,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 Design Automation needs to download the input file in order to preocess it. This request obtains a temporary signed URL that Design Automation can use to download the file, and saves it to a Postman Environment Variable.
 
-1. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > GET Temporary Download URL**. The request loads.
+1. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Get Temporary Download URL**. The request loads.
 
 2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossDownloadURL` Postman Environment Variable.
 
@@ -68,7 +68,7 @@ Design Automation needs a signed URL to upload the output that the DeleteWalls a
 
 3. Click the **Environment quick look** icon to hide the variables.
 
-4. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > GET Temporary Upload URL**. The request loads.
+4. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Get Temporary Upload URL**. The request loads.
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossUploadURL` Postman Environment Variable.
 
