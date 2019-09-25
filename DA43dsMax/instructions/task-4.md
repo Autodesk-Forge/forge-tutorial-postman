@@ -63,7 +63,7 @@ You use an Postman Environment Variable named `ossBucketKey` for the object key 
 
 ## Get temporary download URL for 3ds Max scene file
 
-Design Automation needs to download the 3ds Max scene file in order to preocess it. This request obtains a temporary signed URL that Design Automation can use to download the file. The signed URL is saved it to a Postman Environment Variable.
+Design Automation needs to download the 3ds Max scene file in order to process it. This request obtains a temporary signed URL that Design Automation can use to download the file. The signed URL is saved it to a Postman Environment Variable.
 
 1. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Download URL for the Input Zip**. The request loads.
 
