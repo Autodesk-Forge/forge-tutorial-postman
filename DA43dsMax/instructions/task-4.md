@@ -34,7 +34,7 @@ You use an Postman Environment Variable named `ossBucketKey` for the object key 
 
 2. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input ZIP File TO OSS**. The request loads.
 
-    Note the use of the Postman Dynamic variable `guid` as a query string parameter as the object key of the Zip file. This generates a unique ID for the object key. A script specified in the **Tests** tab saves the object key to a Postman Environment Variable named `ossZipFileObjectKey`
+    Note the use of the Postman Dynamic variable `guid` as a query string parameter as the object key of the zip file. This generates a unique ID for the object key. A script specified in the **Tests** tab saves the object key to a Postman Environment Variable named `ossZipFileObjectKey`
 
     ![guid](../images/task4-guid.png "guid")
 
