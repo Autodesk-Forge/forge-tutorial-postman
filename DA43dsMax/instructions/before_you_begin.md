@@ -22,7 +22,7 @@ Postman Collections are groups of prepopulated HTTP requests. To import the requ
 
 1. Download the file *DA43dsMax Tutorial.postman_collection.json* from the [*collections* folder of this repository](../collections).
 
-2. Import *DA43dsMax Tutorial.postman_collection.json*
+2. Import *DA43dsMax Tutorial.postman_collection.json*:
 
     1. In the Postman header bar, click **Import**. A dialog displays.
 
