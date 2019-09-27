@@ -1,4 +1,4 @@
-# Task 6 - Download the Results
+# Task 6 - Download the results
 
 Before you download the result, the WorkItem must complete execution. You can periodically check the status of the WorkItem and download the results once execution is complete. Alternatively, you can get Design Automation to send a POST request to a callback URL you specify, once execution is done. For this tutorial, you periodically check the status of the WorkItem. Check the [Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/) for information on how to specify the Callback URL.
 
