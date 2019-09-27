@@ -29,7 +29,7 @@ Instructions to run the Postman tutorial are as below:
 - [Task 3 - Create an Activity](instructions/task-3.md)
 - [Task 4 - Prepare cloud storage](instructions/task-4.md)
 - [Task 5 - Submit a WorkItem](instructions/task-5.md)
-- [Task 6 - Download the Result](instructions/task-6.md)
+- [Task 6 - Download the results](instructions/task-6.md)
 
 
 
