@@ -1,11 +1,11 @@
 # Task 4 - Prepare cloud storage
 
-When Design Automation executes the Actvity you created in Task 3, it must access the 3ds Max scene file to process and the MAXScript file to run. Design Automation also needs to upload the output of the Activity. In this task, you will use the Data Management API to access the Forge Object Storage Service (OSS) for this purpose. You will also generate temporary signed URLs to let Design Automation download the input files as well as upload the output file.
+When Design Automation executes the Activity you created in Task 3, it must access the 3ds Max scene file to process and the MAXScript file to run. Design Automation also needs to upload the output of the Activity. In this task, you will use the Data Management API to access the Forge Object Storage Service (OSS) for this purpose. You will also generate temporary signed URLs to let Design Automation download the input files and upload the output file.
 
 
 ## Create a Bucket
 
-You use an Postman Environment Variable named `ossBucketKey` for the object key of the Bucket that holds your files in the cloud.
+You use a Postman Environment Variable named `ossBucketKey` for the object key of the Bucket that holds your files in the cloud.
 
 1. Specify a value for the bucket object key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -24,17 +24,17 @@ You use an Postman Environment Variable named `ossBucketKey` for the object key 
 
 5. Click the Body tab, and verify that the `bucketkey` attribute has been set to the variable `ossBucketKey`.
 
-5. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successfull Bucket Creation](../images/task4-sucessfull_bucket_creation.png "Successfull Bucket Creation")
+    ![Successful Bucket Creation](../images/task4-sucessfull_bucket_creation.png "Successful Bucket Creation")
 
 ## Upload 3ds Max scene file to OSS
 
-1. Download the zip file containing the 3ds Max scene file, *input.zip*  from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the zip file containing the 3ds Max scene file, *input.zip* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
 2. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input ZIP File TO OSS**. The request loads.
 
-    Note the use of the Postman Dynamic variable `guid` as a query string parameter as the object key of the zip file. This generates a unique ID for the object key. A script specified in the **Tests** tab saves the object key to a Postman Environment Variable named `ossZipFileObjectKey`
+    Note the use of the Postman Dynamic variable `guid` as a query string parameter as the object key of the zip file. This variable generates a unique ID for the object key. A script specified in the **Tests** tab saves the object key to a Postman Environment Variable named `ossZipFileObjectKey`
 
     ![guid](../images/task4-guid.png "guid")
 
@@ -44,13 +44,13 @@ You use an Postman Environment Variable named `ossBucketKey` for the object key 
 
     ![Select file button](../images/task4-select_files_button.png "Select file button")
 
-5. Click **Send**. The request is sent, and the Postman Environment Variable `ossZipFileObjectKey` is updated. If your request is successful, you should see a screen similar to the one below:
+5. Click **Send**. The request is sent, and the Postman Environment Variable `ossZipFileObjectKey` is updated. If your request is successful, you should see a screen similar to the following image:
 
-    ![Succesful upload of input file](../images/task4-successful_upload.png "Succesful upload of input file")
+    ![Successful upload of input file](../images/task4-successful_upload.png "Successful upload of input file")
 
 ## Upload MAXScript file to OSS
 
-1. Download the zip file containing the 3ds Max scene file, *Twistit.ms*  from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the zip file containing the 3ds Max scene file, *Twistit.ms* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
 2. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input MAXScript File TO OSS**. The request loads.
 
@@ -58,18 +58,18 @@ You use an Postman Environment Variable named `ossBucketKey` for the object key 
 
 4. Click **Select File** and pick the MAXScript file you downloaded in step 1.
 
-5. Click **Send**. The request is sent, and the Postman Environment Variable `ossScriptFileObjectKey` is updated. If the request is successfull, the response status should be `200 OK`.
+5. Click **Send**. The request is sent, and the Postman Environment Variable `ossScriptFileObjectKey` is updated. If the request is successful, the response status should be `200 OK`.
 
 
 ## Get temporary download URL for 3ds Max scene file
 
-Design Automation needs to download the 3ds Max scene file in order to process it. This request obtains a temporary signed URL that Design Automation can use to download the file. The signed URL is saved it to a Postman Environment Variable.
+Design Automation needs to download the 3ds Max scene file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file. The signed URL is saved it to a Postman Environment Variable.
 
 1. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Download URL for the Input Zip**. The request loads.
 
 2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossZipFileSignedUrl` Postman Environment Variable.
 
-    ![Signed download url](../images/task4-signed_downloadurl.png "Signed download URL")
+    ![Signed download URL](../images/task4-signed_downloadurl.png "Signed download URL")
 
 ## Get temporary download URL for MAXScript file
 
@@ -77,7 +77,7 @@ This request obtains a temporary signed URL that Design Automation can use to do
 
 1. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Download URL for the Input Script**. The request loads.
 
-2. Click **Send**. The signed URL is saved to the `ossScriptFileSignedUrl` Postman Environment Variable. If the request is successfull, the response status should be `200 OK`.
+2. Click **Send**. The signed URL is saved to the `ossScriptFileSignedUrl` Postman Environment Variable. If the request is successful, the response status should be `200 OK`.
 
 ## Get temporary upload URL
 

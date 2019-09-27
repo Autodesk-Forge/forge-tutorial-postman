@@ -2,7 +2,7 @@
 
 ## 1. Import Postman Environment for the tutorial
 
-Postman Environments are named configurations that implement variables to store values you typically use across many HTTP requests. For example, the Access Token that must be used across all HTTP requests is saved to a variabke named `dasApiToken`. To import the environment you need for this tutorial:
+Postman Environments are named configurations that implement variables to store values you typically use across many HTTP requests. For example, the Access Token that must be used across all HTTP requests is saved to a variable named `dasApiToken`. To import the environment you need for this tutorial:
 
 1. Download the file *DA43dsMax Tutorial.postman_environment.json* from the [*collections* folder of this repository](../collections).
 

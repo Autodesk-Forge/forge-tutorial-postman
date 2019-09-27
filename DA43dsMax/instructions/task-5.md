@@ -7,13 +7,13 @@ When you submit a WorkItem to Design Automation, you are instructing Design Auto
 
 1. On the Postman sidebar, click **Task 5 - Submit a WorkItem > Send WorkItem**. The request loads.
 
-2. Click the **Body** tab and and take note of the JSON payload.
+2. Click the **Body** tab and take note of the JSON payload.
 
-    ![Workitem JSON Payload](../images/task5-workitem_json_payload.png "WorkItem JSON Payload")
+    ![WorkItem JSON Payload](../images/task5-workitem_json_payload.png "WorkItem JSON Payload")
 
     The main attributes on the JSON payload are:
 
-    - `activityId` - Specifies what Activity to execute. The `activityId`  consists of 3 parts.  It starts with the Nickname of the Forge App. This is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias.
+    - `activityId` - Specifies what Activity to execute. The `activityId`  consists of 3 parts. It starts with the Nickname of the Forge App. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias.
 
     - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 3, when you created the Activity.
 
@@ -21,11 +21,11 @@ When you submit a WorkItem to Design Automation, you are instructing Design Auto
 
     - `MaxscriptToExecute`- Specifies how to obtain the MAXScript file for the Activity. Contains the signed URL to download the MAXScript file.
 
-    - `OutputZip` -   Specifies the signed URL to the location reserved for the output of the acticity, followed by the HTTP verb to use.
+    - `OutputZip` - Specifies the signed URL to the location reserved for the output of the activity, followed by the HTTP verb to use.
 
-3. Click **Send**. If the request is successfull you should see a screen similar to the following image.
+3. Click **Send**. The WorkItem ID is saved to the `dasWorkItemId` Postman Environment Variable. If the request is successful you should see a screen similar to the following image.
 
-    ![deleteWallsResultUrl](../images/task5-result_url.png "deleteWallsResultUrl")
+    ![Successful WorkItem](../images/task5-result_url.png "Successful WorkItem")
 
 
 [:arrow_backward:](task-4.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-6.md) 

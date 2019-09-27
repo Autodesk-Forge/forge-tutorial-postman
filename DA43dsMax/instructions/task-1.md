@@ -3,13 +3,13 @@
 ## Create a Forge App
 
 1. Follow the instructions on [Get Started with Forge in Three Steps](https://dev.forge.autodesk.com/developer/start-now/signup) 
-to create a Forge App. In the *Add Services to Forge* stage, select "Design Automation API V3 (Beta)" and "Data Management API".
+to create a Forge App. In the *Add Services to Forge* stage, select "Design Automation API V3" and "Data Management API".
 
 2. Jot down the Client ID and Client Secret of the Forge App you created.
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
-In the DA43dsMax Tutorial environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you won't need to specify their values when you send HTTP requests to Forge. 
+In the DA43dsMax Tutorial environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to Forge. 
 
 To set the environment variables:
 
