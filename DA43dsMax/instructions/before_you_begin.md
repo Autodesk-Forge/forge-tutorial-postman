@@ -6,7 +6,7 @@ Postman Environments are named configurations that implement variables to store 
 
 1. Download the file *DA43dsMax Tutorial.postman_environment.json* from the [*collections* folder of this repository](../collections).
 
-2. Import *DA43dsMax Tutorial.postman_environment.json*
+2. Import *DA43dsMax Tutorial.postman_environment.json*:
 
     1. In the Postman header bar, click **Import**. A dialog box displays.
 
