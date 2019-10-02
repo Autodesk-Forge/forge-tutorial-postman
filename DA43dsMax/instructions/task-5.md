@@ -13,11 +13,11 @@ When you submit a WorkItem to Design Automation, you are instructing Design Auto
 
     The main attributes on the JSON payload are:
 
-    - `activityId` - Specifies what Activity to execute. The `activityId`  consists of 3 parts. It starts with the Nickname of the Forge App. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias.
+    - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id. A fully qualified id is made up of three parts. They start with the Nickname of the Forge App (or the Client Id of the Forge App. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [Forge portal documentation on ids](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
 
     - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 3, when you created the Activity.
 
-    - `InputMaxScene` - Specifies how to obtain the 3ds Max scene file for the Activity. It contains the signed URL to the scene file or a zip file that contains the scene file. This is followed by the HTTP verb that gets the file. If you uploaded a zip file in task 4, the `pathInZip` attribute need to specifies the relative path to the 3ds Max file. If you uploaded a 3ds Max file instead of a zip file, do not specify the `pathInZip` attribute.
+    - `InputMaxScene` - Specifies how to obtain the 3ds Max scene file for the Activity. It contains the signed URL to the scene file or a zip file that contains the scene file. This is followed by the HTTP verb that gets the file. If you uploaded a zip file in task 4, use the `pathInZip` attribute to specify the relative path to the 3ds Max file. If you uploaded a 3ds Max file instead of a zip file, do not specify the `pathInZip` attribute.
 
     - `MaxscriptToExecute`- Specifies how to obtain the MAXScript file for the Activity. Contains the signed URL to download the MAXScript file.
 
