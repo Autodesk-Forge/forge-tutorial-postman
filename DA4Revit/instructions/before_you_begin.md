@@ -36,5 +36,4 @@ Or
 - Download the Design Automation ready add-in, *DeleteWalls.dll* (and all other files required for this tutorial) from the [*tutorial_data* folder of this repository](../tutorial_data)
 
 
-[:arrow_up_small:](../readme.md)  [:arrow_forward:](task-2.md)
-
+[:rewind:](../readme.md "readme.md")  [:arrow_forward:](task-2.md "Next task")

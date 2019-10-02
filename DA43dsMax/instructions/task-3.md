@@ -12,7 +12,7 @@ An Activity is an action that can be executed in Design Automation. In this task
 
 **Notes**
  - `id` is the name given to the new Activity. 
- - `commandLine` is the command run by this Activity. The variables used on the command line are replaced with actual values before executing the Activity. This mechanism lets you replace the file path(s) you used while testing the command line locally, with file paths that are applicable to Design Automation.
+ - `commandLine` is the command run by this Activity. The variables used on the command line are replaced with actual values before executing the Activity. This mechanism lets you replace the file path(s) you used while testing the command line locally, with file paths that are applicable to Design Automation. For more information see the [Forge portal documentation on Command lines](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 
     The variables used on the command line are:
 

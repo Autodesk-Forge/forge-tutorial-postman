@@ -61,4 +61,4 @@ To send the PATCH request:
     ![Successfull update of Alias](../images/task5-sucessful_update_of_alias.png "Successfull update of Alias")
 
 
-[:arrow_backward:](task-4.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-6.md)
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")

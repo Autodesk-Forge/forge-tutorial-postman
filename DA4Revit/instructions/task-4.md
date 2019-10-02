@@ -86,4 +86,4 @@ To register a new version:
 
 3. Click **Send**.
 
-[:arrow_backward:](task-3.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-5.md)
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-5.md "Next task")
