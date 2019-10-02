@@ -29,5 +29,5 @@ Postman Collections are groups of prepopulated HTTP requests. To import the requ
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
 
-[:arrow_up_small:](../readme.md)  [:arrow_forward:](task-1.md)
+[:rewind:](../readme.md "readme.md")  [:arrow_forward:](task-1.md "Next task")
 

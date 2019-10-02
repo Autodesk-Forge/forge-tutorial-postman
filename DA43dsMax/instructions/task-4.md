@@ -95,11 +95,4 @@ Design Automation needs a signed URL to upload the output that is generated. Thi
 
     ![Signed upload URL](../images/task4-signed_uploadurl.png "Signed upload URL")
 
-[:arrow_backward:](task-3.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-5.md)
-
-
-
-
-
-
-
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-5.md "Next task")

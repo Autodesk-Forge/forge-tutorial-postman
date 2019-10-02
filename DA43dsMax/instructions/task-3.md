@@ -40,5 +40,4 @@ To create an Alias named `tutorial`, which refers to version `1` of the `Execute
 
     ![Successful creation of Alias](../images/task3-activity_alias_create_success.png "Successful creation of Alias")
 
-
-[:arrow_backward:](task-2.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-4.md)
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")

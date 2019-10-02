@@ -28,4 +28,4 @@ When you submit a WorkItem to Design Automation, you are instructing Design Auto
     ![Successful WorkItem](../images/task5-result_url.png "Successful WorkItem")
 
 
-[:arrow_backward:](task-4.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-6.md) 
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")

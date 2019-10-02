@@ -30,5 +30,4 @@ Design Automation WorkItems are queued before they are processed. Processing its
 
     ![Download Result](../images/task6-download_step_2.png "Download Result")
 
-
-[:arrow_backward:](task-5.md)  [:arrow_up_small:](../readme.md) 
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task")

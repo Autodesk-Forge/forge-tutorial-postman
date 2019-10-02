@@ -34,4 +34,5 @@ A Nickname lets you map a Client ID to an easy-to-use name that you can use in p
 
     ![Successful nickname](../images/task2-successfull.png "Successful Nickname") 
 
-[:arrow_backward:](task-1.md)  [:arrow_up_small:](../readme.md)  [:arrow_forward:](task-3.md)
+
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
