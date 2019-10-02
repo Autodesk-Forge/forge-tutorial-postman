@@ -436,10 +436,10 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6bffc6b6-79f4-4e3f-92e9-3660d6b16802",
+								"id": "334bc99a-0dec-4266-a1ea-1f162fcd1097",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"postman.setGlobalVariable(\"scriptFileSignedUrl\", body[\"signedUrl\"]);"
+									"pm.environment.set(\"ossScriptFileSignedUrl\", body[\"signedUrl\"]);"
 								],
 								"type": "text/javascript"
 							}
