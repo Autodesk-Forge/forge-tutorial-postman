@@ -29,7 +29,7 @@ Postman Collections are groups of prepopulated HTTP requests. To import the requ
 
 ## 3. Get a Revit Add-in that is Design Automation ready 
 
-- On the Forge portal, follow the instructions in the topic [Convert Revit Add-in Task](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step1-convert-addin/?sha=6120_10).
+- On the Forge portal, follow the instructions in the topic [Convert Revit Add-in Task](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit-edit/step1-convert-addin/?sha=6120_10).
 
 Or
 
