@@ -16,13 +16,13 @@ An Activity is an action that can be executed in Design Automation. In this task
 
     The variables used on the command line are:
 
-    - `$(engine.path)` - The full path to the folder containing *3dsmaxbatch.exe*. The variable``$(engine.path)`` will be replaced by the path to where the engine is installed. The engine is defined in the JSON payload as "engine": "Autodesk.3dsMax+2019. **Do not edit or alter this commandLine in the request body of Activity posts.** 
+    - `$(engine.path)` - The full path to the folder containing *3dsmaxbatch.exe*. The variable``$(engine.path)`` will be replaced by the path to where the engine is installed. The engine is defined in the JSON payload as "engine": "Autodesk.3dsMax+2020. **Do not edit or alter this commandLine in the request body of Activity posts.** 
 
     - ` $(args[InputMaxScene].path)` - Will be replaced by the path to a file specified by a parameter named `InputMaxScene`.
 
     -  `$(args[MaxscriptToExecute].path)` - Will be replaced by the path to a file specified by a parameter named `MaxscriptToExecute`.
 
-- `engine` is the Design Automation engine that the Activity must run on (3ds Max 2019 in this case).
+- `engine` is the Design Automation engine that the Activity must run on (3ds Max 2020 in this case).
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
