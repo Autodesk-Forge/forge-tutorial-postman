@@ -1,6 +1,6 @@
 # Task 6 - Prepare cloud storage
 
-The DeleteWalls add-in takes a Revit file as an input and produces another Revit file as output. In this task we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API. 
+The DeleteWalls add-in takes a Revit file as an input and produces another Revit file as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API. 
 
 There are three Postman Environment Variables you must specify for this task. They are 
 - `ossBucketKey` - The object key for the Bucket that holds your files in the cloud.

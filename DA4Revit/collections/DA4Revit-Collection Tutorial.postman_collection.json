@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "1530bc32-a587-40f9-ace1-1aae933cc513",
+		"_postman_id": "d22d565a-24d7-402c-8d3c-3ccb7f250af2",
 		"name": "Design Automation For Revit Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -212,7 +212,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"DeleteWallsApp\",\r\n\t\"engine\": \"Autodesk.Revit+2018\",\r\n\t\"description\": \"Delete Walls app based on Revit 2018\"\r\n}"
+							"raw": "{\r\n\t\"id\": \"DeleteWallsApp\",\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"description\": \"Delete Walls app based on Revit 2020\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/appbundles",
@@ -406,7 +406,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"engine\": \"Autodesk.Revit+2018\",\r\n\t\"description\": \"Delete Walls app based on Revit 2018\"\r\n}"
+							"raw": "{\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"description\": \"Delete Walls app based on Revit 2020\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/appbundles/DeleteWallsApp/versions",
@@ -601,12 +601,12 @@
 							"listen": "test",
 							"script": {
 								"id": "a1eda547-e6c7-4073-a773-0fc897166bfa",
-								"type": "text/javascript",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -624,7 +624,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2018\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities",
@@ -701,7 +701,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2018\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities/DeleteWallsActivity/versions",
@@ -988,7 +988,7 @@
 								},
 								{
 									"key": "OBJECT_KEY",
-									"value": "{{ossObjectKey}}"
+									"value": "{{ossOutputFileObjectKey}}"
 								}
 							]
 						}
