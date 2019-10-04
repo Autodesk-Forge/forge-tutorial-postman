@@ -6,7 +6,9 @@
 [![Design-Automation](https://img.shields.io/badge/Design%20Automation-v3-green.svg)](http://developer.autodesk.com/)
 
 [![Postman](https://img.shields.io/badge/Postman-v7-orange.svg)](https://www.getpostman.com/)
+[![Revit](https://img.shields.io/badge/3ds%20Max-2018-29b5b2.svg)](http://developer.autodesk.com/)
 [![Revit](https://img.shields.io/badge/3ds%20Max-2019-29b5b2.svg)](http://developer.autodesk.com/)
+[![Revit](https://img.shields.io/badge/3ds%20Max-2020-29b5b2.svg)](http://developer.autodesk.com/)
 
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
