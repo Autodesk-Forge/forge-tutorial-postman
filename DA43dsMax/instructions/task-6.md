@@ -6,7 +6,7 @@ Before you download the result, the WorkItem must complete execution. You can pe
 
 ## Check Status of a WorkItem
 
-Design Automation WorkItems are queued before they are processed. Processing itself can take time. Once processing is done, you need to know if the WorkItems ran successfully or not. As such, it is important for you to check the status of the WorkItem you created.
+Design Automation WorkItems are queued before they are processed. Processing itself can take time. Once processing is done, you need to know if the WorkItem ran successfully or not. As such, it is important for you to check the status of the WorkItem you created.
 
 1. On the Postman sidebar, click **Task 6 - Download the Result > GET Check Status of the WorkItem**. The request loads.
 
