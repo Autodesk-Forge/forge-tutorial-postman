@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d22d565a-24d7-402c-8d3c-3ccb7f250af2",
+		"_postman_id": "b3c6bf28-3205-4f6f-bbc2-657efaa06e42",
 		"name": "Design Automation For Revit Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1030,7 +1030,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\",\r\n      \"pathInZip\": \"DeleteWalls.rvt\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/workitems",
