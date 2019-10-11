@@ -1,0 +1,794 @@
+{
+	"info": {
+		"_postman_id": "6d6a14ca-b911-4c34-92b6-b0f4ec8c46a3",
+		"name": "DA4ACAD Tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task 1 - Obtain an Access Token",
+			"item": [
+				{
+					"name": "Get an Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3df16796-5a03-47e5-a63f-00989847157c",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "code:all data:write data:read bucket:create bucket:delete ",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/authentication/v1/authenticate",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"authentication",
+								"v1",
+								"authenticate"
+							]
+						},
+						"description": "This request to the Authentication API will obtain a token with the scope require for this tutorial.  \r\nThis token will be used by all the subsequent request inside the \"Authorization\" header to identify your forge app.\r\nThis token will expire after one hour so you might need to execute the request again to get a new token if your expire.\r\n\r\nBefore executing this request, you will need to enter the forge app client id and client secret that was obtained by following the \"Creating ForgeApp\" section of this readme.md inside the body of the request.\r\nOnce the request is completed, postman will save the access_token received in the body response inside a variable named \"accessToken\" to be reused in the subsequent requests."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 2 - Create a Nickname",
+			"item": [
+				{
+					"name": "Create Nickname",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nickname\": \"{{dasNickName}}\"\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 3 - Create an Activity",
+			"item": [
+				{
+					"name": "Create a New Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b2642d8f-273b-4601-a1c0-150950b79ae4",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2020\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities"
+							]
+						},
+						"description": "This request to the Design Automation V3 API will create an activity.\r\nIn design automation an activity specify an action that can be executed using a specified engine."
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Alias for the Activity",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}} "
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"tutorial\",\r\n    \"version\": 1\r\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/{{activityName}}/aliases",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities",
+								"{{activityName}}",
+								"aliases"
+							]
+						},
+						"description": "When submitting an activity to be executed to the Design Automation API V3, we must reference it by it's alias (see request 14). \r\nAn alias is like a tag that point to a particular version of an activity.\r\nThe version an alias point to can be changed in the future as develop more version of a given activity.\r\nThe request number 2 created the version 1 of our activity \"executeScript\".\r\nThis request will now create an alias named \"tutorial\" to reference version 1."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 4 - Prepare Cloud Storage",
+			"item": [
+				{
+					"name": "Create Bucket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n\t\"access\": \"full\",\n\t\"policyKey\": \"transient\"\n}\n"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets"
+							]
+						},
+						"description": "This request to the Data Management API will create a bucket in the object storage service (OSS) that we will use to store our input zip file, input script file and our resulting zip file.\r\nThe bucket will be created with a random guid and the key to this bucket will be saved inside the \"bucketKey\" variable for sub-sequent request."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Input Zip File to OSS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossZipFileObjectKey\", body[\"objectKey\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/Users/pereraj/Postman_Collections/DA43dsMax/tutorial_data/input.zip"
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{$guid}}"
+							]
+						},
+						"description": "This request to the Data Management API will upload the input zip file containing the 3ds Max file to the object storage service (OSS).\r\nBefore sending the request you will need to select the file to be uploaded by pressing the \"Choose files\" button in the Body tab."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Input MAXScript file to OSS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7d594927-c8cd-4a81-a867-f1dce464d1da",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossScriptFileObjectKey\", body[\"objectKey\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "/Users/pereraj/Postman_Collections/DA43dsMax/tutorial_data/TwistIt.ms"
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{$guid}}"
+							]
+						},
+						"description": "This request to the Data Management API will upload the input script file to the object storage service (OSS).\r\nBefore sending the request you will need to select the file to be uploaded by pressing the \"Choose files\" button in the Body tab."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Download URL for the Input Zip",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58eb33f6-d95a-4092-ba00-823348dec87a",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossZipFileSignedUrl\", body[\"signedUrl\"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}\n"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossZipFileObjectKey}}/signed",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossZipFileObjectKey}}",
+								"signed"
+							]
+						},
+						"description": "This request to the Data Management API will create a temporary download url for the input zip file we uploaded to the Object Storage Service during request 5."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Download URL for the Input Script",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "334bc99a-0dec-4266-a1ea-1f162fcd1097",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossScriptFileSignedUrl\", body[\"signedUrl\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}\n"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossScriptFileObjectKey}}/signed",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossScriptFileObjectKey}}",
+								"signed"
+							]
+						},
+						"description": "This request to the Data Management API will create a temporary download url for the script file we uploaded to the Object Storage Service during request 6."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Upload URL for the Output Zip",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"ossOutputFileSignedUrl\", body[\"signedUrl\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputFileObjectKey}}/signed?access=readwrite",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputFileObjectKey}}",
+								"signed"
+							],
+							"query": [
+								{
+									"key": "access",
+									"value": "readwrite"
+								}
+							]
+						},
+						"description": "This request to the Data Management API will create a temporary upload url to the \"outputFileObjectKey\" in the Object Storage Service."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 5 - Submit a WorkItem",
+			"item": [
+				{
+					"name": "Send WorkItem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7cf9c997-7d7a-4f98-aadb-6880aa58e299",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"activityId\": \"{{dasNickName}}.executeScript+tutorial\",\n\t\"arguments\": {\n\t\t\"InputMaxScene\": {\n            \"url\": \"{{ossZipFileSignedUrl}}\",\n            \"verb\": \"get\",\n            \"pathInZip\": \"sceneName.max\"\n        },\n        \"MaxscriptToExecute\": {\n        \t\"url\": \"{{ossScriptFileSignedUrl}}\",\n            \"verb\": \"get\"\n        },\n        \"OutputZip\": {\n        \t\"url\": \"{{ossOutputFileSignedUrl}}\",\n            \"verb\": \"put\"\n        }\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"workitems"
+							]
+						},
+						"description": "This request to the Design Automation V3 API will launch the execution of the activity that was created during the request number 2."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Task 6 - Download the Results ",
+			"item": [
+				{
+					"name": "Check Status of the WorkItem",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems/{{dasWorkItemId}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"workitems",
+								"{{dasWorkItemId}}"
+							]
+						},
+						"description": "This request to the Design Automation API V3 will query the status of the work item."
+					},
+					"response": []
+				},
+				{
+					"name": "Download Output from OSS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputFileObjectKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputFileObjectKey}}"
+							]
+						},
+						"description": "This request to the Data Management API will let you download the result zip file that have been uploaded by Design Automation to the Object Storage Service (OSS).\r\nTo save the result back to disk locally, press the download button once the response have been received."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Clean up HTTP Requests",
+			"item": [
+				{
+					"name": "Delete Forge App Data in Design Automation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						},
+						"description": "This request to the Design Automation V3 API will delete everything owned by your forge app inside the Design Automation V3 API."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete OSS Bucket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}"
+							]
+						},
+						"description": "This request to the Data Management API will delete the bucket that was created by request number 4 and every file that it contains."
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
