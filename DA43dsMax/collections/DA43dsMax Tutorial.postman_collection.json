@@ -197,7 +197,7 @@
 							"raw": "{\r\n    \"id\": \"tutorial\",\r\n    \"version\": 1\r\n}"
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/{{activityName}}/aliases",
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/executeScript/aliases",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -210,7 +210,7 @@
 								"us-east",
 								"v3",
 								"activities",
-								"{{activityName}}",
+								"executeScript",
 								"aliases"
 							]
 						},

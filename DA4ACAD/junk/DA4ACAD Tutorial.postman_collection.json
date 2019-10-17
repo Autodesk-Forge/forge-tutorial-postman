@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b78046b9-e9b4-42ca-9f2e-be9a055f056b",
+		"_postman_id": "029a391b-c25e-4e2b-99c6-bd740397f6dc",
 		"name": "DA4ACAD Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -128,7 +128,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Task 3 - Upload AppBundle",
+			"name": "Publish AppBundle",
 			"item": [
 				{
 					"name": "Register the AppBundle",
@@ -169,7 +169,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"id\": \"{{dasAppBundleName}}\",\n  \"engine\": \"Autodesk.AutoCAD+23\",\n  \"description\": \"List Layers AppBundle based on AutoCAD 2020\"\n}"
+							"raw": "{\n  \"id\": \"ListLayers\",\n  \"engine\": \"Autodesk.AutoCAD+23\",\n  \"description\": \"List Layers AppBundle based on AutoCAD 2020\"\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/appbundles",
@@ -185,156 +185,6 @@
 								"us-east",
 								"v3",
 								"appbundles"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Upload the AppBundle",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f15df6e5-8f98-4ea7-8e21-9b68875f57aa",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "6029064c-c08c-43db-a281-b30edd1689fa",
-								"exec": [
-									"pm.environment.unset(\"ListLayersAppFormDataKey\");",
-									"pm.environment.unset(\"ListLayersAppFormDataPolicy\");",
-									"pm.environment.unset(\"ListLayersAppFormDataSignature\");",
-									"pm.environment.unset(\"ListLayersAppFormDataCredential\");",
-									"pm.environment.unset(\"ListLayersAppFormDataDate\");",
-									"pm.environment.unset(\"ListLayersAppFormDataToken\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "key",
-									"value": "{{ListLayersAppFormDataKey}}",
-									"type": "text"
-								},
-								{
-									"key": "content-type",
-									"value": "application/octet-stream",
-									"type": "text"
-								},
-								{
-									"key": "policy",
-									"value": "{{ListLayersAppFormDataPolicy}}",
-									"type": "text"
-								},
-								{
-									"key": "success_action_status",
-									"value": "200",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-signature",
-									"value": "{{ListLayersAppFormDataSignature}}",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-credential",
-									"value": "{{ListLayersAppFormDataCredential}}",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-algorithm",
-									"value": "AWS4-HMAC-SHA256",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-date",
-									"value": "{{ListLayersAppFormDataDate}}",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-server-side-encryption",
-									"value": "AES256",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-security-token",
-									"value": "{{ListLayersAppFormDataToken}}",
-									"type": "text"
-								},
-								{
-									"key": "success_action_redirect",
-									"value": "{{ListLayersAppFormRedirect}}",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"type": "file",
-									"src": "/Users/pereraj/forge-tutorial-postman/DA4ACAD/tutorial_data/ListLayers.zip"
-								}
-							]
-						},
-						"url": {
-							"raw": "{{ListLayersAppUrl}}",
-							"host": [
-								"{{ListLayersAppUrl}}"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create an Alias for the AppBundle",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "",
-								"value": "",
-								"disabled": true
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{ListLayersAppVersion}},\r\n  \"id\": \"my_acad_appbundle\"\r\n}"
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/{{dasAppBundleName}}/aliases",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"da",
-								"us-east",
-								"v3",
-								"appbundles",
-								"{{dasAppBundleName}}",
-								"aliases"
 							]
 						}
 					},
@@ -374,7 +224,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"{{dasActivityName}}\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\accoreconsole.exe /i $(args[InputDwg].path) /al $(appbundles[ListLayers].path) /s $(settings[script].path)\"\n    ],\n    \"parameters\": {\n      \"InputDwg\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input drawing file\",\n        \"localName\": \"$(InputDwg)\"\n      },\n      \"result\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"put\",\n        \"description\": \"Results\",\n        \"required\": true,\n        \"localName\": \"layers.txt\"\n      }\n    },\n    \"engine\": \"Autodesk.AutoCAD+22\",\n    \"appbundles\": [\n        \"{{dasNickName}}.ListLayers+my_acad_appbundle\"\n    ],\n    \"settings\": {\n        \"script\": \"(command \\\"TEST\\\")\\n\"\n    },\n    \"description\": \"Extracts layer names from an input drawing file and saves them to a text file\"\n}"
+							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2020\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -415,7 +265,7 @@
 							"raw": "{\r\n    \"id\": \"tutorial\",\r\n    \"version\": 1\r\n}"
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/{{dasActivityName}}/aliases",
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/{{activityName}}/aliases",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -428,7 +278,7 @@
 								"us-east",
 								"v3",
 								"activities",
-								"{{dasActivityName}}",
+								"{{activityName}}",
 								"aliases"
 							]
 						},
@@ -1032,7 +882,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\n\t\"id\": \"ListLayers\",\n\t\"engine\": \"Autodesk.AutoCAD+23\",\n\t\"description\": \"List Layers AppBundle based on AutoCAD 2020\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1111,6 +961,149 @@
 							],
 							"path": [
 								"appbundles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload the AppBundle",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f15df6e5-8f98-4ea7-8e21-9b68875f57aa",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6029064c-c08c-43db-a281-b30edd1689fa",
+								"exec": [
+									"pm.environment.unset(\"ListLayersAppFormDataKey\");",
+									"pm.environment.unset(\"ListLayersAppFormDataPolicy\");",
+									"pm.environment.unset(\"ListLayersAppFormDataSignature\");",
+									"pm.environment.unset(\"ListLayersAppFormDataCredential\");",
+									"pm.environment.unset(\"ListLayersAppFormDataDate\");",
+									"pm.environment.unset(\"ListLayersAppFormDataToken\");"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "{{ListLayersAppFormDataKey}}",
+									"type": "text"
+								},
+								{
+									"key": "content-type",
+									"value": "application/octet-stream",
+									"type": "text"
+								},
+								{
+									"key": "policy",
+									"value": "{{ListLayersAppFormDataPolicy}}",
+									"type": "text"
+								},
+								{
+									"key": "success_action_status",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-signature",
+									"value": "{{ListLayersAppFormDataSignature}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-credential",
+									"value": "{{ListLayersAppFormDataCredential}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-algorithm",
+									"value": "AWS4-HMAC-SHA256",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-date",
+									"value": "{{ListLayersAppFormDataDate}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-server-side-encryption",
+									"value": "AES256",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-security-token",
+									"value": "{{ListLayersAppFormDataToken}}",
+									"type": "text"
+								},
+								{
+									"key": "success_action_redirect",
+									"value": "{{ListLayersAppFormRedirect}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ListLayersAppUrl}}",
+							"host": [
+								"{{ListLayersAppUrl}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Alias for the AppBundle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"version\": {{ListLayersAppVersion}},\r\n  \"id\": \"test\"\r\n}"
+						},
+						"url": {
+							"raw": "{{dasApiRoot}}/appbundles/ListLayersApp/aliases",
+							"host": [
+								"{{dasApiRoot}}"
+							],
+							"path": [
+								"appbundles",
+								"ListLayersApp",
+								"aliases"
 							]
 						}
 					},
@@ -1336,8 +1329,7 @@
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"protocolProfileBehavior": {}
