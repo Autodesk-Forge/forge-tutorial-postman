@@ -1,37 +1,59 @@
-# Task 3 - Create a Nickname
+# Task 3 - Upload an AppBundle to Design Automation
 
-Forge uses the Client ID to uniquely identify an app. The Client ID can be long and cryptic, and hence a source of irritation when you reference the data you add to your app.
+An AppBundle is a package of binaries and supporting files that make up a AutoCAD plug-in. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad_new/task-3-upload-appbundle/) for an explanantion of AppBundles and learn how to create an AppBundle. For the purpose of this Postman tutorial,  download *ListLayers.zip*, which is stored in the [*tutorial_data* folder of this repository](../tutorial_data). The file *command.dll* that is contained within this AppBundle is designed to run on AutoCAD 2020.
 
-A Nickname lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID. This tutotial uses the `dasNickName` Postman Environment Variable to store the Nickname. 
+## Register the AppBundle
 
-**Notes:**
+When registering the AppBundle, you inform Design Automation that you want to name it ListLayers, and that it must run on AutoCAD 2020.
 
-- If your Forge App doesn't have any data, you can map the Forge App to another nickname, and the new nickname will overwrite the old one. Once your add data to a Forge App, you are not allowed to set a nickname for it. This is true even if you have not yet assigned a nickname for the app. The only way you can assign a nickname to an app with data is by first calling the `[DELETE] /forgeapps/me` endpoint. This deletes all data associated with that app, including the nickname. The last request in this Postman Collection (**DEL Delete Forge App**) calls this endpoint and clears the app of all data.
+1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
-    ![Delete Forge App Data](../images/task3-delete_forge_app.png "Delete Forge App")
+2. This request picks up the AppBundle name from the Postman Environment Variable `dasAppBundleName`. Set this variable to the name *ListLayers*.
 
-- If you get stuck while working on this tutorial, and are unable to procede because your app has data, you can use **DEL Delete Forge App** to clear all data from the app, and restart from Task 2.
+    **Note:** you can use any name you want. However, in  order to match the screen captures and the cURL tutorial in the Forge portal, this tutorial uses the name *ListLayers*.
 
+    1. Click the **Environment quick look** icon on the upper right corner of Postman. 
 
-- Nicknames must be globally unique.  If the nickname is already in use, even by someone else, Forge returns a `409 Conflict` error when you try to set the Nickname.
+    2. In the **CURRENT VALUE** column, in the **dasAppBundleName** row, enter *ListLayers**.
 
-## Save the Nickname to a variable
+2. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `DeleteWallsApp`, and `Autodesk.Revit+2018`.
 
-1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+    ![AppBundle Body](../images/task3-appbundle_body.png "AppBundle Body") 
 
-2. In the **CURRENT VALUE** column, in the **dasNickName** row, enter a Nickname for your app.
+3. Click **Send**. If the request is successfull, you will see a screen similar to the following image:
 
-   ![Nickname Variable](../images/task3-environment_variables_grid.png "Nickname Variable")
+    ![AppBundel Registered](../images/task3-appbundle_registered.png "AppBundel Registered")
 
+    The `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Environment variables.
 
-3. Click the **Environment quick look** icon again, to hide the variables.
+    ![formData](../images/task3-appbundle_form_data.png "formData")
 
-## Send a request to set the Nickname
+## Upload the AppBundle
 
-1. On the Postman sidebar, click **Task 3 - Create a Nickname > PATCH Create Nickname**. The request loads.
+1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Upload the AppBundle**. The request loads.
 
-2. Click  **Send**. If the request is sucessful, you should see a response similar to the following image. Note that the response has only a header and no body.
+2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
-    ![Successful nickname](../images/task3-successfull.png "Successful Nickname") 
+3. Click **Select Files**, and pick *DeletWallsApp.zip*, which you downloaded earlier.
+
+    ![Pick DeleteWalls.zip](../images/task4-appbundle_select_file.png "Pick DeleteWalls.zip")
+
+5. Click **Send**. You should see a screen similar to the following. Note that the response has only a header and no body.
+
+    ![AppBundle uploaded](../images/task3-appbundle_uploaded.png "AppBundle uploaded")
+
+## Create an Alias for the AppBundle
+
+When you registered the AppBundle earlier, it was registered as version 1 of the AppBundle. Now, you create an alias named *my_working_version* to reference that version.
+
+1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
+
+2. Click the **Body** tab. and note how `id` is set to`my_working_version`.
+
+    ![Alias](../images/task3-appbundle_alias.png "Alias")
+
+3. Click **Send**. You should see a response similar to the following image.
+
+    ![Alias response](../images/task3-appbundle_alias_set.png "Alias response")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")

@@ -329,7 +329,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{ListLayersAppVersion}},\r\n  \"id\": \"my_appbundle_v1\"\r\n}"
+							"raw": "{\r\n  \"version\": {{ListLayersAppVersion}},\r\n  \"id\": \"my_working_version\"\r\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/{{dasAppBundleName}}/aliases",
