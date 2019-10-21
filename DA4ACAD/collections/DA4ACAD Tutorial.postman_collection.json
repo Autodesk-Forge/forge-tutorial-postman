@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b78046b9-e9b4-42ca-9f2e-be9a055f056b",
+		"_postman_id": "06552495-6917-4afa-a655-ff0bd12230a7",
 		"name": "DA4ACAD Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -51,7 +51,7 @@
 								},
 								{
 									"key": "scope",
-									"value": "code:all data:write data:read bucket:create bucket:delete ",
+									"value": "code:all data:write data:read bucket:create bucket:delete bucket:read",
 									"type": "text"
 								}
 							]
@@ -298,6 +298,19 @@
 				},
 				{
 					"name": "Create an Alias for the AppBundle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6eda542c-14cb-411d-870f-1bf29d74ae99",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasAppBundleAlias\", body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -317,7 +330,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{ListLayersAppVersion}},\r\n  \"id\": \"my_acad_appbundle\"\r\n}"
+							"raw": "{\r\n  \"version\": {{ListLayersAppVersion}},\r\n  \"id\": \"my_appbundle_v1\"\r\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/{{dasAppBundleName}}/aliases",
@@ -344,7 +357,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Task 3 - Create an Activity",
+			"name": "Task 4 - Publish an Activity",
 			"item": [
 				{
 					"name": "Create a New Activity",
@@ -374,7 +387,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"{{dasActivityName}}\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\accoreconsole.exe /i $(args[InputDwg].path) /al $(appbundles[ListLayers].path) /s $(settings[script].path)\"\n    ],\n    \"parameters\": {\n      \"InputDwg\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input drawing file\",\n        \"localName\": \"$(InputDwg)\"\n      },\n      \"result\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"put\",\n        \"description\": \"Results\",\n        \"required\": true,\n        \"localName\": \"layers.txt\"\n      }\n    },\n    \"engine\": \"Autodesk.AutoCAD+22\",\n    \"appbundles\": [\n        \"{{dasNickName}}.ListLayers+my_acad_appbundle\"\n    ],\n    \"settings\": {\n        \"script\": \"(command \\\"TEST\\\")\\n\"\n    },\n    \"description\": \"Extracts layer names from an input drawing file and saves them to a text file\"\n}"
+							"raw": "{\n    \"id\": \"{{dasActivityName}}\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\accoreconsole.exe /i $(args[InputDwg].path) /al $(appbundles[{{dasAppBundleName}}].path) /s $(settings[script].path)\"\n    ],\n    \"parameters\": {\n      \"InputDwg\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input drawing file\",\n        \"localName\": \"Input.dwg\"\n      },\n      \"result\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"put\",\n        \"description\": \"Results\",\n        \"required\": true,\n        \"localName\": \"layers.txt\"\n      }\n    },\n    \"engine\": \"Autodesk.AutoCAD+22\",\n    \"appbundles\": [\n        \"{{dasNickName}}.{{dasAppBundleName}}+{{dasAppBundleAlias}}\"\n    ],\n    \"settings\": {\n        \"script\": \"(command \\\"TEST\\\")\\n\"\n    },\n    \"description\": \"Extracts layer names from an input drawing file and saves them to a text file\"\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -398,6 +411,19 @@
 				},
 				{
 					"name": "Create an Alias for the Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a281df7-fc0b-4b6a-9312-1d69bdbad7a7",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasActivityAlias\", body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -412,7 +438,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": \"tutorial\",\r\n    \"version\": 1\r\n}"
+							"raw": "{\r\n    \"id\": \"my_current_version\",\r\n    \"version\": 1\r\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/{{dasActivityName}}/aliases",
@@ -437,10 +463,32 @@
 					"response": []
 				}
 			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "0324f4fb-676b-4f1b-a119-36e77fe4c750",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "d18aa067-a195-4ae9-b325-40ac7a4f8c09",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Task 4 - Prepare Cloud Storage",
+			"name": "Task 5 - Prepare Cloud Storage",
 			"item": [
 				{
 					"name": "Create Bucket",
@@ -493,7 +541,7 @@
 					"response": []
 				},
 				{
-					"name": "Upload Input Zip File to OSS",
+					"name": "Upload Input Drawing File to OSS",
 					"event": [
 						{
 							"listen": "test",
@@ -501,7 +549,7 @@
 								"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossZipFileObjectKey\", body[\"objectKey\"]);"
+									"pm.environment.set(\"ossDwgFileObjectKey\", body[\"objectKey\"]);"
 								],
 								"type": "text/javascript"
 							}
@@ -518,7 +566,7 @@
 						"body": {
 							"mode": "file",
 							"file": {
-								"src": "/Users/pereraj/Postman_Collections/DA43dsMax/tutorial_data/input.zip"
+								"src": "/Users/pereraj/forge-tutorial-postman/DA4ACAD/tutorial_data/Mechanical - Multileaders.dwg"
 							}
 						},
 						"url": {
@@ -544,57 +592,6 @@
 					"response": []
 				},
 				{
-					"name": "Upload Input MAXScript file to OSS",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7d594927-c8cd-4a81-a867-f1dce464d1da",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossScriptFileObjectKey\", body[\"objectKey\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "file",
-							"file": {
-								"src": "/Users/pereraj/Postman_Collections/DA43dsMax/tutorial_data/TwistIt.ms"
-							}
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								"{{ossBucketKey}}",
-								"objects",
-								"{{$guid}}"
-							]
-						},
-						"description": "This request to the Data Management API will upload the input script file to the object storage service (OSS).\r\nBefore sending the request you will need to select the file to be uploaded by pressing the \"Choose files\" button in the Body tab."
-					},
-					"response": []
-				},
-				{
 					"name": "Get Temporary Download URL for the Input Zip",
 					"event": [
 						{
@@ -603,7 +600,7 @@
 								"id": "58eb33f6-d95a-4092-ba00-823348dec87a",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossZipFileSignedUrl\", body[\"signedUrl\"]);",
+									"pm.environment.set(\"ossDwgFileSignedUrl\", body[\"signedUrl\"]);",
 									""
 								],
 								"type": "text/javascript"
@@ -627,7 +624,7 @@
 							"raw": "{}\n"
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossZipFileObjectKey}}/signed",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossDwgFileObjectKey}}/signed",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -641,7 +638,7 @@
 								"buckets",
 								"{{ossBucketKey}}",
 								"objects",
-								"{{ossZipFileObjectKey}}",
+								"{{ossDwgFileObjectKey}}",
 								"signed"
 							]
 						},
@@ -650,61 +647,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Temporary Download URL for the Input Script",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "334bc99a-0dec-4266-a1ea-1f162fcd1097",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ossScriptFileSignedUrl\", body[\"signedUrl\"]);"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{}\n"
-						},
-						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossScriptFileObjectKey}}/signed",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"oss",
-								"v2",
-								"buckets",
-								"{{ossBucketKey}}",
-								"objects",
-								"{{ossScriptFileObjectKey}}",
-								"signed"
-							]
-						},
-						"description": "This request to the Data Management API will create a temporary download url for the script file we uploaded to the Object Storage Service during request 6."
-					},
-					"response": []
-				},
-				{
-					"name": "Get Temporary Upload URL for the Output Zip",
+					"name": "Get Temporary Upload URL for the Output Text File",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -775,10 +718,32 @@
 					"response": []
 				}
 			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5d793cb2-5c37-4c04-b61d-699ccb839aa8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4af8278-2893-47d6-8cf7-7cd32c81f1ea",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Task 5 - Submit a WorkItem",
+			"name": "Task 6 - Submit a WorkItem",
 			"item": [
 				{
 					"name": "Send WorkItem",
@@ -790,6 +755,16 @@
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "42e630ab-cd3d-4793-b39f-628380376efc",
+								"exec": [
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -809,7 +784,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"activityId\": \"{{dasNickName}}.executeScript+tutorial\",\n\t\"arguments\": {\n\t\t\"InputMaxScene\": {\n            \"url\": \"{{ossZipFileSignedUrl}}\",\n            \"verb\": \"get\",\n            \"pathInZip\": \"sceneName.max\"\n        },\n        \"MaxscriptToExecute\": {\n        \t\"url\": \"{{ossScriptFileSignedUrl}}\",\n            \"verb\": \"get\"\n        },\n        \"OutputZip\": {\n        \t\"url\": \"{{ossOutputFileSignedUrl}}\",\n            \"verb\": \"put\"\n        }\n\t}\n}"
+							"raw": "{\n\t\"activityId\": \"{{dasNickName}}.{{dasActivityName}}+{{dasActivityAlias}}\",\n\t\"arguments\": {\n\t\t\"InputDwg\": {\n            \"url\": \"{{ossDwgFileSignedUrl}}\",\n            \"verb\": \"get\"\n        },\n        \"result\": {\n        \t\"url\": \"{{ossOutputFileSignedUrl}}\",\n            \"verb\": \"put\"\n        }\n\t}\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems",
@@ -830,13 +805,7 @@
 						"description": "This request to the Design Automation V3 API will launch the execution of the activity that was created during the request number 2."
 					},
 					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "Task 6 - Download the Results ",
-			"item": [
+				},
 				{
 					"name": "Check Status of the WorkItem",
 					"request": {
@@ -871,7 +840,35 @@
 						"description": "This request to the Design Automation API V3 will query the status of the work item."
 					},
 					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bf647020-170e-4ca2-893a-0467b1e9ef1b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "235ace93-5860-4382-bb48-2b8ea1548ec7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task 7 - Download the Results ",
+			"item": [
 				{
 					"name": "Download Output from OSS",
 					"protocolProfileBehavior": {
@@ -916,10 +913,32 @@
 					"response": []
 				}
 			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "14405fb2-7da0-45de-9d07-a6ef76d9e959",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "570a83f7-7be0-49a2-b679-da8b9ffbd0f9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Clean up HTTP Requests",
+			"name": "Extras",
 			"item": [
 				{
 					"name": "Delete Forge App Data in Design Automation",
@@ -1057,258 +1076,104 @@
 						}
 					},
 					"response": []
-				}
-			],
-			"protocolProfileBehavior": {}
-		},
-		{
-			"name": "To be copied Upload AppBundle",
-			"item": [
-				{
-					"name": "Register the AppBundle",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "4021abd2-aa98-4862-85eb-ee741698d6c4",
-								"type": "text/javascript",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ListLayersAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-									"pm.environment.set(\"ListLayersAppVersion\", body[\"version\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
-									"pm.environment.set(\"ListLayersAppFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);",
-									""
-								]
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"ListLayersApp\",\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"description\": \"Delete Walls app based on Revit 2020\"\r\n}"
-						},
-						"url": {
-							"raw": "{{dasApiRoot}}/appbundles",
-							"host": [
-								"{{dasApiRoot}}"
-							],
-							"path": [
-								"appbundles"
-							]
-						}
-					},
-					"response": []
 				},
 				{
-					"name": "Update an Existing AppBundle",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "8b2b078f-a702-4864-8384-41cce70efee6",
-								"type": "text/javascript",
-								"exec": [
-									"var body = JSON.parse(responseBody);",
-									"pm.environment.set(\"ListLayersAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
-									"pm.environment.set(\"ListLayersAppVersion\", body[\"version\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
-									"pm.environment.set(\"ListLayersAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
-									""
-								]
-							}
-						}
-					],
+					"name": "Get Activities",
 					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"description\": \"Delete Walls app based on Revit 2020\"\r\n}"
-						},
-						"url": {
-							"raw": "{{dasApiRoot}}/appbundles/ListLayersApp/versions",
-							"host": [
-								"{{dasApiRoot}}"
-							],
-							"path": [
-								"appbundles",
-								"ListLayersApp",
-								"versions"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Upload the Updated AppBundle",
-					"event": [
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "f15df6e5-8f98-4ea7-8e21-9b68875f57aa",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "test",
-							"script": {
-								"id": "6029064c-c08c-43db-a281-b30edd1689fa",
-								"exec": [
-									"pm.environment.unset(\"ListLayersAppFormDataKey\");",
-									"pm.environment.unset(\"ListLayersAppFormDataPolicy\");",
-									"pm.environment.unset(\"ListLayersAppFormDataSignature\");",
-									"pm.environment.unset(\"ListLayersAppFormDataCredential\");",
-									"pm.environment.unset(\"ListLayersAppFormDataDate\");",
-									"pm.environment.unset(\"ListLayersAppFormDataToken\");"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "formdata",
-							"formdata": [
-								{
-									"key": "key",
-									"value": "{{ListLayersAppFormDataKey}}",
-									"type": "text"
-								},
-								{
-									"key": "content-type",
-									"value": "application/octet-stream",
-									"type": "text"
-								},
-								{
-									"key": "policy",
-									"value": "{{ListLayersAppFormDataPolicy}}",
-									"type": "text"
-								},
-								{
-									"key": "success_action_status",
-									"value": "200",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-signature",
-									"value": "{{ListLayersAppFormDataSignature}}",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-credential",
-									"value": "{{ListLayersAppFormDataCredential}}",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-algorithm",
-									"value": "AWS4-HMAC-SHA256",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-date",
-									"value": "{{ListLayersAppFormDataDate}}",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-server-side-encryption",
-									"value": "AES256",
-									"type": "text"
-								},
-								{
-									"key": "x-amz-security-token",
-									"value": "{{ListLayersAppFormDataToken}}",
-									"type": "text"
-								},
-								{
-									"key": "success_action_redirect",
-									"value": "{{ListLayersAppFormRedirect}}",
-									"type": "text"
-								},
-								{
-									"key": "file",
-									"value": "",
-									"type": "file"
-								}
-							]
-						},
 						"url": {
-							"raw": "{{ListLayersAppUrl}}",
-							"host": [
-								"{{ListLayersAppUrl}}"
-							]
-						},
-						"description": "ccd"
+							"raw": ""
+						}
 					},
 					"response": []
 				},
 				{
-					"name": "Assign an Existing Alias to the Updated AppBundle",
+					"name": "List objects in bucket",
 					"request": {
-						"method": "PATCH",
+						"method": "GET",
 						"header": [
 							{
-								"key": "",
-								"value": "",
-								"disabled": true
-							},
-							{
 								"key": "Authorization",
-								"value": "Bearer {{dasApiToken}}"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n  \"version\": {{ListLayersAppVersion}}\r\n}"
-						},
 						"url": {
-							"raw": "{{dasApiRoot}}/appbundles/ListLayersApp/aliases/test",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects",
+							"protocol": "https",
 							"host": [
-								"{{dasApiRoot}}"
+								"developer",
+								"api",
+								"autodesk",
+								"com"
 							],
 							"path": [
-								"appbundles",
-								"ListLayersApp",
-								"aliases",
-								"test"
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Buckets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bucket Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/details",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"details"
 							]
 						}
 					},
@@ -1319,7 +1184,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5af8f30b-a5df-4b7b-bc0f-e98df6a4bfd6",
+						"id": "6952503a-0432-4e9d-85ed-77b5d5c1482c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1329,7 +1194,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c8ccf77a-f88d-4338-aaa8-2cc53661dc54",
+						"id": "b38d8754-da1d-49eb-9ffb-ff1a0e6ef76d",
 						"type": "text/javascript",
 						"exec": [
 							""
