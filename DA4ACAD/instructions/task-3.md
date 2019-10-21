@@ -16,7 +16,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
     2. In the **CURRENT VALUE** column, in the **dasAppBundleName** row, enter *ListLayers**.
 
-2. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `DeleteWallsApp`, and `Autodesk.Revit+2018`.
+2. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `Autodesk.AutoCAD+23` (AutoCAD 2020).
 
     ![AppBundle Body](../images/task3-appbundle_body.png "AppBundle Body") 
 
@@ -24,7 +24,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
     ![AppBundel Registered](../images/task3-appbundle_registered.png "AppBundel Registered")
 
-    The `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Environment variables.
+    The `uploadParameters` shown in the preceding image is theinformation required to upload the AppBundle to Forge. This information is saved to a series of Postman Environment variables, so that it can be reused in the next step.
 
     ![formData](../images/task3-appbundle_form_data.png "formData")
 
@@ -34,9 +34,9 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
-3. Click **Select Files**, and pick *DeletWallsApp.zip*, which you downloaded earlier.
+3. Click **Select Files**, and pick *ListLayers.zip*, which you downloaded earlier.
 
-    ![Pick DeleteWalls.zip](../images/task4-appbundle_select_file.png "Pick DeleteWalls.zip")
+    ![Pick DeleteWalls.zip](../images/task3-appbundle_select_file.png "Pick DeleteWalls.zip")
 
 5. Click **Send**. You should see a screen similar to the following. Note that the response has only a header and no body.
 
@@ -46,7 +46,7 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 When you registered the AppBundle earlier, it was registered as version 1 of the AppBundle. Now, you create an alias named *my_working_version* to reference that version.
 
-1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
+1. On the Postman sidebar, click **Task 3 - Upload AppBundle > POST Create an Alias for the AppBundle**. The request loads.
 
 2. Click the **Body** tab. and note how `id` is set to`my_working_version`.
 
