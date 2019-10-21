@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "06552495-6917-4afa-a655-ff0bd12230a7",
+		"_postman_id": "739a41c3-0e1c-4005-8d3a-e400940f7e6d",
 		"name": "DA4ACAD Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -282,8 +282,7 @@
 								},
 								{
 									"key": "file",
-									"type": "file",
-									"src": "/Users/pereraj/forge-tutorial-postman/DA4ACAD/tutorial_data/ListLayers.zip"
+									"type": "file"
 								}
 							]
 						},
@@ -564,10 +563,7 @@
 							}
 						],
 						"body": {
-							"mode": "file",
-							"file": {
-								"src": "/Users/pereraj/forge-tutorial-postman/DA4ACAD/tutorial_data/Mechanical - Multileaders.dwg"
-							}
+							"mode": "file"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",

@@ -1,4 +1,4 @@
-# Task 2 - Obtain an Access Token
+# Task 1 - Obtain an Access Token
 
 ## Create a Forge App
 
@@ -14,11 +14,11 @@ In the DA4Revit environment that you selected earlier, there are two Postman Env
 To set the environment variables:
 
 1. Click the **Environment quick look** icon on the upper right corner of Postman. 
-   ![Environment quick look icon](../images/task2-environment_quick_look_icon.png "Environment quick look icon")
+   ![Environment quick look icon](../images/task1-environment_quick_look_icon.png "Environment quick look icon")
 
 2. Click in the **CURRENT VALUE** column on the **client_id** row. The Edit icon displays.
 
-    ![Edit Environment Variable](../images/task2-envoronment_edit_variable.png "Edit Environment Variable")
+    ![Edit Environment Variable](../images/task1-environment_edit_variable.png "Edit Environment Variable")
 
 3. Click the Edit icon, and enter the Client ID you jotted down earlier.
 
@@ -35,7 +35,7 @@ To get an Access Token, you must send an `authenticate` request to Forge. The Po
 2. Click the **Body** tab.
 
 3. Move the cursor over the **Value** column of the **client_id** and **client_secret**, and verify that the values you specified as environment variables are displayed.
-   ![Preview Client Id and Client Secret](../images/task2-preview_environment_variables.png "Preview Client Id and Client Secret") 
+   ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret") 
 
 4. Click **Send**. The request is sent to Forge. If your request authenticates successfully, you should see a response similar to the following:
 ![Successful authentication](../images/task2-authenticate_successfull.png "Successful authentication") 
@@ -43,4 +43,4 @@ To get an Access Token, you must send an `authenticate` request to Forge. The Po
 Postman saves the Access Token in the Postman Environment Variable `dasApiToken`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token.
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task" ) [:arrow_forward:](task-3.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task" ) [:arrow_forward:](task-2.md "Next task")
