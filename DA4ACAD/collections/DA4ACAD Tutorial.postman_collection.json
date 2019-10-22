@@ -1074,7 +1074,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Activities",
+					"name": "List Activities",
 					"request": {
 						"method": "GET",
 						"header": [],
