@@ -9,7 +9,7 @@ to create a Forge App. In the *Add Services to Forge* stage, select "Design Auto
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
-In the Da4ACAD Tutorial environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you won't need to specify their values when you send HTTP requests to Forge. 
+In the DA4ACAD Tutorial environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to Forge. 
 
 To set the environment variables:
 
@@ -30,7 +30,7 @@ To set the environment variables:
 
 To get an Access Token, you must send an `authenticate` request to Forge. The Postman collection has a prepopulated authenticate request that you can send. To send the request to Forge:
 
-1. On the Postman sidebar, click **Task 2 - Obtain an Access Token > POST Get an Access Token**. The request loads.
+1. On the Postman sidebar, click **Task 1 - Obtain an Access Token > POST Get an Access Token**. The request loads.
 
 2. Click the **Body** tab.
 
