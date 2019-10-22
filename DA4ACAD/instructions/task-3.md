@@ -20,11 +20,13 @@ When registering the AppBundle, you provide a name for the AppBundle (the id), a
 
     2. In the **CURRENT VALUE** column, in the **dasAppBundleName** row, enter ListLayers.
 
-2. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `Autodesk.AutoCAD+23` (AutoCAD 2020).
+    3. Click the **Environment quick look** icon again.
+
+3. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `Autodesk.AutoCAD+23` (AutoCAD 2020).
 
     ![AppBundle Body](../images/task3-appbundle_body.png "AppBundle Body") 
 
-3. Click **Send**. If the request is successful, you see a screen similar to the following image:
+4. Click **Send**. If the request is successful, you see a screen similar to the following image:
 
     ![AppBundel Registered](../images/task3-appbundle_registered.png "AppBundel Registered")
 
