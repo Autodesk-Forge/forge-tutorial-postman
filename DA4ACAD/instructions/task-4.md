@@ -1,4 +1,4 @@
-# Task 5 - Create an Activity
+# Task 4 - Create an Activity
 
 An Activity is an action that can be executed in Design Automation. You create and post Activities to run specific AppBundles.
 
@@ -8,7 +8,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
 2. Click the **Body** tab. Observe the body parameters.
 
-    ![Body tab of Create Activity](../images/task5-create_activity.png "Body tab of Create Activity")
+    ![Body tab of Create Activity](../images/task4-create_activity.png "Body tab of Create Activity")
 
 **Notes**
  - `id` is the name given to the new Activity. The id is picked up from the Postman Environment Variable `dasActivityName`. 
