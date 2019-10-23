@@ -1,42 +1,18 @@
-# Task 7 - Submit a WorkItem
+# Task 7 - Download the results
 
-When you submit a WorkItem to Design Automation, you are instructing Design Automation to execute the Activity specified in the WorkItem.
-
-The relationship between an Activity and a WorkItem can be thought of as a “function definition” and “function call”, respectively.
-Named parameters of the Activity have corresponding named arguments of the WorkItem.
-Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
-
-For this exercise, you will apply the DeleteWalls Activity on the Revit file you uploaded to OSS in the previous task. The request picks up the Revit file from the signed url stored in the variable 'ossDownloadURL'. 
-
-## Create a WorkItem
-
-1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Create a WorkItem**. The request loads.
-
-2. Click the **Body** tab and observe how the Actvity ID, the input file, and the ouput file are specified.
-
-3. Click **Send**. If the request is successfull you should see a screen similar to the following image.
-
-    ![deleteWallsResultUrl](../images/task7-result_url.png "deleteWallsResultUrl")
-
-    The main attributes on the JSON payload are:
-
-    - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id. A fully qualified id is made up of three parts. They start with the Nickname of the Forge App (or the Client Id of the Forge App. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [Forge portal documentation on ids](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
-
-    - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 5, when you created the Activity.
-
-    - `rvtFile` - Specifies how to obtain the input rvt file file for the Activity. It contains the signed download URL to the rvt file or a zip file that contains the rvt file. This is followed by the HTTP verb that downloads the file. If you uploaded a zip file in task 6, use the `pathInZip` attribute to specify the relative path to the Revit file. If you uploaded a Revit file instead of a zip file, do not specify the `pathInZip` attribute.
-
-    - `result` - Specifies the signed URL to the location reserved for the output of the activity, followed by the HTTP verb to use.
+Once the WorkItem has completed executing the Activity, Design Automation uploads the resulting text file to OSS. You use the Fore Data Management API to download the text file to your local machine.
 
 
-## Check Status of a WorkItem
+## Download the output from OSS
 
-Design Automation WorkItems are queued before they are processed. Processing itself can take time. Once processing is done, you need to know if the WorkItems ran successfully or not. As such it is important for you to check the status of the WorkItem you created.
-
-1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Check Status of a WorkItem**. The request loads.
+1. On the Postman sidebar, click **Task 6 - Download the Result > GET Download Output from OSS**. The request loads.
 
 2. Click **Send**. You should see a screen similar to the following image.
 
-    ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
+    ![Download Result](../images/task7-download_step_1.png "Download Result")
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-6.md "Previous task") 
+3. In the response area, click **Save Response > Save to a file**. The output file downloads. Save the file as a *.zip* file, when prompted to.
+
+    ![Download Result](../images/task6-download_step_2.png "Download Result")
+
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-6.md "Previous task")
