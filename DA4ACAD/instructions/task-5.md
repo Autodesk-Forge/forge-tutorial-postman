@@ -45,7 +45,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 8. Click **Send**. If your request is successful, you should see a screen similar to the one below:
 
-    ![Successful upload of input file](../images/task6-successful_upload.png "Successful upload of input file")
+    ![Successful upload of input file](../images/task5-successful_upload.png "Successful upload of input file")
 
 ## Get temporary download URL
 

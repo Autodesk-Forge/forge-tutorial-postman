@@ -16,7 +16,7 @@ For this exercise, you create a WorkItem to execute the Activity ListLayers. The
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
-    ![ListLayersResultUrl](../images/task7-result_url.png "ListLayersResultUrl")
+    ![ListLayersResultUrl](../images/task6-result_url.png "ListLayersResultUrl")
 
     The main attributes on the JSON payload are:
 
@@ -39,8 +39,8 @@ Design Automation WorkItems are queued before they are processed. Processing its
 
 2. Click **Send**. You should see a screen similar to the following image.
 
-    ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
+    ![WorkItem Status check result](../images/task6-check_status.png "WorkItem Status check result")
 
-**Note:** The best practice is to use the `onComplete` argument when submitting a WorkItem. The `onComplete` argument enables you to specify a callback URL, which is called once the WorkItem is completed. For more information on the argument, see the [Forge portal documentation on Callbacks](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
+**Note:** The best practice is to use the `onComplete` argument when submitting a WorkItem. The `onComplete` argument enables you to specify a callback URL, which is invoked when execution completes. For more information on the argument, see the [Forge portal documentation on Callbacks](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task") 
