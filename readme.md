@@ -4,8 +4,11 @@ This repository contains several tutorials that teach you how to use Forge APIs.
 
 Currently, this repository contains tutorials for the following:
 
-- [Design Automation for Revit](DA4Revit)
 - [Design Automation for 3ds Max](DA43dsMax)
+- [Design Automation for AutoCAD](DA4ACAD)
+- [Design Automation for Revit](DA4Revit)
+
+
 
 ## What's Postman?
 
@@ -18,5 +21,3 @@ Postman is a popular tool that provides an easy-to-use interface to send HTTP re
 ## What next?
 
 To follow a tutorial, click the corresponding link in the list of tutorials or navigate to the corresponding folder in this repository. The *readme.md* file in the folder provides instructions on how to follow that tutorial. 
-
-![Tutorial](thumbnail.png "Tutorial")
