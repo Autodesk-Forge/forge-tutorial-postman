@@ -1,64 +1,76 @@
-# Task 5 - Create an Activity
+# Task 5 - Prepare cloud storage
 
-An Activity is an action that can be executed in Design Automation. You create and post Activities to run specific AppBundles.
+The Activity ListLayersActivity takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API. 
 
-## Create a New Activity
+There are three Postman Environment Variables you must specify for this task. They are 
+- `ossBucketKey` - The object key for the Bucket that holds your files in the cloud.
+- `ossOutputFileObjectKey` - The object key of the placeholder for the output file that the add-in produces.
 
-1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Create a New Activity**. The request loads.
+## Create a Bucket
 
-2. Click the **Body** tab. Observe the body parameters.
+1. Click the **Environment quick look** icon on the upper right corner of Postman. 
 
-    ![Body tab of Create Activity](../images/task5-create_activity.png "Body tab of Create Activity")
+2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name the Bucket that stores your files.
 
-**Notes**
- - `id` is the name given to the new Activity. 
- - `commandLine` is the command run by this Activity
-    - `$(engine.path)\\\\revitcoreconsole.exe` - The full path to the  folder from which the engine for Revit executes.  The engine is defined in the request body as `"engine": "Autodesk.Revit+2018"`. **Do not edit or alter this `commandLine` in the request body of Activity posts.**  
-    - `$(args[rvtFile].path)` - The full path to the folder that contains the input Revit model. `rvtFile` is the parameter that represents the Revit model to which the Activity `DeleteWallsActivity` applies the AppBundle. The AppBundle is defined in the request body as `"appbundles": [ "{{dasNickName}}.DeleteWallsApp+test" ]`. 
- - `engine` is the Design Automation engine that the Activity (Revit 2018 in this case) runs on.
+    **Notes:**  
+    - The bucket name needs to be unique throughout the OSS service. At the time you create a bucket, you may need to change the value of this variable if a bucket with the name you specified already exists. 
+    
+    - The bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character.
 
-3. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
+3. Click the **Environment quick look** icon to hide the variables.
 
-    ![Successful creation of an Activity](../images/task5-activity_create_success.png "Successful creation of an Activity")
+4. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > POST Create a Bucket**. The request loads.
 
-## Create an Alias to the Activity
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-Design Automation does not let you reference an Activity by its `id`. You must always reference an Activity by an alias.  Note that an alias points to a specific version of an Activity and not the Activity itself.
+    ![Success full Bucket Creation](../images/task5-sucessfull_bucket_creation.png "Success full Bucket Creation")
 
-To create an alias named `test`, which refers to version `1` of the `DeleteWallsActivity`:
+## Upload input file to OSS
 
-1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Create an Alias to the Activity**. The request loads.
+1. Download the input file, *Mechanical - Multileaders.dwg from the [*tutorial_data* folder of this repository](../tutorial_data).
 
-2. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
+2. Click the **Environment quick look** icon on the upper right corner of Postman. 
 
-    ![Successfull creation of Alias](../images/task5-activity_alias_create_success.png "Successfull creation of Alias")
+3. In the **CURRENT VALUE** column, in the **ossDwgFileObjectKey** row, specify an Object Key (a name to identify the input file, once it is uploaded to OSS).
 
-## Update an Existing Activity
+4. Click the **Environment quick look** icon to hide the variables.
 
-Design Automation does not let you overwrite an Activity once you have created it. If you want to modify/update an existing Activity,
-you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Revit throws a `409 Conflict` error.
+5. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > PUT Upload Input File**. The request loads.
 
-To create a new version of an Activity:
+6. Click the **Body** tab.
 
-1. On the Postman sidebar, click **Task 5 - Create an Activity > POST Update an Existing Activty**. The request loads.
+7. Click **Select File** and pick the zip file you created in step 1.
 
-2. Click the **Body** tab. Observe the body parameters.
+    ![Select file button](../images/task5-select_files_button.png "Select file button")
 
-3. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
+8. Click **Send**. If your request is successful, you should see a screen similar to the one below:
 
-    ![Successfull update of an existing activity](../images/task5-sucessful_update_of_activity.png "Successfull update of an existing activity")
+    ![Successful upload of input file](../images/task6-successful_upload.png "Successful upload of input file")
 
-## Assign an existing Alias to the updated Activity
+## Get temporary download URL
 
-Currently, the Alias `test` points to version `1` of the Activity. You send a PATCH request to assign this Alias to the new version of the Activity `DeleteWallsActivity`.
+Design Automation needs to download the input file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file, and saves it to a Postman Environment Variable. The URL expires in an hour.
 
-To send the PATCH request:
+1. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > POST Get Temporary Download URL**. The request loads.
 
-1. On the Postman sidebar, click **Task 5 - Create an Activity > PATCH Assign an Existing Alias to the Updated Activity**. The request loads.
+2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossDownloadURL` Postman Environment Variable.
 
-2. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
+    ![Signed download URL](../images/task5-signed_downloadurl.png "Signed download URL")
 
-    ![Successfull update of Alias](../images/task5-sucessful_update_of_alias.png "Successfull update of Alias")
+## Get temporary upload URL
 
+Design Automation needs a signed URL to upload text file that the ListLayers Activity creates. This request obtains a temporary signed URL that Design Automation can use to upload the file. Postman saves the URL to a Postman Environment Variable.
+
+1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+
+2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
+
+3. Click the **Environment quick look** icon to hide the variables.
+
+4. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > POST Get Temporary Upload URL**. The request loads.
+
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossUploadURL` Postman Environment Variable.
+
+    ![Signed upload URL](../images/task5-signed_uploadurl.png "Signed upload URL")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")

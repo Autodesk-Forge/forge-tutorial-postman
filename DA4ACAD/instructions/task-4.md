@@ -14,7 +14,7 @@ An Activity is an action that can be executed in Design Automation. You create a
  - `id` is the name given to the new Activity. The id is picked up from the Postman Environment Variable `dasActivityName`. 
  - `commandLine` is the command run by this Activity. It consists of several variables. These variables are replaced by actual values at the time the Activity is executed. This mechanism provides the ability to test the command line locally with file paths that are applicable to Design Automation. For more information, see the [Forge portal documentation on command lines](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 
-    - `$(engine.path)\\accoreconsole.exe` - The full path to the AutoCAD engine. The version of AutoCAD to be used is defined in the request body as `"engine": "Autodesk.AutoCAD+22`.  
+    - `$(engine.path)\\accoreconsole.exe` - The full path to the AutoCAD engine. The version of AutoCAD to be used is defined in the request body as `"engine": "Autodesk.AutoCAD+22"`.  
 
     - `$(args[InputDwg].path)` - The full path to the folder that the file identified by the parameter InputDwg (by the WorkItem that invokes this Activity) is downloaded to. 
 
@@ -22,7 +22,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
     - `$ (settings[script].path` identifies the path to the file where Design Automation saves the value of the setting named `script`. See [AutoCAD documentation on scripts](https://help.autodesk.com/view/ACD/2020/ENU/?guid=GUID-95BB6824-0700-4019-9672-E6B502659E9E)` for information on writing scripts.
 
-- `parameters` defines the inputs nd outputs that need to be provided when the Activity is executed. Input parameters are identified by the attribute `"verb":"get". Output parameters are identified by the attribute `"verb":"put"`. 
+- `parameters` defines the inputs and outputs that need to be provided when the Activity is executed. Input parameters are identified by the attribute `"verb":"get"`. Output parameters are identified by the attribute `"verb":"put"`. 
 
  - `engine` is the Design Automation engine that the Activity (AutoCAD 2020 in this case) runs on.
 

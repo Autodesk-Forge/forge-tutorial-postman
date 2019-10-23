@@ -1,77 +1,46 @@
-# Task 6 - Prepare cloud storage
+# Task 6 - Submit a WorkItem
 
-The DeleteWalls add-in takes a Revit file as an input and produces another Revit file as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API. 
+When you submit a WorkItem to Design Automation, you are instructing Design Automation to execute the Activity specified in the WorkItem.
 
-There are three Postman Environment Variables you must specify for this task. They are 
-- `ossBucketKey` - The object key for the Bucket that holds your files in the cloud.
-- `ossInputFileObjectKey` - The object key of the Revit file for use as input.
-- `ossOutputFileObjectKey` - The object key of the placeholder for the output file that the add-in produces.
+The relationship between an Activity and a WorkItem can be thought of as the relationship between a “function definition” and “function call”.
+Named parameters of the Activity have corresponding named arguments of the WorkItem.
+Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-## Create a Bucket
+For this exercise, you create a WorkItem to execute the Activity ListLayers. The WorkItem uses the dwg file you uploaded in the previous task as the input for the Activity. The request downloads the dwg file from the signed URL stored in the variable 'ossDwgFileSignedUrl'. 
 
-1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+## Create a WorkItem
 
-2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name the Bucket that stores your files.
+1. On the Postman sidebar, click **Task 6 - Submit a WorkItem > Create a WorkItem**. The request loads.
 
-    **Notes:**  
-    - The bucket name needs to be unique throughout the OSS service. At the time you create a bucket, you may need to change the value of this variable if a bucket with the name you specified already exists. 
+2. Click the **Body** tab and observe how the Activity ID, the input file, and the output file are specified.
+
+3. Click **Send**. If the request is successful you should see a screen similar to the following image.
+
+    ![ListLayersResultUrl](../images/task7-result_url.png "ListLayersResultUrl")
+
+    The main attributes on the JSON payload are:
+
+    - `activityId` - Specifies what Activity to execute. The id you specify here must be a fully qualified id. A fully qualified id is made up of three parts. They start with the Nickname of the Forge App (or the Client Id of the Forge App. The Nickname is followed by the '.' character, which in turn is followed by the Activity name. This is followed by the '+' character and finally the Activity Alias. For more information on fully qualified ids and unqualified ids, see the [Forge portal documentation on ids](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/aliases-and-ids/#ids).
+
+    - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 4, when you created the Activity.
+
+    - `InputDwg` - Specifies how to obtain the input dwg file for the Activity. The value specified here is the Postman variable `ossDwgFileSignedUrl`, which contains the signed download URL you created in Task 5. 
     
-    - The bucket name must consist of only lower case characters, numbers 0-9, and the underscore (_) character.
+    **Note** Had you uploaded a zip file instead of a dwg file, you would have been required specify the `pathInZip` attribute. This attribute specifies the path to the dwg file within the zip file. 
 
-3. Click the **Environment quick look** icon to hide the variables.
+    - `result` - Specifies the signed URL to the location reserved for the output of the activity.
 
-4. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Create a Bucket**. The request loads.
 
-5. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
+## Check Status of a WorkItem
 
-    ![Successfull Bucket Creation](../images/task6-sucessfull_bucket_creation.png "Successfull Bucket Creation")
+Design Automation WorkItems are queued before they are processed. Processing itself can take time. Once processing is done, you need to know if the WorkItems ran successfully or not. As such it is important for you to check the status of the WorkItem you created.
 
-## Upload input file to OSS
+1. On the Postman sidebar, click **Task 7 - Submit a WorkItem > Check Status of a WorkItem**. The request loads.
 
-1. Download the input file, *DeleteWalls.rvt*  from the [*tutorial_data* folder of this repository](../tutorial_data) and zip it up.
+2. Click **Send**. You should see a screen similar to the following image.
 
-2. Click the **Environment quick look** icon on the upper right corner of Postman. 
+    ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
 
-3. In the **CURRENT VALUE** column, in the **ossInputFileObjectKey** row, specify an Object Key (a name to identify the input file, once it is uploaded to OSS).
+**Note:** The best practice is to use the `onComplete` argument when submitting a WorkItem. The `onComplete` argument enables you to specify a callback URL, which is called once the WorkItem is completed. For more information on the argument, see the [Forge portal documentation on Callbacks](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
 
-4. Click the **Environment quick look** icon to hide the variables.
-
-5. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > PUT Upload Input File**. The request loads.
-
-6. Click the **Body** tab.
-
-7. Click **Select File** and pick the zip file you created in step 1.
-
-    ![Select file button](../images/task6-select_files_button.png "Select file button")
-
-8. Click **Send**. If your request is successful, you should see a screen similar to the one below:
-
-    ![Succesful upload of input file](../images/task6-successful_upload.png "Succesful upload of input file")
-
-## Get temporary download URL
-
-Design Automation needs to download the input file in order to preocess it. This request obtains a temporary signed URL that Design Automation can use to download the file, and saves it to a Postman Environment Variable.
-
-1. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Get Temporary Download URL**. The request loads.
-
-2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossDownloadURL` Postman Environment Variable.
-
-    ![Signed download url](../images/task6-signed_downloadurl.png "Signed download URL")
-
-## Get temporary upload URL
-
-Design Automation needs a signed URL to upload the output that the DeleteWalls add-in creates. This request obtains a temporary signed URL that Design Automation can use to upload the file, and saves it to a Postman Environment Variable.
-
-1. Click the **Environment quick look** icon on the upper right corner of Postman. 
-
-2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
-
-3. Click the **Environment quick look** icon to hide the variables.
-
-4. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Get Temporary Upload URL**. The request loads.
-
-5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossUploadURL` Postman Environment Variable.
-
-    ![Signed upload URL](../images/task6-signed_uploadurl.png "Signed upload URL")
-
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task") 

@@ -490,7 +490,7 @@
 			"name": "Task 5 - Prepare Cloud Storage",
 			"item": [
 				{
-					"name": "Create Bucket",
+					"name": "Create a Bucket",
 					"event": [
 						{
 							"listen": "test",
@@ -535,7 +535,7 @@
 								"buckets"
 							]
 						},
-						"description": "This request to the Data Management API will create a bucket in the object storage service (OSS) that we will use to store our input zip file, input script file and our resulting zip file.\r\nThe bucket will be created with a random guid and the key to this bucket will be saved inside the \"bucketKey\" variable for sub-sequent request."
+						"description": "This request to the Data Management API will create a bucket in the object storage service (OSS) that we will use to store your input file and our the resulting text file."
 					},
 					"response": []
 				},
@@ -566,7 +566,7 @@
 							"mode": "file"
 						},
 						"url": {
-							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossDwgFileObjectKey}}",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -580,10 +580,10 @@
 								"buckets",
 								"{{ossBucketKey}}",
 								"objects",
-								"{{$guid}}"
+								"{{ossDwgFileObjectKey}}"
 							]
 						},
-						"description": "This request to the Data Management API will upload the input zip file containing the 3ds Max file to the object storage service (OSS).\r\nBefore sending the request you will need to select the file to be uploaded by pressing the \"Choose files\" button in the Body tab."
+						"description": "This request to the Data Management API will upload the input drawing file to the bucket we created.\r\nBefore sending the request you will need to select the file to be uploaded by pressing the \"Select files\" button in the Body tab."
 					},
 					"response": []
 				},
@@ -638,7 +638,7 @@
 								"signed"
 							]
 						},
-						"description": "This request to the Data Management API will create a temporary download url for the input zip file we uploaded to the Object Storage Service during request 5."
+						"description": "This request to the Data Management API will create a temporary download URL for the input drawing file you uploaded."
 					},
 					"response": []
 				},
@@ -798,7 +798,7 @@
 								"workitems"
 							]
 						},
-						"description": "This request to the Design Automation V3 API will launch the execution of the activity that was created during the request number 2."
+						"description": "This request to the Design Automation API will launch the execution of the activity that was created previously."
 					},
 					"response": []
 				},
@@ -833,7 +833,7 @@
 								"{{dasWorkItemId}}"
 							]
 						},
-						"description": "This request to the Design Automation API V3 will query the status of the work item."
+						"description": "This request to the Design Automation API will query the status of the work item."
 					},
 					"response": []
 				}
@@ -971,7 +971,7 @@
 								"me"
 							]
 						},
-						"description": "This request to the Design Automation V3 API will delete everything owned by your forge app inside the Design Automation V3 API."
+						"description": "This request to the Design Automation API will delete all Design Automation related information owned by your Forge app."
 					},
 					"response": []
 				},
@@ -1021,7 +1021,7 @@
 								"{{ossBucketKey}}"
 							]
 						},
-						"description": "This request to the Data Management API will delete the bucket that was created by request number 4 and every file that it contains."
+						"description": "This request to the Data Management API will delete the bucket that you created and every file that it contains."
 					},
 					"response": []
 				},
