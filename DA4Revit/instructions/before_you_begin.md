@@ -27,13 +27,4 @@ Postman Collections are groups of prepopulated HTTP requests. To import the requ
 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
-## 3. Get a Revit Add-in that is Design Automation ready 
-
-- On the Forge portal, follow the instructions in the topic [Convert Revit Add-in Task](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step1-convert-addin/).
-
-Or
-
-- Download the Design Automation ready add-in, *DeleteWalls.dll* (and all other files required for this tutorial) from the [*tutorial_data* folder of this repository](../tutorial_data)
-
-
 [:rewind:](../readme.md "readme.md")  [:arrow_forward:](task-2.md "Next task")

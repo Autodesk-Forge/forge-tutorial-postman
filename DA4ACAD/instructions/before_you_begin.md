@@ -27,11 +27,6 @@ Postman Collections are groups of prepopulated HTTP requests. To import the requ
 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
-## 3. Get an AutoCAD CRX plug-in 
-
-
-- | Download the AutoCAD CRX plug-in, *command.dll* (and all other files required for this tutorial) from the [*tutorial_data* folder of this repository](../tutorial_data)
-  | This CRX implements a command named **TEST**, which extracts the layer names of the current drawing and saves those names to a text file.
 
 
 [:rewind:](../readme.md "readme.md")  [:arrow_forward:](task-1.md "Next task")
