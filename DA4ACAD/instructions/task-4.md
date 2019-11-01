@@ -1,6 +1,6 @@
 # Task 4 - Create an Activity
 
-An Activity is an action that can be executed in Design Automation. You create and post Activities to run specific AppBundles.
+An Activity is an action that can be executed in Design Automation. 
 
 ## Create a New Activity
 
@@ -42,7 +42,7 @@ An Activity is an action that can be executed in Design Automation. You create a
 
 ## Create an Alias to the Activity
 
-Design Automation does not let you reference an Activity by its `id`. You must reference an Activity by an alias.  Note that an alias points to a specific version of an Activity and not just the Activity itself.
+When you created an Activity earlier, you created version 1 of the Activity. You can create new versions of the Activity and make improvements with time.  The `id` of an Activity alone is not sufficient to define which version of an Activity Design Automation must execute. You use an Alias for this purpose.  You can think of an Alias as a tag that points to a particular version of an Activity. The version that an Alias points to can be changed as you develop more versions of a given Activity.
 
 To create an alias named `my_current_version`, which refers to version `1` of the `ListLayersActivity`:
 

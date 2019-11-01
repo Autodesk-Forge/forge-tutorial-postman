@@ -1,6 +1,6 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug implements a custom command named **TEST**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad_new/task-3-upload-appbundle/) to learn how to create an AppBundle. 
+An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug-in implements a custom command named **TEST**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad_new/task-3-upload-appbundle/) to learn how to create an AppBundle. 
 
 ## Download the AppBundle
 
@@ -42,7 +42,7 @@ When registering the AppBundle, you provide a name for the AppBundle (the id), a
 
 3. Click **Select Files**, and pick *ListLayers.zip*, which you downloaded earlier.
 
-    ![Pick DeleteWalls.zip](../images/task3-appbundle_select_file.png "Pick DeleteWalls.zip")
+    ![Pick ListLayers.zip](../images/task3-appbundle_select_file.png "Pick ListLayers.zip")
 
 5. Click **Send**. You should see a screen similar to the following. The response has only a header and no body.
 

@@ -22,9 +22,9 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 4. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Create a Bucket**. The request loads.
 
-5. Click **Send**. If the request is successfull, you should see a screen similar to the following image.
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successfull Bucket Creation](../images/task6-sucessfull_bucket_creation.png "Successfull Bucket Creation")
+    ![Successful Bucket Creation](../images/task6-sucessfull_bucket_creation.png "Successful Bucket Creation")
 
 ## Upload input file to OSS
 
@@ -46,17 +46,17 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 8. Click **Send**. If your request is successful, you should see a screen similar to the one below:
 
-    ![Succesful upload of input file](../images/task6-successful_upload.png "Succesful upload of input file")
+    ![Successful upload of input file](../images/task6-successful_upload.png "Succesful upload of input file")
 
 ## Get temporary download URL
 
-Design Automation needs to download the input file in order to preocess it. This request obtains a temporary signed URL that Design Automation can use to download the file, and saves it to a Postman Environment Variable.
+Design Automation needs to download the input file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file, and saves it to a Postman Environment Variable.
 
 1. On the Postman sidebar, click **Task 6 - Prepare Cloud Storage > POST Get Temporary Download URL**. The request loads.
 
 2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossDownloadURL` Postman Environment Variable.
 
-    ![Signed download url](../images/task6-signed_downloadurl.png "Signed download URL")
+    ![Signed download URL](../images/task6-signed_downloadurl.png "Signed download URL")
 
 ## Get temporary upload URL
 

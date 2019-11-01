@@ -52,7 +52,7 @@ You use a Postman Environment Variable named `ossBucketKey` for the object key o
 
 1. Download the zip file containing the 3ds Max scene file, *Twistit.ms* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
-2. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input MAXScript File TO OSS**. The request loads.
+2. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input MAXScript File to OSS**. The request loads.
 
 3. Click the **Body** tab.
 
