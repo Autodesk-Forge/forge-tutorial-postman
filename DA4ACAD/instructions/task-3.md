@@ -1,6 +1,6 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug-in implements a custom command named **TEST**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad_new/task-3-upload-appbundle/) to learn how to create an AppBundle. 
+An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug-in implements a custom command named **LISTLAYERS**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad_new/task-3-upload-appbundle/) to learn how to create an AppBundle. 
 
 ## Download the AppBundle
 
