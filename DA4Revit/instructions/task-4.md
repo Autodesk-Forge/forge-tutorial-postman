@@ -54,7 +54,7 @@ When you registered the AppBundle earlier, it was registered as version 1 of the
 
 ## Update an Existing AppBundle
 
-To update an existing AppBundle, you must register a new version of the AppBundle and then upload the updated AppBundle for that version. If you try to overwrite an existing AppBundle, Design Automation for Revit throws a `409 Conflict` error.
+To update an existing AppBundle, you must register a new version of the AppBundle and then upload the updated AppBundle for that version. If you try to overwrite an existing AppBundle, Design Automation for Revit returns a `409 Conflict` error.
 
 To register a new version:
 

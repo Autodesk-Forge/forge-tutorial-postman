@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b3c6bf28-3205-4f6f-bbc2-657efaa06e42",
+		"_postman_id": "50f29642-a896-457a-a6a8-b01a58da1868",
 		"name": "Design Automation For Revit Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -69,7 +69,8 @@
 								"v1",
 								"authenticate"
 							]
-						}
+						},
+						"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Design Automation API V3** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `dasApiToken`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
 					},
 					"response": []
 				}
@@ -96,7 +97,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Task 3 - Create a Nickname",
@@ -143,7 +145,7 @@
 								"me"
 							]
 						},
-						"description": "Forge uses the Client ID to uniquely identify an app. The Client ID can be long and cryptic, and hence a source of irritation when you reference the data you add to your app.\n\nA Nickname lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID."
+						"description": "This request to the Design Automation API sets a Nickname for your Forge App.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the Nickname as the value of the Postman Variable `dasNickName`. This enables the Nickname to be used in subsequent requests as well.\n\n&nbsp;\n\n**Notes:**\n\n- Once your add data to a Forge App, you are not allowed to set a Nickname for the app. The only way you can assign a Nickname to an app with data is by first calling the `[DELETE] /forgeapps/me` endpoint and deleting all data associated with that app (including any existing nickname). The request **Delete Forge App Data in Design Automation** in this Postman Collection calls this endpoint (`[DELETE] /forgeapps/me`) and clears the app of all data.\n\n- If you get stuck while working on this tutorial, and are unable to proceed, use this request to clear all data from the app, and restart from Task 1.\n\n- Nicknames must be globally unique.  If the Nickname is already in use, even by someone else, Forge returns a `409 Conflict` error when you try to set the Nickname. If you encounter this error, change the Nickname and try again."
 					},
 					"response": []
 				}
@@ -169,7 +171,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Task 4 - Upload AppBundle",
@@ -222,7 +225,8 @@
 							"path": [
 								"appbundles"
 							]
-						}
+						},
+						"description": "This request to the Design Automation API creates an AppBundle.\n\n&nbsp;\n\nAn AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step4-publish-appbundle/) for an explanantion of AppBundles and learn how to create an AppBundle. For the purpose of this Postman tutorial,  download *DeletWallsApp.zip*, which is stored in the [*tutorial_data* folder of this repository](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data). The file *DeleteWalls.dll* that is contained within this AppBundle is designed to run on Revit 2018.\n\n&nbsp;\n\nOnce you send the request to Forge, the response provides all the parameters required to upload the AppBundle *DeletWallsApp.zip*, to Forge. A script saves the values of all these parameters to a number of Postman Variables (see **Tests** tab below)."
 					},
 					"response": []
 				},
@@ -328,7 +332,8 @@
 							"host": [
 								"{{deleteWallsAppUrl}}"
 							]
-						}
+						},
+						"description": "This request to the Design Automation API uploads an AppBundle to Forge.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *DeletWallsApp.zip* from the [*tutorial_data* folder of this repository](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data)\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Close any boxes that appear against **File**.\n  4. Click **Select** and pick the file *DeletWallsApp.zip*, which you downloaded in step 1."
 					},
 					"response": []
 				},
@@ -365,7 +370,8 @@
 								"DeleteWallsApp",
 								"aliases"
 							]
-						}
+						},
+						"description": "This request to the Design Automation API creates an alias for the AppBundle.\n\n&nbsp;\n\nWhen you registered the AppBundle earlier, it was registered as version 1 of the AppBundle (The version was saved to the Postman Variable `deleteWallsAppVersion` when you registered the AppBundle). With this request, you create an alias named *test* to reference that version. Check the **Body** tab below to inspect the JSON payload."
 					},
 					"response": []
 				},
@@ -418,7 +424,8 @@
 								"DeleteWallsApp",
 								"versions"
 							]
-						}
+						},
+						"description": "To update an existing AppBundle, you must register a new version of it and then upload the updated AppBundle for that version. If you try to overwrite an existing AppBundle, Design Automation for Revit throws a `409 Conflict` error."
 					},
 					"response": []
 				},
@@ -525,7 +532,7 @@
 								"{{deleteWallsAppUrl}}"
 							]
 						},
-						"description": "ccd"
+						"description": "This request to the Design Automation API uploads an AppBundle as version 2 of the AppBundle.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *DeletWallsApp.zip* from the [*tutorial_data* folder of this repository](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data)\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Close any boxes that appear against **File**.\n  4. Click **Select** and pick the file *DeletWallsApp.zip*, which you downloaded in step 1."
 					},
 					"response": []
 				},
@@ -563,7 +570,8 @@
 								"aliases",
 								"test"
 							]
-						}
+						},
+						"description": "This request to the Design Automation API creates an alias for the latest version of the AppBundle.\n\n&nbsp;\n\nWhen you updated the AppBundle earlier, it was registered as version 2 of the AppBundle (The version was saved to the Postman Variable `deleteWallsAppVersion` when you registered the AppBundle). With this request, you reassign the alias named *test* to reference that version. Check the **Body** tab below to inspect the JSON payload."
 					},
 					"response": []
 				}
@@ -589,7 +597,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Task 5 - Publish an Activity",
@@ -634,7 +643,8 @@
 							"path": [
 								"activities"
 							]
-						}
+						},
+						"description": "This request to the Design Automation API creates an Activity. An Activity is an action that can be executed in Design Automation. This request creates an Activity that runs the DeleteWalls add-in.\r\n\r\n&nbsp;\r\n\r\n**Notes:**\r\n - The JSON payload for this request contains several key attributes. See the description of these attributes in the [corresponding task on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step5-publish-activity/)."
 					},
 					"response": []
 				},
@@ -667,7 +677,7 @@
 								"aliases"
 							]
 						},
-						"description": "Design Automation does not let you reference an Activity by its id. You must always reference an Activity by an alias. Note that an alias points to a specific version of an Activity and not the Activity itself.\n\nThis request creates an alias named test, which refers to version 1 of the DeleteWallsActivity."
+						"description": "This request creates an alias named test, which refers to version 1 of the DeleteWallsActivity.\n\n&nbsp;\n\nThe id of an Activity alone is not sufficient when you instruct Design Automation to execute it. You must use an Alias to specify which version of the Activity to execute. You can think of an Alias as a tag that points to a particular version of an Activity.\nThe version an Alias points to can be changed as you develop more versions of a given activity.\nThe request **Task 5 - Publish Activity > Create New Activity** created the version 1 of the Activity.\nThis request will now create an Alias named \"test\" to reference version 1."
 					},
 					"response": []
 				},
@@ -714,7 +724,7 @@
 								"versions"
 							]
 						},
-						"description": "Design Automation does not let you overwrite an Activity once you have created it. If you want to modify/update an existing Activity, you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Revit throws a `409 Conflict error.\n\nThis request creates a new version of an Activity."
+						"description": "Design Automation does not let you overwrite an Activity once you have created it. If you want to modify/update an existing Activity, you must update it as a new version. If you try to overwrite an existing Activity, Design Automation for Revit throws a `409 Conflict` error.\n\n&nbsp;\n\nThis request creates a new version of an Activity."
 					},
 					"response": []
 				},
@@ -779,7 +789,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Task 6 - Prepare Cloud Storage",
@@ -814,7 +825,8 @@
 								"v2",
 								"buckets"
 							]
-						}
+						},
+						"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input dwg file and the resulting text file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, you may need to change the value of this variable.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
 					},
 					"response": []
 				},
@@ -863,7 +875,8 @@
 									"value": "{{ossInputFileObjectKey}}"
 								}
 							]
-						}
+						},
+						"description": "This request to the Data Management API uploads a zip file containing the *rvt* file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *DeleteWalls.rvt* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data) of the repository that contained this Postman Collection.\r\n 2. Create a *zip* file from the downloaded *rvt* file.\r\n 2. Specify an Object Key (a name to identify the input file, once it is uploaded to OSS) as the value of the Postman Variable `ossInputFileObjectKey`.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick the zip file you created in step 2.\r\n \r\n&nbsp;"
 					},
 					"response": []
 				},
@@ -924,7 +937,8 @@
 									"value": "{{ossInputFileObjectKey}}"
 								}
 							]
-						}
+						},
+						"description": "This request to the Data Management API creates a temporary download URL for the input file. The URL expires in 60 minutes.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossDownloadURL`."
 					},
 					"response": []
 				},
@@ -991,11 +1005,13 @@
 									"value": "{{ossOutputFileObjectKey}}"
 								}
 							]
-						}
+						},
+						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the output of the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the output file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossUploadURL`."
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Task 7 - Submit a WorkItem",
@@ -1040,7 +1056,8 @@
 							"path": [
 								"workitems"
 							]
-						}
+						},
+						"description": "This request to the Design Automation API creates a WorkItem that kicks off the execution of the Activity that you created in Task 5.\n\n&nbsp;\n\nThe relationship between an Activity and a WorkItem can be thought of as a “function definition” and “function call”, respectively. Named parameters of the Activity have corresponding named arguments of the WorkItem. Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.\n\n&nbsp;\n\nInspect the **Body** tab below to see how values for the parameters specified while defining the Activity are supplied as arguments in the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the WorkItem Id to a variable `deleteWallsWorkitemId`."
 					},
 					"response": []
 				},
@@ -1067,7 +1084,8 @@
 								"workitems",
 								"{{deleteWallsWorkitemId}}"
 							]
-						}
+						},
+						"description": "This request to the Design Automation API queries the status of the WorkItem."
 					},
 					"response": []
 				}
@@ -1093,7 +1111,8 @@
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Delete Forge App",
@@ -1124,7 +1143,7 @@
 						"me"
 					]
 				},
-				"description": "Delete FOrege App"
+				"description": "This request to the Design Automation API deletes all Design Automation related information owned by your Forge app."
 			},
 			"response": []
 		}
@@ -1150,5 +1169,6 @@
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

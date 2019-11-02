@@ -27,7 +27,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 ## Upload input file to OSS
 
-1. Download the input file, *Mechanical - Multileaders.dwg from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the input file, *Mechanical - Multileaders.dwg* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
 2. Click the **Environment quick look** icon on the upper right corner of Postman. 
 
@@ -39,7 +39,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 6. Click the **Body** tab.
 
-7. Click **Select File** and pick the zip file you created in step 1.
+7. Click **Select File** and pick the file you downloaded in step 1.
 
     ![Select file button](../images/task5-select_files_button.png "Select file button")
 
