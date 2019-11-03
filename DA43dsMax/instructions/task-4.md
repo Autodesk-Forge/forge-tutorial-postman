@@ -5,18 +5,18 @@ When Design Automation executes the Activity you created in Task 3, it must acce
 
 ## Create a Bucket
 
-You use a Postman Environment Variable named `ossBucketKey` for the object key of the Bucket that holds your files in the cloud.
+You use a Postman Environment Variable named `ossBucketKey` for the Object Key of the Bucket that holds your files in the cloud.
 
-1. Specify a value for the bucket object key in the Postman Environment Variable named `ossBucketKey`:
+1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
-    1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+    1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
     2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name the Bucket that stores your files.
 
         **Notes:**  
-        - The bucket name needs to be unique throughout the OSS service. At the time you create a bucket, you may need to change the value of this variable if a bucket with the name you specified already exists. 
-        
-        - The bucket name must consist of only lower case characters, numbers 0-9, and the underscore (_) character.
+        - The Bucket name needs to be unique throughout the OSS service. At the time you create a Bucket, you may need to change the value of this variable if a Bucket with the name you specified already exists.
+
+        - The Bucket name must consist of only lower case characters, numbers 0-9, and the underscore (_) character.
 
     3. Click the **Environment quick look** icon to hide the variables.
 
@@ -34,7 +34,7 @@ You use a Postman Environment Variable named `ossBucketKey` for the object key o
 
 2. On the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input ZIP File TO OSS**. The request loads.
 
-    Note the use of the Postman Dynamic variable `guid` as a query string parameter as the object key of the zip file. This variable generates a unique ID for the object key. A script specified in the **Tests** tab saves the object key to a Postman Environment Variable named `ossZipFileObjectKey`
+    Note the use of the Postman Dynamic variable `guid` as a query string parameter as the Object Key of the zip file. This variable generates a unique ID for the Object Key. A script specified in the **Tests** tab saves the Object Key to a Postman Environment Variable named `ossZipFileObjectKey`
 
     ![guid](../images/task4-guid.png "guid")
 
@@ -83,7 +83,7 @@ This request obtains a temporary signed URL that Design Automation can use to do
 
 Design Automation needs a signed URL to upload the output that is generated. This request obtains a temporary signed URL that Design Automation can use to upload the file, and saves it to a Postman Environment Variable.
 
-1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
 2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
 
