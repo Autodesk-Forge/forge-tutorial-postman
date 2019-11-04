@@ -1,21 +1,21 @@
 # Task 5 - Prepare cloud storage
 
-The Activity ListLayersActivity takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API. 
+The Activity ListLayersActivity takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API.
 
-There are three Postman Environment Variables you must specify for this task. They are 
-- `ossBucketKey` - The object key for the Bucket that holds your files in the cloud.
-- `ossOutputFileObjectKey` - The object key of the placeholder for the output file that the add-in produces.
+There are three Postman Environment Variables you must specify for this task. They are
+- `ossBucketKey` - The Bucket Key for the Bucket that holds your files in the cloud.
+- `ossOutputFileObjectKey` - The Object Key of the placeholder for the output file that the add-in produces.
 
 ## Create a Bucket
 
-1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
 2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name the Bucket that stores your files.
 
     **Notes:**  
-    - The bucket name needs to be unique throughout the OSS service. At the time you create a bucket, you may need to change the value of this variable if a bucket with the name you specified already exists. 
-    
-    - The bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character.
+    - The Bucket name needs to be unique throughout the OSS service. At the time you create a Bucket, you may need to change the value of this variable if a Bucket with the name you specified already exists.
+
+    - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character.
 
 3. Click the **Environment quick look** icon to hide the variables.
 
@@ -27,9 +27,9 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 ## Upload input file to OSS
 
-1. Download the input file, *Mechanical - Multileaders.dwg from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the input file, *Mechanical - Multileaders.dwg* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
-2. Click the **Environment quick look** icon on the upper right corner of Postman. 
+2. Click the **Environment quick look** icon on the upper right corner of Postman.
 
 3. In the **CURRENT VALUE** column, in the **ossDwgFileObjectKey** row, specify an Object Key (a name to identify the input file, once it is uploaded to OSS).
 
@@ -39,7 +39,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 6. Click the **Body** tab.
 
-7. Click **Select File** and pick the zip file you created in step 1.
+7. Click **Select File** and pick the file you downloaded in step 1.
 
     ![Select file button](../images/task5-select_files_button.png "Select file button")
 
@@ -61,7 +61,7 @@ Design Automation needs to download the input file to process it. This request o
 
 Design Automation needs a signed URL to upload text file that the ListLayers Activity creates. This request obtains a temporary signed URL that Design Automation can use to upload the file. Postman saves the URL to a Postman Environment Variable.
 
-1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
 2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
 
