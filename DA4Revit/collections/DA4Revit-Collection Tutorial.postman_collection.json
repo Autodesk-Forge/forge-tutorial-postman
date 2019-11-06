@@ -1046,7 +1046,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\",\r\n      \"pathInZip\": \"DeleteWalls.rvt\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\",\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/workitems",
