@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "50f29642-a896-457a-a6a8-b01a58da1868",
-		"name": "Design Automation For Revit Tutorial",
+		"_postman_id": "461f597f-6b84-4399-ad9d-5add00ddcad9",
+		"name": "Design Automation For Revit Tutorial copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -633,7 +633,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities",
@@ -688,12 +688,12 @@
 							"listen": "test",
 							"script": {
 								"id": "5abe3c11-e6c8-4b4d-bf62-e0de9fee29a4",
-								"type": "text/javascript",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -711,7 +711,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities/DeleteWallsActivity/versions",
@@ -1046,7 +1046,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\",\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/workitems",
