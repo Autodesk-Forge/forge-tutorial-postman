@@ -24,7 +24,11 @@ For this exercise, you will apply the DeleteWalls Activity on the Revit file you
 
     - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 5, when you created the Activity.
 
-    - `rvtFile` - Specifies how to obtain the input rvt file file for the Activity. It contains the signed download URL to the rvt file or a zip file that contains the rvt file. This is followed by the HTTP verb that downloads the file. If you uploaded a zip file in task 6, use the `pathInZip` attribute to specify the relative path to the Revit file. If you uploaded a Revit file instead of a zip file, do not specify the `pathInZip` attribute.
+    - `rvtFile` - Specifies how to obtain the input rvt file file for the Activity. It contains the signed download URL to the rvt file or a zip file that contains the rvt file. This is followed by the HTTP verb that downloads the file.
+
+
+       **Note:**
+       If you uploaded a zip file (instead of a rvt file) in task 6, you must specify an attribute named `pathInZip`, which indicates the path to the Revit file within the zip file. 
 
     - `result` - Specifies the signed URL to the location reserved for the output of the activity, followed by the HTTP verb to use.
 
