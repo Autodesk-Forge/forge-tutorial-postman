@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "50f29642-a896-457a-a6a8-b01a58da1868",
-		"name": "Design Automation For Revit Tutorial",
+		"_postman_id": "7423a78d-62c9-4859-a985-c662b99591a3",
+		"name": "Design Automation For Revit Tutorial copy",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -184,7 +184,6 @@
 							"listen": "test",
 							"script": {
 								"id": "4021abd2-aa98-4862-85eb-ee741698d6c4",
-								"type": "text/javascript",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
@@ -197,7 +196,8 @@
 									"pm.environment.set(\"deleteWallsAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
 									"pm.environment.set(\"deleteWallsAppFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -382,7 +382,6 @@
 							"listen": "test",
 							"script": {
 								"id": "8b2b078f-a702-4864-8384-41cce70efee6",
-								"type": "text/javascript",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
@@ -394,7 +393,8 @@
 									"pm.environment.set(\"deleteWallsAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
 									"pm.environment.set(\"deleteWallsAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -633,7 +633,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities",
@@ -688,12 +688,12 @@
 							"listen": "test",
 							"script": {
 								"id": "5abe3c11-e6c8-4b4d-bf62-e0de9fee29a4",
-								"type": "text/javascript",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
 									""
-								]
+								],
+								"type": "text/javascript"
 							}
 						}
 					],
@@ -711,7 +711,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities/DeleteWallsActivity/versions",
@@ -826,7 +826,7 @@
 								"buckets"
 							]
 						},
-						"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input dwg file and the resulting text file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, you may need to change the value of this variable.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
+						"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input dwg file and the resulting text file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name must be unique throughout the OSS service. If a Bucket with the name you specified already exists you will recieve a `409 Conflict` error. If so, retry after specifying another name.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
 					},
 					"response": []
 				},
@@ -876,7 +876,7 @@
 								}
 							]
 						},
-						"description": "This request to the Data Management API uploads a zip file containing the *rvt* file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *DeleteWalls.rvt* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data) of the repository that contained this Postman Collection.\r\n 2. Create a *zip* file from the downloaded *rvt* file.\r\n 2. Specify an Object Key (a name to identify the input file, once it is uploaded to OSS) as the value of the Postman Variable `ossInputFileObjectKey`.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick the zip file you created in step 2.\r\n \r\n&nbsp;"
+						"description": "This request to the Data Management API uploads a zip file containing the *rvt* file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *DeleteWalls.rvt* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Revit/tutorial_data) of the repository that contained this Postman Collection.\r\n 2. Specify an Object Key (a name to identify the input file, once it is uploaded to OSS) as the value of the Postman Variable `ossInputFileObjectKey`.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick the rvt file you downloaded in step 1.\r\n \r\n&nbsp;"
 					},
 					"response": []
 				},
@@ -1046,7 +1046,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\",\r\n      \"pathInZip\": \"DeleteWalls.rvt\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
+							"raw": "{\r\n  \"activityId\": \"{{dasNickName}}.DeleteWallsActivity+test\",\r\n  \"arguments\": {\r\n    \"rvtFile\": {\r\n      \"url\": \"{{ossDownloadURL}}\"\r\n    },\r\n    \"result\": {\r\n      \"verb\": \"put\",\r\n      \"url\": \"{{ossUploadURL}}\"\r\n    }\r\n  }\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/workitems",
@@ -1057,7 +1057,7 @@
 								"workitems"
 							]
 						},
-						"description": "This request to the Design Automation API creates a WorkItem that kicks off the execution of the Activity that you created in Task 5.\n\n&nbsp;\n\nThe relationship between an Activity and a WorkItem can be thought of as a “function definition” and “function call”, respectively. Named parameters of the Activity have corresponding named arguments of the WorkItem. Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.\n\n&nbsp;\n\nInspect the **Body** tab below to see how values for the parameters specified while defining the Activity are supplied as arguments in the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the WorkItem Id to a variable `deleteWallsWorkitemId`."
+						"description": "This request to the Design Automation API creates a WorkItem that kicks off the execution of the Activity that you created in Task 5.\n\n&nbsp;\n\nThe relationship between an Activity and a WorkItem can be thought of as the relationship between a “function definition” and “function call”. Named parameters of the Activity have corresponding named arguments of the WorkItem. Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.\n\n&nbsp;\n\nInspect the **Body** tab below to see how values for the parameters specified while defining the Activity are supplied as arguments in the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the WorkItem Id to a variable `deleteWallsWorkitemId`."
 					},
 					"response": []
 				},
