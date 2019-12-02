@@ -14,29 +14,25 @@ An Activity is an action that can be executed in Design Automation.
  - `id` is the name given to the new Activity. The id is picked up from the Postman Environment Variable `dasActivityName`. 
  - `commandLine` is the command run by this Activity. It consists of several variables. These variables are replaced by actual values at the time the Activity is executed. This mechanism provides the ability to test the command line locally with file paths that are applicable to Design Automation. For more information, see the [Forge portal documentation on command lines](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/field-guide/#command-lines).
 
-    - `$(engine.path)\\accoreconsole.exe` - The full path to the AutoCAD engine. The version of AutoCAD to be used is defined in the request body as `"engine": "Autodesk.AutoCAD+22"`.  
+    - `$(engine.path)\\InventorCoreConsole.exe` - The full path to the Inventor engine. The version of Inventor to be used is defined in the request body as `“engine”: “Autodesk.Inventor+24"` (Inventor 2020).  
 
-    - `$(args[InputDwg].path)` - The full path to the folder that the file identified by the parameter InputDwg (by the WorkItem that invokes this Activity) is downloaded to. 
+    - `$(args[InventorDoc].path)` - The full path to the folder that the file identified by the parameter InventorDoc is downloaded to.. 
 
-    - `$(appbundles[{{dasAppBundleName}}].path)` identifies the path to where the specified AppBundle is unzipped to. The AppBundle is specified in the request body as `"appbundles": [ "{{dasNickName}}.{{dasAppBundleName}}+{{dasAppBundleAlias}}"]`. Note the use of Postman Variables to specify the Nickname, AppBundle Id, and the AppBundle version alias.
+    - `$(appbundles[ChangeParamApp].path)` - The full path to where the AppBundle specified under `appbundles` is unzipped to.
 
-    - `$ (settings[script].path` identifies the path to the file where Design Automation saves the value of the setting named `script`. See [AutoCAD documentation on Command Scripts](https://help.autodesk.com/view/ACD/2020/ENU/?guid=GUID-95BB6824-0700-4019-9672-E6B502659E9E) for information on writing scripts.
+    - `$(args[InventorParams].path)` - The full path to where the JSON file carrying the height and width parameters is saved to.
 
 - `parameters` defines the inputs and outputs that need to be provided when the Activity is executed. Input parameters are identified by the attribute `"verb":"get"`. Output parameters are identified by the attribute `"verb":"put"`. 
 
- - `engine` is the Design Automation engine that the Activity (AutoCAD 2020 in this case) runs on.
+ - `engine` is the Design Automation engine that the Activity (Inventor 2020 in this case) runs on.
 
- - `settings` specifies the command script to be run by the activity. In this case, it calls the custom command TEST. 
+ - `appbundles` is the fully qualified id of the AppBundle referred to in `commandLine`. Although this is specified as an array, Design Automation for Inventor supports only one AppBundle per activity (Design Automation for AutoCAD supports multiple AppBundles).
 
-3. Set the `dasActivityName` Postman Variable to `ListLayerActivity`.
+ - `settings` specifies the command script to be run by the activity. In this case, it is empty as no script is being called. 
 
-    1. Click the **Environment quick look** icon on the upper right corner of Postman.
+3. Note how the name (Id) of the Activity is set to `ChangeParamActivity`.
 
-    2. In the **CURRENT VALUE** column, in the **dasAppBundleName** row, enter ListLayers.
-
-    3. Click the **Environment quick look** icon again.
-
-3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
+4. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
     ![Successful creation of an Activity](../images/task4-activity_create_success.png "Successful creation of an Activity")
 
