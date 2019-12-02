@@ -40,7 +40,7 @@ An Activity is an action that can be executed in Design Automation.
 
 When you created an Activity earlier, you created version 1 of the Activity. You can create new versions of the Activity and make improvements with time.  The `id` of an Activity alone is not sufficient to define which version of an Activity Design Automation must execute. You use an Alias for this purpose.  You can think of an Alias as a tag that points to a particular version of an Activity. The version that an Alias points to can be changed as you develop more versions of a given Activity.
 
-To create an alias named `my_current_version`, which refers to version `1` of the `ListLayersActivity`:
+To create an alias named `my_current_version`, which refers to version `1` of the `ChangeParamActivity`:
 
 1. On the Postman sidebar, click **Task 4 - Create an Activity > POST Create an Alias to the Activity**. The request loads. 
 

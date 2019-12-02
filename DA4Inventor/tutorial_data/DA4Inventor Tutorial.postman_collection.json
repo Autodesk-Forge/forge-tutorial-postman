@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "106f71eb-041b-4137-9f04-ec1621dc7332",
+		"_postman_id": "3ef82b01-17fc-4ea2-a055-2510551cafe4",
 		"name": "DA4Inventor Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -810,7 +810,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Temporary Upload URL for Output BMP file Copy",
+					"name": "Get Temporary Upload URL for Output BMP FIle",
 					"event": [
 						{
 							"listen": "prerequest",

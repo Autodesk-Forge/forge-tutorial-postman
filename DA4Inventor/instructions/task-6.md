@@ -16,7 +16,7 @@ For this exercise, you create a WorkItem to execute the Activity ListLayers. The
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
-    ![ListLayersResultUrl](../images/task6-result_url.png "ListLayersResultUrl")
+    ![Create WorkItem](../images/task6-result_url.png "Create WorkItem")
 
     The main attributes on the JSON payload are:
 
@@ -24,11 +24,16 @@ For this exercise, you create a WorkItem to execute the Activity ListLayers. The
 
     - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 4, when you created the Activity.
 
-    - `InputDwg` - Specifies how to obtain the input dwg file for the Activity. The value specified here is the Postman variable `ossDwgFileSignedUrl`, which contains the signed download URL you created in Task 5. 
+    - `InventorDoc` - Specifies how to obtain the input Inventor part file for the Activity. The value specified here is the Postman variable `ossInputFileSignedUrl`, which contains the signed download URL you created in Task 5. 
     
-    **Note** Had you uploaded a zip file instead of a dwg file, you would have been required specify the `pathInZip` attribute. This attribute specifies the path to the dwg file within the zip file. 
+    **Note** Had you uploaded a zip file instead of a IPT file, you would have been required specify the `pathInZip` attribute. This attribute specifies the path to the IPT file within the zip file. 
 
-    - `result` - Specifies the signed URL to the location reserved for the output of the activity.
+    - `InventorParams` - Specifies the new height and width of the Inventor part file, as a JSON object.
+
+    - `OutputIpt` - Specifies the signed URL to the location on cloud storage reserved for the resized part file. The value specified here is the Postman variable `ossOutputIptFileSignedUrl`, which contains the signed URL you created for the resized part in Task 5. 
+
+    - `OutputBmp` - Specifies the signed URL to the location on cloud storage reserved for the generated image file. The value specified here is the Postman variable `ossOutputBmpFileSignedUrl`, which contains the signed URL you created for the image file in Task 5. 
+
 
 
 ## Check Status of a WorkItem

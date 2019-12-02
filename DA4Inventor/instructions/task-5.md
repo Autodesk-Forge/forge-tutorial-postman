@@ -1,10 +1,16 @@
 # Task 5 - Prepare cloud storage
 
-The Activity ListLayersActivity takes a dwg file as an input, extracts layer names from it, and produces a text file containing the layer names as output. In this task, we prepare the cloud storage to hold these files. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API.
+The Activity ChangeParamActivity resizes an Inventor part or assembly to a height and width you specify (as a JSON object). It also produces an image of the resized part or assembly. In this task, we prepare a cloud storage service to hold the input Inventor files, and the output (resized) Inventor files and image file. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API.
+
+This tutorial provides instructions to assist you resize an Inventor part. We encourage you to try resizing an Inventor Assembly on your own, later.
 
 There are three Postman Environment Variables you must specify for this task. They are
 - `ossBucketKey` - The Bucket Key for the Bucket that holds your files in the cloud.
-- `ossOutputFileObjectKey` - The Object Key of the placeholder for the output file that the add-in produces.
+- 'ossInputFileObjectKey' - The Object Key of the Inventor Part file.
+- `ossOutputIptFileObjectKey` - The Object Key of the placeholder for the resized part the activity produces.
+- `ossOutputIamFileObjectKey` - The Object Key of the placeholder for the resized assembly the activity produces. 
+- `ossOutputBmpFileObjectKey` - The Object Key of the placeholder for the image file the activity produces. 
+
 
 ## Create a Bucket
 
@@ -23,15 +29,15 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Success full Bucket Creation](../images/task5-sucessfull_bucket_creation.png "Success full Bucket Creation")
+    ![Successfull Bucket Creation](../images/task5-sucessfull_bucket_creation.png "Successfull Bucket Creation")
 
 ## Upload input file to OSS
 
-1. Download the input file, *Mechanical - Multileaders.dwg* from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the input file, *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
 2. Click the **Environment quick look** icon on the upper right corner of Postman.
 
-3. In the **CURRENT VALUE** column, in the **ossDwgFileObjectKey** row, specify an Object Key (a name to identify the input file, once it is uploaded to OSS).
+3. In the **CURRENT VALUE** column, in the **ossInputFileObjectKey** row, specify an Object Key (a name to identify the input file, once it is uploaded to OSS).
 
 4. Click the **Environment quick look** icon to hide the variables.
 
@@ -49,28 +55,48 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 ## Get temporary download URL
 
-Design Automation needs to download the input file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file, and saves it to a Postman Environment Variable. The URL expires in an hour.
+Design Automation needs to download the input file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file. The URL expires in an hour.
 
 1. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > POST Get Temporary Download URL**. The request loads.
 
-2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossDownloadURL` Postman Environment Variable.
+2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, a script in the **Tests** tab saves this URL it to a Postman Environment Variable named `ossInputFileSignedUrl`.
 
     ![Signed download URL](../images/task5-signed_downloadurl.png "Signed download URL")
 
-## Get temporary upload URL
 
-Design Automation needs a signed URL to upload text file that the ListLayers Activity creates. This request obtains a temporary signed URL that Design Automation can use to upload the file. Postman saves the URL to a Postman Environment Variable.
+
+## Get temporary upload URL for output IPT file
+
+Design Automation needs a signed URL to upload the resized IPT file the Activity creates. This request obtains a temporary signed URL that Design Automation can use. The URL expires in an hour.
 
 1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
-2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
+2. In the **CURRENT VALUE** column, in the **ossOutputIptFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS) for the resized Inventor part file.
 
 3. Click the **Environment quick look** icon to hide the variables.
 
-4. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > POST Get Temporary Upload URL**. The request loads.
+4. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > POST Get Temporary Upload URL for Output IPT File**. The request loads.
 
-5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossUploadURL` Postman Environment Variable.
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, a script in the **Tests** tab saves the signed URL to the Postman Environment Variable `ossOutputIptFileSignedUrl`.
 
-    ![Signed upload URL](../images/task5-signed_uploadurl.png "Signed upload URL")
+    ![Signed upload URL](../images/task5-signed_uploadurl_01.png "Signed upload URL")
+
+
+
+## Get temporary upload URL for output BMP file
+
+As with the resized IPT file, Design Automation needs a signed URL to upload the image file the Activity creates. This request obtains a temporary signed URL for that purpose. The URL expires in an hour. A script that exists in the **Tests** tab saves the URL to the Postman Environment Variable `ossOutputIptFileSignedUrl`.
+
+1. Click the **Environment quick look** icon on the upper right corner of Postman.
+
+2. In the **CURRENT VALUE** column, in the **ossOutputBmpFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS) for the generated image.
+
+3. Click the **Environment quick look** icon to hide the variables.
+
+4. On the Postman sidebar, click **Task 5 - Prepare Cloud Storage > POST Get Temporary Upload URL for Output BMP File**. The request loads.
+
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, a script in the **Tests** tab saves the signed URL to the Postman Environment Variable `ossOutputBmpFileSignedUrl`.
+
+    ![Signed upload URL](../images/task5-signed_uploadurl_02.png "Signed upload URL")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-4.md "Previous task") [:arrow_forward:](task-6.md "Next task")
