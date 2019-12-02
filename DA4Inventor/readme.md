@@ -18,11 +18,11 @@
 This folder contains a Postman Collection that contains the requests used in the [Design Automation for Inventor Step-by-Step tutorial](https://dev.forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/?sha=7043_6) on the Forge Portal. 
 
 On the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the Forge portal.
-![Forge portal menu to Postman](images/forge_portal_2_acad_postman_menu_01.png "Forge portal task to Postman mapping")
+![Forge portal menu to Postman](images/forge_portal_2_inventor_postman_menu_01.png "Forge portal task to Postman mapping")
 
 Individual requests in Postman have the same names as the corresponding step in the Forge portal.
 
-![Forge portal steps to Postman](images/forge_portal_2_acad_postman_menu_02.png "Forge portal task to Postman mapping")
+![Forge portal steps to Postman](images/forge_portal_2_inventor_postman_menu_02.png "Forge portal task to Postman mapping")
 
 Instructions to run the Postman tutorial are as below:
 

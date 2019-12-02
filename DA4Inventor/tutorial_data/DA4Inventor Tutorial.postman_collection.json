@@ -511,7 +511,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Task 5 - Prepare Cloud Storage Copy",
+			"name": "Task 5 - Prepare Cloud Storage",
 			"item": [
 				{
 					"name": "Create a Bucket",
@@ -1033,7 +1033,7 @@
 			"name": "Task 7 - Download the Results",
 			"item": [
 				{
-					"name": "Download Output IPT file from OSS",
+					"name": "Download Resized IPT file from OSS",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1076,7 +1076,7 @@
 					"response": []
 				},
 				{
-					"name": "Download Output BMP file from OSS",
+					"name": "Download Generated BMP file from OSS",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
