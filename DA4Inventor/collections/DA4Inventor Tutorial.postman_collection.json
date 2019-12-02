@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "106f71eb-041b-4137-9f04-ec1621dc7332",
+		"_postman_id": "3ef82b01-17fc-4ea2-a055-2510551cafe4",
 		"name": "DA4Inventor Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -511,7 +511,7 @@
 			"protocolProfileBehavior": {}
 		},
 		{
-			"name": "Task 5 - Prepare Cloud Storage Copy",
+			"name": "Task 5 - Prepare Cloud Storage",
 			"item": [
 				{
 					"name": "Create a Bucket",
@@ -810,7 +810,7 @@
 					"response": []
 				},
 				{
-					"name": "Get Temporary Upload URL for Output BMP file Copy",
+					"name": "Get Temporary Upload URL for Output BMP FIle",
 					"event": [
 						{
 							"listen": "prerequest",
@@ -1033,7 +1033,7 @@
 			"name": "Task 7 - Download the Results",
 			"item": [
 				{
-					"name": "Download Output IPT file from OSS",
+					"name": "Download Resized IPT file from OSS",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1076,7 +1076,7 @@
 					"response": []
 				},
 				{
-					"name": "Download Output BMP file from OSS",
+					"name": "Download Generated BMP file from OSS",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
