@@ -6,7 +6,7 @@ This tutorial provides instructions to assist you resize an Inventor part. We en
 
 There are three Postman Environment Variables you must specify for this task. They are
 - `ossBucketKey` - The Bucket Key for the Bucket that holds your files in the cloud.
-- 'ossInputFileObjectKey' - The Object Key of the Inventor Part file.
+- `ossInputFileObjectKey` - The Object Key of the Inventor Part file.
 - `ossOutputIptFileObjectKey` - The Object Key of the placeholder for the resized part the activity produces.
 - `ossOutputIamFileObjectKey` - The Object Key of the placeholder for the resized assembly the activity produces. 
 - `ossOutputBmpFileObjectKey` - The Object Key of the placeholder for the image file the activity produces. 
