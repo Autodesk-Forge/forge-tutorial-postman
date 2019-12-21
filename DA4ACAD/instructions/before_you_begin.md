@@ -4,9 +4,9 @@
 
 Postman Environments are named configurations that implement variables to store values you typically use across many HTTP requests. For example, your access token, which has to specified with every request you send to Forge, is stored in an environment variable named `dapAccesssToken`. To import the environment you need for this tutorial:
 
-1. Download the file *DA4ACAD Tutorial.postman_collection.json* from the [*collections* folder of this repository](../collections).
+1. Download the file *DA4ACAD Tutorial.postman_environment.json* from the [*collections* folder of this repository](../collections).
 
-2. Import *DA4ACAD Tutorial.postman_collection.json*
+2. Import *DA4ACAD Tutorial.postman_environment.json*
 
     1. In the Postman header bar, click **Import**. A dialog box displays.
 
@@ -19,9 +19,9 @@ Postman Environments are named configurations that implement variables to store 
 
 Postman Collections are groups of prepopulated HTTP requests. To import the requests you need for this tutorial:
 
-1. Download the file *DA4Revit-Collection.postman_collection.json* from the [*collections* folder of this repository](../collections).
+1. Download the file *DA4ACAD Tutorial.postman_collection.json* from the [*collections* folder of this repository](../collections).
 
-2. Import *DA4ACAD Tutorial.postman_environment.json*
+2. Import *DA4ACAD Tutorial.postman_collection.json*
 
     1. In the Postman header bar, click **Import**. A dialog displays.
 
