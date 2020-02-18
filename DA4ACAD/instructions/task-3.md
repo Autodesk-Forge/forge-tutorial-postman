@@ -1,6 +1,6 @@
 # Task 3 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug-in implements a custom command named **LISTLAYERS**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad_new/task-3-upload-appbundle/) to learn how to create an AppBundle. 
+An AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *ListLayers.zip*  that is stored in the [*tutorial_data* folder of this repository](../tutorial_data). This AppBundle contains an AutoCAD plug-in, *command.dll*. This plug-in implements a custom command named **LISTLAYERS**, which extracts layer names from the current drawing, and writes the names to a text file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/task-3-upload-appbundle/) to learn how to create an AppBundle. 
 
 ## Download the AppBundle
 
@@ -16,7 +16,7 @@ When registering the AppBundle, you provide a name for the AppBundle (the id), a
 
     **Note:** You can use any name you want. However, in order to match the screen captures and the cURL tutorial in the Forge portal, this tutorial uses the name *ListLayers*.
 
-    1. Click the **Environment quick look** icon on the upper right corner of Postman. 
+    1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
     2. In the **CURRENT VALUE** column, in the **dasAppBundleName** row, enter ListLayers.
 
@@ -24,7 +24,7 @@ When registering the AppBundle, you provide a name for the AppBundle (the id), a
 
 3. Click the **Body** tab, and verify that the `id`, is set to the `dasAppBundleName` variable and `engine` is set to `Autodesk.AutoCAD+23` (AutoCAD 2020).
 
-    ![AppBundle Body](../images/task3-appbundle_body.png "AppBundle Body") 
+    ![AppBundle Body](../images/task3-appbundle_body.png "AppBundle Body")
 
 4. Click **Send**. If the request is successful, you see a screen similar to the following image:
 

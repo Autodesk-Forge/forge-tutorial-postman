@@ -6,9 +6,8 @@ Currently, this repository contains tutorials for the following:
 
 - [Design Automation for 3ds Max](DA43dsMax)
 - [Design Automation for AutoCAD](DA4ACAD)
+- [Design Automation for Inventor](DA4Inventor)
 - [Design Automation for Revit](DA4Revit)
-
-
 
 ## What's Postman?
 
