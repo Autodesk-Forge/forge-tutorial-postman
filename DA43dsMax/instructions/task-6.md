@@ -19,7 +19,7 @@ Design Automation queues WorkItems before processing them. Processing itself can
 3. Repeat Step 2, until you see a screen similar to the following, where the status reads `success`.
 
     ![WorkItem Status check result](../images/task6-final_status.png "WorkItem Status check result")
-
+    
 ## Download the output from OSS
 
 1. In the Postman sidebar, click **Task 6 - Download the Result > GET Download Output from OSS**. The request loads.
@@ -31,5 +31,7 @@ Design Automation queues WorkItems before processing them. Processing itself can
 3. In the response area, click **Save Response > Save to a file**. The output file downloads. Save the file as a *.zip* file, when prompted.
 
     ![Download Result](../images/task6-download_step_2.png "Download Result")
+
+Congratulations! You have completed this tutorial.
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task")
