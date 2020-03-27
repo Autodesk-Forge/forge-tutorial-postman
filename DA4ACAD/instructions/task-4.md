@@ -32,7 +32,7 @@ An Activity is an action that can be executed in Design Automation.
 
     1. Click the **Environment quick look** icon on the upper right corner of Postman.
 
-    2. In the **CURRENT VALUE** column, in the **dasAppBundleName** row, enter ListLayers.
+    2. In the **CURRENT VALUE** column, in the **dasActivityName** row, enter ListLayerActivity.
 
     3. Click the **Environment quick look** icon again.
 
