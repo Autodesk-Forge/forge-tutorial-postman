@@ -8,7 +8,7 @@ Postman Environments are named configurations that implement variables to store 
 
 2. Import *DA4ACAD Tutorial.postman_environment.json*
 
-    1. In the Postman header bar, click **Import**. A dialog box displays.
+    1. In the Postman header bar, click **Import**. A dialog displays.
 
     2. Drag the file you downloaded in step 1 to the area marked **Drop files here**.
 
