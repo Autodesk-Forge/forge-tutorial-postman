@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Addin Type="Plugin">
+  <ClassId>{FAE1868B-18EE-4090-A676-535335C4D41A}</ClassId>
+  <ClientId>{FAE1868B-18EE-4090-A676-535335C4D41A}</ClientId>
+  <DisplayName>sample plugin</DisplayName>
+  <Description>a sample plugin</Description>
+  <Assembly>samplePlugin.dll</Assembly>
+</Addin>

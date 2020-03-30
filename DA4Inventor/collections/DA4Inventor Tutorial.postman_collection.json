@@ -1,0 +1,1439 @@
+{
+	"info": {
+		"_postman_id": "3ef82b01-17fc-4ea2-a055-2510551cafe4",
+		"name": "DA4Inventor Tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Task 1 - Obtain an Access Token",
+			"item": [
+				{
+					"name": "Get an Access Token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "3df16796-5a03-47e5-a63f-00989847157c",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{client_id}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{client_secret}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": "code:all data:write data:read bucket:create bucket:delete bucket:read",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/authentication/v1/authenticate",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"authentication",
+								"v1",
+								"authenticate"
+							]
+						},
+						"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Design Automation API V3** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `dasApiToken`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task 2 - Create a Nickname",
+			"item": [
+				{
+					"name": "Create Nickname",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nickname\": \"{{dasNickName}}\"\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						},
+						"description": "This request to the Design Automation API sets a Nickname for your Forge App.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the Nickname as the value of the Postman Variable `dasNickName`. This enables the Nickname to be used in subsequent requests as well.\n\n&nbsp;\n\n**Notes:**\n\n- Once your add data to a Forge App, you are not allowed to set a Nickname for the app. The only way you can assign a Nickname to an app with data is by first calling the `[DELETE] /forgeapps/me` endpoint and deleting all data associated with that app (including any existing nickname). The request **Extras > Delete Forge App Data in Design Automation** in this Postman Collection calls this endpoint (`[DELETE] /forgeapps/me`) and clears the app of all data.\n\n- If you get stuck while working on this tutorial, and are unable to proceed, use this request to clear all data from the app, and restart from Task 1.\n\n- Nicknames must be globally unique.  If the Nickname is already in use, even by someone else, Forge returns a `409 Conflict` error when you try to set the Nickname. If you encounter this error, change the Nickname and try again."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d21fcc33-958c-4f16-8b1e-080ff8eb06b4",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ee54cdcb-924b-49c7-afbb-4f9268dde604",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task 3 - Upload AppBundle",
+			"item": [
+				{
+					"name": "Register the AppBundle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ed1df161-59fb-46de-8d7f-01f8982aaef6",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasAppBundleId\",body[\"id\"]);",
+									"pm.environment.set(\"ChangeParamAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
+									"pm.environment.set(\"ChangeParamAppVersion\", body[\"version\"]);",
+									"pm.environment.set(\"ChangeParamAppFormDataKey\", body[\"uploadParameters\"][\"formData\"][\"key\"]);",
+									"pm.environment.set(\"ChangeParamAppFormDataPolicy\", body[\"uploadParameters\"][\"formData\"][\"policy\"]);",
+									"pm.environment.set(\"ChangeParamAppFormDataSignature\", body[\"uploadParameters\"][\"formData\"][\"x-amz-signature\"]);",
+									"pm.environment.set(\"ChangeParamAppFormDataCredential\", body[\"uploadParameters\"][\"formData\"][\"x-amz-credential\"]);",
+									"pm.environment.set(\"ChangeParamAppFormDataDate\", body[\"uploadParameters\"][\"formData\"][\"x-amz-date\"]);",
+									"pm.environment.set(\"ChangeParamAppFormDataToken\", body[\"uploadParameters\"][\"formData\"][\"x-amz-security-token\"]);",
+									"pm.environment.set(\"ChangeParamAppFormRedirect\", body[\"uploadParameters\"][\"formData\"][\"success_action_redirect\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"ChangeParamApp\",\n  \"engine\": \"Autodesk.Inventor+24\",\n  \"description\": \"Change Parameters AppBundle based on Inventor 2020\"\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/appbundles",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"appbundles"
+							]
+						},
+						"description": "This request to the Design Automation API creates an AppBundle.\n\n&nbsp;\n\nAn AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *samplePlugin.bundle.zip*  that is stored in the [*tutorial_data* folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Inventor/tutorial_data) of the repository that contained this Postman Collection. This AppBundle contains an Inventor plug-in, *samplePlugin.dll*. This plug-in reads width and height parameters from a JSON file and  updates the width and height of an Inventor part or Inventor assembly, and also generates a BMP file of the resized part or assembly file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task-3-upload-appbundle/) to learn how to create an AppBundle.\n\n\n\n&nbsp;\n\nOnce you send the request to Forge, the response provides all the parameters required to upload the AppBundle *samplePlugin.bundle.zip* to Forge. Postman saves the values of all these parameters to several Postman Variables (see **Tests** tab below)."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload the AppBundle",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f15df6e5-8f98-4ea7-8e21-9b68875f57aa",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6029064c-c08c-43db-a281-b30edd1689fa",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "key",
+									"value": "{{ChangeParamAppFormDataKey}}",
+									"type": "text"
+								},
+								{
+									"key": "content-type",
+									"value": "application/octet-stream",
+									"type": "text"
+								},
+								{
+									"key": "policy",
+									"value": "{{ChangeParamAppFormDataPolicy}}",
+									"type": "text"
+								},
+								{
+									"key": "success_action_status",
+									"value": "200",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-signature",
+									"value": "{{ChangeParamAppFormDataSignature}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-credential",
+									"value": "{{ChangeParamAppFormDataCredential}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-algorithm",
+									"value": "AWS4-HMAC-SHA256",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-date",
+									"value": "{{ChangeParamAppFormDataDate}}",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-server-side-encryption",
+									"value": "AES256",
+									"type": "text"
+								},
+								{
+									"key": "x-amz-security-token",
+									"value": "{{ChangeParamAppFormDataToken}}",
+									"type": "text"
+								},
+								{
+									"key": "success_action_redirect",
+									"value": "{{ChangeParamAppFormRedirect}}",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{ChangeParamAppUrl}}",
+							"host": [
+								"{{ChangeParamAppUrl}}"
+							]
+						},
+						"description": "This request to the Design Automation API uploads an AppBundle to Forge.\n\n&nbsp;\n\nBefore you send this request: \n\n  1. Download the file *samplePlugin.bundle.zip* from the [*tutorial_data* folder of the repository that contained this Postman Collection](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Inventor/tutorial_data).\n  2. Go to the **Body** tab below.\n  3. Scroll down so that the **File** row is visible.\n  4. Click **Select** and pick *samplePlugin.bundle.zip*, which you downloaded in step 1."
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Alias for the AppBundle",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6eda542c-14cb-411d-870f-1bf29d74ae99",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasAppBundleAlias\", body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"version\": {{ChangeParamAppVersion}},\r\n  \"id\": \"my_working_version\"\r\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/appbundles/ChangeParamApp/aliases",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"appbundles",
+								"ChangeParamApp",
+								"aliases"
+							]
+						},
+						"description": "This request to the Design Automation API creates an alias for the AppBundle.\n\n&nbsp;\n\nWhen you registered the AppBundle earlier, it was registered as version 1 of the AppBundle (The version was saved to the Postman Variable `ChangeParamAppVersion` when you registered the AppBundle). With this request, you create an alias named *my_working_version* to reference that version. Check the **Body** tab below to inspect the JSON payload."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ef751c9e-9358-451e-9b76-e92b3987852a",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab08df22-638c-4b64-896f-136256883d2d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task 4 - Publish an Activity",
+			"item": [
+				{
+					"name": "Create a New Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b2642d8f-273b-4601-a1c0-150950b79ae4",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasActivityName\",body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"ChangeParamActivity\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\InventorCoreConsole.exe /i $(args[InventorDoc].path) /al $(appbundles[ChangeParamApp].path) $(args[InventorParams].path)\"\n    ],\n    \"parameters\": {\n      \"InventorDoc\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input Inventor part file\",\n        \"localName\": \"Input.ipt\"\n      },\n       \"InventorParams\": {\n       \t\"zip\": false,\n       \t\"ondemand\": false,\n       \t\"verb\": \"get\",\n       \t\"description\" : \"JSON object containing new width and height parameters\",\n        \"localName\": \"params.json\"\n      },\n      \"OutputIpt\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.ipt\",\n        \"verb\": \"post\"\n      },\n      \"OutputIam\": {\n        \"zip\": true,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.zip\",\n        \"verb\": \"post\"\n      },\n      \"OutputBmp\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.bmp\",\n        \"verb\": \"post\"\n      }\n    },\n    \"engine\": \"Autodesk.Inventor+24\",\n    \"appbundles\": [\n        \"{{dasAppBundleId}}+{{dasAppBundleAlias}}\"\n    ],\n    \"settings\": {},\n    \"description\": \"Resizes an Inventor part or assembly to the height and width parameters contained in the JSON object specified by the InventorParams parameter. Also produces a BMP file of the result.\"\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities"
+							]
+						},
+						"description": "This request to the Design Automation API creates an Activity. An Activity is an action that can be executed in Design Automation. This request creates an Activity to run the Inventor plugi-in samplePlugin.\r\n\r\n&nbsp;\r\n\r\nBefore you send the request:\r\n - Note how the name for the Activity is specified as 'ChangeParamActivity' in the JSON payload.\r\n\r\n**Notes:**\r\n - The JSON payload for this request contains several key attributes. See the description of these attributes in the [corresponding task on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task-4-publish-activity/)."
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Alias for the Activity",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1a281df7-fc0b-4b6a-9312-1d69bdbad7a7",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasActivityAlias\", body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}} "
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"my_current_version\",\r\n    \"version\": 1\r\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/ChangeParamActivity/aliases",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities",
+								"ChangeParamActivity",
+								"aliases"
+							]
+						},
+						"description": "This request to the Design Automation API creates an alias for the Activity you created earlier. \r\n\r\n&nbsp;\r\n\r\nThe id of an Activity alone is not sufficient when you instruct Design Automation to execute it. You must use an Alias to specify which version of the Activity to execute. You can think of an Alias as a tag that points to a particular version of an Activity.\r\nThe version an Alias points to can be changed as you develop more versions of a given activity.\r\nThe request **Task 4 - Publish Activity > Create New Activity** created the version 1 of the Activity.\r\nThis request will now create an Alias named \"my_current_version\" to reference version 1."
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task 5 - Prepare Cloud Storage",
+			"item": [
+				{
+					"name": "Create a Bucket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n\t\"access\": \"full\",\n\t\"policyKey\": \"transient\"\n}\n"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets"
+							]
+						},
+						"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input Inventor file and the resulting resized Inventor file and bitmap file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, you may need to change the value of this variable.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Input File to OSS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossInputFileObjectKey\", body[\"objectKey\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossInputFileObjectKey}}"
+							]
+						},
+						"description": "This request to the Data Management API uploads the input drawing file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *box.ipt* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Inventor/tutorial_data) of the repository that contained this Postman Collection.\r\n 2. Specify an Object Key (a name to identify the input file, once it is uploaded to OSS) as the value of the Postman Variable `ossInputFileObjectKey`.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick *box.ipt*, which you downloaded in step 1."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Download URL",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "58eb33f6-d95a-4092-ba00-823348dec87a",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"ossInputFileSignedUrl\", body[\"signedUrl\"]);",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}\n"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossInputFileObjectKey}}/signed",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossInputFileObjectKey}}",
+								"signed"
+							]
+						},
+						"description": "This request to the Data Management API creates a temporary download URL that you can use to download the input Inventor part (or assemlby) file. The URL expires in 60 minutes.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the download URL to the variable named `ossInputFileSignedUrl`."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Upload URL for Output IPT file",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"ossOutputIptFileSignedUrl\", body[\"signedUrl\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputIptFileObjectKey}}/signed?access=readwrite",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputIptFileObjectKey}}",
+								"signed"
+							],
+							"query": [
+								{
+									"key": "access",
+									"value": "readwrite"
+								}
+							]
+						},
+						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the resized Inventor part file resulting from the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the output file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputIptFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossOutputIptFileSignedUrl`."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Upload URL for Output IAM file",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"ossOutputIamFileSignedUrl\", body[\"signedUrl\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputIamFileObjectKey}}/signed?access=readwrite",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputIamFileObjectKey}}",
+								"signed"
+							],
+							"query": [
+								{
+									"key": "access",
+									"value": "readwrite"
+								}
+							]
+						},
+						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the resized Inventor assembly file resulting from the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the resulting IAM file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputIamFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossOutputIamFileSignedUrl`."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Temporary Upload URL for Output BMP FIle",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"",
+									"pm.environment.set(\"ossOutputBmpFileSignedUrl\", body[\"signedUrl\"]);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputBmpFileObjectKey}}/signed?access=readwrite",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputBmpFileObjectKey}}",
+								"signed"
+							],
+							"query": [
+								{
+									"key": "access",
+									"value": "readwrite"
+								}
+							]
+						},
+						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the BMP file generated by the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the resulting BMP file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputBmpFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossOutputBmpFileSignedUrl`."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5d793cb2-5c37-4c04-b61d-699ccb839aa8",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4af8278-2893-47d6-8cf7-7cd32c81f1ea",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task 6 - Submit a WorkItem",
+			"item": [
+				{
+					"name": "Send WorkItem",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7cf9c997-7d7a-4f98-aadb-6880aa58e299",
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "42e630ab-cd3d-4793-b39f-628380376efc",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"activityId\": \"{{dasActivityName}}+{{dasActivityAlias}}\",\n\t\"arguments\": {\n\t\t\"InventorDoc\": {\n\t\t\t\"url\": \"{{ossInputFileSignedUrl}}\"\n\t\t},\n\t\t\"InventorParams\": {\n\t\t\t\"url\": \"data:application/json,{\\\"height\\\":\\\"16 in\\\", \\\"width\\\":\\\"10 in\\\"}\"\n\t\t},\n\t\t\"OutputIpt\": {\n\t\t\t\"url\": \"{{ossOutputIptFileSignedUrl}}\",\n\t\t\t\"verb\": \"put\"\n\t\t},\n\t\t\"OutputBmp\": {\n\t\t\t\"url\": \"{{ossOutputBmpFileSignedUrl}}\",\n\t\t\t\"verb\": \"put\"\n\t\t}\n\t}\n}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"workitems"
+							]
+						},
+						"description": "This request to the Design Automation API creates a WorkItem that kicks off the execution of the Activity that you created in Task 4.\n\n&nbsp;\n\nThe relationship between an Activity and a WorkItem can be thought of as the relationship between a “function definition” and “function call”. Named parameters of the Activity have corresponding named arguments of the WorkItem. Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.\n\n&nbsp;\n\nInspect the **Body** tab below to see how values for the parameters specified while defining the Activity are supplied as arguments in the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the WorkItem Id to a variable `dasWorkItemId`."
+					},
+					"response": []
+				},
+				{
+					"name": "Check Status of the WorkItem",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/workitems/{{dasWorkItemId}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"workitems",
+								"{{dasWorkItemId}}"
+							]
+						},
+						"description": "This request to the Design Automation API queries the status of the WorkItem."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bf647020-170e-4ca2-893a-0467b1e9ef1b",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "235ace93-5860-4382-bb48-2b8ea1548ec7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Task 7 - Download the Results",
+			"item": [
+				{
+					"name": "Download Resized IPT file from OSS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputIptFileObjectKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputIptFileObjectKey}}"
+							]
+						},
+						"description": "This request to the Data Management API downloads the resized Inventor part file. Design Automation uploaded this file to the Object Storage Service (OSS) when executing the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the resized part file downloads. Save the file as a *.ipt* file, when prompted to."
+					},
+					"response": []
+				},
+				{
+					"name": "Download Generated BMP file from OSS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossOutputBmpFileObjectKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossOutputBmpFileObjectKey}}"
+							]
+						},
+						"description": "This request to the Data Management API downloads the BMP file that was generated by the WorkItem file. Design Automation uploaded this file to the Object Storage Service (OSS) when executing the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the file downloads. Save the file as a *.bmp* file, when prompted to."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "14405fb2-7da0-45de-9d07-a6ef76d9e959",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "570a83f7-7be0-49a2-b679-da8b9ffbd0f9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Extras",
+			"item": [
+				{
+					"name": "Delete Forge App Data in Design Automation",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/forgeapps/me",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"forgeapps",
+								"me"
+							]
+						},
+						"description": "This request to the Design Automation API deletes all Design Automation related information owned by your Forge app."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete OSS Bucket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}"
+							]
+						},
+						"description": "This request to the Data Management API will delete the bucket that you created and every file that it contains."
+					},
+					"response": []
+				},
+				{
+					"name": "List engines",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/engines",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"engines"
+							]
+						},
+						"description": "This request to the Design Automation API lists all the engines currently supported by Design Automation."
+					},
+					"response": []
+				},
+				{
+					"name": "List Activities",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities"
+							]
+						},
+						"description": "This request to the Design Automation API lists all the Activities that you can execute. They can be Actvities that you created or shared Actvities created by others."
+					},
+					"response": []
+				},
+				{
+					"name": "List objects in a Bucket",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects"
+							]
+						},
+						"description": "This request to the Data Management API lists all the objects saved in the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+					},
+					"response": []
+				},
+				{
+					"name": "List Buckets",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets"
+							]
+						},
+						"description": "This request to the Data Management API lists all the Buckets you have access to."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Bucket Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{dasApiToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/details",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"details"
+							]
+						},
+						"description": "This request to the Data Management API returns the details of the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "6952503a-0432-4e9d-85ed-77b5d5c1482c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b38d8754-da1d-49eb-9ffb-ff1a0e6ef76d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
