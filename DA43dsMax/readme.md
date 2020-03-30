@@ -13,17 +13,17 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the [Design Automation for 3ds Max Step-by-Step tutorial](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/) on the Forge Portal. 
+This folder contains a Postman Collection that contains the requests used in the [Design Automation for 3ds Max Step-by-Step tutorial](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/) on the Forge portal. 
 
-On the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the Forge portal.
+In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial.
 
 ![Forge portal menu to Postman](images/forge_portal_menu_2_postman_menu_01.png "Forge portal task to Postman mapping")
 
-Individual requests in Postman have the same names as the corresponding step in the Forge portal.
+Individual requests in Postman have the same names as the corresponding step in the tutorial.
 
 ![Forge portal steps to Postman](images/forge_portal_menu_2_postman_menu_02.png "Forge portal task to Postman mapping")
 
-Instructions to run the Postman tutorial are as below:
+Instructions to run the Postman tutorial are as follows:
 
 - [Before you begin](instructions/before_you_begin.md)
 - [Task 1 - Obtain an Access Token](instructions/task-1.md)
