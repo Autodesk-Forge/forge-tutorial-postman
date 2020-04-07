@@ -11,7 +11,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Source File](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/), which is published on theForge Portal. 
+This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Source File](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/), which is published on the Forge Portal. 
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial.
 
