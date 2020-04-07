@@ -3,13 +3,13 @@
 ## Create a Forge App
 
 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) 
-to create a Forge App. In the *Add Services to Forge* stage, select "Design Automation API V3" and "Data Management API".
+to create a Forge App. In the *Add Services to Forge* stage, select "Model Derivative API" and "Data Management API".
 
 2. Jot down the *Client ID* and *Client Secret* of the Forge App you created. You will need this in the next step.
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
-In the DA43dsMax Tutorial environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to Forge. 
+In the Model_Derivative environment that you selected earlier, there are two Postman Environment Variables named `client_id` and `client_secret`. By setting these variables, you don't need to specify their values when you send HTTP requests to Forge. 
 
 To set the environment variables:
 
@@ -45,7 +45,7 @@ To send the authenticate request to Forge:
 
     ![Successful authentication](../images/task1-authenticate_successfull.png "Successful authentication") 
 
-Postman saves the Access Token in the Postman environment variable `dasApiToken`. Postman will pick up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token.
+Postman saves the Access Token in the Postman environment variable `access_token`. Postman will pick up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token.
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task") [:arrow_forward:](task-2.md "Next task")
