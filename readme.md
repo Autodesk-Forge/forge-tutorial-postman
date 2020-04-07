@@ -1,6 +1,6 @@
 # API Documentation Postman Collection Git Repo
 
-This repository contains Postman Collections for the HTTP requests used in some Step-by-Step tutorials published on the [Forge Portal](https://forge.autodesk.com/).  The tutorials on Forge use [cURL](https://curl.haxx.se/) to send HTTP requests to Forge, while the Postman Collections used in this repository use the [Postman](https://www.getpostman.com/) User Interface. They differ only by the tool used to send HTTP requests.
+This repository contains Postman Collections for the HTTP requests used in some Step-by-Step tutorials published on the [Forge Portal](https://forge.autodesk.com/).  The tutorials on Forge use [cURL](https://curl.haxx.se/) to send HTTP requests to Forge, while the Postman Collections in this repository use the [Postman](https://www.getpostman.com/) User Interface. They differ only by the tool used to send HTTP requests.
 
 Currently, this repository contains Postman Collections for the following tutorials:
 
