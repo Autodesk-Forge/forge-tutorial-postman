@@ -15,9 +15,9 @@ Currently, this repository contains Postman Collections for the following tutori
 
 - Model Derivative:
 
-    | Tutorial <br>(with link to folder containing Postman Collection)   | Link to tutorial on Forge Portal                                            |
-    |--------------------------------------------------------------------|-----------------------------------------------------------------------------|
-    | [Design Automation API for 3ds Max](DA43dsMax)                     | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/   |
+    | Tutorial <br>(with link to folder containing Postman Collection)   | Link to tutorial on Forge Portal                                                                     |
+    |--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+    | [Translate a Source File](ModelDerivative_01)                      | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/?sha=8483_40   |
 
 ## What's Postman?
 
