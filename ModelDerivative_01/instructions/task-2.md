@@ -27,7 +27,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
     ![Successful Bucket Creation](../images/task2-sucessfull_bucket_creation.png "Successful Bucket Creation")
 
-## Upload Source File to OSS
+## Upload source file to OSS
 
 1. Download the file *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
 

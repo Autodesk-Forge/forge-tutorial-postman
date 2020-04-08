@@ -25,8 +25,8 @@ Instructions to run the Postman collection are as follows:
 
 - [Before you begin](instructions/before_you_begin.md)
 - [Task 1 - Obtain an Access Token](instructions/task-1.md)
-- [Task 2 - Create a Nickname](instructions/task-2.md)
-- [Task 3 - Publish an Activity](instructions/task-3.md)
+- [Task 2 - Upload Source FIle to OSS](instructions/task-2.md)
+- [Task 3 – Translate Source File](instructions/task-3.md)
 - [Task 4 - Prepare cloud storage](instructions/task-4.md)
 - [Task 5 - Submit a WorkItem](instructions/task-5.md)
 - [Task 6 - Download the results](instructions/task-6.md)
