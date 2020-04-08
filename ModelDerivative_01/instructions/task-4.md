@@ -1,6 +1,6 @@
 # Task 4 - Download the OBJ file
 
-Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file tat was generated in a variable named 'dv_urn_0`
+Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file tat was generated in a variable named `dv_urn_0`
     
 ## Download the OBJ file.
 
