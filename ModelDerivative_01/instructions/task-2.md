@@ -1,38 +1,98 @@
-# Task 2 - Create a Nickname
+# Task 2 - Upload Source FIle to OSS
 
-Forge uses the Client ID to uniquely identify an app. The Client ID can be long and cryptic, and hence a source of irritation when you reference your app.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the model to translate to OSS. While you can use any model for this purpose, we recommend that you use the file *box.ipt*, which is available in the [*tutorial_data*](../tutorial_data) folder.
 
-A *Nickname* lets you map a Client ID to an easy-to-use name that you can use in place of the Client ID. This tutorial uses the `dasNickName` environment variable in Postman to store the Nickname. 
+NOTE   If The Tutorials folder is not specified below, specifiy it here
 
-**Notes:**
+## Create a Bucket
 
-- As long as your Forge App doesn't have any data, you can map the Forge App to a different Nickname. Once you add data to a Forge App, you cannot set a Nickname for it, or change an existing Nickname. 
+In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that holds your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
 
-- The only way you can assign a Nickname to an app with data is by first calling the `[DELETE] /forgeapps/me` endpoint. This deletes all data associated with that app, including the Nickname. At the end of this tutorial, the HTTP request **Clean up HTTP Requests > DEL Delete Forge App Data in Design Automation** calls this endpoint and clears the app of all data.
+1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
-    ![Delete Forge App Data](../images/task2-delete_forge_app.png "Delete Forge App")
+    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
-- If you get stuck while working on this tutorial, you can use **DEL Delete Forge App Data in Design Automation** to clear all data from the app, and restart from Task 1.
+    2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
 
-- Nicknames cannot contain spaces, and must be globally unique.  If the nickname is already in use, even by someone else, Forge returns a `409 Conflict` error when you try to set the Nickname.
+        **Notes:**  
+        - The Bucket name needs to be unique throughout the OSS service. At the time you create a Bucket, you may need to change the value of this variable if a Bucket with the name you specified already exists.
 
-## Save the Nickname to a variable
+        - The Bucket name must consist of only lower-case characters, numbers 0-9, and the underscore (_) character.
 
-1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman. 
+    3. Click the **Environment quick look** icon to hide the variables.
 
-2. In the **CURRENT VALUE** column, in the **dasNickName** row, enter a Nickname for your app.
+4. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
 
-   ![Nickname](../images/task2-environment_variables_grid.png "Nickname")
+5. Click the **Body** tab, and verify that the `bucketkey` attribute has been set to the variable `ossBucketKey`.
 
-3. Click the **Environment quick look** icon again, to hide the variables.
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-## Send a request to set the Nickname
+    ![Successful Bucket Creation](../images/task2-sucessfull_bucket_creation.png "Successful Bucket Creation")
 
-1. On the Postman sidebar, click **Task 2 - Create a Nickname > PATCH Create Nickname**. The request loads.
+## Upload Source File to OSS
 
-2. Click **Send**. If the request is successful, you will get a return Status of **200 OK**, and you should see a response similar to the following image. The response has only a header and no body.
+1. Download the file *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
-    ![Successful nickname](../images/task2-successfull.png "Successful Nickname") 
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Input File TO OSS**. The request loads.
 
+
+
+    ![guid](../images/task4-guid.png "guid")
+
+3. Click the **Body** tab.
+
+4. Click **Select File** and select the zip file you downloaded in Step 1.
+
+    ![Select file button](../images/task4-select_files_button.png "Select file button")
+
+5. Click **Send**. This sends the request, and updates the Postman environment variable `ossZipFileObjectKey`. If your request is successful, you should see a screen similar to the following image:
+
+    ![Successful upload of input file](../images/task4-successful_upload.png "Successful upload of input file")
+
+## Upload MAXScript file to OSS
+
+1. Download the file *Twistit.ms*, containing the 3ds Max scene file, from the [*tutorial_data* folder of this repository](../tutorial_data).
+
+2. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input MAXScript File to OSS**. The request loads.
+
+3. Click the **Body** tab.
+
+4. Click **Select File** and select the MAXScript file you downloaded in Step 1.
+
+5. Click **Send**. This sends the request and updates the Postman environment variable `ossScriptFileObjectKey`. If the request is successful, the response status should be `200 OK`.
+
+## Get temporary download URL for 3ds Max scene file
+
+Design Automation needs to download the 3ds Max scene file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file. Postman then saves the signed URL to the Postman environment variable `ossZipFileSignedUrl`.
+
+1. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Download URL for the Input Zip**. The request loads.
+
+2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, Postman saves the signed URL to the `ossZipFileSignedUrl` Postman environment variable.
+
+    ![Signed download URL](../images/task4-signed_downloadurl.png "Signed download URL")
+
+## Get temporary download URL for MAXScript file
+
+This request obtains a temporary signed URL that Design Automation can use to download the MAXScript file when it executes the Activity. Postman then saves the signed URL to the Postman environment variable `ossScriptFileSignedUrl`.
+
+1. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Download URL for the Input Script**. The request loads.
+
+2. Click **Send**. This sends the request and saves the signed URL to the `ossScriptFileSignedUrl` Postman environment variable. If the request is successful, the response status should be `200 OK`.
+
+## Get temporary upload URL
+
+Design Automation needs a signed URL to upload the generated output. This request obtains a temporary signed URL that Design Automation can use to upload the file, and the Postman saves it to a Postman environment variable `ossUploadURL`.
+
+1. Click the **Environment quick look** icon on the upper right corner of Postman.
+
+2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
+
+3. Click the **Environment quick look** icon to hide the variables.
+
+4. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Upload URL for the Output Zip**. The request loads.
+
+5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossUploadURL` Postman environment variable.
+
+    ![Signed upload URL](../images/task4-signed_uploadurl.png "Signed upload URL")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
