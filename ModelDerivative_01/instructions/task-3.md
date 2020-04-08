@@ -18,8 +18,6 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
     - `urn` - The Base64-encoded URN of the source file.
 
-    - `arguments` - Contains all the parameters needed by the Activity specified by `activityId`. They must match the parameters you specified in Task 3, when you created the Activity.
-
     - `region` - Optional parameter that specifies the region where the translation must be stored.
 
     - `type` - The file type that the source file will be translated to.
@@ -50,7 +48,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
    ![Successfull Job](../images/task3-sucessfull_job.png "Successfull Job")
 
-   When a job is complete, the `progress` attribute becomes `complete`.
+   When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 
    Notice that the translation job has produced two derivatives; an OBJ file and an MTL file. For this tutorial we are only interested in the OBJ file. The MTL file is an auxiliary file containing material definitions, which can be accessed by the OBJ file. If the source file contained textures, you would have seen a third child in the list of derivatives.
 
