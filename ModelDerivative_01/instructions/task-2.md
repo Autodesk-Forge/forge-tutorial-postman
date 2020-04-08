@@ -2,8 +2,6 @@
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the model to translate to OSS. While you can use any model for this purpose, we recommend that you use the file *box.ipt*, which is available in the [*tutorial_data*](../tutorial_data) folder.
 
-NOTE   If The Tutorials folder is not specified below, specifiy it here
-
 ## Create a Bucket
 
 In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that holds your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
@@ -33,66 +31,34 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 1. Download the file *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
-2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Input File TO OSS**. The request loads.
+2. Set the Postman environment variable `ossSourceFileObjectKey` to `box.ipt`, which you will use as the Object Key for the file you downloaded in the previous step. 
 
+   1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
+   2. In the **CURRENT VALUE** column, in the **ossSourceFileObjectKey** row, specify `box.ipt` as the value for that variable. 
 
-    ![guid](../images/task4-guid.png "guid")
+   3. Click the **Environment quick look** icon to hide the variables.
 
-3. Click the **Body** tab.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Upload Source File to OSS**. The request loads.
 
-4. Click **Select File** and select the zip file you downloaded in Step 1.
-
-    ![Select file button](../images/task4-select_files_button.png "Select file button")
-
-5. Click **Send**. This sends the request, and updates the Postman environment variable `ossZipFileObjectKey`. If your request is successful, you should see a screen similar to the following image:
-
-    ![Successful upload of input file](../images/task4-successful_upload.png "Successful upload of input file")
-
-## Upload MAXScript file to OSS
-
-1. Download the file *Twistit.ms*, containing the 3ds Max scene file, from the [*tutorial_data* folder of this repository](../tutorial_data).
-
-2. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > PUT Upload Input MAXScript File to OSS**. The request loads.
+    Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
 3. Click the **Body** tab.
 
-4. Click **Select File** and select the MAXScript file you downloaded in Step 1.
+4. Click **Select File** and select the file *box.ipt*, which you downloaded in step 1.
 
-5. Click **Send**. This sends the request and updates the Postman environment variable `ossScriptFileObjectKey`. If the request is successful, the response status should be `200 OK`.
+    ![Select file button](../images/task2-select_files_button.png "Select file button")
 
-## Get temporary download URL for 3ds Max scene file
+5. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
-Design Automation needs to download the 3ds Max scene file to process it. This request obtains a temporary signed URL that Design Automation can use to download the file. Postman then saves the signed URL to the Postman environment variable `ossZipFileSignedUrl`.
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | t1_ossSourceFileObjectKey  | Object Key of the source file. Should be `box.ipt`.                                         |
+   | t1_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
+   | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
 
-1. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Download URL for the Input Zip**. The request loads.
+   You should see a screen similar to the following image:
 
-2. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, Postman saves the signed URL to the `ossZipFileSignedUrl` Postman environment variable.
-
-    ![Signed download URL](../images/task4-signed_downloadurl.png "Signed download URL")
-
-## Get temporary download URL for MAXScript file
-
-This request obtains a temporary signed URL that Design Automation can use to download the MAXScript file when it executes the Activity. Postman then saves the signed URL to the Postman environment variable `ossScriptFileSignedUrl`.
-
-1. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Download URL for the Input Script**. The request loads.
-
-2. Click **Send**. This sends the request and saves the signed URL to the `ossScriptFileSignedUrl` Postman environment variable. If the request is successful, the response status should be `200 OK`.
-
-## Get temporary upload URL
-
-Design Automation needs a signed URL to upload the generated output. This request obtains a temporary signed URL that Design Automation can use to upload the file, and the Postman saves it to a Postman environment variable `ossUploadURL`.
-
-1. Click the **Environment quick look** icon on the upper right corner of Postman.
-
-2. In the **CURRENT VALUE** column, in the **ossOutputFileObjectKey** row, specify an Object Key (a name to identify the output file, once it is uploaded to OSS).
-
-3. Click the **Environment quick look** icon to hide the variables.
-
-4. In the Postman sidebar, click **Task 4 - Prepare Cloud Storage > POST Get Temporary Upload URL for the Output Zip**. The request loads.
-
-5. Click **Send**. If the request is successful, you should see a screen similar to the following image. Furthermore, the signed URL is saved to the `ossUploadURL` Postman environment variable.
-
-    ![Signed upload URL](../images/task4-signed_uploadurl.png "Signed upload URL")
+    ![Successful upload of input file](../images/task2-successful_upload.png "Successful upload of input file")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
