@@ -29,7 +29,8 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 ## Upload source file to OSS
 
-1. Download the file *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the fi
+le *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
 2. Set the Postman environment variable `ossSourceFileObjectKey` to `box.ipt`, which you will use as the Object Key for the file you downloaded in the previous step. 
 
