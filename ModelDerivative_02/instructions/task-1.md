@@ -37,7 +37,7 @@ To send the authenticate request to Forge:
 
 2. Click the **Body** tab.
 
-3. Move your mouse pointer over the values for **client_id** and **client_secret** in the **VALUES** column, and verify that the values you specified as environment variables are displayed.
+3. Move the cursor over the values for **client_id** and **client_secret** in the **VALUES** column, and verify that the values you specified as environment variables are displayed.
 
    ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret") 
 
