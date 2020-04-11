@@ -1,6 +1,6 @@
 # Task 2 - Upload Source FIle to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the model to translate to OSS. While you can use any model for this purpose, we recommend that you use the file *box.ipt*, which is available in the [*tutorial_data*](../tutorial_data) folder.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. you upload a zip file containing the model to translate to OSS. While you can use any zip file containing a model, for the purpose of learning we recommend that you use the file *Tuner.zip*, which is available in the [*tutorial_data*](../tutorial_data) folder.
 
 ## Create a Bucket
 
@@ -27,16 +27,15 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
     ![Successful Bucket Creation](../images/task2-sucessfull_bucket_creation.png "Successful Bucket Creation")
 
-## Upload source file to OSS
+## Upload zip file to OSS
 
-1. Download the fi
-le *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the file *Tuner.zip* from the [*tutorial_data* folder of this repository](../tutorial_data).
 
-2. Set the Postman environment variable `ossSourceFileObjectKey` to `box.ipt`, which you will use as the Object Key for the file you downloaded in the previous step. 
+2. Set the Postman environment variable `ossSourceFileObjectKey` to `Tuner.zip`, which you will use as the Object Key for the file you downloaded in the previous step. 
 
    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
-   2. In the **CURRENT VALUE** column, in the **ossSourceFileObjectKey** row, specify `box.ipt` as the value for that variable. 
+   2. In the **CURRENT VALUE** column, in the **ossSourceFileObjectKey** row, specify `Tuner.zip` as the value for that variable. 
 
    3. Click the **Environment quick look** icon to hide the variables.
 
@@ -46,17 +45,17 @@ le *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_da
 
 3. Click the **Body** tab.
 
-4. Click **Select File** and select the file *box.ipt*, which you downloaded in step 1.
+4. Click **Select File** and select the file *Tuner.zip*, which you downloaded in step 1.
 
     ![Select file button](../images/task2-select_files_button.png "Select file button")
 
 5. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
-   | Variable Name              | Description                                                                                 |
-   |----------------------------|---------------------------------------------------------------------------------------------|
-   | t1_ossSourceFileObjectKey  | Object Key of the source file. Should be `box.ipt`.                                         |
-   | t1_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
-   | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
+   | Variable Name              | Description                                                                                                                                                                  |
+   |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | t2_ossSourceFileObjectKey  | Object Key of the zip file. Should be `Tuner.zip`.                                                                                                                           |
+   | t2_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. <br> The Inventor Assembly file (*Tuner.iam*) within the zip file, in this case. |
+   | t2_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                                                                                               |
 
    You should see a screen similar to the following image:
 

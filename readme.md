@@ -15,13 +15,14 @@ Currently, this repository contains Postman Collections for the following tutori
 
 - Model Derivative:
 
-    | Tutorial <br>(with link to folder containing Postman Collection)   | Link to tutorial on Forge Portal                                                                     |
-    |--------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-    | [Translate a Source File](ModelDerivative_01)                      | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/?sha=8483_40   |
+    | Tutorial <br>(with link to folder containing Postman Collection)       | Link to tutorial on Forge Portal                                                                       |
+    |------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+    | [Translate a Source File](ModelDerivative_01)                          | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/?sha=8948_4      |
+    | [Translate a Source File Compressed as a Zip File](ModelDerivative_02) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/?sha=8948_4  |
 
 ## What's Postman?
 
-Postman is a popular tool that provides an easy-to-use interface to send HTTP requests. Postman is able to parse the responses that Forge sends you and save response parameter values to variables. These parameters can then be reused in subsequent requests through these variables. The Postman collections in this repository use this ability to provide pre-populated HTTP requests to help you follow the tutorial workflow with minimal effort. You can also modify the requests and experiment without having to write a single line of code. 
+Postman is a popular tool that provides an easy-to-use interface to send HTTP requests. Postman is able to parse the responses that Forge sends you and save response parameter values to variables. These parameters can then be reused in subsequent requests through these variables. The Postman collections in this repository use this ability to provide pre-populated HTTP requests to help you follow the tutorial workflow with minimal effort. You can also modify the requests and experiment without having to write a single line of code.
 
 - You can learn how to install and use Postman from [here](https://learning.getpostman.com/docs/postman/launching_postman/installation_and_updates).
 
@@ -29,4 +30,4 @@ Postman is a popular tool that provides an easy-to-use interface to send HTTP re
 
 ## What next?
 
-Click a link in the list of tutorials to navigate to the corresponding folder in this repository. The *readme.md* file in the folder provides instructions that tell you how to run the Postman Collection. 
+Click a link in the list of tutorials to navigate to the corresponding folder in this repository. The *readme.md* file in the folder provides instructions that tell you how to run the Postman Collection.

@@ -1,4 +1,4 @@
-# Translate a Source File Step-by-Step Tutorial
+# Translate a Source File Compressed as a Zip File
 
 ![Platforms](https://img.shields.io/badge/Web-Windows|MacOS-lightgray.svg)
 [![oAuth2](https://img.shields.io/badge/Authentication-v1-green.svg)](http://developer.autodesk.com/)
