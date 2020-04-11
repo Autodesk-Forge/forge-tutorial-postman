@@ -1,7 +1,7 @@
 # Task 4 - Download the OBJ file
 
-Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file tat was generated in a variable named `dv_urn_0`
-    
+Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file that was generated in a variable named `dv_urn_0`
+
 ## Download the OBJ file.
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Download OBJ File**. The request loads.
@@ -14,7 +14,7 @@ Before you download the OBJ file you must make sure that the translation job is 
 
     ![Download Result](../images/task4-download_result_1.png "Download Result")
 
-3. In the response area, click **Save Response > Save to a file**. The output file downloads. Save the file as a *box.obj* file, when prompted.
+3. In the response area, click **Save Response > Save to a file**. Save the file as *box.obj*, when prompted.
 
     ![Download Result](../images/task4-download_result_2.png "Download Result")
 
