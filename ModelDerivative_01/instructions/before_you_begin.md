@@ -1,6 +1,6 @@
 # Before you begin...
 
-## Import the Postman Collection and Postman Environment.
+## Import the Postman Collection and Postman environment.
 
 Postman Collections are groups of prepopulated HTTP requests. They can also contain scripts that are executed when you send an HTTP request, and/or when you recieve a response.
 
