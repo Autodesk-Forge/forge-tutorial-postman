@@ -157,7 +157,7 @@
 							"response": []
 						},
 						{
-							"name": "Upload Input File to OSS",
+							"name": "Upload Zip File to OSS",
 							"event": [
 								{
 									"listen": "test",
@@ -206,7 +206,7 @@
 										"{{ossSourceFileObjectKey}}"
 									]
 								},
-								"description": "This request to the Data Management API uploads the input drawing file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *Mechanical - Multileaders.dwg* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4ACAD/tutorial_data) of the repository that contained this Postman Collection.\r\n 2. Specify an Object Key (a name to identify the input file, once it is uploaded to OSS) as the value of the Postman Variable `ossDwgFileObjectKey`.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick *Mechanical - Multileaders.dwg*, which you downloaded in step 1."
+								"description": "This request to the Data Management API uploads the zip file containing the model to translate to the Bucket you just created.\r\n\r\n"
 							},
 							"response": []
 						}
@@ -240,7 +240,7 @@
 					"name": "Task 3 - Translate to STL",
 					"item": [
 						{
-							"name": "Start a translation Job",
+							"name": "Start a Translation Job",
 							"event": [
 								{
 									"listen": "test",
