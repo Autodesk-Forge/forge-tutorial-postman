@@ -2,7 +2,7 @@
 
 Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file that was generated in a variable named `dv_urn_0`
 
-## Download the OBJ file.
+## Download the STL file.
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Download OBJ File**. The request loads.
 
@@ -21,6 +21,7 @@ Before you download the OBJ file you must make sure that the translation job is 
 Congratulations! You have completed this tutorial.
 
 To display the saved file:
+
 - If you are using an Apple Macintosh, right-click *box.obj* in Finder and select **Quick View** from the menu.
 
 - If you are using Windows, right-click *box.obj* in Windows Explorer and select **Open with > 3D Viewer** from the menu.
