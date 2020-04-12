@@ -92,7 +92,7 @@ The [*tutorial_data*](../tutorial_data) folder contains another folder named [*C
 
     2. **Task 2 - Upload Source File to OSS > PUT Third Part to OSS**.
 
-    If you followed the instructions properly, you should see a screen similar to the following, when you click the **Environment quick look** icon. 
+    You should see a screen similar to the following, when you click the **Environment quick look** icon. 
 
     ![Variables with Object Keys for Part Files](../images/task3-part_file_object_keys.png "Variables with Object Keys for Part Files")
 
