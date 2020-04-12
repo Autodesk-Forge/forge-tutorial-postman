@@ -185,7 +185,7 @@
 								"body": {
 									"mode": "file",
 									"file": {
-										"src": "/Users/pereraj/Postman/scissors.zip"
+										"src": ""
 									}
 								},
 								"url": {
@@ -383,7 +383,7 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Task 4 - Download STL Files",
+					"name": "Task 4 - Download STL File",
 					"item": [
 						{
 							"name": "Download STL FIle",
