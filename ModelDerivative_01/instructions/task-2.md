@@ -40,7 +40,7 @@ le *box.ipt* from the [*tutorial_data* folder of this repository](../tutorial_da
 
    3. Click the **Environment quick look** icon to hide the variables.
 
-2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Upload Source File to OSS**. The request loads.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Source File to OSS**. The request loads.
 
     Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 

@@ -1,24 +1,27 @@
 # API Documentation Postman Collection Git Repo
 
-This repository contains Postman Collections for the HTTP requests used in some Step-by-Step tutorials published on the [Forge Portal](https://forge.autodesk.com/).  The tutorials on Forge use [cURL](https://curl.haxx.se/) to send HTTP requests to Forge, while the Postman Collections in this repository use the [Postman](https://www.getpostman.com/) User Interface. They differ only by the tool used to send HTTP requests.
+This repository contains Postman Collections for the HTTP requests used in some Step-by-Step tutorials published on the [Forge Portal](https://forge.autodesk.com/).  The tutorials on the Forge Portal use [cURL](https://curl.haxx.se/) to send HTTP requests to Forge, while the Postman Collections in this repository use the [Postman](https://www.getpostman.com/) User Interface. They differ only by the tool used to send HTTP requests.
 
 Currently, this repository contains Postman Collections for the following tutorials:
 
 - Design Automation:
 
-    | Tutorial <br>(with link to folder containing Postman Collection)   | Link to tutorial on Forge Portal                                            |
-    |--------------------------------------------------------------------|-----------------------------------------------------------------------------|
-    | [Design Automation API for 3ds Max](DA43dsMax)                     | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/   |
-    | [Design Automation API for AutoCAD](DA4ACAD)                       | http://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/   |
-    | [Design Automation API for Inventor](DA4Inventor)                  | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/ |
-    | [Design Automation API for Revit](DA4Revit)                        | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/    |
+   | Tutorial                             | Postman Collection                   | Tutorial on Forge Portal                                                    |
+   |--------------------------------------|--------------------------------------|-----------------------------------------------------------------------------|
+   | Design Automation API for 3ds Max    | [DA43dsMax](DA43dsMax)               | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/   |
+   | Design Automation API for AutoCAD    | [DA4ACAD](DA4ACAD)                   | http://forge.autodesk.com/en/docs/design-automation/v3/tutorials/autocad/   |
+   | Design Automation API for Inventor   | [DA4Inventor](DA4Inventor)           | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/ |
+   | Design Automation API for Revit      | [DA4Revit](DA4Revit)                 | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/    |
+
 
 - Model Derivative:
 
-    | Tutorial <br>(with link to folder containing Postman Collection)       | Link to tutorial on Forge Portal                                                                       |
-    |------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-    | [Translate a Source File](ModelDerivative_01)                          | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/?sha=8948_4      |
-    | [Translate a Source File Compressed as a Zip File](ModelDerivative_02) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/?sha=8948_4  |
+   | Tutorial                                         | Postman Collection                       | Tutorial on Forge Portal                                                                                               |
+   |--------------------------------------------------|------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+   | Translate a Source File                          | [ModelDerivative_01](ModelDerivative_01) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/?sha=8948_8                      |
+   | Translate a Source File Compressed as a Zip File | [ModelDerivative_02](ModelDerivative_02) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/?sha=8948_8                  |
+   | Translate a Source File that Contains References | [ModelDerivative_03](ModelDerivative_03) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/?sha=8948_8 |
+
 
 ## What's Postman?
 
