@@ -21,6 +21,7 @@ Before you download the STL file you must make sure that the translation job is 
 Congratulations! You have completed this tutorial.
 
 To display the saved file:
+
 - If you are using an Apple Macintosh, right-click *tuner.stl* in Finder and select **Quick View** from the menu.
 
 - If you are using Windows, right-click *tuner.stl* in Windows Explorer and select **Open with > 3D Viewer** from the menu.
