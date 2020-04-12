@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "9d779d05-aeba-4df3-b5a7-17a031d5de20",
+		"_postman_id": "4c7ee26a-6a8b-40c3-9aef-5fcc0fe2b5d5",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Tutorial 1 - Translate a Source FIle",
+			"name": "Tutorial 2 - Translate Source File Compressed as a Zip FIle",
 			"item": [
 				{
 					"name": "Task 1 - Obtain an Access Token",
@@ -74,7 +74,7 @@
 										"authenticate"
 									]
 								},
-								"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Model Derivative API** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `access_token`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
+								"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Design Automation API V3** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `dasApiToken`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
 							},
 							"response": []
 						}
@@ -113,7 +113,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
+										"id": "4ff2c081-efef-466d-8cdc-2e6b7bf4ad4b",
 										"exec": [
 											""
 										],
@@ -135,7 +135,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n\t\"policyKey\": \"transient\"\n}\n"
+									"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n\t\"access\": \"full\",\n\t\"policyKey\": \"transient\"\n}\n"
 								},
 								"url": {
 									"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
@@ -157,7 +157,7 @@
 							"response": []
 						},
 						{
-							"name": "Upload Source File to OSS",
+							"name": "Upload Zip File to OSS",
 							"event": [
 								{
 									"listen": "test",
@@ -165,10 +165,10 @@
 										"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"t1_ossSourceFileObjectKey\", body[\"objectKey\"]);",
-											"pm.environment.set(\"t1_ossSourceFileURN\", body[\"objectId\"]);",
+											"pm.environment.set(\"t2_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+											"pm.environment.set(\"t2_ossSourceFileURN\", body[\"objectId\"]);",
 											"var encoded_urn=btoa(body[\"objectId\"]);",
-											"pm.environment.set(\"t1_ossEncodedSourceFileURN\", encoded_urn);"
+											"pm.environment.set(\"t2_ossEncodedSourceFileURN\", encoded_urn);"
 										],
 										"type": "text/javascript"
 									}
@@ -206,27 +206,49 @@
 										"{{ossSourceFileObjectKey}}"
 									]
 								},
-								"description": "This request to the Data Management API uploads the source file to the Bucket you just created."
+								"description": "This request to the Data Management API uploads the zip file containing the model to translate to the Bucket you just created.\r\n\r\n"
 							},
 							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "20bc88d2-c43e-4b74-945f-b0fe3273d0a3",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de381610-e3aa-4e5e-abf3-f317c18c5a61",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Task 3 - Translate Source File",
+					"name": "Task 3 - Translate to STL",
 					"item": [
 						{
-							"name": "Create a Translation Job",
+							"name": "Start a Translation Job",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "49e8b7f4-29ec-45ee-abe9-1b46749f16ff",
+										"id": "bcc7e5f3-5952-4482-8e8a-2290fbf2c519",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"t1_url_safe_urn_of_source\", body[\"urn\"]);"
+											"pm.environment.set(\"t2_url_safe_urn_of_source\", body[\"urn\"]);"
 										],
 										"type": "text/javascript"
 									}
@@ -245,11 +267,16 @@
 										"key": "Authorization",
 										"value": "Bearer {{access_token}}",
 										"type": "text"
+									},
+									{
+										"key": "x-ads-force",
+										"value": "true",
+										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t1_ossEncodedSourceFileURN}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"obj\"\n            }\n        ]\n    }\n}",
+									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t2_ossEncodedSourceFileURN}}\",\n        \"rootFilename\": \"Tuner.iam\",\n        \"compressedUrn\": true\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"stl\",\n                \"advanced\": {\n                \t\"format\" : \"binary\",\n                \t\"exportColor\":true,\n                \t\"exportFileStructure\" : \"single\"\n                }\n            }\n        ]\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -271,8 +298,7 @@
 										"designdata",
 										"job"
 									]
-								},
-								"description": "This kicks off a translation job  the source file referred to in the variable `t1_ossEncodedSourceFileURN` to the OBJ format."
+								}
 							},
 							"response": []
 						},
@@ -287,20 +313,15 @@
 											"var body = JSON.parse(responseBody);",
 											"d_data=body[\"derivatives\"];",
 											"",
+											"let envariable='dv_urn_';",
+											"let dv_children=d_data[0][\"children\"];",
 											"",
-											"let progress=body[\"progress\"];",
-											"",
-											"if (progress===\"complete\") {",
-											"    let envariable='dv_urn_';",
-											"    let dv_children=d_data[0][\"children\"];",
-											"    ",
-											"        for (var i = 0; i < dv_children.length; i++)",
-											"        {",
-											"            let dv_urn=dv_children[i][\"urn\"];",
-											"            ",
-											"            envariable='dv_urn_'+i;",
-											"            postman.setEnvironmentVariable(envariable, dv_urn);",
-											"        }",
+											"    for (var i = 0; i < dv_children.length; i++)",
+											"    {",
+											"        let dv_urn=dv_children[i][\"urn\"];",
+											"        ",
+											"        envariable='dv_urn_'+i;",
+											"        postman.setEnvironmentVariable(envariable, dv_urn);",
 											"    }"
 										],
 										"type": "text/javascript"
@@ -316,7 +337,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest",
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t2_url_safe_urn_of_source}}/manifest",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -328,11 +349,10 @@
 										"modelderivative",
 										"v2",
 										"designdata",
-										"{{t1_url_safe_urn_of_source}}",
+										"{{t2_url_safe_urn_of_source}}",
 										"manifest"
 									]
-								},
-								"description": "This requests checks the current status of the translation job. This request returns a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each file listed in the manifest."
+								}
 							},
 							"response": []
 						}
@@ -341,7 +361,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8ce910c3-4744-43f4-a660-98e5b9dab98d",
+								"id": "38eff55a-372b-4a23-91e6-c09d0348b3e5",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -351,7 +371,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "462bc58c-2f71-4c9e-8936-f95998fe5acc",
+								"id": "dae07eac-c4b5-4e7c-8654-10bb8383dafb",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -363,21 +383,20 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Task 4 - Download OBJ File",
+					"name": "Task 4 - Download STL File",
 					"item": [
 						{
-							"name": "Download OBJ file",
+							"name": "Download STL FIle",
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
+										"value": "Bearer {{access_token}}"
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t2_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -389,14 +408,35 @@
 										"modelderivative",
 										"v2",
 										"designdata",
-										"{{t1_url_safe_urn_of_source}}",
+										"{{t2_url_safe_urn_of_source}}",
 										"manifest",
 										"{{dv_urn_0}}"
 									]
-								},
-								"description": "Once you send this request, use the **Save Response** drop-down in the response area to save the downloaded OBJ file as *box.obj*.\n\nTo display the saved file:\n- If you are using an Apple Macintosh, right-click *box.obj* in Finder and select **Quick View** from the menu.\n\n- If you are using Windows, right-click *box.obj* in Windows Explorer and select **Open with > 3D Viewer** from the menu."
+								}
 							},
 							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "7afe3df8-1d85-4d2a-a797-3442d7d5e6f9",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "d19dfeea-498c-440f-a0b1-99c40372f0b9",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					],
 					"protocolProfileBehavior": {},
@@ -407,7 +447,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "fa1483d6-83a2-4a15-abf2-b9132daa64a3",
+						"id": "6802be4e-28db-41d3-b463-68c31e17f005",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -417,7 +457,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ea5c8f91-be98-49b8-bcf7-05d06fb8cf12",
+						"id": "18d21b73-19bf-477c-b2e7-b353c913d2e9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -517,7 +557,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_ossEncodedSourceFileURN}}/manifest",
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t2_ossEncodedSourceFileURN}}/manifest",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -529,7 +569,7 @@
 								"modelderivative",
 								"v2",
 								"designdata",
-								"{{t1_ossEncodedSourceFileURN}}",
+								"{{t2_ossEncodedSourceFileURN}}",
 								"manifest"
 							]
 						}
