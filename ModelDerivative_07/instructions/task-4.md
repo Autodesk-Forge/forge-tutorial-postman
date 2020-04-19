@@ -4,7 +4,7 @@ There are two ways by which you can display the model in the Viewer.
 
 ## Option 1: Embed the source file URN in an HTML page you create
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following topics:
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following topics in the Viewer documentation on the Forge portal:
 
     a. [Add Viewer to an HTML Page](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
 
@@ -12,7 +12,7 @@ There are two ways by which you can display the model in the Viewer.
 
 2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
 
-Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as show in the following image.
+Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
 
 ![URN in Viewer](../images/tutorial_4_urn_in_viewer.png "URN in Viewer")
 
@@ -38,7 +38,7 @@ Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you emb
 
   ![Select Model Browser](../images/tutorial_7_select_model_browser.png "Select Model Browser")
 
-  Note how the spaces are now listed in the Model Browser. Note that spaces are hidden by default. Click the "eye icon" next to **Spaces** to display it.
+  Note that spaces are now listed in the Model Browser. Spaces are hidden by default, just like they are in Revit. Click the "eye icon" next to **Spaces** to display it.
 
   ![Spaces](../images/tutorial_7_spaces.png "Spaces")
 
