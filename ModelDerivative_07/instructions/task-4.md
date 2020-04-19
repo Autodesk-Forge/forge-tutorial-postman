@@ -18,7 +18,7 @@ Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you emb
 
 ## Option 2: Provide source file URN as an input to an existing HTML page
 
-1. Open the webpage at https://jayanathp.github.io/forge-tutorial-postman/display_svf.html, which is published as a Github page of this repository. You can see the source of this web page in the [*docs* folder](../../docs) of this repository. (To be changed to AutodeskForge github page later)
+1. Open the webpage at https://jayanathp.github.io/forge-tutorial-postman/display_svf.html, which is published as a Github page of this repository. Click [this link](../../docs/display_svf.html) to see the source of this web page. (To be changed to AutodeskForge github page later)
 
     This HTML page was created using the instructions provided under Option 1, and a section added to list and display viewables.
 
