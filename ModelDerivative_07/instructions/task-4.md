@@ -24,9 +24,9 @@ Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you emb
 
     ![Show in Web page](../images/tutorial_4_urn_in_html_page.png "Show in Web page")
 
-2. In the **Access Token** box, specify the access token you obtained in Task 1 of this tutorial.
+2. In the **Access Token** box, specify the access token you obtained in task 1 of this tutorial.
 
-3. In the **Source File URN (encoded)** box, specify the URL safe Base64-encoded URN of the source file, which you obtained in the previous task.
+3. In the **Source File URN (encoded)** box, specify the URL safe Base64-encoded URN of the source file, which you obtained in task 3.
 
 4. Click **Submit**.
 
