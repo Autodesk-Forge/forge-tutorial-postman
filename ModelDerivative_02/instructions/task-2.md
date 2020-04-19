@@ -29,7 +29,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 ## Upload zip file to OSS
 
-1. Download the file *Tuner.zip* from the [*tutorial_data* folder of this repository](../tutorial_data).
+1. Download the file *Tuner.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
 2. Set the Postman environment variable `ossSourceFileObjectKey` to `Tuner.zip`, which you will use as the Object Key for the file you downloaded in the previous step. 
 
