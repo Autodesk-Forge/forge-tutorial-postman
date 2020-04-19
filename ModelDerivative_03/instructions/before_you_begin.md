@@ -16,7 +16,7 @@ To import the Postman Collection and environment you need for this tutorial:
 
 2. In the Postman header bar, click **Import**. A dialog displays.
 
-3. Drag the file you downloaded in step 1 to the area marked **Drop files here**. Alternatively, you can click **Choose Files** and find the files you downloaded in step 1.
+3. Drag the file you downloaded in step 1 to the area marked **Drop files here**. Alternatively, you can click **Choose Files** and pick the files you downloaded in step 1.
 
 3. Click the environment drop-down on the upper-right, and select **Model_Derivative**. The environment containing the variables for the tutorial loads.
 
