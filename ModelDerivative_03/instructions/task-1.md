@@ -41,7 +41,7 @@ To send the authenticate request to Forge:
 
    ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret") 
 
-4. Click **Send**. This sends the HTTP request to Forge. If your request authenticates successfully, you should see a return Status of **200 OK**, and the response will be similar to the following:
+4. Click **Send**. This sends the HTTP request to Forge. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
 
     ![Successful authentication](../images/task1-authenticate_successfull.png "Successful authentication") 
 
