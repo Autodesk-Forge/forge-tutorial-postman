@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "912bfb11-3c96-4bdf-9989-68950795bef6",
+		"_postman_id": "a6bbb4b2-ae99-4c9b-a7a0-96f2718bd702",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -240,7 +240,7 @@
 					"name": "Task 3 - Translate to SVF",
 					"item": [
 						{
-							"name": "Create a translation Job",
+							"name": "Start a Translation Job",
 							"event": [
 								{
 									"listen": "test",
@@ -310,25 +310,7 @@
 									"script": {
 										"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
 										"exec": [
-											"var body = JSON.parse(responseBody);",
-											"d_data=body[\"derivatives\"];",
-											"",
-											"let progress=body[\"progress\"];",
-											"",
-											"if (progress===\"complete\") {",
-											"",
-											"let envariable='dv_urn_';",
-											"let dv_children=d_data[0][\"children\"];",
-											"",
-											"    for (var i = 0; i < dv_children.length; i++)",
-											"    {",
-											"        let dv_urn=dv_children[i][\"urn\"];",
-											"        ",
-											"        envariable='dv_urn_'+i;",
-											"        postman.setEnvironmentVariable(envariable, dv_urn);",
-											"    }",
-											"    ",
-											"}"
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -503,7 +485,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest",
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t4_url_safe_urn_of_source}}/manifest",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -515,7 +497,7 @@
 								"modelderivative",
 								"v2",
 								"designdata",
-								"{{t1_url_safe_urn_of_source}}",
+								"{{t4_url_safe_urn_of_source}}",
 								"manifest"
 							]
 						}

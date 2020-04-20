@@ -4,7 +4,7 @@ There are two ways by which you can display the model in the Viewer.
 
 ## Option 1: Embed the source file URN in an HTML page you create
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following topics in the documentation on the Forge portal:
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following Viewer documentation topics on the Forge portal:
 
     a. [Add Viewer to an HTML Page](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
 
@@ -18,7 +18,9 @@ Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you emb
 
 ## Option 2: Provide source file URN as an input to an existing HTML page
 
-1. Open the webpage at https://jayanathp.github.io/forge-tutorial-postman/display_svf.html, which is published as a Github page of this repository. Click [this link](../../docs/display_svf.html) to see the source of this web page. (To be changed to AutodeskForge github page later)
+We have created a web page based on the instructions provided in Option 1. You can use this web page to verify the SVF file you just created. Click [this link](../../docs/display_svf.html) to see the source of this web page. 
+
+1. Open the webpage at https://jayanathp.github.io/forge-tutorial-postman/display_svf.html, which is published as a Github page of this repository.  (To be changed to AutodeskForge github page later)
 
     This HTML page was created using the instructions provided under Option 1, and a section added to list and display viewables.
 
@@ -30,17 +32,8 @@ Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you emb
 
 4. Click **Submit**.
 
-5. From the **Choose a viewable** drop-down, select **New Construction**.
+   You should see a screen similar to the following image.
 
-  ![Select Viewable](../images/tutorial_7_select_viewables.png "Select Viewable")
-
-6. Click the **Model Browser** button. The Model Browser displays.
-
-  ![Select Model Browser](../images/tutorial_7_select_model_browser.png "Select Model Browser")
-
-  Note that spaces are now listed in the Model Browser. Spaces are hidden by default, just like they are in Revit. Click the "eye icon" next to **Spaces** to display it.
-
-  ![Spaces](../images/tutorial_7_spaces.png "Spaces")
-
+   ![Default Viewable](../images/task4_default_viewable.png "Default Viewable")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")

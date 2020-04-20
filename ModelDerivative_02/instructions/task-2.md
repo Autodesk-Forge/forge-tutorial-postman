@@ -39,7 +39,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    3. Click the **Environment quick look** icon to hide the variables.
 
-2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Source File to OSS**. The request loads.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Zip File to OSS**. The request loads.
 
     Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 

@@ -1,4 +1,4 @@
-# Translate a Source File Compressed as a Zip File
+# Prepare a File for the Viewer
 
 ![Platforms](https://img.shields.io/badge/Web-Windows|MacOS-lightgray.svg)
 [![oAuth2](https://img.shields.io/badge/Authentication-v1-green.svg)](http://developer.autodesk.com/)
@@ -11,7 +11,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Source File Compressed as a Zip File](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/), which is published on the Forge Portal. 
+This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Prepare a File for the Viewer](https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/?sha=8948_23), which is published on the Forge Portal. 
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial.
 
@@ -26,8 +26,8 @@ Instructions to run the Postman collection are as follows:
 - [Before you begin](instructions/before_you_begin.md)
 - [Task 1 - Obtain an Access Token](instructions/task-1.md)
 - [Task 2 - Upload Source FIle to OSS](instructions/task-2.md)
-- [Task 3 – Translate Source File](instructions/task-3.md)
-- [Task 4 - Download the STL file](instructions/task-4.md)
+- [Task 3 – Translate to SVF](instructions/task-3.md)
+- [Task 4 - Display Model in Viewer](instructions/task-4.md)
 
 
 

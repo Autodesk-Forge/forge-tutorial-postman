@@ -1,6 +1,6 @@
 # Task 2 - Upload Source FIle to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload a zip file containing the model to translate to OSS. While you can use any zip file containing a model, for the purpose of learning we recommend that you use the file *Tuner.zip*, which is available in the [*tutorial_data*](../tutorial_data) folder.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the model you want to display in the Viewer, to OSS. While you can use any model, for the purpose of learning we recommend that you use the file *suspension.zip*, which is available in the [*tutorial_data*](../tutorial_data) folder. The file *suspension.zip* is a zip file that contains an Inventor assembly file (*suspension.iam*) and several Inventor part files.
 
 ## Create a Bucket
 
@@ -29,23 +29,23 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 ## Upload zip file to OSS
 
-1. Download the file *Tuner.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *suspension.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Set the Postman environment variable `ossSourceFileObjectKey` to `Tuner.zip`, which you will use as the Object Key for the file you downloaded in the previous step. 
+2. Set the Postman environment variable `ossSourceFileObjectKey` to `suspension.zip`, which you will use as the Object Key for the file you downloaded in the previous step. 
 
    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
-   2. In the **CURRENT VALUE** column, in the **ossSourceFileObjectKey** row, specify `Tuner.zip` as the value for that variable. 
+   2. In the **CURRENT VALUE** column, in the **ossSourceFileObjectKey** row, specify `suspension.zip` as the value for that variable. 
 
    3. Click the **Environment quick look** icon to hide the variables.
 
-2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Source File to OSS**. The request loads.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Zip File to OSS**. The request loads.
 
     Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
 3. Click the **Body** tab.
 
-4. Click **Select File** and select the file *Tuner.zip*, which you downloaded in step 1.
+4. Click **Select File** and select the file *suspension.zip*, which you downloaded in step 1.
 
     ![Select file button](../images/task2-select_files_button.png "Select file button")
 
@@ -53,9 +53,8 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    | Variable Name              | Description                                                                                                                                                                  |
    |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | t2_ossSourceFileObjectKey  | Object Key of the zip file. Should be `Tuner.zip`.                                                                                                                           |
-   | t2_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. <br> The Inventor Assembly file (*Tuner.iam*) within the zip file, in this case. |
-   | t2_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                                                                                               |
+   | t4_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. <br> The Inventor Assembly file (*Tuner.iam*) within the zip file, in this case. |
+   | t4_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                                                                                               |
 
    You should see a screen similar to the following image:
 
