@@ -53,7 +53,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    | Variable Name              | Description                                                                                                                                                                  |
    |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | t4_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. <br> The Inventor Assembly file (*Tuner.iam*) within the zip file, in this case. |
+   | t4_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. <br> The Inventor Assembly file (*suspension.iam*) within the zip file, in this case. |
    | t4_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                                                                                               |
 
    You should see a screen similar to the following image:

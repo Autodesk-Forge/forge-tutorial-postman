@@ -22,8 +22,6 @@ We have created a web page based on the instructions provided in Option 1. You c
 
 1. Open the webpage at https://jayanathp.github.io/forge-tutorial-postman/display_svf.html, which is published as a Github page of this repository.  (To be changed to AutodeskForge github page later)
 
-    This HTML page was created using the instructions provided under Option 1, and a section added to list and display viewables.
-
     ![Show in Web page](../images/tutorial_4_urn_in_html_page.png "Show in Web page")
 
 2. In the **Access Token** box, specify the access token you obtained in task 1 of this tutorial.

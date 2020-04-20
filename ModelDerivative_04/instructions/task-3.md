@@ -1,6 +1,6 @@
 # Task 3 – Translate Source File
 
-To display a model in the viewer, the model must be translated to the SVF file first. Accordingly preparing a model for the Viewer boils down to translating the model to the SVF format.
+To display a model in the viewer, the model must first be translated to the SVF format. Accordingly, preparing a model for the Viewer boils down to translating the model to the SVF format.
 
 To translate a model, you must kick off a translation job. The translation job produces a manifest, which lists all the files (derivatives) that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
 
