@@ -1,0 +1,610 @@
+{
+	"info": {
+		"_postman_id": "912bfb11-3c96-4bdf-9989-68950795bef6",
+		"name": "Model Derivative",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Tutorial 4 - Prepare a File for the Viewer",
+			"item": [
+				{
+					"name": "Task 1 - Obtain an Access Token",
+					"item": [
+						{
+							"name": "Get an Access Token",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "3df16796-5a03-47e5-a63f-00989847157c",
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "client_id",
+											"value": "{{client_id}}",
+											"type": "text"
+										},
+										{
+											"key": "client_secret",
+											"value": "{{client_secret}}",
+											"type": "text"
+										},
+										{
+											"key": "grant_type",
+											"value": "client_credentials",
+											"type": "text"
+										},
+										{
+											"key": "scope",
+											"value": "code:all data:write data:read bucket:create bucket:delete bucket:read",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/authentication/v1/authenticate",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"authentication",
+										"v1",
+										"authenticate"
+									]
+								},
+								"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Design Automation API V3** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `dasApiToken`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a7ea41ca-578d-47c2-82a6-1b87b0fae80d",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "487811da-12dc-473d-9b13-58dd3dad29ca",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Task 2 - Upload Source File to OSS",
+					"item": [
+						{
+							"name": "Create a Bucket",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4ff2c081-efef-466d-8cdc-2e6b7bf4ad4b",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n\t\"access\": \"full\",\n\t\"policyKey\": \"transient\"\n}\n"
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"oss",
+										"v2",
+										"buckets"
+									]
+								},
+								"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input dwg file and the resulting text file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, you may need to change the value of this variable.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
+							},
+							"response": []
+						},
+						{
+							"name": "Upload Zip File to OSS",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t4_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+											"pm.environment.set(\"t4_ossSourceFileURN\", body[\"objectId\"]);",
+											"var encoded_urn=btoa(body[\"objectId\"]);",
+											"pm.environment.set(\"t4_ossEncodedSourceFileURN\", encoded_urn);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"oss",
+										"v2",
+										"buckets",
+										"{{ossBucketKey}}",
+										"objects",
+										"{{ossSourceFileObjectKey}}"
+									]
+								},
+								"description": "This request to the Data Management API uploads the input drawing file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *Mechanical - Multileaders.dwg* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4ACAD/tutorial_data) of the repository that contained this Postman Collection.\r\n 2. Specify an Object Key (a name to identify the input file, once it is uploaded to OSS) as the value of the Postman Variable `ossDwgFileObjectKey`.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick *Mechanical - Multileaders.dwg*, which you downloaded in step 1."
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "20bc88d2-c43e-4b74-945f-b0fe3273d0a3",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "de381610-e3aa-4e5e-abf3-f317c18c5a61",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Task 3 - Translate to SVF",
+					"item": [
+						{
+							"name": "Create a translation Job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "bcc7e5f3-5952-4482-8e8a-2290fbf2c519",
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t4_url_safe_urn_of_source\", body[\"urn\"]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "x-ads-force",
+										"value": "true",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t4_ossEncodedSourceFileURN}}\",\n        \"rootFilename\": \"Suspension.iam\",\n        \"compressedUrn\": true\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ]\n            }\n        ]\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"job"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Check Status of Job",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"d_data=body[\"derivatives\"];",
+											"",
+											"let progress=body[\"progress\"];",
+											"",
+											"if (progress===\"complete\") {",
+											"",
+											"let envariable='dv_urn_';",
+											"let dv_children=d_data[0][\"children\"];",
+											"",
+											"    for (var i = 0; i < dv_children.length; i++)",
+											"    {",
+											"        let dv_urn=dv_children[i][\"urn\"];",
+											"        ",
+											"        envariable='dv_urn_'+i;",
+											"        postman.setEnvironmentVariable(envariable, dv_urn);",
+											"    }",
+											"    ",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t4_url_safe_urn_of_source}}/manifest",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"{{t4_url_safe_urn_of_source}}",
+										"manifest"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e8d7ba5d-6589-4bb0-b61f-68ebfa63dde7",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "37001011-4114-4c73-a2ce-e8f4612e89a0",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "bc83e87c-5db8-410a-bca5-4c56ba56e238",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "088e8701-a17a-4e0d-973f-63b600181c84",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Extras",
+			"item": [
+				{
+					"name": "Get Bucket Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/details",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"details"
+							]
+						},
+						"description": "This request to the Data Management API returns the details of the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+					},
+					"response": []
+				},
+				{
+					"name": "List Objects in  Bucket",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects"
+							]
+						},
+						"description": "This request to the Data Management API returns the details of the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Manifest",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"modelderivative",
+								"v2",
+								"designdata",
+								"{{t1_url_safe_urn_of_source}}",
+								"manifest"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete OSS Bucket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}"
+							]
+						},
+						"description": "This request to the Data Management API will delete the bucket that you created and every file that it contains."
+					},
+					"response": []
+				},
+				{
+					"name": "Get Supported Formats",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/formats",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"modelderivative",
+								"v2",
+								"designdata",
+								"formats"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
