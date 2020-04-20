@@ -18,10 +18,10 @@ Currently, this repository contains Postman Collections for the following tutori
 
    | Tutorial                                                      | Postman Collection                       | Tutorial on Forge Portal                                                                                                |
    |---------------------------------------------------------------|------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-   | Translate a Source File                                       | [ModelDerivative_01](ModelDerivative_01) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/?sha=8948_18                      |
-   | Translate a Source File Compressed as a Zip File              | [ModelDerivative_02](ModelDerivative_02) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/?sha=8948_18                  |
-   | Translate a Source File that Contains References              | [ModelDerivative_03](ModelDerivative_03) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/?sha=8948_18 |
-   | Translate a Revit File, Generating Room and Space Information | [ModelDerivative_07](ModelDerivative_07) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/?sha=8948_18                  | 
+   | Translate a Source File                                       | [ModelDerivative_01](ModelDerivative_01) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-to-obj/?sha=8948_23                      |
+   | Translate a Source File Compressed as a Zip File              | [ModelDerivative_02](ModelDerivative_02) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/?sha=8948_23                  |
+   | Translate a Source File that Contains References              | [ModelDerivative_03](ModelDerivative_03) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/?sha=8948_23 |
+   | Translate a Revit File, Generating Room and Space Information | [ModelDerivative_07](ModelDerivative_07) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/?sha=8948_23                  | 
 
 
 ## What's Postman?
