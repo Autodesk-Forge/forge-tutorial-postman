@@ -41,7 +41,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
    ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
 
-   Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t3_url_safe_urn_of_source` variable)
+   Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t7_url_safe_urn_of_source` variable)
 
 2. Click **Send**. You will see a screen similar to the following image.
 
