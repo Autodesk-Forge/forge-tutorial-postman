@@ -1,6 +1,6 @@
 # Task 4 - Extract Metadata
 
-In this task you will extract metadata from a Viewable that was generated when the Revit file was translated to the SVF format.  A Viewable is a model view that can be displayed in the Forge Viewer.  Unlike Inventor and Fusion 360, which contain only one Viewable per source file, Revit files can contain multiple Viewables. The Revit file you used for this tutorial contains seven Viewables. The metadata you will extract in this task is a list of properties of the objects in one of the seven Viewables.
+In this task you will extract metadata from a Viewable that was generated when the Revit file was translated to SVF.  A Viewable is a model view that can be displayed in the Forge Viewer.  Unlike Inventor and Fusion 360, which contain only one Viewable per source file, Revit files can contain multiple Viewables. The Revit file you used for this tutorial contains seven Viewables. The metadata you will extract in this task is a list of properties of the objects in one of the seven Viewables.
 
 ## Retrieve a list of Viewables
 
@@ -12,7 +12,7 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
    ![list viewables](../images/task4_list_model_views_success.png "list viewables")
 
-   A script in the **Tests** tab saves the Ids of the viewables to a series of variables `dv_guid_0` to `gv_guid_6`.
+   A script in the **Tests** tab saves the Ids of the Viewables to a series of variables `dv_guid_0` to `gv_guid_6`.
 
    ![list viewables](../images/task4_list_model_view_guids.png "list viewables")
 
@@ -26,11 +26,11 @@ The Viewable you will query in the next request is the Viewable labelled `A001 -
 
    Note the use of the variable `dv_guid_6` as a URI parameter.
 
-2. Click **Send**. Intially you should see a screen like the following image. This screen is displayed while Forge extract the properties of objects.
+2. Click **Send**. If extracting properties takes time, you will see a screen like the following. 
 
    ![list objects success](../images/task4_get_properties_success_01.png "list objects success")
 
-3. Click **Send** again. You should see a screen like the following image. 
+3. Click **Send** again. You should see a screen like the following. 
 
    ![list objects success](../images/task4_get_properties_success_02.png "list objects success")
 
