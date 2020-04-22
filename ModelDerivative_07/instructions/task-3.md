@@ -29,7 +29,7 @@ The translation job produces a manifest, which lists all the files that are gene
 
 ## Check status of translation job
 
-When you kick off a translation job, it takes time to complete. There are two ways you can check if the translation job is done:
+When you kick off a translation job, it takes time to complete. There are two ways to check if the translation job is done:
 
 - Periodically check the status of the translation job.
 
