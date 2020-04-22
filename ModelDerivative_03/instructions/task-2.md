@@ -8,7 +8,7 @@ These files are available in the [*tutorial_data*](../tutorial_data) folder.
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that holds your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
+In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 

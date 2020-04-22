@@ -4,7 +4,7 @@ When Design Automation executes the Activity you created in Task 3, it must acce
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that holds your files in the cloud.
+In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
