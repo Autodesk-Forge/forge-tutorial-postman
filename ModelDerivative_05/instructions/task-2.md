@@ -39,22 +39,22 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    3. Click the **Environment quick look** icon to hide the variables.
 
-2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Revit File to OSS**. The request loads.
+3. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Revit File to OSS**. The request loads.
 
     Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
-3. Click the **Body** tab.
+4. Click the **Body** tab.
 
-4. Click **Select File** and select the file *suspension.zip*, which you downloaded in step 1.
+5. Click **Select File** and select the file *rac_basic_sample_project.rvt*, which you downloaded in step 1.
 
     ![Select file button](../images/task2-select_files_button.png "Select file button")
 
-5. Click **Send**. This sends the request, and updates the following Postman environment variables:
+6. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
-   | Variable Name              | Description                                                                                                                                                                  |
-   |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | t5_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. <br> The Inventor Assembly file (*suspension.iam*) within the zip file, in this case. |
-   | t5_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                                                                                               |
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | t5_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
+   | t5_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
 
    You should see a screen similar to the following image:
 
