@@ -374,7 +374,7 @@
 					"name": "Task 4 - Retrieve Metadata",
 					"item": [
 						{
-							"name": "Retrieve a List of Model View Ids",
+							"name": "Retrieve a List of Viewables",
 							"event": [
 								{
 									"listen": "test",
@@ -427,7 +427,7 @@
 							"response": []
 						},
 						{
-							"name": "Retrieve a List of Properties for the Model View ID",
+							"name": "Retrieve Properties of Objects in a  Viewable",
 							"request": {
 								"method": "GET",
 								"header": [
@@ -438,7 +438,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_9}}/properties",
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}/properties",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -452,7 +452,7 @@
 										"designdata",
 										"{{t5_url_safe_urn_of_source}}",
 										"metadata",
-										"{{dv_guid_9}}",
+										"{{dv_guid_6}}",
 										"properties"
 									]
 								}
