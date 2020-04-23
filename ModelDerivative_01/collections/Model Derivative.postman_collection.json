@@ -394,7 +394,7 @@
 										"{{dv_urn_0}}"
 									]
 								},
-								"description": "Once you send this request, use the **Save Response** drop-down in the response area to save the downloaded OBJ file as *box.obj*.\n\nTo display the saved file:\n- If you are using an Apple Macintosh, right-click *box.obj* in Finder and select **Quick View** from the menu.\n\n- If you are using Windows, right-click *box.obj* in Windows Explorer and select **Open with > 3D Viewer** from the menu."
+								"description": "Once you send this request, use the **Save Response** drop-down in the response area to save the downloaded OBJ file as *box.obj*.\n\nTo display the saved file:\n- If you are using an Apple Macintosh, right-click *box.obj* in Finder and select **Quick Look** from the menu.\n\n- If you are using Windows, right-click *box.obj* in Windows Explorer and select **Open with > 3D Viewer** from the menu."
 							},
 							"response": []
 						}

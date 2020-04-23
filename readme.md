@@ -23,6 +23,7 @@ Currently, this repository contains Postman Collections for the following tutori
    | Translate a Source File that Contains References              | [ModelDerivative_03](ModelDerivative_03) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/?sha=8948_24 |
    | Prepare a File for the Viewer                                 | [ModelDerivative_04](ModelDerivative_04) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/?sha=8948_24                      |
    | Extract Metadata from a Source File                           | [ModelDerivative_05](ModelDerivative_05) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/xtract-metadata/?sha=8948_24                       |
+   | Extract Geometry from a Source File                           | [ModelDerivative_06](ModelDerivative_06) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/xtract-geometry-from-source-file/?sha=8948_24      |   
    | Translate a Revit File, Generating Room and Space Information | [ModelDerivative_07](ModelDerivative_07) | https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/?sha=8948_24                  | 
 
 

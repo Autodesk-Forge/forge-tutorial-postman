@@ -8,7 +8,7 @@ To translate a model, you must kick off a translation job. The translation job p
 
 For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this to the variable `t5_ossEncodedSourceFileURN`, which you will use in the next request.
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Start a Translation Job**. The request loads.
+1. In the Postman sidebar, click **Translate to SVF > Start a Translation Job**. The request loads.
 
 2. Click the **Body** tab and take note of the JSON payload.
 
@@ -30,7 +30,7 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 For the purpose of this tutorial you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
+1. In the Postman sidebar, click **Translate to SVF > Check Status of Job**. The request loads.
 
    ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
 
