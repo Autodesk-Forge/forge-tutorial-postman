@@ -4,7 +4,7 @@ This repository contains Postman Collections for the HTTP requests used in some 
 
 Currently, this repository contains Postman Collections for the following tutorials:
 
-- Design Automation:
+## Design Automation:
 
    | Tutorial                             | Postman Collection                   | Tutorial on Forge Portal                                                    |
    |--------------------------------------|--------------------------------------|-----------------------------------------------------------------------------|
@@ -14,7 +14,7 @@ Currently, this repository contains Postman Collections for the following tutori
    | Design Automation API for Revit      | [DA4Revit](DA4Revit)                 | https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/    |
 
 
-- Model Derivative:
+## Model Derivative:
 
    | Tutorial                                                      | Postman Collection                       | Tutorial on Forge Portal                                                                                                |
    |---------------------------------------------------------------|------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
