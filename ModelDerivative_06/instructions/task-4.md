@@ -1,6 +1,6 @@
 # Task 4 - Extract Metadata
 
-In order to extract geometry, you must identify the Viewable the geometry resides on.  A Viewable is a 3D or 2D view that is referenced in a manifest, and can be displayed in the Forge Viewer.  
+In order to extract geometry, you must identify the Viewable the geometry resides on.  A Viewable is a 3D or 2D view that is referenced in a manifest, which can be displayed in the Forge Viewer.  
 
 ## Retrieve a list of Viewables
 
