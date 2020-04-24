@@ -1,6 +1,6 @@
 # Task 2 - Upload Source FIle to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the model you want to display in the Viewer, to OSS. While you can use any model, for the purpose of learning we recommend that you use the file *suspension.zip*, which is available in the [*tutorial_data*](../tutorial_data) folder. The file *suspension.zip* is a zip file that contains an Inventor assembly file (*suspension.iam*) and several Inventor part files.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the model you want to display in the Viewer, to OSS. While you can use any model, for the purpose of this tutorial we recommend that you use the file *suspension.zip*, which is available in the [*tutorial_data*](../tutorial_data) folder. The file *suspension.zip* is a zip file that contains an Inventor assembly file (*suspension.iam*) and several Inventor part files.
 
 ## Create a Bucket
 

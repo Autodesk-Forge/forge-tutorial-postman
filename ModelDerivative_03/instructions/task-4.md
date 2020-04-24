@@ -22,7 +22,7 @@ Congratulations! You have completed this tutorial.
 
 To display the saved file:
 
-- If you are using an Apple Macintosh, right-click *scissors.stl* in Finder and select **Quick View** from the menu.
+- If you are using an Apple Macintosh, right-click *scissors.stl* in Finder and select **Quick Look** from the menu.
 
 - If you are using Windows, right-click *scissors.stl* in Windows Explorer and select **Open with > 3D Viewer** from the menu.
 

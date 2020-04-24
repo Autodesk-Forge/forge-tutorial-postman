@@ -1,6 +1,6 @@
-# Task 2 - Upload Source FIle to OSS
+# Task 2 - Upload Source File to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the source file to OSS. While you can use any model, for the purpose of learning we recommend that you use the Revit model we provide (*rac_basic_sample_project.rvt*). 
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the source file to OSS. While you can use any model, for the purpose of this tutorial we recommend that you use the Revit model we provide (*rac_basic_sample_project.rvt*). 
 
 ## Create a Bucket
 
