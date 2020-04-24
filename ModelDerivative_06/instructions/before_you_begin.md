@@ -6,8 +6,6 @@ Postman Collections are groups of prepopulated HTTP requests. They can also cont
 
 Postman environments are named configurations that implement environment variables to store values you typically use across many HTTP requests. For example, this Postman Collection stores the Access Token, which is used across most HTTP requests, in a variable named `access_token`.
 
-this Postman Collection stores the Access Token, which is used across most HTTP requests, in a variable named `access_token`.
-
 To import the Postman Collection and environment you need for this tutorial:
 
 1. Download the following files from the [*collections* folder](../collections).
