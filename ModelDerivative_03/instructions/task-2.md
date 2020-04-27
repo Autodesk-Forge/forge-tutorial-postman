@@ -1,4 +1,4 @@
-# Task 2 - Upload Source FIle to OSS
+# Task 2 - Upload Source File to OSS
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload an Inventor Assembly file (*scissors.iam*) and also the three Part files (*.ipt files) it references. The following image shows the folder structure that must be maintained between the Assembly file and Part files. 
 
