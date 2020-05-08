@@ -70,7 +70,7 @@
 								"authenticate"
 							]
 						},
-						"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Design Automation API V3** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `dasApiToken`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
+						"description": "[See Documentation](https://forge.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
 					},
 					"response": []
 				}
@@ -1085,7 +1085,7 @@
 								"{{deleteWallsWorkitemId}}"
 							]
 						},
-						"description": "This request to the Design Automation API queries the status of the WorkItem."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
 					},
 					"response": []
 				}
@@ -1143,7 +1143,7 @@
 						"me"
 					]
 				},
-				"description": "This request to the Design Automation API deletes all Design Automation related information owned by your Forge app."
+				"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
 			},
 			"response": []
 		}
