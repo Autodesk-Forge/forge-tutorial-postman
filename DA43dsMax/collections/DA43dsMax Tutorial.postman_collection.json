@@ -159,7 +159,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2020\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
+							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2021\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -301,8 +301,7 @@
 							}
 						],
 						"body": {
-							"mode": "file",
-							"file": {}
+							"mode": "file"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
@@ -350,8 +349,7 @@
 							}
 						],
 						"body": {
-							"mode": "file",
-							"file": {}
+							"mode": "file"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
