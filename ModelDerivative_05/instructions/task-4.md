@@ -1,6 +1,6 @@
 # Task 4 - Extract Metadata
 
-In this task you will extract metadata from a Viewable that was generated when the Revit file was translated to SVF.  A Viewable is a 3D view or 2D sheet that can be displayed in the Forge Viewer. Unlike Inventor and Fusion 360, which contain only one Viewable per source file, Revit files can contain multiple Viewables. The Revit file you used for this tutorial contains seven Viewables. The metadata you will extract in this task is a list of properties of the objects in one of the seven Viewables.
+In this task you will extract metadata from the manifest that was generated when the Revit file was translated to SVF. Initialy you will retrieve a list of 3D views or 2D sheets (Viewables) that can be displayed in the Forge Viewer. Unlike Inventor and Fusion 360, which contain only one Viewable per source file, Revit files can contain multiple Viewables. The Revit file you used for this tutorial contains seven Viewables. Thereafter you use the metadata GUID of a Viewable to extract a list of properties of the objects in that Viewable.
 
 ## Retrieve a list of Viewables
 

@@ -1,6 +1,7 @@
 # Task 4 - Extract Metadata
 
-In order to extract geometry, you must identify the Viewable the geometry resides on.  A Viewable is a 3D or 2D view that is referenced in a manifest, which can be displayed in the Forge Viewer.  
+In order to extract geometry, you must know the `objectid` of the geometries to extract. To get the 'objectid' you must first get the metadata GUID of the Viewable that the geometry resides on.
+
 
 ## Retrieve a list of Viewables
 
@@ -12,7 +13,7 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
    ![list viewables](../images/task4_list_model_views_success.png "list viewables")
 
-   Note that the model has only one Viewable. (Inventor and Fusion 360 models have only one Viewable. Revit models can have multiple Viewables.) A script in the **Tests** tab saves the Id of the Viewable to a variable named `metadata_guid_0`.
+   Note that the model has only one Viewable. (Inventor and Fusion 360 models have only one Viewable. Revit models can have multiple Viewables.) A script in the **Tests** tab saves the metadata GUID of the Viewable to a variable named `metadata_guid_0`.
 
 ## Retrieve the Object Tree of Viewable
 

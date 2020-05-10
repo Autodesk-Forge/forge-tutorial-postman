@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "39816ae7-2d53-4294-9627-a37bb224a5ac",
+		"_postman_id": "69d9597e-68fd-4d79-99f4-1b45d9884da0",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -151,7 +151,7 @@
 										"buckets"
 									]
 								},
-								"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input dwg file and the resulting text file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, you may need to change the value of this variable.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
 							},
 							"response": []
 						},
@@ -208,7 +208,8 @@
 										"objects",
 										"{{ossAssemblyFile_OKey}}"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 							},
 							"response": []
 						},
@@ -260,7 +261,8 @@
 										"objects",
 										"{{ossPart_01_OKey}}"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 							},
 							"response": []
 						},
@@ -312,7 +314,8 @@
 										"objects",
 										"{{ossPart_02_OKey}}"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 							},
 							"response": []
 						},
@@ -364,7 +367,8 @@
 										"objects",
 										"{{ossPart_03_OKey}}"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 							},
 							"response": []
 						}
@@ -439,7 +443,8 @@
 										"{{t3_ossEncodedAssemblyFileURN}}",
 										"references"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-references-POST/)"
 							},
 							"response": []
 						},
@@ -502,7 +507,8 @@
 										"designdata",
 										"job"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
 							},
 							"response": []
 						},
@@ -556,7 +562,8 @@
 										"{{t3_url_safe_urn_of_source}}",
 										"manifest"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
 							},
 							"response": []
 						}
@@ -616,7 +623,8 @@
 										"manifest",
 										"{{dv_urn_0}}"
 									]
-								}
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
 							},
 							"response": []
 						}
@@ -702,7 +710,7 @@
 								"details"
 							]
 						},
-						"description": "This request to the Data Management API returns the details of the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
 					},
 					"response": []
 				},
@@ -734,7 +742,7 @@
 								"objects"
 							]
 						},
-						"description": "This request to the Data Management API returns the details of the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
 					},
 					"response": []
 				},
@@ -776,7 +784,8 @@
 								"{{t3_url_safe_urn_of_source}}",
 								"manifest"
 							]
-						}
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-DELETE/)"
 					},
 					"response": []
 				},
@@ -826,7 +835,7 @@
 								"{{ossBucketKey}}"
 							]
 						},
-						"description": "This request to the Data Management API will delete the bucket that you created and every file that it contains."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
 					},
 					"response": []
 				},
@@ -856,7 +865,8 @@
 								"designdata",
 								"formats"
 							]
-						}
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
 					},
 					"response": []
 				}

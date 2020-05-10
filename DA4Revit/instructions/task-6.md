@@ -14,7 +14,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name the Bucket that stores your files.
 
     **Notes:**  
-    - The Bucket name needs to be unique throughout the OSS service. At the time you create a Bucket, you may need to change the value of this variable if a Bucket with the name you specified already exists.
+    - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you recieve this error, change the value of this variable and try again.
 
     - The Bucket name must consist of only lower case characters, numbers 0-9, and the underscore (_) character.
 
