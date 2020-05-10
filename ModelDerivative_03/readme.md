@@ -11,7 +11,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Source File that Contains References](https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/?sha=8948_30), which is published on the Forge portal. 
+This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Source File that Contains References](https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-source-file-containing-xref/), which is published on the Forge portal. 
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
 
