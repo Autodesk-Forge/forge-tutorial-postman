@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "daf1020e-d6d5-4eb9-aaff-2ec8706ac14e",
+		"_postman_id": "31db2b50-6e07-4af4-9a4c-6f5cbf5a474e",
 		"name": "DAS Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -71,7 +71,7 @@
 								"authenticate"
 							]
 						},
-						"description": "[See Documentation](https://forge.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
+						"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Design Automation API V3** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `dasApiToken`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
 					},
 					"response": []
 				}
@@ -121,7 +121,7 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
+						"description": "This request to the Design Automation API sets a Nickname for your Forge App.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the Nickname as the value of the Postman Variable `dasNickName`. This enables the Nickname to be used in subsequent requests as well.\n\n&nbsp;\n\n**Notes:**\n\n- Once your add data to a Forge App, you are not allowed to set a Nickname for the app. The only way you can assign a Nickname to an app with data is by first calling the `[DELETE] /forgeapps/me` endpoint and deleting all data associated with that app (including any existing nickname). The request **Clean up HTTP Requests > Delete Forge App Data in Design Automation** in this Postman Collection calls this endpoint (`[DELETE] /forgeapps/me`) and clears the app of all data.\n\n- If you get stuck while working on this tutorial, and are unable to proceed, use this request to clear all data from the app, and restart from Task 1.\n\n- Nicknames must be globally unique.  If the Nickname is already in use, even by someone else, Forge returns a `409 Conflict` error when you try to set the Nickname. If you encounter this error, change the Nickname and try again."
 					},
 					"response": []
 				}
@@ -159,7 +159,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2020\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
+							"raw": "{\n\t\"id\": \"executeScript\",\n    \"commandLine\": \"\\\"$(engine.path)/3dsmaxbatch.exe\\\" -sceneFile \\\"$(args[InputMaxScene].path)\\\" \\\"$(args[MaxscriptToExecute].path)\\\" -v 5\",\n    \"description\": \"Execute a maxscript on a max file provided in a zip\",\n    \"appbundles\": [\n    \t],\n    \"engine\" : \"Autodesk.3dsMax+2021\",\n    \"parameters\": {\n    \t\"InputMaxScene\": {\n            \"zip\": false,\n            \"ondemand\": false,\n            \"verb\": \"get\",\n            \"description\": \"Input for providing the 3ds Max scene to be loaded before executing the script\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        },\n        \"MaxscriptToExecute\": {\n            \"zip\": false,\n            \"verb\": \"get\",\n            \"description\": \"The maxscript to run using 3dsmaxbatch.exe\",\n            \"ondemand\": false,\n            \"required\": true,\n            \"localName\": \"maxscriptToExecute.ms\"\n        },\n        \"OutputZip\": {\n            \"zip\": true,\n            \"ondemand\": false,\n            \"verb\": \"put\",\n            \"description\": \"Gather everything in the working folder inside a zip for output\",\n            \"required\": true,\n            \"localName\": \"workingFolder\"\n        }\n    }\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -177,7 +177,7 @@
 								"activities"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
+						"description": "This request to the Design Automation V3 API creates an activity.\r\nIn Design Automation an Activity specifies an action that can be executed using a specified engine.\r\n\r\nThis request to the Design Automation API creates an Activity. An Activity is an action that can be executed in Design Automation. This request creates an Activity that invokes *3dsmaxbatch.exe*, to run a specified MAXScript on a specified Scene file.\r\n\r\n&nbsp;\r\n\r\n**Notes:**\r\n - The JSON payload for this request contains several key attributes. See the description of these attributes in the [corresponding task on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/3dsmax/task-2-publish-activity/)."
 					},
 					"response": []
 				},
@@ -217,7 +217,7 @@
 								"aliases"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
+						"description": "This request to the Design Automation API creates an alias for the Activity you created earlier. \r\n\r\n&nbsp;\r\n\r\nThe id of an Activity alone is not sufficient when you instruct Design Automation to execute it. You must use an Alias to specify which version of the Activity to execute. You can think of an Alias as a tag that points to a particular version of an Activity.\r\nThe version an Alias points to can be changed as you develop more versions of a given activity.\r\nThe request **Task 3 - Publish Activity > Create New Activity** created the version 1 of the Activity.\r\nThis request will now create an Alias named \"tutorial\" to reference version 1."
 					},
 					"response": []
 				}
@@ -273,7 +273,7 @@
 								"buckets"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
+						"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input dwg file and the resulting text file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, you may need to change the value of this variable.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
 					},
 					"response": []
 				},
@@ -301,8 +301,7 @@
 							}
 						],
 						"body": {
-							"mode": "file",
-							"file": {}
+							"mode": "file"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
@@ -322,7 +321,7 @@
 								"{{$guid}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						"description": "This request to the Data Management API uploads a zip file containing the 3ds Max file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *input.zip* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4ACAD/tutorial_data) of the repository that contained this Postman Collection.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick *input.zip*, which you downloaded in step 1.\r\n \r\n&nbsp;\r\n\r\nNote the use of the Postman Dynamic variable `guid` as a query string parameter for the object key of the zip file. This variable generates a unique ID for the object key. A script specified in the **Tests** tab saves the object key to a Postman Environment Variable named `ossZipFileObjectKey`."
 					},
 					"response": []
 				},
@@ -350,8 +349,7 @@
 							}
 						],
 						"body": {
-							"mode": "file",
-							"file": {}
+							"mode": "file"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{$guid}}",
@@ -371,7 +369,7 @@
 								"{{$guid}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+						"description": "This request to the Data Management API uploads a zip file containing the 3ds Max file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *Twistit.ms* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4ACAD/tutorial_data) of the repository that contained this Postman Collection.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick *Twistit.ms*, which you downloaded in step 1.\r\n \r\n&nbsp;\r\n\r\nNote the use of the Postman Dynamic variable `guid` as a query string parameter for the object key of the zip file. This variable generates a unique ID for the object key. A script specified in the **Tests** tab saves the object key to a Postman Environment Variable named `ossScriptFileObjectKey`."
 					},
 					"response": []
 				},
@@ -426,7 +424,7 @@
 								"signed"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "This request to the Data Management API creates a temporary download URL for the input zip file. The URL expires in 60 minutes.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the download URL to a variable `ossZipFileSignedUrl`."
 					},
 					"response": []
 				},
@@ -480,7 +478,7 @@
 								"signed"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "This request to the Data Management API creates a temporary download URL for the input zip file. The URL expires in 60 minutes.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossScriptFileSignedUrl`."
 					},
 					"response": []
 				},
@@ -551,7 +549,7 @@
 								}
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
+						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the output of the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the output file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossUploadURL`."
 					},
 					"response": []
 				}
@@ -608,7 +606,7 @@
 								"workitems"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
+						"description": "This request to the Design Automation API creates a WorkItem that kicks off the execution of the Activity that you created in Task 2.\n\n&nbsp;\n\nThe relationship between an Activity and a WorkItem can be thought of as a “function definition” and “function call”, respectively. Named parameters of the Activity have corresponding named arguments of the WorkItem. Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.\n\n&nbsp;\n\nInspect the **Body** tab below to see how values for the parameters specified while defining the Activity are supplied as arguments in the WorkItem. \n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the WorkItem Id to a variable `dasWorkItemId`."
 					},
 					"response": []
 				}
@@ -649,7 +647,7 @@
 								"{{dasWorkItemId}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
+						"description": "This request to the Design Automation API queries the status of the WorkItem."
 					},
 					"response": []
 				},
@@ -692,7 +690,7 @@
 								"{{ossOutputFileObjectKey}}"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
+						"description": "This request to the Data Management API will let you download the result zip file that have been uploaded by Design Automation to the Object Storage Service (OSS).\r\n\r\n&nbsp;\r\n\r\nTo save the result back to disk locally:\r\n\r\n1. In the response area, click **Save Response > Save to a file**. The output file downloads. \r\n2. Save the file as a *.zip* file, when prompted to."
 					},
 					"response": []
 				}
@@ -737,7 +735,7 @@
 								"me"
 							]
 						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
+						"description": "This request to the Design Automation API deletes all Design Automation related information owned by your Forge app."
 					},
 					"response": []
 				},
