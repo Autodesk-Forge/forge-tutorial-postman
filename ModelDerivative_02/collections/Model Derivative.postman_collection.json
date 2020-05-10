@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "ada75d87-5082-4c1d-bbc6-3725617f33fc",
+		"_postman_id": "45675cbc-5c7b-464b-b9c8-1ae421a42ce8",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Tutorial 2 - Translate Source File Compressed as a Zip FIle",
+			"name": "Tutorial 2 - Translate Source File Packaged as a Zip FIle",
 			"item": [
 				{
 					"name": "Task 1 - Obtain an Access Token",

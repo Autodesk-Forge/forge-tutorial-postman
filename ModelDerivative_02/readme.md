@@ -1,4 +1,4 @@
-# Translate a Source File Compressed as a Zip File
+# Translate a Source File Packaged as a Zip File
 
 ![Platforms](https://img.shields.io/badge/Web-Windows|MacOS-lightgray.svg)
 [![oAuth2](https://img.shields.io/badge/Authentication-v1-green.svg)](http://developer.autodesk.com/)
@@ -11,7 +11,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Source File Packaged as a Zip File](https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/), which is published on the Forge portal. 
+This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Source File Packaged as a Zip File](https://dev.forge.autodesk.com/en/docs/model-derivative/v2/tutorials/translate-zip-to-stl/), which is published on the Forge portal.
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
 
