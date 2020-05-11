@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3ef82b01-17fc-4ea2-a055-2510551cafe4",
+		"_postman_id": "c072c8d2-5391-4246-9327-b723b94c7f8a",
 		"name": "DA4Inventor Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -71,7 +71,7 @@
 								"authenticate"
 							]
 						},
-						"description": "This request to the Authentication API obtains an access token with the scope required for this tutorial. This token is used inside the Authorization header to authorize all the subsequent requests.\n\n&nbsp;\n\nBefore you send this request:\n 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) to create a Forge App and obtain a Client ID and Client Secret. \n At the *Add Services to Forge* stage, make sure that you select **Design Automation API V3** and **Data Management API**. \n\n 2.  Jot down the Client ID and Client Secret, and specify them as the values for the Postman Environment Variables `client_id` and `client_secret` respectively.\n\n&nbsp;\n\nOnce you send this request, Postman parses the response and extracts the access token. Thereafter a script specified in the **Tests** tab below saves the access token to a Postman Variable named `dasApiToken`. This Postman Collection uses this variable to authenticate all subsequent requests you send to Forge. The token expires in one hour. If it expires before you are able to complete this tutorial, you can send this request again to obtain a fresh token."
+						"description": "[See Documentation](https://forge.autodesk.com/en/docs/oauth/v2/reference/http/authenticate-POST/)"
 					},
 					"response": []
 				}
@@ -121,7 +121,7 @@
 								"me"
 							]
 						},
-						"description": "This request to the Design Automation API sets a Nickname for your Forge App.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the Nickname as the value of the Postman Variable `dasNickName`. This enables the Nickname to be used in subsequent requests as well.\n\n&nbsp;\n\n**Notes:**\n\n- Once your add data to a Forge App, you are not allowed to set a Nickname for the app. The only way you can assign a Nickname to an app with data is by first calling the `[DELETE] /forgeapps/me` endpoint and deleting all data associated with that app (including any existing nickname). The request **Extras > Delete Forge App Data in Design Automation** in this Postman Collection calls this endpoint (`[DELETE] /forgeapps/me`) and clears the app of all data.\n\n- If you get stuck while working on this tutorial, and are unable to proceed, use this request to clear all data from the app, and restart from Task 1.\n\n- Nicknames must be globally unique.  If the Nickname is already in use, even by someone else, Forge returns a `409 Conflict` error when you try to set the Nickname. If you encounter this error, change the Nickname and try again."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-PATCH/)"
 					},
 					"response": []
 				}
@@ -211,7 +211,7 @@
 								"appbundles"
 							]
 						},
-						"description": "This request to the Design Automation API creates an AppBundle.\n\n&nbsp;\n\nAn AppBundle is a package of binaries and supporting files that contains the custom commands you want to run. For this tutorial, you will use the AppBundle named *samplePlugin.bundle.zip*  that is stored in the [*tutorial_data* folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Inventor/tutorial_data) of the repository that contained this Postman Collection. This AppBundle contains an Inventor plug-in, *samplePlugin.dll*. This plug-in reads width and height parameters from a JSON file and  updates the width and height of an Inventor part or Inventor assembly, and also generates a BMP file of the resized part or assembly file. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task-3-upload-appbundle/) to learn how to create an AppBundle.\n\n\n\n&nbsp;\n\nOnce you send the request to Forge, the response provides all the parameters required to upload the AppBundle *samplePlugin.bundle.zip* to Forge. Postman saves the values of all these parameters to several Postman Variables (see **Tests** tab below)."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-POST/)"
 					},
 					"response": []
 				},
@@ -371,7 +371,7 @@
 								"aliases"
 							]
 						},
-						"description": "This request to the Design Automation API creates an alias for the AppBundle.\n\n&nbsp;\n\nWhen you registered the AppBundle earlier, it was registered as version 1 of the AppBundle (The version was saved to the Postman Variable `ChangeParamAppVersion` when you registered the AppBundle). With this request, you create an alias named *my_working_version* to reference that version. Check the **Body** tab below to inspect the JSON payload."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
 					},
 					"response": []
 				}
@@ -450,7 +450,7 @@
 								"activities"
 							]
 						},
-						"description": "This request to the Design Automation API creates an Activity. An Activity is an action that can be executed in Design Automation. This request creates an Activity to run the Inventor plugi-in samplePlugin.\r\n\r\n&nbsp;\r\n\r\nBefore you send the request:\r\n - Note how the name for the Activity is specified as 'ChangeParamActivity' in the JSON payload.\r\n\r\n**Notes:**\r\n - The JSON payload for this request contains several key attributes. See the description of these attributes in the [corresponding task on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/inventor/task-4-publish-activity/)."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-POST/)"
 					},
 					"response": []
 				},
@@ -503,7 +503,7 @@
 								"aliases"
 							]
 						},
-						"description": "This request to the Design Automation API creates an alias for the Activity you created earlier. \r\n\r\n&nbsp;\r\n\r\nThe id of an Activity alone is not sufficient when you instruct Design Automation to execute it. You must use an Alias to specify which version of the Activity to execute. You can think of an Alias as a tag that points to a particular version of an Activity.\r\nThe version an Alias points to can be changed as you develop more versions of a given activity.\r\nThe request **Task 4 - Publish Activity > Create New Activity** created the version 1 of the Activity.\r\nThis request will now create an Alias named \"my_current_version\" to reference version 1."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/appbundles-id-aliases-POST/)"
 					},
 					"response": []
 				}
@@ -559,7 +559,7 @@
 								"buckets"
 							]
 						},
-						"description": "This request to the Data Management API creates a Bucket in the Object Storage Service (OSS) to store the input Inventor file and the resulting resized Inventor file and bitmap file.\n\n&nbsp;\n\nBefore you send the request:\n - Specify the name of the Bucket as the value of the Postman Variable `ossBucketKey`\n \n&nbsp;\n\n**Notes:**\n - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, you may need to change the value of this variable.\n - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-POST/)"
 					},
 					"response": []
 				},
@@ -608,7 +608,7 @@
 								"{{ossInputFileObjectKey}}"
 							]
 						},
-						"description": "This request to the Data Management API uploads the input drawing file to the Bucket you just created.\r\n\r\n&nbsp;\r\n\r\nBefore sending the request:\r\n\r\n 1. Download the file *box.ipt* from the [tutorial_data folder](https://github.com/Autodesk-Forge/forge-tutorial-postman/tree/master/DA4Inventor/tutorial_data) of the repository that contained this Postman Collection.\r\n 2. Specify an Object Key (a name to identify the input file, once it is uploaded to OSS) as the value of the Postman Variable `ossInputFileObjectKey`.\r\n 3. Go to the **Body** tab below.\r\n 4. Click **Select Files**.\r\n 5. Pick *box.ipt*, which you downloaded in step 1."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 					},
 					"response": []
 				},
@@ -663,7 +663,7 @@
 								"signed"
 							]
 						},
-						"description": "This request to the Data Management API creates a temporary download URL that you can use to download the input Inventor part (or assemlby) file. The URL expires in 60 minutes.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the download URL to the variable named `ossInputFileSignedUrl`."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				},
@@ -734,7 +734,7 @@
 								}
 							]
 						},
-						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the resized Inventor part file resulting from the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the output file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputIptFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossOutputIptFileSignedUrl`."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				},
@@ -805,7 +805,7 @@
 								}
 							]
 						},
-						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the resized Inventor assembly file resulting from the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the resulting IAM file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputIamFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossOutputIamFileSignedUrl`."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				},
@@ -876,7 +876,7 @@
 								}
 							]
 						},
-						"description": "This request to the Data Management API creates a temporary upload URL to enable Design Automation to upload the BMP file generated by the Activity you created earlier.\n\n&nbsp;\n\nBefore you send this request:\n - Specify an Object Key (a name to identify the resulting BMP file, once it is uploaded to OSS) as the value of the Postman Variable  `ossOutputBmpFileObjectKey`\n\n&nbsp;\n \nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the upload URL to a variable `ossOutputBmpFileSignedUrl`."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-signed-POST/)"
 					},
 					"response": []
 				}
@@ -965,7 +965,7 @@
 								"workitems"
 							]
 						},
-						"description": "This request to the Design Automation API creates a WorkItem that kicks off the execution of the Activity that you created in Task 4.\n\n&nbsp;\n\nThe relationship between an Activity and a WorkItem can be thought of as the relationship between a “function definition” and “function call”. Named parameters of the Activity have corresponding named arguments of the WorkItem. Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.\n\n&nbsp;\n\nInspect the **Body** tab below to see how values for the parameters specified while defining the Activity are supplied as arguments in the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the script specified in the **Tests** tab parses the response and writes the WorkItem Id to a variable `dasWorkItemId`."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-POST/)"
 					},
 					"response": []
 				},
@@ -1000,7 +1000,7 @@
 								"{{dasWorkItemId}}"
 							]
 						},
-						"description": "This request to the Design Automation API queries the status of the WorkItem."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/workitems-id-GET/)"
 					},
 					"response": []
 				}
@@ -1071,7 +1071,7 @@
 								"{{ossOutputIptFileObjectKey}}"
 							]
 						},
-						"description": "This request to the Data Management API downloads the resized Inventor part file. Design Automation uploaded this file to the Object Storage Service (OSS) when executing the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the resized part file downloads. Save the file as a *.ipt* file, when prompted to."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
 					},
 					"response": []
 				},
@@ -1114,7 +1114,7 @@
 								"{{ossOutputBmpFileObjectKey}}"
 							]
 						},
-						"description": "This request to the Data Management API downloads the BMP file that was generated by the WorkItem file. Design Automation uploaded this file to the Object Storage Service (OSS) when executing the WorkItem.\n\n&nbsp;\n\nOnce you send the request, the file downloads. Save the file as a *.bmp* file, when prompted to."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-GET/)"
 					},
 					"response": []
 				}
@@ -1181,7 +1181,7 @@
 								"me"
 							]
 						},
-						"description": "This request to the Design Automation API deletes all Design Automation related information owned by your Forge app."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/forgeapps-id-DELETE/)"
 					},
 					"response": []
 				},
@@ -1231,7 +1231,7 @@
 								"{{ossBucketKey}}"
 							]
 						},
-						"description": "This request to the Data Management API will delete the bucket that you created and every file that it contains."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-DELETE/)"
 					},
 					"response": []
 				},
@@ -1280,7 +1280,7 @@
 								"engines"
 							]
 						},
-						"description": "This request to the Design Automation API lists all the engines currently supported by Design Automation."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/engines-GET/)"
 					},
 					"response": []
 				},
@@ -1311,7 +1311,7 @@
 								"activities"
 							]
 						},
-						"description": "This request to the Design Automation API lists all the Activities that you can execute. They can be Actvities that you created or shared Actvities created by others."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
 					},
 					"response": []
 				},
@@ -1343,7 +1343,7 @@
 								"objects"
 							]
 						},
-						"description": "This request to the Data Management API lists all the objects saved in the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-GET/)"
 					},
 					"response": []
 				},
@@ -1373,7 +1373,7 @@
 								"buckets"
 							]
 						},
-						"description": "This request to the Data Management API lists all the Buckets you have access to."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-GET/)"
 					},
 					"response": []
 				},
@@ -1405,7 +1405,7 @@
 								"details"
 							]
 						},
-						"description": "This request to the Data Management API returns the details of the Bucket (identified by the variable `ossBucketKey`) you created in Task 5."
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-details-GET/)"
 					},
 					"response": []
 				}
