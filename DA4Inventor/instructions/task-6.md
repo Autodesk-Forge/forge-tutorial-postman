@@ -6,8 +6,6 @@ The relationship between an Activity and a WorkItem can be thought of as the rel
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-For this exercise, you create a WorkItem to execute the Activity ListLayers. The WorkItem uses the dwg file you uploaded in the previous task as the input for the Activity. The request downloads the dwg file from the signed URL stored in the variable 'ossDwgFileSignedUrl'. 
-
 ## Create a WorkItem
 
 1. On the Postman sidebar, click **Task 6 - Submit a WorkItem > Create a WorkItem**. The request loads.
