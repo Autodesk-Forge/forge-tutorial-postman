@@ -6,7 +6,7 @@ The relationship between an Activity and a WorkItem can be thought of as a “fu
 Named parameters of the Activity have corresponding named arguments of the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-For this exercise, you will apply the DeleteWalls Activity on the Revit file you uploaded to OSS in the previous task. The request picks up the Revit file from the signed url stored in the variable 'ossDownloadURL'. 
+For this exercise, you will apply the DeleteWalls Activity on the Revit file you uploaded to OSS in the previous task. The request picks up the Revit file from the signed url stored in the variable 'ossDownloadURL'.
 
 ## Create a WorkItem
 
@@ -14,7 +14,7 @@ For this exercise, you will apply the DeleteWalls Activity on the Revit file you
 
 2. Click the **Body** tab and observe how the Actvity ID, the input file, and the ouput file are specified.
 
-3. Click **Send**. If the request is successfull you should see a screen similar to the following image.
+3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
     ![deleteWallsResultUrl](../images/task7-result_url.png "deleteWallsResultUrl")
 
@@ -28,7 +28,7 @@ For this exercise, you will apply the DeleteWalls Activity on the Revit file you
 
 
        **Note:**
-       If you uploaded a zip file (instead of a rvt file) in task 6, you must specify an attribute named `pathInZip`, which indicates the path to the Revit file within the zip file. 
+       If you uploaded a zip file (instead of a rvt file) in task 6, you must specify an attribute named `pathInZip`, which indicates the path to the Revit file within the zip file.
 
     - `result` - Specifies the signed URL to the location reserved for the output of the activity, followed by the HTTP verb to use.
 
@@ -43,4 +43,4 @@ Design Automation WorkItems are queued before they are processed. Processing its
 
     ![WorkItem Status check result](../images/task7-check_status.png "WorkItem Status check result")
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-6.md "Previous task") 
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-6.md "Previous task")

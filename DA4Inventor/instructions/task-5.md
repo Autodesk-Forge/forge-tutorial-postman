@@ -1,6 +1,6 @@
 # Task 5 - Prepare cloud storage
 
-The Activity ChangeParamActivity resizes an Inventor part or assembly to a height and width you specify (as a JSON object). It also produces an image of the resized part or assembly. In this task, we prepare a cloud storage service to hold the input Inventor files, and the output (resized) Inventor files and image file. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API.
+The Activity ChangeParamActivity resizes an Inventor part or assembly to a height and width you specify (as a JSON object). It also produces an image of the resized part or assembly. In this task, you prepare a cloud storage service to hold the input Inventor files, and the output (resized) Inventor files and image file. While you can use any cloud storage service for this purpose, this tutorial uses the Object Storage Service (OSS) through the Forge Data Management API.
 
 This tutorial provides instructions to assist you resize an Inventor part. We encourage you to try resizing an Inventor Assembly on your own, later.
 
@@ -8,8 +8,8 @@ There are five Postman Environment Variables you must specify for this task. The
 - `ossBucketKey` - The Bucket Key for the Bucket that holds your files in the cloud.
 - `ossInputFileObjectKey` - The Object Key of the Inventor Part file.
 - `ossOutputIptFileObjectKey` - The Object Key of the placeholder for the resized part the activity produces.
-- `ossOutputIamFileObjectKey` - The Object Key of the placeholder for the resized assembly the activity produces. 
-- `ossOutputBmpFileObjectKey` - The Object Key of the placeholder for the image file the activity produces. 
+- `ossOutputIamFileObjectKey` - The Object Key of the placeholder for the resized assembly the activity produces.
+- `ossOutputBmpFileObjectKey` - The Object Key of the placeholder for the image file the activity produces.
 
 
 ## Create a Bucket
@@ -19,7 +19,7 @@ There are five Postman Environment Variables you must specify for this task. The
 2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name the Bucket that stores your files.
 
     **Notes:**  
-    - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you recieve this error, change the value of this variable and try again.
+    - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
 
     - The Bucket name must consist of only lower case characters, the numbers 0-9, and the underscore (_) character.
 
@@ -29,7 +29,7 @@ There are five Postman Environment Variables you must specify for this task. The
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successfull Bucket Creation](../images/task5-sucessfull_bucket_creation.png "Successfull Bucket Creation")
+    ![Successful Bucket Creation](../images/task5-sucessfull_bucket_creation.png "Successful Bucket Creation")
 
 ## Upload input file to OSS
 

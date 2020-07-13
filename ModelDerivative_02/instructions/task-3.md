@@ -46,7 +46,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 2. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successfull Job](../images/task3-sucessfull_job.png "Successfull Job")
+   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
 
    When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 

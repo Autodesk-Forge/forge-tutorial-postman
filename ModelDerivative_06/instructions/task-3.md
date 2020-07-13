@@ -1,6 +1,6 @@
 # Task 3 – Translate Source File
 
-In order to extract geometry from a model, the model must first be translated to the SVF format. 
+In order to extract geometry from a model, the model must first be translated to the SVF format.
 
 To translate a model, you must kick off a translation job. The translation job produces a manifest, which lists all the files (derivatives) that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
 
@@ -40,7 +40,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 2. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successfull Job](../images/task3-sucessfull_job.png "Successfull Job")
+   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
 
    Repeat this step until the `progress` attribute becomes `complete`, as shown in the image.
 

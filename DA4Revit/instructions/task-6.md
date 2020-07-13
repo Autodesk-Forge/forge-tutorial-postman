@@ -14,7 +14,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name the Bucket that stores your files.
 
     **Notes:**  
-    - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you recieve this error, change the value of this variable and try again.
+    - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
 
     - The Bucket name must consist of only lower case characters, numbers 0-9, and the underscore (_) character.
 
@@ -46,7 +46,7 @@ There are three Postman Environment Variables you must specify for this task. Th
 
 8. Click **Send**. If your request is successful, you should see a screen similar to the one below:
 
-    ![Successful upload of input file](../images/task6-successful_upload.png "Succesful upload of input file")
+    ![Successful upload of input file](../images/task6-successful_upload.png "Successful upload of input file")
 
 ## Get temporary download URL
 
