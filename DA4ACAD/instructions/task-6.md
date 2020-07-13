@@ -3,10 +3,10 @@
 When you submit a WorkItem to Design Automation, you are instructing Design Automation to execute the Activity specified in the WorkItem.
 
 The relationship between an Activity and a WorkItem can be thought of as the relationship between a “function definition” and “function call”.
-Named parameters of the Activity have corresponding named arguments of the WorkItem.
+Named parameters on the Activity have corresponding named arguments on the WorkItem.
 Like in function calls, optional parameters of the Activity can be skipped and left unspecified while posting a WorkItem.
 
-For this exercise, you create a WorkItem to execute the Activity ListLayers. The WorkItem uses the dwg file you uploaded in the previous task as the input for the Activity. The request downloads the dwg file from the signed URL stored in the variable 'ossDwgFileSignedUrl'. 
+For this exercise, you create a WorkItem to execute the Activity ListLayers. The WorkItem uses the dwg file you uploaded in the previous task as the input for the Activity. The request downloads the dwg file from the signed URL stored in the variable 'ossDwgFileSignedUrl'.
 
 ## Create a WorkItem
 
@@ -24,9 +24,9 @@ For this exercise, you create a WorkItem to execute the Activity ListLayers. The
 
     - `arguments` - Contains all the parameters that need to be passed to the Activity specified by `activityId`. They must match the parameters you specified in Task 4, when you created the Activity.
 
-    - `InputDwg` - Specifies how to obtain the input dwg file for the Activity. The value specified here is the Postman variable `ossDwgFileSignedUrl`, which contains the signed download URL you created in Task 5. 
-    
-    **Note** Had you uploaded a zip file instead of a dwg file, you would have been required specify the `pathInZip` attribute. This attribute specifies the path to the dwg file within the zip file. 
+    - `InputDwg` - Specifies how to obtain the input dwg file for the Activity. The value specified here is the Postman variable `ossDwgFileSignedUrl`, which contains the signed download URL you created in Task 5.
+
+    **Note** Had you uploaded a zip file instead of a dwg file, you would have been required specify the `pathInZip` attribute. This attribute specifies the path to the dwg file within the zip file.
 
     - `result` - Specifies the signed URL to the location reserved for the output of the activity.
 
@@ -43,4 +43,4 @@ Design Automation WorkItems are queued before they are processed. Processing its
 
 **Note:** The best practice is to use the `onComplete` argument when submitting a WorkItem. The `onComplete` argument enables you to specify a callback URL, which is invoked when execution completes. For more information on the argument, see the [Forge portal documentation on Callbacks](https://forge.autodesk.com/en/docs/design-automation/v3/developers_guide/callbacks/#oncomplete-callback).
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task") 
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-5.md "Previous task") [:arrow_forward:](task-7.md "Next task")

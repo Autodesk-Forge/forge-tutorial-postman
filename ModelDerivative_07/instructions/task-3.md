@@ -1,6 +1,6 @@
 # Task 3 – Translate Source File
 
-Before you can display a model in the Viewer, you must translate it to the SVF format. To generate zone and space information while translating, you must set a few specific options in the request header as well as the JSON body. Generating zone and space information can cause translation time to increase. As such, these options must be specified only when you need zone and space information. 
+Before you can display a model in the Viewer, you must translate it to the SVF format. To generate zone and space information while translating, you must set a few specific options in the request header as well as the JSON body. Generating zone and space information can cause translation time to increase. As such, these options must be specified only when you need zone and space information.
 
 The translation job produces a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each file listed in the manifest.
 
@@ -45,7 +45,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 2. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successfull Job](../images/task3-sucessfull_job.png "Successfull Job")
+   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
 
    Repeat this step until the `progress` attribute becomes `complete`.
 

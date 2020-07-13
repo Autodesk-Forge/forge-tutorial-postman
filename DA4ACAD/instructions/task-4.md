@@ -16,7 +16,7 @@ An Activity is an action that can be executed in Design Automation.
 
     - `$(engine.path)\\accoreconsole.exe` - The full path to the AutoCAD engine. The version of AutoCAD to be used is defined in the request body as `"engine": "Autodesk.AutoCAD+22"`.  
 
-    - `$(args[InputDwg].path)` - The full path to the folder that the file identified by the parameter InputDwg (by the WorkItem that invokes this Activity) is downloaded to.
+    - `$(args[InputDwg].path)` - The full path to the folder that the file identified by the parameter `InputDwg` (by the WorkItem that invokes this Activity) is downloaded to.
 
     - `$(appbundles[{{dasAppBundleName}}].path)` identifies the path to where the specified AppBundle is unzipped to. The AppBundle is specified in the request body as `"appbundles": [ "{{dasNickName}}.{{dasAppBundleName}}+{{dasAppBundleAlias}}"]`. Note the use of Postman Variables to specify the Nickname, AppBundle Id, and the AppBundle version alias.
 

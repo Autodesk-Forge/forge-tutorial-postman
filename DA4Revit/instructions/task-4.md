@@ -1,6 +1,6 @@
 # Task 4 - Upload an AppBundle to Design Automation
 
-An AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step4-publish-appbundle/) for an explanantion of AppBundles and learn how to create an AppBundle. For the purpose of this Postman tutorial,  download *DeletWallsApp.zip*, which is stored in the [*tutorial_data* folder of this repository](../tutorial_data). The file *DeleteWalls.dll* that is contained within this AppBundle is designed to run on Revit 2018.
+An AppBundle is a package of binaries and supporting files that make up a Revit add-in. See the corresponding [task in the Step-by-Step tutorial on the Forge Portal](https://forge.autodesk.com/en/docs/design-automation/v3/tutorials/revit/step4-publish-appbundle/) for an explanantion of AppBundles and learn how to create an AppBundle. For the purpose of this Postman tutorial,  download *DeleteWallsApp.zip*, which is stored in the [*tutorial_data* folder of this repository](../tutorial_data). The file *DeleteWalls.dll* that is contained within this AppBundle is designed to run on Revit 2018.
 
 ## Register the AppBundle
 
@@ -10,9 +10,9 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 2. Click the **Body** tab, and verify that the `id`, and `engine` are set to `DeleteWallsApp`, and `Autodesk.Revit+2018`.
 
-    ![AppBundle Body](../images/task4-appbundle_body.png "AppBundle Body") 
+    ![AppBundle Body](../images/task4-appbundle_body.png "AppBundle Body")
 
-3. Click **Send**. If the request is successfull, you will see a screen similar to the following image:
+3. Click **Send**. If the request is successful, you will see a screen similar to the following image:
 
     ![AppBundel Registered](../images/task4-appbundle_registered.png "AppBundel Registered")
 
@@ -26,11 +26,11 @@ When registering the AppBundle, you inform Design Automation that you want to na
 
 2. Click the **Body** tab, and scroll down such that the **file** row is visible.
 
-3. Move the cursor to the **VALUE** column on the **file** row, and close the box shown in the following image. 
+3. Move the cursor to the **VALUE** column on the **file** row, and close the box shown in the following image.
 
     ![File drop-down](../images/task4-appbundle_file_dropdown.png "File drop-down")
 
-4. Click **Select Files**, and pick *DeletWallsApp.zip*, which you downloaded earlier.
+4. Click **Select Files**, and pick *DeleteWallsApp.zip*, which you downloaded earlier.
 
     ![Pick DeleteWalls.zip](../images/task4-appbundle_select_file.png "Pick DeleteWalls.zip")
 
@@ -64,7 +64,7 @@ To register a new version:
 
 3. Click **Send**. You should see a response similar to the following image. As with registering an AppBundle, the `endpointURL` and `formData` information required to upload the AppBundle is saved to Postman Environment variables.
 
-    ![New version sucessful](../images/task4-appbundle_new_version_successfull.png "New version successfull")
+    ![New version sucessful](../images/task4-appbundle_new_version_successfull.png "New version successful")
 
 ## Upload the updated AppBundle
 
@@ -74,7 +74,7 @@ To register a new version:
 
 3. Move the cursor to the **VALUE** column on the **file** row, and close the box there. The *Select Files** button displays.
 
-4. Click **Select Files**, and pick *DeletWallsApp.zip*, which you downloaded earlier.
+4. Click **Select Files**, and pick *DeleteWallsApp.zip*, which you downloaded earlier.
 
 5. Click **Send**.
 
