@@ -3,7 +3,7 @@
 ## Create a Forge App
 
 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) 
-to create a Forge App. In the *Add Services to Forge* stage, select "Design Automation API V3" and "Data Management API".
+to create a Forge App. In the *Add Services to Forge* stage, select "Design Automation API" and "Data Management API".
 
 2. Jot down the *Client ID* and *Client Secret* of the Forge App you created. You will need this in the next step.
 
