@@ -1,4 +1,4 @@
-# Task 2 - Upload Source FIle to OSS
+# Task 2 - Upload Source File to OSS
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the model to translate to OSS. While you can use any model for this purpose, we recommend that you use the file *box.ipt*, which is available in the [*tutorial_data*](../tutorial_data) folder.
 

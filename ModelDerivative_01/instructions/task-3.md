@@ -6,7 +6,7 @@ To translate a file, you must kick off a translation job. The translation job pr
 
 ## Start a translation job
 
-For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this to the variable `t1_ossEncodedSourceFileURN`, which you will use in the newxt request.
+For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this to the variable `t1_ossEncodedSourceFileURN`, which you will use in the next request.
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Create a Translation Job**. The request loads.
 
