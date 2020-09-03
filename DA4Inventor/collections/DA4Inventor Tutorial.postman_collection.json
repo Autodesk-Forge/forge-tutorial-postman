@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c072c8d2-5391-4246-9327-b723b94c7f8a",
+		"_postman_id": "c664d2a5-d9cb-4f02-9968-5b8c62f88074",
 		"name": "DA4Inventor Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3df16796-5a03-47e5-a63f-00989847157c",
+								"id": "03217617-143a-4ee0-a3a4-f3caf59c5578",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
@@ -130,7 +130,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d21fcc33-958c-4f16-8b1e-080ff8eb06b4",
+						"id": "5ca58db5-8dfc-42ce-892e-cb9c235785fe",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -140,7 +140,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ee54cdcb-924b-49c7-afbb-4f9268dde604",
+						"id": "11bda0d0-8c9e-4ee6-bed2-6be23040e0ac",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -159,7 +159,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ed1df161-59fb-46de-8d7f-01f8982aaef6",
+								"id": "38836b37-45af-48f1-898b-1fee930ddb6c",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasAppBundleId\",body[\"id\"]);",
@@ -221,7 +221,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f15df6e5-8f98-4ea7-8e21-9b68875f57aa",
+								"id": "3b651356-64c6-4724-b639-67adfcda7bba",
 								"exec": [
 									""
 								],
@@ -231,7 +231,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6029064c-c08c-43db-a281-b30edd1689fa",
+								"id": "b8cab856-cedb-4591-9107-9d379d77d7dd",
 								"exec": [
 									""
 								],
@@ -323,7 +323,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6eda542c-14cb-411d-870f-1bf29d74ae99",
+								"id": "b52eeb53-4d93-4c7a-b551-19a29a44daaa",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasAppBundleAlias\", body[\"id\"]);"
@@ -380,7 +380,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ef751c9e-9358-451e-9b76-e92b3987852a",
+						"id": "de4dbb66-a194-4da3-afea-02a1613c1200",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -390,7 +390,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ab08df22-638c-4b64-896f-136256883d2d",
+						"id": "dd9723eb-4c2e-4a9b-bd76-9da59f5335d8",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -409,7 +409,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b2642d8f-273b-4601-a1c0-150950b79ae4",
+								"id": "f78ed2bc-b8fc-48e1-b191-19164041cd90",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasActivityName\",body[\"id\"]);"
@@ -460,7 +460,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1a281df7-fc0b-4b6a-9312-1d69bdbad7a7",
+								"id": "72ac6a47-0afb-4590-b35e-b1c485956b70",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasActivityAlias\", body[\"id\"]);"
@@ -519,7 +519,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
+								"id": "827e971c-1d1e-4464-b11a-795f23eec07b",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
@@ -569,7 +569,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+								"id": "3a285144-3056-4b7f-a52d-21283c8a691f",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossInputFileObjectKey\", body[\"objectKey\"]);"
@@ -618,7 +618,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "58eb33f6-d95a-4092-ba00-823348dec87a",
+								"id": "541e5b46-e7c0-45b8-a301-1179361234ff",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossInputFileSignedUrl\", body[\"signedUrl\"]);",
@@ -673,7 +673,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"id": "caaf60c9-b728-4dd0-b3c9-1c4cab512ad7",
 								"exec": [
 									""
 								],
@@ -683,7 +683,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"id": "4b6bac14-8617-4ce9-a701-3aac2c3ecaea",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -744,7 +744,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"id": "832b795e-043c-455b-b52a-14ac24a5284c",
 								"exec": [
 									""
 								],
@@ -754,7 +754,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"id": "e4b549f6-21f8-49c3-856f-a67cbe69372a",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -815,7 +815,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"id": "8365ee2a-a19c-4138-8e0f-bff459879f17",
 								"exec": [
 									""
 								],
@@ -825,7 +825,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"id": "b3d623c9-7e73-4f22-b6fa-49bcb838a3fb",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -885,7 +885,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5d793cb2-5c37-4c04-b61d-699ccb839aa8",
+						"id": "c1e467dd-1a42-4609-b57e-e105c9b52048",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -895,7 +895,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f4af8278-2893-47d6-8cf7-7cd32c81f1ea",
+						"id": "3ae6e6b1-8379-4731-afd8-997caf1b8d5d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -914,7 +914,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7cf9c997-7d7a-4f98-aadb-6880aa58e299",
+								"id": "7d165f7a-6f48-4fc7-849e-094c8e34b69e",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
@@ -925,7 +925,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "42e630ab-cd3d-4793-b39f-628380376efc",
+								"id": "8db089e7-142d-4c61-8746-34ed4b753c65",
 								"exec": [
 									""
 								],
@@ -1009,7 +1009,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bf647020-170e-4ca2-893a-0467b1e9ef1b",
+						"id": "e5741fc8-afb8-469a-a273-11020cc48543",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1019,7 +1019,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "235ace93-5860-4382-bb48-2b8ea1548ec7",
+						"id": "01649c68-ac38-4a65-97f4-851d2550c213",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1123,7 +1123,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "14405fb2-7da0-45de-9d07-a6ef76d9e959",
+						"id": "c7256e21-9b5b-4559-a02d-23a32fd2801c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1133,7 +1133,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "570a83f7-7be0-49a2-b679-da8b9ffbd0f9",
+						"id": "ece32212-fcca-4982-a9a1-0e1f0ae6cf20",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1191,7 +1191,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"id": "2e2849a8-346a-4f7b-945d-504b8c43f089",
 								"exec": [
 									""
 								],
@@ -1414,7 +1414,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6952503a-0432-4e9d-85ed-77b5d5c1482c",
+						"id": "17891b47-4df9-4b6a-b2c5-0829b1c251c4",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1424,7 +1424,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b38d8754-da1d-49eb-9ffb-ff1a0e6ef76d",
+						"id": "1394e00a-5e7f-4441-811c-ff4492d434f6",
 						"type": "text/javascript",
 						"exec": [
 							""

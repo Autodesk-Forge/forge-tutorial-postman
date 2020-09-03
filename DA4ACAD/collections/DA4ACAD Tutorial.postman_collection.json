@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5562f9be-9fc1-495c-9994-41999357f5c0",
+		"_postman_id": "cd7ef8f1-36dd-4c35-a1c7-ce3b6d06167e",
 		"name": "DA4ACAD Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3df16796-5a03-47e5-a63f-00989847157c",
+								"id": "674dec92-cb98-43cd-8b22-de176a63fa2e",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
@@ -137,7 +137,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ed1df161-59fb-46de-8d7f-01f8982aaef6",
+								"id": "2f9bd6b2-f321-4974-b0f0-191d91fda1db",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ListLayersAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
@@ -198,7 +198,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f15df6e5-8f98-4ea7-8e21-9b68875f57aa",
+								"id": "be1edd19-488a-44c8-a006-ef5b041bf6f5",
 								"exec": [
 									""
 								],
@@ -208,7 +208,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6029064c-c08c-43db-a281-b30edd1689fa",
+								"id": "5627141a-4e3f-407c-bbc4-3d3f27941abd",
 								"exec": [
 									"pm.environment.unset(\"ListLayersAppFormDataKey\");",
 									"pm.environment.unset(\"ListLayersAppFormDataPolicy\");",
@@ -305,7 +305,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6eda542c-14cb-411d-870f-1bf29d74ae99",
+								"id": "35e47646-28c3-41d4-be51-04edf1fb6a21",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasAppBundleAlias\", body[\"id\"]);"
@@ -369,7 +369,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b2642d8f-273b-4601-a1c0-150950b79ae4",
+								"id": "78c00280-15f1-42cd-b132-3019a497141b",
 								"exec": [
 									""
 								],
@@ -419,7 +419,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1a281df7-fc0b-4b6a-9312-1d69bdbad7a7",
+								"id": "09f3ab87-2951-47e5-b13f-19d1e33c33a1",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasActivityAlias\", body[\"id\"]);"
@@ -471,7 +471,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0324f4fb-676b-4f1b-a119-36e77fe4c750",
+						"id": "8f1343da-b965-48a9-a49d-ea5ed0ec565f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -481,7 +481,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d18aa067-a195-4ae9-b325-40ac7a4f8c09",
+						"id": "76ab6aac-7fd7-465f-a740-6c7b58181c10",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -500,7 +500,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
+								"id": "184a3533-def4-4abc-b444-6bb026491c24",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
@@ -550,7 +550,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+								"id": "95039874-0baf-49d9-9c4a-12d3b46b1c04",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossDwgFileObjectKey\", body[\"objectKey\"]);"
@@ -599,7 +599,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "58eb33f6-d95a-4092-ba00-823348dec87a",
+								"id": "421eb840-eb01-4583-8c17-6985990df742",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossDwgFileSignedUrl\", body[\"signedUrl\"]);",
@@ -654,7 +654,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"id": "72faef32-539c-4d77-b442-d3b4844ca265",
 								"exec": [
 									""
 								],
@@ -664,7 +664,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"id": "3f4039d3-f230-4fa5-a7b2-8ff3d828ff03",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -724,7 +724,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5d793cb2-5c37-4c04-b61d-699ccb839aa8",
+						"id": "34b58472-dd45-45be-9fe5-ff459cde5a32",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -734,7 +734,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f4af8278-2893-47d6-8cf7-7cd32c81f1ea",
+						"id": "6fe34ed2-7710-4478-a4c6-1e2c3a265ff5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -753,7 +753,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7cf9c997-7d7a-4f98-aadb-6880aa58e299",
+								"id": "6de9e828-ed0a-4175-871e-3601db807946",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
@@ -764,7 +764,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "42e630ab-cd3d-4793-b39f-628380376efc",
+								"id": "2b8a5d61-1bbd-4570-b844-bf4457a6e3e6",
 								"exec": [
 									""
 								],
@@ -848,7 +848,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bf647020-170e-4ca2-893a-0467b1e9ef1b",
+						"id": "d2d0b56a-aea8-42bd-87db-d4503106034c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -858,7 +858,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "235ace93-5860-4382-bb48-2b8ea1548ec7",
+						"id": "573d29be-6965-422b-8c63-c755634a5109",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -919,7 +919,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "14405fb2-7da0-45de-9d07-a6ef76d9e959",
+						"id": "3df42d24-1cad-4107-a0a0-e05c773dc662",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -929,7 +929,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "570a83f7-7be0-49a2-b679-da8b9ffbd0f9",
+						"id": "f8652e63-236b-475e-b512-c4200204cd43",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -987,7 +987,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"id": "2f21924f-0028-4129-b850-44a7db84925a",
 								"exec": [
 									""
 								],
@@ -1112,6 +1112,38 @@
 					"response": []
 				},
 				{
+					"name": "Delete Activity",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{dasApiToken}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities/{{dasActivityName}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"da",
+								"us-east",
+								"v3",
+								"activities",
+								"{{dasActivityName}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/design-automation/v3/reference/http/activities-GET/)"
+					},
+					"response": []
+				},
+				{
 					"name": "List objects in a Bucket",
 					"request": {
 						"method": "GET",
@@ -1210,7 +1242,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6952503a-0432-4e9d-85ed-77b5d5c1482c",
+						"id": "7edf0659-99a5-4e73-b0b5-c0c7b135eaeb",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1220,7 +1252,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b38d8754-da1d-49eb-9ffb-ff1a0e6ef76d",
+						"id": "f4b65d52-d1a0-4041-8633-bbae33ec21c3",
 						"type": "text/javascript",
 						"exec": [
 							""
