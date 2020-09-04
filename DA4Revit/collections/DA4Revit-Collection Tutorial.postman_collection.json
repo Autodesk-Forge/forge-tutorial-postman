@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bb384765-d293-4861-8b54-ccc3a9249b88",
+		"_postman_id": "acd19def-7581-4d86-8e33-bd46b23fee5e",
 		"name": "Design Automation For Revit Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "472cfb88-e31f-48b3-b3b3-0b4e96e11bde",
+								"id": "ae612db8-104c-48f6-bf94-05f92da6c32b",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);",
@@ -80,7 +80,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "2c37a3bf-ad3e-43a3-8b04-9555e318a646",
+						"id": "52cc1460-3404-491e-a2fe-a99e00f8f89e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -90,7 +90,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3ddd3594-858e-4f3e-a215-fb193bbda7a2",
+						"id": "e6c89884-7c8f-4891-9e5b-f582dbe59fc9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -109,7 +109,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d010a86c-7519-458f-9177-c4a16697127f",
+								"id": "156f0d70-5542-47e5-a7c5-42eada118102",
 								"exec": [
 									""
 								],
@@ -154,7 +154,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ac433e60-f210-4721-b5cf-5c9c3680d552",
+						"id": "a14d51b0-063d-42eb-ada9-0543d07cd9b0",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -164,7 +164,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c6f0d4dd-aa4e-496b-aa25-9d7572ce63c0",
+						"id": "69325a16-c1e6-45b4-ab8f-7b4f92a20fa9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -183,7 +183,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ee9835ed-4140-4f94-b84d-9bd1e4bc632c",
+								"id": "36628175-e2e9-417e-9f3f-a6f25e01e038",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
@@ -236,7 +236,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fc1aa6f8-037d-4107-aa37-b72437092bfe",
+								"id": "bf4cbf1e-0c91-4eba-bda9-dedf043722d4",
 								"exec": [
 									""
 								],
@@ -246,7 +246,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "19abb683-c4e8-4909-aaf5-23a3e37fa512",
+								"id": "e482ea28-b523-4cb1-80d0-53ea9cae10d7",
 								"exec": [
 									"pm.environment.unset(\"deleteWallsAppFormDataKey\");",
 									"pm.environment.unset(\"deleteWallsAppFormDataPolicy\");",
@@ -381,7 +381,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dc90d246-31a0-4ebb-b755-733f80b74553",
+								"id": "4f60fcfe-a700-42d7-982b-d6bc40890e50",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
@@ -435,7 +435,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "3b927057-d442-431b-84da-3c95b2e0d6cb",
+								"id": "8f0a0f29-8b59-42bf-9d08-789f1693ec56",
 								"exec": [
 									""
 								],
@@ -445,7 +445,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "bc3f4edf-2d55-40b4-8021-8e5070185208",
+								"id": "cc9b3ec6-10a1-4013-bcdd-6ed930be50b0",
 								"exec": [
 									"pm.environment.unset(\"deleteWallsAppFormDataKey\");",
 									"pm.environment.unset(\"deleteWallsAppFormDataPolicy\");",
@@ -580,7 +580,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5ae2475e-0e24-462b-baaa-de3b90781a28",
+						"id": "46ef1ae6-bc89-4dea-b52d-417311c1651f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -590,7 +590,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "09df3f98-0b38-4de5-a4f8-8280c92690af",
+						"id": "e3146846-f78a-4bec-98e3-3167ce31d708",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -609,7 +609,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3ff4cf5c-cf0c-4c03-9e15-9e6e7e591428",
+								"id": "3239edaa-45cf-4c0e-95d6-59b332532e8d",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
@@ -633,7 +633,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"id\": \"DeleteWallsActivity\",\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i \\\"$(args[rvtFile].path)\\\" /al \\\"$(appbundles[DeleteWallsApp].path)\\\"\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities",
@@ -687,7 +687,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d8874acb-c0a9-4bcc-85b8-1d8dae03f2eb",
+								"id": "8be88e70-93a5-42a1-bac3-19e1b9861451",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsActivityVersion\", body[\"version\"]);",
@@ -711,7 +711,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n\t\"commandLine\": [ \"$(engine.path)\\\\\\\\revitcoreconsole.exe /i $(args[rvtFile].path) /al $(appbundles[DeleteWallsApp].path)\" ],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
+							"raw": "{\r\n\t\"commandLine\": [\"$(engine.path)\\\\\\\\revitcoreconsole.exe /i \\\"$(args[rvtFile].path)\\\" /al \\\"$(appbundles[DeleteWallsApp].path)\\\"\"],\r\n\t\"parameters\": {\r\n\t  \"rvtFile\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"get\",\r\n\t\t\"description\": \"Input Revit model\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"input.rvt\"\r\n\t  },\r\n\t  \"result\": {\r\n\t\t\"zip\": false,\r\n\t\t\"ondemand\": false,\r\n\t\t\"verb\": \"put\",\r\n\t\t\"description\": \"Results\",\r\n\t\t\"required\": true,\r\n\t\t\"localName\": \"result.rvt\"\r\n\t  }\r\n\t},\r\n\t\"engine\": \"Autodesk.Revit+2020\",\r\n\t\"appbundles\": [ \"{{dasNickName}}.DeleteWallsApp+test\" ],\r\n\t\"description\": \"Delete walls from Revit file.\"\r\n}"
 						},
 						"url": {
 							"raw": "{{dasApiRoot}}/activities/DeleteWallsActivity/versions",
@@ -772,7 +772,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "323ab9ba-a7b2-4ac3-97b9-8e5d13aee213",
+						"id": "1fae5ad4-7ad1-4f4b-b1ba-65541caa508a",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -782,7 +782,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6a5364f4-b007-4546-a9df-fe6337480f33",
+						"id": "541e1d22-ea6f-478c-b339-b4b76db15890",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -886,7 +886,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3c4832c6-d5e5-4488-bac6-cf78ecfd4635",
+								"id": "ab244f6b-d625-4d7a-a5b0-9a30a6ec3211",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossDownloadURL\", body[\"signedUrl\"]);"
@@ -948,7 +948,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2da9d5c8-e54f-4312-a8cd-d77706a74de5",
+								"id": "17ea8543-3543-42f0-b772-86bd8d7ae2fc",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossUploadURL\", body[\"signedUrl\"]);"
@@ -1022,7 +1022,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b5bae080-d23e-49d3-8d74-c2c4a151114b",
+								"id": "332656ee-4d40-49b2-9b71-a8a2762d5a56",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"deleteWallsWorkitemId\", body[\"id\"]);",
@@ -1094,7 +1094,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6973a301-27a7-439b-b1c0-ed11e049f617",
+						"id": "2f5c25ed-2842-466b-853f-ea0e711c788b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1104,7 +1104,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fb5e3881-a223-414d-9c0f-4d97fe4df9b6",
+						"id": "c23cd0be-6895-4644-aebc-02242fde0363",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1152,7 +1152,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "fbb1e4b4-d30b-4104-9a00-b406f392709c",
+				"id": "ece0eb97-aa96-4149-a9e7-04cd98825925",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1162,7 +1162,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "cfcba870-c8ee-4a66-95c4-07f7a39fc300",
+				"id": "0ae0a341-c29f-4620-8c50-ba17248ad92e",
 				"type": "text/javascript",
 				"exec": [
 					""
