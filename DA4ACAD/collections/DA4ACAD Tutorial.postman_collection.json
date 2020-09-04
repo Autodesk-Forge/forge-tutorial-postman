@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cd7ef8f1-36dd-4c35-a1c7-ce3b6d06167e",
+		"_postman_id": "cbab598b-dc90-4041-ab1f-ca1b10364a2e",
 		"name": "DA4ACAD Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "674dec92-cb98-43cd-8b22-de176a63fa2e",
+								"id": "e7342707-f41f-45d7-896e-a668e052bbfc",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
@@ -137,7 +137,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2f9bd6b2-f321-4974-b0f0-191d91fda1db",
+								"id": "b7f12a27-5199-465f-978a-2291085e1d12",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ListLayersAppUrl\", body[\"uploadParameters\"][\"endpointURL\"]);",
@@ -198,7 +198,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "be1edd19-488a-44c8-a006-ef5b041bf6f5",
+								"id": "3d596d83-6ce2-4cd1-b702-bb5f9e83fcef",
 								"exec": [
 									""
 								],
@@ -208,7 +208,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5627141a-4e3f-407c-bbc4-3d3f27941abd",
+								"id": "fdb0a16e-f86f-483a-bc5f-4dec03012079",
 								"exec": [
 									"pm.environment.unset(\"ListLayersAppFormDataKey\");",
 									"pm.environment.unset(\"ListLayersAppFormDataPolicy\");",
@@ -305,7 +305,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "35e47646-28c3-41d4-be51-04edf1fb6a21",
+								"id": "aa4a32f1-5424-47e4-9e1b-a6a6f9973df6",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasAppBundleAlias\", body[\"id\"]);"
@@ -369,7 +369,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "78c00280-15f1-42cd-b132-3019a497141b",
+								"id": "1c276a3e-1707-41b5-9643-685d1364fb5c",
 								"exec": [
 									""
 								],
@@ -391,7 +391,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"{{dasActivityName}}\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\accoreconsole.exe /i $(args[InputDwg].path) /al $(appbundles[{{dasAppBundleName}}].path) /s $(settings[script].path)\"\n    ],\n    \"parameters\": {\n      \"InputDwg\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input drawing file\",\n        \"localName\": \"Input.dwg\"\n      },\n      \"result\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"put\",\n        \"description\": \"Results\",\n        \"required\": true,\n        \"localName\": \"layers.txt\"\n      }\n    },\n    \"engine\": \"Autodesk.AutoCAD+22\",\n    \"appbundles\": [\n        \"{{dasNickName}}.{{dasAppBundleName}}+{{dasAppBundleAlias}}\"\n    ],\n    \"settings\": {\n        \"script\": \"(command \\\"LISTLAYERS\\\")\\n\"\n    },\n    \"description\": \"Extracts layer names from an input drawing file and saves them to a text file\"\n}"
+							"raw": "{\n  \"id\": \"{{dasActivityName}}\",\n  \"commandLine\": [\n    \"$(engine.path)\\\\accoreconsole.exe /i \\\"$(args[InputDwg].path)\\\" /al \\\"$(appbundles[{{dasAppBundleName}}].path)\\\" /s \\\"$(settings[script].path)\\\"\"\n  ],\n  \"parameters\": {\n    \"InputDwg\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"get\",\n      \"description\": \"Input drawing file\",\n      \"localName\": \"Input.dwg\"\n    },\n    \"result\": {\n      \"zip\": false,\n      \"ondemand\": false,\n      \"verb\": \"put\",\n      \"description\": \"Results\",\n      \"required\": true,\n      \"localName\": \"layers.txt\"\n    }\n  },\n  \"engine\": \"Autodesk.AutoCAD+22\",\n  \"appbundles\": [\n    \"{{dasNickName}}.{{dasAppBundleName}}+{{dasAppBundleAlias}}\"\n  ],\n  \"settings\": {\n    \"script\": \"(command \\\"LISTLAYERS\\\")\\n\"\n  },\n  \"description\": \"Extracts layer names from an input drawing file and saves them to a text file\"\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -419,7 +419,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "09f3ab87-2951-47e5-b13f-19d1e33c33a1",
+								"id": "50db8d74-d9d5-4460-b0b2-cf1ff1f7b4ea",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasActivityAlias\", body[\"id\"]);"
@@ -471,7 +471,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8f1343da-b965-48a9-a49d-ea5ed0ec565f",
+						"id": "f6171070-6a9d-405c-afd1-8283d1bd5e19",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -481,7 +481,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "76ab6aac-7fd7-465f-a740-6c7b58181c10",
+						"id": "9aeaa3f0-7e03-4f56-bd5c-26f94e2ed01b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -500,7 +500,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "184a3533-def4-4abc-b444-6bb026491c24",
+								"id": "d798b06c-cc34-452a-8e8b-77dda52f4bad",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
@@ -550,7 +550,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "95039874-0baf-49d9-9c4a-12d3b46b1c04",
+								"id": "d0343ad2-94f0-4b57-bf5c-f89285ef0b01",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossDwgFileObjectKey\", body[\"objectKey\"]);"
@@ -599,7 +599,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "421eb840-eb01-4583-8c17-6985990df742",
+								"id": "ccd64087-feb2-4212-a0b2-200bb31de560",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossDwgFileSignedUrl\", body[\"signedUrl\"]);",
@@ -654,7 +654,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "72faef32-539c-4d77-b442-d3b4844ca265",
+								"id": "fc6baf87-e384-4d56-9698-6dfc5b588350",
 								"exec": [
 									""
 								],
@@ -664,7 +664,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3f4039d3-f230-4fa5-a7b2-8ff3d828ff03",
+								"id": "f590b07c-50f8-4600-826d-63354bb34a13",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -724,7 +724,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "34b58472-dd45-45be-9fe5-ff459cde5a32",
+						"id": "3f22d8ff-3455-44b0-a821-b8729f2e30d6",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -734,7 +734,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6fe34ed2-7710-4478-a4c6-1e2c3a265ff5",
+						"id": "c61a0305-ea7a-4675-8d4e-2aef33758b7b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -753,7 +753,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6de9e828-ed0a-4175-871e-3601db807946",
+								"id": "5f687e42-5667-4e90-a7ad-1bb33fc0f786",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
@@ -764,7 +764,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "2b8a5d61-1bbd-4570-b844-bf4457a6e3e6",
+								"id": "7c7be5e3-a6ba-40ae-9296-d196d4d8a904",
 								"exec": [
 									""
 								],
@@ -848,7 +848,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d2d0b56a-aea8-42bd-87db-d4503106034c",
+						"id": "1132e67f-2739-47b3-914a-0f75a86224d1",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -858,7 +858,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "573d29be-6965-422b-8c63-c755634a5109",
+						"id": "ce1fe857-f05c-4130-8e35-b2f9147e26d1",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -919,7 +919,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "3df42d24-1cad-4107-a0a0-e05c773dc662",
+						"id": "d77a1f77-f6f9-46ec-9146-cff573fa2f2c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -929,7 +929,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f8652e63-236b-475e-b512-c4200204cd43",
+						"id": "45f247a9-bfb1-464b-b5aa-ec2cbf9b3273",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -987,7 +987,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "2f21924f-0028-4129-b850-44a7db84925a",
+								"id": "0ea5b8b5-1154-4350-bd8d-f59368b892ea",
 								"exec": [
 									""
 								],
@@ -1242,7 +1242,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "7edf0659-99a5-4e73-b0b5-c0c7b135eaeb",
+						"id": "20d715f3-6887-4c89-8a03-55a79fcb4bba",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1252,7 +1252,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f4b65d52-d1a0-4041-8633-bbae33ec21c3",
+						"id": "7ce34874-5d7d-4317-8808-a3715fb86712",
 						"type": "text/javascript",
 						"exec": [
 							""
