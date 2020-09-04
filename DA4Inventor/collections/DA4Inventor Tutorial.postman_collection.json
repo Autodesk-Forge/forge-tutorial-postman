@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c072c8d2-5391-4246-9327-b723b94c7f8a",
+		"_postman_id": "2a2f89e0-1502-48eb-94a5-41b3f3168405",
 		"name": "DA4Inventor Tutorial",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3df16796-5a03-47e5-a63f-00989847157c",
+								"id": "8e60b492-16d3-4b35-a68d-f2686c14bc1d",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasApiToken\", body[\"access_token\"]);"
@@ -130,7 +130,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "d21fcc33-958c-4f16-8b1e-080ff8eb06b4",
+						"id": "78f13638-330b-43be-9958-27c128ee4c8f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -140,7 +140,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ee54cdcb-924b-49c7-afbb-4f9268dde604",
+						"id": "c0033dfa-ecc7-4cad-8a3b-a05c3dbdd9a9",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -159,7 +159,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ed1df161-59fb-46de-8d7f-01f8982aaef6",
+								"id": "5639e57e-7a89-4595-a461-337bb8bbdb3d",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasAppBundleId\",body[\"id\"]);",
@@ -221,7 +221,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f15df6e5-8f98-4ea7-8e21-9b68875f57aa",
+								"id": "ed69b4ae-cdf1-4258-9434-551125891429",
 								"exec": [
 									""
 								],
@@ -231,7 +231,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6029064c-c08c-43db-a281-b30edd1689fa",
+								"id": "2dd14878-68aa-4d3a-b8a5-875da11f78b7",
 								"exec": [
 									""
 								],
@@ -323,7 +323,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "6eda542c-14cb-411d-870f-1bf29d74ae99",
+								"id": "21833cdd-ccfd-4f25-98ff-cbec1e4cd627",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasAppBundleAlias\", body[\"id\"]);"
@@ -380,7 +380,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ef751c9e-9358-451e-9b76-e92b3987852a",
+						"id": "ccf51ef5-104e-47ef-8ad2-c77243cdf4f5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -390,7 +390,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ab08df22-638c-4b64-896f-136256883d2d",
+						"id": "8c82bdd2-7ebc-40b1-a493-12ce92ff2a8f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -409,7 +409,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b2642d8f-273b-4601-a1c0-150950b79ae4",
+								"id": "73d3859b-9d36-485b-be68-23a7db2be321",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasActivityName\",body[\"id\"]);"
@@ -432,7 +432,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": \"ChangeParamActivity\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\InventorCoreConsole.exe /i $(args[InventorDoc].path) /al $(appbundles[ChangeParamApp].path) $(args[InventorParams].path)\"\n    ],\n    \"parameters\": {\n      \"InventorDoc\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input Inventor part file\",\n        \"localName\": \"Input.ipt\"\n      },\n       \"InventorParams\": {\n       \t\"zip\": false,\n       \t\"ondemand\": false,\n       \t\"verb\": \"get\",\n       \t\"description\" : \"JSON object containing new width and height parameters\",\n        \"localName\": \"params.json\"\n      },\n      \"OutputIpt\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.ipt\",\n        \"verb\": \"post\"\n      },\n      \"OutputIam\": {\n        \"zip\": true,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.zip\",\n        \"verb\": \"post\"\n      },\n      \"OutputBmp\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.bmp\",\n        \"verb\": \"post\"\n      }\n    },\n    \"engine\": \"Autodesk.Inventor+24\",\n    \"appbundles\": [\n        \"{{dasAppBundleId}}+{{dasAppBundleAlias}}\"\n    ],\n    \"settings\": {},\n    \"description\": \"Resizes an Inventor part or assembly to the height and width parameters contained in the JSON object specified by the InventorParams parameter. Also produces a BMP file of the result.\"\n}"
+							"raw": "{\n    \"id\": \"ChangeParamActivity\",\n    \"commandLine\": [\n        \"$(engine.path)\\\\InventorCoreConsole.exe /i \\\"$(args[InventorDoc].path)\\\" /al \\\"$(appbundles[ChangeParamApp].path)\\\" \\\"$(args[InventorParams].path)\\\"\"\n    ],\n    \"parameters\": {\n      \"InventorDoc\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"verb\": \"get\",\n        \"description\": \"Input Inventor part file\",\n        \"localName\": \"Input.ipt\"\n      },\n       \"InventorParams\": {\n       \t\"zip\": false,\n       \t\"ondemand\": false,\n       \t\"verb\": \"get\",\n       \t\"description\" : \"JSON object containing new width and height parameters\",\n        \"localName\": \"params.json\"\n      },\n      \"OutputIpt\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.ipt\",\n        \"verb\": \"post\"\n      },\n      \"OutputIam\": {\n        \"zip\": true,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.zip\",\n        \"verb\": \"post\"\n      },\n      \"OutputBmp\": {\n        \"zip\": false,\n        \"ondemand\": false,\n        \"optional\": true,\n        \"localName\": \"ResultSmall.bmp\",\n        \"verb\": \"post\"\n      }\n    },\n    \"engine\": \"Autodesk.Inventor+24\",\n    \"appbundles\": [\n        \"{{dasAppBundleId}}+{{dasAppBundleAlias}}\"\n    ],\n    \"settings\": {},\n    \"description\": \"Resizes an Inventor part or assembly to the height and width parameters contained in the JSON object specified by the InventorParams parameter. Also produces a BMP file of the result.\"\n}"
 						},
 						"url": {
 							"raw": "https://developer.api.autodesk.com/da/us-east/v3/activities",
@@ -460,7 +460,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1a281df7-fc0b-4b6a-9312-1d69bdbad7a7",
+								"id": "0fc0548f-0c6a-40e2-9c2a-bfd216a8a1cf",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasActivityAlias\", body[\"id\"]);"
@@ -519,7 +519,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
+								"id": "535e27cd-14ab-4414-a42d-e9443ae0454d",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossBucketKey\", body[\"bucketKey\"]);"
@@ -569,7 +569,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+								"id": "59a084a5-acfb-409f-b8f4-5523a3d6233c",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossInputFileObjectKey\", body[\"objectKey\"]);"
@@ -618,7 +618,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "58eb33f6-d95a-4092-ba00-823348dec87a",
+								"id": "bb1f3f0c-4496-4f44-9f9c-9bd8062a381f",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"ossInputFileSignedUrl\", body[\"signedUrl\"]);",
@@ -673,7 +673,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"id": "67779a2c-7fe0-4479-9d7b-1c3e71ce12da",
 								"exec": [
 									""
 								],
@@ -683,7 +683,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"id": "c2653b08-8363-414a-8228-5a1115f4edf3",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -744,7 +744,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"id": "91ad28d5-2312-4ec0-8ae4-19df1cff3264",
 								"exec": [
 									""
 								],
@@ -754,7 +754,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"id": "cbb259a1-956f-46c7-9483-1201db8bfa91",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -815,7 +815,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "fbfce144-349e-4ea7-b647-79f6cb972ed1",
+								"id": "6167e2bb-89c8-4069-98e2-20b7cd3ab4b3",
 								"exec": [
 									""
 								],
@@ -825,7 +825,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7c7a5754-f73b-438a-b2f9-6951fe05a451",
+								"id": "510f1d36-a156-4c24-be73-e56d6cff0cd1",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"",
@@ -885,7 +885,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5d793cb2-5c37-4c04-b61d-699ccb839aa8",
+						"id": "a82cfeda-2368-4cc4-9140-aa8e752b0b1b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -895,7 +895,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "f4af8278-2893-47d6-8cf7-7cd32c81f1ea",
+						"id": "7e0fb04e-4c17-4b3b-b388-4cdabf897c12",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -914,7 +914,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7cf9c997-7d7a-4f98-aadb-6880aa58e299",
+								"id": "9048dfc6-1454-4e31-9c75-b968d8c9579c",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"pm.environment.set(\"dasWorkItemId\", body[\"id\"]);"
@@ -925,7 +925,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "42e630ab-cd3d-4793-b39f-628380376efc",
+								"id": "eb643247-06d2-4471-abdf-6417d9c9bc85",
 								"exec": [
 									""
 								],
@@ -1009,7 +1009,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bf647020-170e-4ca2-893a-0467b1e9ef1b",
+						"id": "c286b457-2e47-4911-b3d0-22823118ca99",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1019,7 +1019,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "235ace93-5860-4382-bb48-2b8ea1548ec7",
+						"id": "39b73499-5689-4658-bdd7-b60367106408",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1123,7 +1123,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "14405fb2-7da0-45de-9d07-a6ef76d9e959",
+						"id": "a8259187-b477-4c4b-99f4-85169492e84c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1133,7 +1133,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "570a83f7-7be0-49a2-b679-da8b9ffbd0f9",
+						"id": "eb77640a-4dbe-4078-b20d-388c14299c4c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1191,7 +1191,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"id": "e79d61c8-d66a-45c7-940d-f4ab9bd3ca9c",
 								"exec": [
 									""
 								],
@@ -1414,7 +1414,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6952503a-0432-4e9d-85ed-77b5d5c1482c",
+						"id": "eb00fe7e-0266-4546-bf94-f134c6114802",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1424,7 +1424,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b38d8754-da1d-49eb-9ffb-ff1a0e6ef76d",
+						"id": "44b20a07-510a-4937-b9fd-702e438dcd41",
 						"type": "text/javascript",
 						"exec": [
 							""

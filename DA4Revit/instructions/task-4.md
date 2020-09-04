@@ -4,11 +4,12 @@ An AppBundle is a package of binaries and supporting files that make up a Revit 
 
 ## Register the AppBundle
 
-When registering the AppBundle, you inform Design Automation that you want to name it DeleteWallsApp, and that it must run on Revit 2018.
+When registering the AppBundle, you inform Design Automation that you want to name it DeleteWallsApp, and that it must run on Revit 2020.
+**Note:** Screen captures show that the AppBundle runs on Revit 2018. However the Postman Collection has been updated to run on Revit 2020.
 
 1. On the Postman sidebar, click **Task 4 - Upload AppBundle > POST Register the AppBundle**. The request loads.
 
-2. Click the **Body** tab, and verify that the `id`, and `engine` are set to `DeleteWallsApp`, and `Autodesk.Revit+2018`.
+2. Click the **Body** tab, and verify that the `id`, and `engine` are set to `DeleteWallsApp`, and `Autodesk.Revit+2020`.
 
     ![AppBundle Body](../images/task4-appbundle_body.png "AppBundle Body")
 
