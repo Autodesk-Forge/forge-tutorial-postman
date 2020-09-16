@@ -126,8 +126,14 @@
 
             viewer.loadDocumentNode(viewerDocument, md_viewables[0]);
 
+            <!-- Verifying if the loaded model is an SVF2. If there is a problem the viewer can fallback to SVF and we wont know anything about it-->
+
+            if viewer.model.isSVF2() {
+                alert('SVF2 derivative loaded');
+            }
 
             <!-- Make the Choose viewable drop-down visible, if and only if only there are more than one viewables to display-->
+
 
             if (md_viewables.length > 1) {
                 var viewablesDIV= document.getElementById("viewables_dropdown");
