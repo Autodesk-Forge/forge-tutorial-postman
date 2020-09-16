@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <h1>Display an SVF2 Derivative Using the Forge Viewer Library V2</h1>
+    <h1>Display an SVF2 Derivative Using the Forge Viewer Library</h1>
     <!-- Capture Access Token and URN of the Source file corresponding to the SVF file to display-->
     <form id="frm1">
         Access Token:
@@ -125,14 +125,6 @@
             }
 
             viewer.loadDocumentNode(viewerDocument, md_viewables[0]);
-
-            alert ('Test')
-
-            if viewerapp.isSVF2() {
-                alert("Loaded model is an SVF2 derivative");
-            } else {
-                alert("Loaded model is an SVF derivative");
-            }
 
             <!-- Make the Choose viewable drop-down visible, if and only if only there are more than one viewables to display-->
 
