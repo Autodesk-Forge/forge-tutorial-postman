@@ -1,6 +1,4 @@
-# Task 3 – Translate Source File
-
-To display a model in the viewer, the model must first be translated to the SVF format. Accordingly, preparing a model for the Viewer boils down to translating the model to the SVF format.
+# Task 3, Option 2 – Translate to SVF2
 
 To translate a model, you must kick off a translation job. The translation job produces a manifest, which lists all the files (derivatives) that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
 
@@ -12,7 +10,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 2. Click the **Body** tab and take note of the JSON payload.
 
-    ![Create Translation Job JSON Payload](../images/task3-translation_job_json_payload.png "Create Translation Job JSON Payload")
+    ![Create Translation Job JSON Payload](../images/task3_op2-translation_job_json_payload.png "Create Translation Job JSON Payload")
 
     Note the following:
 
@@ -24,7 +22,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful Submission of Translation Job](../images/task3-translation_job_successfull_submission.png "Successful Submission of Translation Job")
+    ![Successful Submission of Translation Job](../images/task3_op2-translation_job_successfull_submission.png "Successful Submission of Translation Job")
 
     Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t4_url_safe_urn_of_source`.
 
@@ -51,4 +49,4 @@ For the purpose of this tutorial you will check the status of the translation jo
    Repeat this step until the `progress` attribute becomes `complete`, as shown in the image.
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-4.md "Next task")
