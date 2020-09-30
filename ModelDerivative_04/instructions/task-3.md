@@ -15,4 +15,4 @@ To continue with this tutorial, pick one of the following options:
 - [Option 2: Translate to SVF2](task-3_option_2.md))
 
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-3_option_1.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") 
