@@ -11,7 +11,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Derivative Step-by-Step Tutorial [Prepare a File for the Viewer](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/), which is published on the Forge portal. 
+This folder contains a Postman Collection that contains the requests used in the Model Derivative Step-by-Step Tutorial [Prepare a File for the Viewer](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-file4viewer/), which is published on the Forge portal.
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
 
@@ -25,14 +25,6 @@ Instructions to run the Postman collection are as follows:
 
 - [Before you begin](instructions/before_you_begin.md)
 - [Task 1 - Obtain an Access Token](instructions/task-1.md)
-- [Task 2 - Upload Source FIle to OSS](instructions/task-2.md)
-- [Task 3 – Translate to SVF](instructions/task-3.md)
-- [Task 4 - Extract Metadata](instructions/task-4.md)
-
-
-
-
-
-
-
-
+- [Task 2 - Upload Source File to OSS](instructions/task-2.md)
+- [Task 3 – Translate to Source File](instructions/task-3.md)
+- [Task 4 - Display Model in Viewer](instructions/task-4.md)

@@ -29,13 +29,13 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 ## Upload zip file to OSS
 
-1. Download the file *suspension.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *Suspension.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Set the Postman environment variable `ossSourceFileObjectKey` to `suspension.zip`, which you will use as the Object Key for the file you downloaded in the previous step. 
+2. Set the Postman environment variable `ossSourceFileObjectKey` to `Suspension.zip`, which you will use as the Object Key for the file you downloaded in the previous step.
 
    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
-   2. In the **CURRENT VALUE** column, in the **ossSourceFileObjectKey** row, specify `suspension.zip` as the value for that variable. 
+   2. In the **CURRENT VALUE** column, in the **ossSourceFileObjectKey** row, specify `Suspension.zip` as the value for that variable. 
 
    3. Click the **Environment quick look** icon to hide the variables.
 
