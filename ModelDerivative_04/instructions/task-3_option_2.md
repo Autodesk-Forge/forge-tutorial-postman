@@ -4,7 +4,7 @@ To translate a model, you must kick off a translation job. The translation job p
 
 ## Start a translation job
 
-For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this to the variable `t4_ossEncodedSourceFileURN`, which you will use in the next request.
+For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this value to the variable `t4_ossEncodedSourceFileURN`, which you will use in the next request.
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Start a Translation Job**. The request loads.
 
@@ -16,15 +16,15 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
     - `compressedURN` - A flag that tells the system that the source file is within a zip file.
 
-    - `rootfile` - The main source file. In this case it is the main assembly file, *suspension.iam*, which contains references to the part files found in the zip file.
+    - `rootfile` - The main source file. In this case, it is the main assembly file, *suspension.iam*, that contains references to the part files found in the zip file.
 
-    - `type` - The file type that the source file will be translated to; SVF in this case.
+    - `type` - The file type that the source file must be translated to; SVF2 in this case.
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
     ![Successful Submission of Translation Job](../images/task3_op2-translation_job_successfull_submission.png "Successful Submission of Translation Job")
 
-    Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t4_url_safe_urn_of_source`.
+    Note the `urn` attribute in the JSON response. The value of this attribute is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t4_url_safe_urn_of_source`.
 
 ## Check status of translation job
 
@@ -34,7 +34,7 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For the purpose of this tutorial you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this tutorial, you check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
