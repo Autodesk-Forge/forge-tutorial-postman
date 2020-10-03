@@ -1,12 +1,10 @@
 # Task 3 – Translate Source File
 
-In order to extract metadata from a model, the model must first be translated to the SVF format.
-
-To translate a model, you must kick off a translation job. The translation job produces a manifest, which lists all the files (derivatives) that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
+To get the server to extract metadata from a model, you must first translate the model to a viewer-friendly format. While this tutorial translates the model to SVF, you can just as well translate to SVF2.  The procedure to extract metadata is identical for both formats.
 
 ## Start a translation job
 
-For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this to the variable `t5_ossEncodedSourceFileURN`, which you will use in the next request.
+For this task, you use the Base64-encoded URN of the source file. In the previous task, Postman saved this URN to the variable `t5_ossEncodedSourceFileURN`. You use this variable to reference the model in the next request.
 
 1. In the Postman sidebar, click **Translate to SVF > Start a Translation Job**. The request loads.
 
@@ -18,7 +16,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
     ![Successful Submission of Translation Job](../images/task3-translation_job_successfull_submission.png "Successful Submission of Translation Job")
 
-    Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t5_url_safe_urn_of_source`.
+    Note the `urn` attribute in the JSON response. The value of this parameter is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t5_url_safe_urn_of_source`.
 
 ## Check status of translation job
 
@@ -28,15 +26,15 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For the purpose of this tutorial you will check the status of the translation job. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+This tutorial checks the status of the translation job periodically. For information using the webhooks method, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
 1. In the Postman sidebar, click **Translate to SVF > Check Status of Job**. The request loads.
 
    ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
 
-   Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t5_url_safe_urn_of_source` variable)
+   Note how the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t5_url_safe_urn_of_source` variable)
 
-2. Click **Send**. You will see a screen similar to the following image.
+2. Click **Send**. A screen similar to the following image is displayed.
 
    ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
 
