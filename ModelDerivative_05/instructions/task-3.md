@@ -36,9 +36,12 @@ This tutorial checks the status of the translation job periodically. For informa
 
 2. Click **Send**. A screen similar to the following image is displayed.
 
-   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
+   ![Inprogress Job](../images/task3-inprogress_job.png "Inprogress Job")
 
-   Repeat this step until the `progress` attribute becomes `complete`, as shown in the image.
+3. Repeat step 2 until the value of the `progress` parameter becomes `complete`, as shown in the following image.
+
+    ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
+
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")
