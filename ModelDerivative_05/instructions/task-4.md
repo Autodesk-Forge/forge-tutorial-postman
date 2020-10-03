@@ -12,7 +12,7 @@ To obtain a list of Viewables, you will use the URL safe Base64-encoded URN of t
 
    ![list Viewables](../images/task4_list_model_views_success.png "list viewables")
 
-   A script in the **Tests** tab saves the Ids of the Viewables to a series of variables `dv_guid_0` to `gv_guid_6`.
+   A script in the **Tests** tab saves the Ids of the Viewables to a series of variables `dv_guid_0` to `dv_guid_6`.
 
    ![list Viewables](../images/task4_list_model_view_guids.png "list viewables")
 
