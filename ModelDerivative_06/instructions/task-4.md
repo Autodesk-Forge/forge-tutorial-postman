@@ -33,4 +33,4 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
 The response body contains the list of object properties.
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")[:arrow_forward:](task-5.md "Next task")

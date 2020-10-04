@@ -1,10 +1,10 @@
 # Task 2 - Upload Source File to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload a zip file (*Stapler.zip*) containing an Inventor Assembly and Part files to OSS. While you can use any model, for the purpose of this tutorial we recommend that you use the model we provide. 
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload a zip file (*Stapler.zip*) containing an Inventor Assembly and Part files to OSS. While you can use any model, we recommend that you use the model we provide. 
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
+In this tutorial, you  use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "83b5a060-c372-4f01-8191-85efb9e9aeb6",
+		"_postman_id": "f88ba6e4-8b36-49e7-ae9d-b0c5185ddbdc",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3df16796-5a03-47e5-a63f-00989847157c",
+										"id": "cbeef3d8-ec31-4701-bf60-2ad4332742f0",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
@@ -83,7 +83,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "a7ea41ca-578d-47c2-82a6-1b87b0fae80d",
+								"id": "e46c0f9a-5b13-4e1e-80cc-ddb265a50d8f",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -93,7 +93,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "487811da-12dc-473d-9b13-58dd3dad29ca",
+								"id": "190c87ad-b1a7-4325-a0ac-6f0d3696f254",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -113,7 +113,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4ff2c081-efef-466d-8cdc-2e6b7bf4ad4b",
+										"id": "7d06b1fc-9b81-4fc5-85ed-e300a221a5a2",
 										"exec": [
 											""
 										],
@@ -162,7 +162,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+										"id": "31d5eaf8-fa17-430c-b310-160e4974199a",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"t6_ossSourceFileObjectKey\", body[\"objectKey\"]);",
@@ -215,7 +215,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "20bc88d2-c43e-4b74-945f-b0fe3273d0a3",
+								"id": "cde179d1-d5b1-4d34-9269-a09564e10788",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -225,7 +225,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "de381610-e3aa-4e5e-abf3-f317c18c5a61",
+								"id": "ab50f8e3-67fa-4073-9515-8df8a83ffd73",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -245,7 +245,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bcc7e5f3-5952-4482-8e8a-2290fbf2c519",
+										"id": "4a039931-7c26-4436-8292-82b245b2b42e",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"t6_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -309,7 +309,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
+										"id": "b53495f7-87fc-4fde-86b6-207f0d769beb",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"d_data=body[\"derivatives\"];",
@@ -368,7 +368,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "6e7d6eab-5cee-4d84-a682-3c7bf59fc549",
+								"id": "0581f3a0-5163-4cf2-9e28-78332b8ce589",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -378,7 +378,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b02cf14b-4ee0-4297-b1c4-f270fda07c90",
+								"id": "ad9ab42e-67e1-4166-afc3-1b42fe1a264d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -398,7 +398,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1289b334-a2f7-4ebd-ae7a-9530d2be4d44",
+										"id": "70be2d2e-4328-4cbd-9c2b-3ae9c70ef2b2",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"var body_data=body[\"data\"];",
@@ -430,7 +430,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t6_ossEncodedSourceFileURN}}/metadata",
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t6_url_safe_urn_of_source}}/metadata",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -442,7 +442,7 @@
 										"modelderivative",
 										"v2",
 										"designdata",
-										"{{t6_ossEncodedSourceFileURN}}",
+										"{{t6_url_safe_urn_of_source}}",
 										"metadata"
 									]
 								},
@@ -456,7 +456,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1289b334-a2f7-4ebd-ae7a-9530d2be4d44",
+										"id": "b92daaf3-ef1f-47fa-a9d8-c411b0ef7245",
 										"exec": [
 											""
 										],
@@ -508,7 +508,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bcc7e5f3-5952-4482-8e8a-2290fbf2c519",
+										"id": "9aa3d90e-2525-49ee-b543-0eafc232a918",
 										"exec": [
 											""
 										],
@@ -571,7 +571,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
+										"id": "4c95e80d-b0b1-4d19-aff1-2bcae429eb11",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"d_data = body[\"derivatives\"];",
@@ -663,7 +663,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f779c92a-0230-4390-9346-8f42a68a197b",
+								"id": "78a5b6a7-5e01-41fd-bdf5-31b6be8f6e5c",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -673,7 +673,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "7d1d993a-942c-4167-b008-f6765f22f447",
+								"id": "dc1b0efc-d4ac-4da9-a5a3-8e958316a296",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -689,7 +689,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bc83e87c-5db8-410a-bca5-4c56ba56e238",
+						"id": "b9732c81-951d-475d-8f34-10222478ec0f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -699,7 +699,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "088e8701-a17a-4e0d-973f-63b600181c84",
+						"id": "88fc9957-e04c-42a8-8ebb-cfd3b0364ce5",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -782,7 +782,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
+								"id": "1158b8af-6bab-4810-ac88-be022e1fa5fa",
 								"exec": [
 									""
 								],
@@ -825,7 +825,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"id": "f36bbad9-860f-4a75-8be6-fac7f024dada",
 								"exec": [
 									""
 								],
