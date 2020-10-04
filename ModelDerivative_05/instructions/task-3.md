@@ -32,7 +32,7 @@ This tutorial checks the status of the translation job periodically. For informa
 
    ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
 
-   Note how the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t5_url_safe_urn_of_source` variable)
+   Note how the URL-safe Base64-encoded URN of the source file is used as a URI parameter, in the form of a variable (`t5_url_safe_urn_of_source`).
 
 2. Click **Send**. A screen similar to the following image is displayed.
 
