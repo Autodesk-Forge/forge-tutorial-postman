@@ -1,6 +1,6 @@
 # Task 4 - Extract Metadata
 
-In order to extract geometry, you must know the `objectid` of the geometries to extract. To get the 'objectid' you must first get the metadata GUID of the Viewable that the geometry resides on.
+To extract geometry, you must know the object IDs of the geometries to extract. To get the object ID of geometry you must first get the metadata GUID of the Viewable it resides on.
 
 
 ## Retrieve a list of Viewables
@@ -13,7 +13,7 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
    ![list viewables](../images/task4_list_model_views_success.png "list viewables")
 
-   Note that the model has only one Viewable. (Inventor and Fusion 360 models have only one Viewable. Revit models can have multiple Viewables.) A script in the **Tests** tab saves the metadata GUID of the Viewable to a variable named `metadata_guid_0`.
+   Notice that the model has only one Viewable. (Inventor and Fusion 360 models have only one Viewable. Revit models can have multiple Viewables.) A script in the **Tests** tab saves the metadata GUID of the Viewable to a variable named `metadata_guid_0`.
 
 ## Retrieve the Object Tree of Viewable
 
@@ -23,7 +23,7 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
    Note the use of the variable `metadata_guid_0` as a URI parameter.
 
-2. Click **Send**. If extracting properties takes time, you will see a screen like the following. 
+2. Click **Send**. If extracting properties takes time, you see a screen like the following. 
 
    ![list objects success](../images/task4_get_properties_success_01.png "list objects success")
 
@@ -33,4 +33,4 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
 The response body contains the list of object properties.
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")[:arrow_forward:](task-5.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-5.md "Next task")

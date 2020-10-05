@@ -13,7 +13,7 @@ In this tutorial, you  use a Postman environment variable named `ossBucketKey` t
     2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
 
         **Notes:**  
-        - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
+        - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, the system returns a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
 
         - The Bucket name must consist of only lower-case characters, numbers 0-9, and the underscore (_) character.
 
@@ -31,7 +31,7 @@ In this tutorial, you  use a Postman environment variable named `ossBucketKey` t
 
 1. Download the file *Stapler.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Set the Postman environment variable `ossSourceFileObjectKey` to `Stapler.zip`, which you will use as the Object Key for the file you downloaded in the previous step. 
+2. Set the Postman environment variable `ossSourceFileObjectKey` to `Stapler.zip`, which you use as the Object Key for the file you downloaded in the previous step. 
 
    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
 
@@ -49,12 +49,12 @@ In this tutorial, you  use a Postman environment variable named `ossBucketKey` t
 
     ![Select file button](../images/task2-select_files_button.png "Select file button")
 
-6. Click **Send**. This sends the request, and updates the following Postman environment variables:
+6. Click **Send**. Postman sends the request. When Postman receives a response, it updates the following environment variables:
 
-   | Variable Name              | Description                                                                                                                                                                                |
-   |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-   | t6_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. In this case, it is the URN of the Inventor assembly file within the zip file,  *Stapler.iam*  |
-   | t6_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                                                                                                             |
+   | Variable Name              | Description                                                                                                                                                                                      |
+   |----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+   | t6_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This value is the URN of the source file. In this case, it is the URN of the Inventor assembly file within the zip file,  *Stapler.iam*  |
+   | t6_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                                                                                                                   |
 
    You should see a screen similar to the following image:
 

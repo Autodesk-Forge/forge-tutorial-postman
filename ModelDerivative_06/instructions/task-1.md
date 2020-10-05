@@ -5,7 +5,7 @@
 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup) 
 to create a Forge App. In the *Add Services to Forge* stage, select "Model Derivative API" and "Data Management API".
 
-2. Jot down the *Client ID* and *Client Secret* of the Forge App you created. You will need this in the next step.
+2. Copy the *Client ID* and *Client Secret* of the Forge App you created. You need these parameters in the next step.
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
@@ -41,7 +41,7 @@ To send the authenticate request to Forge:
 
    ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret") 
 
-4. Click **Send**. This sends the HTTP request to Forge. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
+4. Click **Send**. Postman sends the HTTP request to Forge. If the request authenticates successfully, the server returns `200 OK`. The response screen is similar to the following:
 
     ![Successful authentication](../images/task1-authenticate_successfull.png "Successful authentication") 
 
