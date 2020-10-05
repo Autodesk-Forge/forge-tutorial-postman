@@ -1,6 +1,6 @@
 # Task 5 - Extract Geometry
 
-Once the object tree has been retrieved, you can pick objects by their Id, and translate them into the OBJ format. Note that when you translate specific objects, you can only translate to the OBJ format.
+Once the object tree has been retrieved, you can pick objects by their ID, and translate them into the OBJ format. Note that when you translate specific objects, you can only translate to the OBJ format.
 
 ## Translate specific objects to OBJ
 
