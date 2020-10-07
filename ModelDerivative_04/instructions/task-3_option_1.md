@@ -6,7 +6,7 @@ To translate a model, you must kick off a translation job. The translation job p
 
 For this task, you will use the Base64-encoded URN of the source file. In the previous task, Postman saved this value to the variable `t4_ossEncodedSourceFileURN`, which you will use in the next request.
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Start a Translation Job**. The request loads.
+1. In the Postman sidebar, click **Task 3 - Translate Source File > Option 1 - Translate to SVF > Start a Translation Job**. The request loads.
 
 2. Click the **Body** tab and take note of the JSON payload.
 
