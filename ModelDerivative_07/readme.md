@@ -11,7 +11,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Revit File, Generating Room and Space Information](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/), which is published on the Forge portal. 
+This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Revit File, Generating Room and Space Information](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/), which is published on the Forge portal.
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
 
@@ -27,12 +27,6 @@ Instructions to run the Postman collection are as follows:
 - [Task 1 - Obtain an Access Token](instructions/task-1.md)
 - [Task 2 - Upload Source File to OSS](instructions/task-2.md)
 - [Task 3 – Translate Source File](instructions/task-3.md)
+  - [Task 3, Option 1 – Translate to SVF](instructions/task-3_op1.md)
+  - [Task 3, Option 2 – Translate to SVF2](instructions/task-3_op2.md)
 - [Task 4 - Display the Model in the Viewer](instructions/task-4.md)
-
-
-
-
-
-
-
-
