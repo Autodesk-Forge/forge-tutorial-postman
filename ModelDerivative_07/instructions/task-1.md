@@ -5,7 +5,7 @@
 1. Follow the instructions on [Get Started with Forge in Three Steps](https://forge.autodesk.com/developer/start-now/signup)
 to create a Forge App. In the *Add Services to Forge* stage, select "Model Derivative API" and "Data Management API".
 
-2. Jot down the *Client ID* and *Client Secret* of the Forge App you created. You will need this in the next step.
+2. Copy the *Client ID* and *Client Secret* of the Forge App you created. You use these values in the next step.
 
 ## Save Client ID and Client Secret to Postman Environment Variables
 
@@ -21,7 +21,7 @@ To set the environment variables:
 
     ![Edit Environment Variable](../images/task1-envoronment_edit_variable.png "Edit Environment Variable")
 
-3. Click the Edit icon, and enter the *Client ID* you jotted down earlier.
+3. Click the Edit icon and enter the *Client ID* you jotted down earlier.
 
 4. Similarly, enter the *Client Secret* you jotted down earlier, in the **CURRENT VALUE** column on the **client_secret** row.
 
@@ -41,11 +41,11 @@ To send the authenticate request to Forge:
 
    ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret")
 
-4. Click **Send**. This sends the HTTP request to Forge. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
+4. Click **Send**. Postman sends the HTTP request to Forge. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
 
     ![Successful authentication](../images/task1-authenticate_successfull.png "Successful authentication")
 
-A script defined in the **Tests** tab saves the Access Token in the Postman environment variable `access_token`. Postman will pick up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to Forge once again. 
+A script defined in the **Tests** tab saves the Access Token in the Postman environment variable `access_token`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to Forge once again. 
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](before_you_begin.md "Previous task") [:arrow_forward:](task-2.md "Next task")

@@ -1,4 +1,4 @@
-# Task 3 – Translate Source File
+# Task 3, Option 2 – Translate to SVF2
 
 To generate zone and space information while translating, you must set a few specific options in the request header and the JSON body. Generating zone and space information can cause translation time to increase. As such, these options must be specified only when you need zone and space information.
 
@@ -7,7 +7,7 @@ The translation job produces a manifest, which lists all the files that are gene
 
 ## Start a translation job
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Option 1 - Translate to SVF2 > Start a Translation Job**. The request loads.
+1. In the Postman sidebar, click **Task 3 - Translate Source File > Option 2 - Translate to SVF2 > Start a Translation Job**. The request loads.
 
 2. Click the **Body** tab and take note of the JSON payload.
 
@@ -19,13 +19,13 @@ The translation job produces a manifest, which lists all the files that are gene
 
    ![Create translation job - Header tab](../images/task3-translation_job_header_tab_op2.png "Create translation job - Header tab")
 
-   Note the `x-ads-force` header parameter, which has been set to `true`. Setting this header parameter ensures that the derivatives produced by any previous translation job for this source file is removed. This is mandatory for generating master views
+   Note the `x-ads-force` header parameter, which has been set to `true`. Setting this header parameter ensures that the derivatives produced by any previous translation job for this source file is removed. This setting is mandatory for generating master views
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
     ![Successful Submission of Translation Job](../images/task3-translation_job_successfull_submission_op2.png "Successful Submission of Translation Job")
 
-    Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t7_url_safe_urn_of_source`.
+    Note the `urn` parameter in the JSON response. This parameter contains the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t7_url_safe_urn_of_source`.
 
 ## Check status of translation job
 
@@ -35,18 +35,18 @@ When you kick off a translation job, it takes time to complete. There are two wa
 
 - Set up a webhook to notify you when the job is done.
 
-For the purpose of this tutorial you will check the status of the translation job, and wait for the `progress` attribute to become `complete`. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
+For this tutorial, check the status of the translation job, and wait for the `progress` parameter to become `complete`. For more information on webhooks, see the [documentation on Model Derivative webhook events](https://forge.autodesk.com/en/docs/webhooks/v1/reference/events/model_derivative_events)
 
-1. In the Postman sidebar, click **Task 3 - Translate Source File > Option 1 - Translate to SVF2 > Check Status of Job**. The request loads.
+1. In the Postman sidebar, click Task 3 - Translate Source File > Option 2 - Translate to SVF2 > Check Status of Job**. The request loads.
 
-   ![Check Status of Job](../images/task3-check_status_of_job_op2.png "Check Status of Job")
+   ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
 
-   Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t7_url_safe_urn_of_source` variable)
+   Notice how the URL-safe Base64-encoded URN of the source file is used as a URI parameter (by way of the `t7_url_safe_urn_of_source` variable)
 
-2. Click **Send**. You will see a screen similar to the following image.
+2. Click **Send**. You see a screen similar to the following image.
 
-   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
+   ![Successful Job](../images/task3-sucessfull_job_op2.png "Successful Job")
 
    Repeat this step until the `progress` attribute becomes `complete`.
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-2.md "Previous task") [:arrow_forward:](task-4.md "Next task")
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task") [:arrow_forward:](task-4.md "Next task")

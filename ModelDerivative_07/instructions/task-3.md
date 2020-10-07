@@ -7,9 +7,6 @@ To display a model in the viewer, you must translate the model to a viewer-frien
 
 SVF is the format originally designed for the viewer. SVF2 format is an improved version of SVF. It is optimized for larger models so that they load faster at display time. However, translation to SVF2 can take longer than translation to SVF. For details refer [Displaying Models in a Browser](http://forge.autodesk.com) in the Model Derivative API Developer's Guide.
 
-To generate zone and space information while translating, you must set a few specific options in the request header and the JSON body. Generating zone and space information can cause translation time to increase. As such, these options must be specified only when you need zone and space information.
-
-The translation job produces a manifest, which lists all the files that are generated. It also reports how far translation has progressed as a percentage, for each derivative listed in the manifest.
 
 To continue with this task, pick one of the following options:
 

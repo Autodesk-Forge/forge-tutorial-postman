@@ -11,7 +11,7 @@
 ![Beginner](https://img.shields.io/badge/Level-Beginner-green.svg)
 [![License](https://img.shields.io/:license-MIT-blue.svg)](http://opensource.org/licenses/MIT)
 
-This folder contains a Postman Collection that contains the requests used in the Model Deivative Step-by-Step Tutorial [Translate a Revit File, Generating Room and Space Information](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/), which is published on the Forge portal.
+This folder contains a Postman Collection corresponding to the Model Derivative Step-by-Step Tutorial [Translate a Revit File, Generating Room and Space Information](https://forge.autodesk.com/en/docs/model-derivative/v2/tutorials/prep-roominfo4viewer/).
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
 
