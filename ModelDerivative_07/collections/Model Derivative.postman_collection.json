@@ -237,7 +237,7 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Task 3 - Translate to SVF",
+					"name": "Task 3 - Translate Source File",
 					"item": [
 						{
 							"name": "Option 1 - Translate to SVF",
@@ -642,7 +642,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest",
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -654,7 +654,7 @@
 								"modelderivative",
 								"v2",
 								"designdata",
-								"{{t1_url_safe_urn_of_source}}",
+								"{{t7_url_safe_urn_of_source}}",
 								"manifest"
 							]
 						},

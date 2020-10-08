@@ -1,6 +1,6 @@
 # Task 2 - Upload Source File to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload a Revit file (*rme_advanced_sample_project.rvt*). This file is an MEP file that contains space and zone information. This file is available in the [*tutorial_data*](../tutorial_data) folder.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload a Revit file (*rme_advanced_sample_project.rvt*) to OSS. This file is an MEP file that contains space and zone information. This file is available in the [*tutorial_data*](../tutorial_data) folder.
 
 ## Create a Bucket
 

@@ -19,7 +19,7 @@ The translation job produces a manifest, which lists all the files that are gene
 
    ![Create translation job - Header tab](../images/task3-translation_job_header_tab_op2.png "Create translation job - Header tab")
 
-   Note the `x-ads-force` header parameter, which has been set to `true`. Setting this header parameter ensures that the derivatives produced by any previous translation job for this source file is removed. This setting is mandatory for generating master views
+   Note the `x-ads-force` header parameter, which has been set to `true`. Setting this header parameter ensures that the derivatives produced by any previous translation job for this source file are removed. This setting is mandatory for generating master views
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
