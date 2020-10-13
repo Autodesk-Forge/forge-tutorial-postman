@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8512d46f-6f57-4863-b041-952166bfd768",
+		"_postman_id": "6eecc697-9d15-4259-bf68-b9f04ed33c61",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3df16796-5a03-47e5-a63f-00989847157c",
+										"id": "2f45eeec-a3b3-4d9b-b519-ab36bb025650",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
@@ -83,7 +83,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "a7ea41ca-578d-47c2-82a6-1b87b0fae80d",
+								"id": "84199a59-86df-4304-a65a-ce6edb243076",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -93,7 +93,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "487811da-12dc-473d-9b13-58dd3dad29ca",
+								"id": "5eef7310-5451-4eff-b247-ecc67f647792",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -113,7 +113,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4ff2c081-efef-466d-8cdc-2e6b7bf4ad4b",
+										"id": "6d21d31d-fa8d-40b2-a108-b823d3aacd6a",
 										"exec": [
 											""
 										],
@@ -162,7 +162,7 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
+										"id": "87e26356-3f4e-4d74-892a-6d5db02287a4",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"t7_ossSourceFileObjectKey\", body[\"objectKey\"]);",
@@ -215,7 +215,7 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "20bc88d2-c43e-4b74-945f-b0fe3273d0a3",
+								"id": "e133862f-8dfd-4b27-afd2-2c365757c58f",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -225,7 +225,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "de381610-e3aa-4e5e-abf3-f317c18c5a61",
+								"id": "19e5ecba-01ab-47a5-8928-f6d7a2a5c14f",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -237,138 +237,276 @@
 					"_postman_isSubFolder": true
 				},
 				{
-					"name": "Task 3 - Translate to SVF",
+					"name": "Task 3 - Translate Source File",
 					"item": [
 						{
-							"name": "Start a Translation Job",
-							"event": [
+							"name": "Option 1 - Translate to SVF",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"id": "bcc7e5f3-5952-4482-8e8a-2290fbf2c519",
-										"exec": [
-											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
+									"name": "Start a Translation Job",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "0fdb1ac2-01f4-4364-a9cb-35149763767d",
+												"exec": [
+													"var body = JSON.parse(responseBody);",
+													"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "Authorization",
+												"value": "Bearer {{access_token}}",
+												"type": "text"
+											},
+											{
+												"key": "x-ads-force",
+												"value": "true",
+												"type": "text"
+											}
 										],
-										"type": "text/javascript"
-									}
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"input\": {\n        \"urn\": \"{{t7_ossEncodedSourceFileURN}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ],\n               \"advanced\": {\n                 \"generateMasterViews\": true\n               }\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+											"protocol": "https",
+											"host": [
+												"developer",
+												"api",
+												"autodesk",
+												"com"
+											],
+											"path": [
+												"modelderivative",
+												"v2",
+												"designdata",
+												"job"
+											]
+										},
+										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
+									},
+									"response": []
+								},
+								{
+									"name": "Check Status of Job",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "22fb6027-41cf-4fd9-a575-a64b2f5bc38f",
+												"exec": [
+													"var body = JSON.parse(responseBody);",
+													"d_data=body[\"derivatives\"];",
+													"",
+													"",
+													"let progress=body[\"progress\"];",
+													"",
+													"if (progress===\"complete\") {",
+													"    let envariable='dv_urn_';",
+													"    let dv_children=d_data[0][\"children\"];",
+													"    ",
+													"        for (var i = 0; i < dv_children.length; i++)",
+													"        {",
+													"            let dv_urn=dv_children[i][\"urn\"];",
+													"            ",
+													"            envariable='dv_urn_'+i;",
+													"            postman.setEnvironmentVariable(envariable, dv_urn);",
+													"        }",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{access_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
+											"protocol": "https",
+											"host": [
+												"developer",
+												"api",
+												"autodesk",
+												"com"
+											],
+											"path": [
+												"modelderivative",
+												"v2",
+												"designdata",
+												"{{t7_url_safe_urn_of_source}}",
+												"manifest"
+											]
+										},
+										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
+									},
+									"response": []
 								}
 							],
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									},
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
-									},
-									{
-										"key": "x-ads-force",
-										"value": "true",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"input\": {\n        \"urn\": \"{{t7_ossEncodedSourceFileURN}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ],\n               \"advanced\": {\n                 \"generateMasterViews\": true\n               }\n            }\n        ]\n    }\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
-									"protocol": "https",
-									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
-									],
-									"path": [
-										"modelderivative",
-										"v2",
-										"designdata",
-										"job"
-									]
-								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
-							},
-							"response": []
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						},
 						{
-							"name": "Check Status of Job",
-							"event": [
+							"name": "Option 2 - Translate to SVF2",
+							"item": [
 								{
-									"listen": "test",
-									"script": {
-										"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
-										"exec": [
-											"var body = JSON.parse(responseBody);",
-											"d_data=body[\"derivatives\"];",
-											"",
-											"",
-											"let progress=body[\"progress\"];",
-											"",
-											"if (progress===\"complete\") {",
-											"    let envariable='dv_urn_';",
-											"    let dv_children=d_data[0][\"children\"];",
-											"    ",
-											"        for (var i = 0; i < dv_children.length; i++)",
-											"        {",
-											"            let dv_urn=dv_children[i][\"urn\"];",
-											"            ",
-											"            envariable='dv_urn_'+i;",
-											"            postman.setEnvironmentVariable(envariable, dv_urn);",
-											"        }",
-											"}"
+									"name": "Start a Translation Job",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "e2809c73-3cc5-45e3-94cb-b0ef49298162",
+												"exec": [
+													"var body = JSON.parse(responseBody);",
+													"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "Authorization",
+												"type": "text",
+												"value": "Bearer {{access_token}}"
+											},
+											{
+												"key": "x-ads-force",
+												"type": "text",
+												"value": "true"
+											}
 										],
-										"type": "text/javascript"
-									}
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"input\": {\n        \"urn\": \"{{t7_ossEncodedSourceFileURN}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n            {\n                \"type\": \"svf2\",\n                \"views\": [\n                    \"2d\",\n                    \"3d\"\n                ],\n               \"advanced\": {\n                 \"generateMasterViews\": true\n               }\n            }\n        ]\n    }\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+											"protocol": "https",
+											"host": [
+												"developer",
+												"api",
+												"autodesk",
+												"com"
+											],
+											"path": [
+												"modelderivative",
+												"v2",
+												"designdata",
+												"job"
+											]
+										},
+										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/job-POST/)"
+									},
+									"response": []
+								},
+								{
+									"name": "Check Status of Job",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"id": "37b10914-29f0-49df-958f-5ea0d2195496",
+												"exec": [
+													"var body = JSON.parse(responseBody);",
+													"d_data=body[\"derivatives\"];",
+													"",
+													"",
+													"let progress=body[\"progress\"];",
+													"",
+													"if (progress===\"complete\") {",
+													"    let envariable='dv_urn_';",
+													"    let dv_children=d_data[0][\"children\"];",
+													"    ",
+													"        for (var i = 0; i < dv_children.length; i++)",
+													"        {",
+													"            let dv_urn=dv_children[i][\"urn\"];",
+													"            ",
+													"            envariable='dv_urn_'+i;",
+													"            postman.setEnvironmentVariable(envariable, dv_urn);",
+													"        }",
+													"}"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{access_token}}"
+											}
+										],
+										"url": {
+											"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
+											"protocol": "https",
+											"host": [
+												"developer",
+												"api",
+												"autodesk",
+												"com"
+											],
+											"path": [
+												"modelderivative",
+												"v2",
+												"designdata",
+												"{{t7_url_safe_urn_of_source}}",
+												"manifest"
+											]
+										},
+										"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
+									},
+									"response": []
 								}
 							],
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
-									}
-								],
-								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
-									"protocol": "https",
-									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
-									],
-									"path": [
-										"modelderivative",
-										"v2",
-										"designdata",
-										"{{t7_url_safe_urn_of_source}}",
-										"manifest"
-									]
-								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-GET/)"
-							},
-							"response": []
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
 					],
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e4712070-1630-4722-8087-069132db18d1",
+								"id": "6525a712-51ba-40af-9574-97dd7a226642",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -378,7 +516,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "af6e4e10-a2b7-4e8a-b766-d03dcdd87158",
+								"id": "03dfffeb-e684-48dc-aa69-2b5d40caff95",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -394,7 +532,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bc83e87c-5db8-410a-bca5-4c56ba56e238",
+						"id": "433786d0-3939-43ad-ae62-779c7198bd86",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -404,7 +542,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "088e8701-a17a-4e0d-973f-63b600181c84",
+						"id": "be178086-4d85-40d8-a881-b53494eaf392",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -487,7 +625,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
+								"id": "d660d423-316d-429b-a4b4-046d335e20d0",
 								"exec": [
 									""
 								],
@@ -504,7 +642,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest",
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t7_url_safe_urn_of_source}}/manifest",
 							"protocol": "https",
 							"host": [
 								"developer",
@@ -516,7 +654,7 @@
 								"modelderivative",
 								"v2",
 								"designdata",
-								"{{t1_url_safe_urn_of_source}}",
+								"{{t7_url_safe_urn_of_source}}",
 								"manifest"
 							]
 						},
@@ -530,7 +668,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
+								"id": "0621ea88-c70e-4eda-89f6-bb47cc556725",
 								"exec": [
 									""
 								],
@@ -580,7 +718,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3aca4875-0eb7-4da4-863b-b4a88c4aa176",
+								"id": "bbaa8b43-030c-49ce-97de-e4facce0e79a",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"var meta_data = body[\"data\"][\"metadata\"];",
