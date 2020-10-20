@@ -1,10 +1,10 @@
 # Task 2 - Upload Source File to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the source file to OSS. While you can use any model, for the purpose of this tutorial we recommend that you use the Revit model we provide (*rac_basic_sample_project.rvt*). 
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload the source file to OSS. While you can use any model, for this tutorial we recommend that you use the Revit model we provide (*rac_basic_sample_project.rvt*). 
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
+For this task, you use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), follow step 1, and ignore the rest.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -13,15 +13,15 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
     2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
 
         **Notes:**  
-        - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
+        - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified already exists, the server returns a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
 
-        - The Bucket name must consist of only lower-case characters, numbers 0-9, and the underscore (_) character.
+        - The Bucket name must only consist of lower-case characters, the numbers 0-9, and the underscore (_) character.
 
     3. Click the **Environment quick look** icon to hide the variables.
 
 4. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
 
-5. Click the **Body** tab, and verify that the `bucketkey` attribute has been set to the variable `ossBucketKey`.
+5. Click the **Body** tab, and verify that the `bucketkey` parameter has been set to the variable `ossBucketKey`.
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
@@ -49,12 +49,12 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
     ![Select file button](../images/task2-select_files_button.png "Select file button")
 
-6. Click **Send**. This sends the request, and updates the following Postman environment variables:
+6. Click **Send**. Postman sends the request. When Postman receives a response, it updates the following environment variables:
 
-   | Variable Name              | Description                                                                                 |
-   |----------------------------|---------------------------------------------------------------------------------------------|
-   | t5_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
-   | t5_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
+   | Variable Name              | Description                                                                                                 |
+   |----------------------------|-------------------------------------------------------------------------------------------------------------|
+   | t5_ossSourceFileURN        | Value of the `objectId` parameter in the JSON response. This value is the URN of the source file.           |
+   | t5_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                                              |
 
    You should see a screen similar to the following image:
 

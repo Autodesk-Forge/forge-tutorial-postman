@@ -1,10 +1,10 @@
-# Task 2 - Upload Source FIle to OSS
+# Task 2 - Upload Source File to OSS
 
-The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload an Revit file (*rme_advanced_sample_project.rvt*). This is an MEP file that contains space and zone information. This file is available in the [*tutorial_data*](../tutorial_data) folder.
+The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload a Revit file (*rme_advanced_sample_project.rvt*) to OSS. This file is an MEP file that contains space and zone information. This file is available in the [*tutorial_data*](../tutorial_data) folder.
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
+In this tutorial, you use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -13,7 +13,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
     2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
 
         **Notes:**  
-        - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
+        - The Bucket name needs to be unique throughout the OSS service. If a Bucket with the name you specified exists, the system returns a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
 
         - The Bucket name must consist of only lower-case characters, numbers 0-9, and the underscore (_) character.
 
@@ -29,7 +29,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 ## Upload Revit file to OSS
 
-1. Download the file *rme_advanced_sample_project.rvt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+1. Download the file *rme_advanced_sample_project.rvt* from the [*tutorial_data* folder of GitHub repository containing this tutorial](../tutorial_data).
 
 2. Set the Postman environment variable `ossSourceFileObjectKey` to `rme_advanced_sample_project.rvt`, which you will use as the Object Key for the assembly file you downloaded in the previous step. 
 
@@ -51,10 +51,10 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 5. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
-   | Variable Name                | Description                                                                                                                    |
-   |------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-   | t7_ossSourceFileURN          | Value of the `objectId` attribute in the JSON response. This is the URN of the Revit  file *rme_advanced_sample_project.rvt*.  |
-   | t7_ossEncodedSourceFileURN   | The URN of the Revit file, converted to a Base64-encoded URN.                                                               |
+   | Variable Name                | Description                                                                                                                                   |
+   |------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+   | t7_ossSourceFileURN          | Value of the `objectId` parameter in the JSON response. The parameter contains  the URN of the Revit file *rme_advanced_sample_project.rvt*.  |
+   | t7_ossEncodedSourceFileURN   | The URN of the Revit file, converted to a Base64-encoded URN.                                                                                 |
 
    You should see a screen similar to the following image:
 
