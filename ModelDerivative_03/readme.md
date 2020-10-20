@@ -1,4 +1,4 @@
-# Translate a Source File Compressed as a Zip File
+# Translate a Source File that Contains References
 
 ![Platforms](https://img.shields.io/badge/Web-Windows|MacOS-lightgray.svg)
 [![oAuth2](https://img.shields.io/badge/Authentication-v1-green.svg)](http://developer.autodesk.com/)
