@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "8506e8b0-f5a9-40d9-836e-080d252cc616",
+		"_postman_id": "40d73772-f326-4179-97f3-58b4ede54e0f",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3df16796-5a03-47e5-a63f-00989847157c",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
@@ -83,7 +82,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "a7ea41ca-578d-47c2-82a6-1b87b0fae80d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -93,16 +91,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "487811da-12dc-473d-9b13-58dd3dad29ca",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 2 - Upload Source File to OSS",
@@ -113,7 +108,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4ff2c081-efef-466d-8cdc-2e6b7bf4ad4b",
 										"exec": [
 											""
 										],
@@ -138,13 +132,9 @@
 									"raw": "{\n\t\"bucketKey\": \"{{ossBucketKey}}\",\n\t\"access\": \"full\",\n\t\"policyKey\": \"transient\"\n}\n"
 								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/oss/v2/buckets",
-									"protocol": "https",
+									"raw": "{{host}}/oss/v2/buckets",
 									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
+										"{{host}}"
 									],
 									"path": [
 										"oss",
@@ -162,7 +152,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"t5_ossSourceFileObjectKey\", body[\"objectKey\"]);",
@@ -189,13 +178,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
-									"protocol": "https",
+									"raw": "{{host}}/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
 									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
+										"{{host}}"
 									],
 									"path": [
 										"oss",
@@ -215,7 +200,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "20bc88d2-c43e-4b74-945f-b0fe3273d0a3",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -225,16 +209,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "de381610-e3aa-4e5e-abf3-f317c18c5a61",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 3 - Translate to SVF",
@@ -245,7 +226,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bcc7e5f3-5952-4482-8e8a-2290fbf2c519",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"t5_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -284,13 +264,9 @@
 									}
 								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
-									"protocol": "https",
+									"raw": "{{host}}/modelderivative/v2/designdata/job",
 									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
+										"{{host}}"
 									],
 									"path": [
 										"modelderivative",
@@ -309,7 +285,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
 										"exec": [
 											""
 										],
@@ -326,13 +301,9 @@
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/manifest",
-									"protocol": "https",
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/manifest",
 									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
+										"{{host}}"
 									],
 									"path": [
 										"modelderivative",
@@ -351,7 +322,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "cc43b35d-0621-4a67-a542-7bf8b35c33b4",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -361,16 +331,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "3a107441-996d-4f54-8470-3118f890be3d",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 4 - Retrieve Metadata",
@@ -381,7 +348,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3aca4875-0eb7-4da4-863b-b4a88c4aa176",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"var meta_data = body[\"data\"][\"metadata\"];",
@@ -409,13 +375,9 @@
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata",
-									"protocol": "https",
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata",
 									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
+										"{{host}}"
 									],
 									"path": [
 										"modelderivative",
@@ -430,7 +392,18 @@
 							"response": []
 						},
 						{
-							"name": "Retrieve Properties of Objects in a  Viewable",
+							"name": "Get Object Hierarchy",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
@@ -441,13 +414,84 @@
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}/properties",
-									"protocol": "https",
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}",
 									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
+										"{{host}}"
+									],
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"{{t5_url_safe_urn_of_source}}",
+										"metadata",
+										"{{dv_guid_6}}"
+									]
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-metadata-GET/)"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Object Hierarchy (filtered)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_0}}?objectid=2099",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"{{t5_url_safe_urn_of_source}}",
+										"metadata",
+										"{{dv_guid_0}}"
+									],
+									"query": [
+										{
+											"key": "objectid",
+											"value": "2099"
+										}
+									]
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-metadata-GET/)"
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieve Properties of All Objects in a  Viewable",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"url": {
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}/properties",
+									"host": [
+										"{{host}}"
 									],
 									"path": [
 										"modelderivative",
@@ -462,17 +506,53 @@
 								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-metadata-guid-properties-GET/)"
 							},
 							"response": []
+						},
+						{
+							"name": "Retrieve Specific Properties of Specific Objects in a  Viewable",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{access_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"filter\": {\n        \"list\": {\n            \"externalId\": [\n                \"doc_e7530028-3dc6-4baf-9d6b-21db89433205\"\n            ]\n        }\n    },\n    \"select\": [\n        \"objectid\",\n        \"name\",\n        \"externalId\",\n        \"properties.Other\"\n    ],\n    \"pagination\": {\n        \"offset\": 0,\n        \"limit\": 20\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}/properties:query",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"modelderivative",
+										"v2",
+										"designdata",
+										"{{t5_url_safe_urn_of_source}}",
+										"metadata",
+										"{{dv_guid_6}}",
+										"properties:query"
+									]
+								},
+								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-metadata-guid-properties-query-POST/)"
+							},
+							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bc83e87c-5db8-410a-bca5-4c56ba56e238",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -482,15 +562,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "088e8701-a17a-4e0d-973f-63b600181c84",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Extras",
@@ -565,7 +643,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
 								"exec": [
 									""
 								],
@@ -608,7 +685,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
 								"exec": [
 									""
 								],
@@ -683,9 +759,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
