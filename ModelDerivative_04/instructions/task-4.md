@@ -12,14 +12,15 @@ There are two ways by which you can display the model in the Viewer.
 
     **Note:**
 
-       SVF and SVF2 require different settings for the api and env parameters at initialization. 
-       See the following table for the values to use:
-       +-----------------+-----------------------+------------------------+ 
-       | Parameter       | SVF                   | SVF2                   |
-       +-----------------+-----------------------+------------------------+  
-       | api             | derivativeV2          | streamingV2            |
-       | env             | AutodeskProduction    | AutodeskProduction2    |
-       +-----------------+-----------------------+------------------------+ 
+    SVF and SVF2 require different settings for the api and env parameters at initialization. 
+    See the following table for the values to use:
+
+
+    | Parameter       | SVF                   | SVF2                   |
+    |-----------------|-----------------------|------------------------|  
+    | `api`             | derivativeV2          | streamingV2            |
+    | `env`             | AutodeskProduction    | AutodeskProduction2    |
+
 
 
 
@@ -51,6 +52,6 @@ We have created two web pages based on the instructions provided in Option 1. On
 
    You should see a screen similar to the following image.
 
-   ![Default Viewable](../images/task4_default_viewable.png "Default Viewable"
+   ![Default Viewable](../images/task4_default_viewable.png "Default Viewable")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")
