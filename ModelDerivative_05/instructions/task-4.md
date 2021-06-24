@@ -36,12 +36,3 @@ The Viewable you will query in the next request is the Viewable labeled `A001 - 
 
 The response body contains the list of object properties.
 
-## Retrieve Specific Properties of a Specifc Object in a Viewable
-
-1. In the Postman sidebar, click **Task 4 - Retrieve Metadata > Retrieve Specific Properties of Specific Objects in a  Viewable**. The request loads.
-
-2. Look at the request body. Note how the object to query is specifies as a filter, and the desired properties are specified by the `filter` attribute.
-
-3. Click **Send** . The response should show only the requested object and the requested properties. 
-
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")
