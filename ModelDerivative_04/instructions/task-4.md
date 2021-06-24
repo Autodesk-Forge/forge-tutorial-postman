@@ -12,7 +12,7 @@ There are two ways by which you can display the model in the Viewer.
 
     **Note:**
 
-    SVF and SVF2 require different settings for the api and env parameters at initialization. 
+    SVF and SVF2 require different settings for the `api` and `env` parameters at initialization. 
     See the following table for the values to use:
 
 
