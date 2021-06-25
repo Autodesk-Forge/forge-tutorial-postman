@@ -18,8 +18,8 @@ There are two ways by which you can display the model in the Viewer.
 
     | Parameter       | SVF                   | SVF2                   |
     |-----------------|-----------------------|------------------------|  
-    | `api`             | derivativeV2          | streamingV2            |
-    | `env`             | AutodeskProduction    | AutodeskProduction2    |
+    | `api`           | derivativeV2          | streamingV2            |
+    | `env`           | AutodeskProduction    | AutodeskProduction2    |
 
 
 
