@@ -61,8 +61,8 @@
         function DisplayViewer() {
 
             var options = {
-                env: 'MD20ProdUS',
-                api: 'D3S', // for models uploaded to EMEA change this option to 'derivativeV2_EU'
+                env: 'AutodeskProduction2',
+                api: 'streamingV2', // for models uploadeded to EMEA change this option to 'streamingV2_EU'
                 getAccessToken: function(onTokenReady) {
                     var x = document.getElementById("access_token")
                     var token = x.value;
