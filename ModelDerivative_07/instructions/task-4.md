@@ -1,28 +1,45 @@
-# Task 4 - Display the Model in the Viewer
-
-There are two ways you can display the model in the Viewer.
-
 ## Option 1: Embed the source file URN in an HTML page you create
 
-1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following topics in the documentation on the Forge portal:
+1. Insert an instance of the Viewer in an HTML page, and initialize it as per the instructions provided in the following Viewer documentation topics on the Forge portal:
 
     a. [Add Viewer to an HTML Page](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/starting-html/)
 
-    b. [Initialize Viewer](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/)
+    b. [Intialize Viewer](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/)
+
+    **Note:**
+
+    SVF and SVF2 require different settings for the `api` and `env` parameters at initialization. 
+    See the following table for the values to use for this tutorial:
+
+
+    | Parameter       | SVF                   | SVF2                   |
+    |-----------------|-----------------------|------------------------|  
+    | `api`           | derivativeV2          | streamingV2            |
+    | `env`           | AutodeskProduction    | AutodeskProduction2    |
+
+
+
 
 2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
 
-Note: Add ``urn:`` to the begining of the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
+Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
 
 ![URN in Viewer](../images/tutorial_4_urn_in_viewer.png "URN in Viewer")
 
 ## Option 2: Provide source file URN as an input to an existing HTML page
 
-1. Open the web page at https://autodesk-forge.github.io/forge-tutorial-postman/display_svf.html, which is published as a Github page of this repository. Click [this link](../../docs/display_svf.html) to see the source of this web page. 
+We have created two web pages based on the instructions provided in Option 1. One page is for SVF, and the other for SVF2. You can use them to verify the SVF/SVF2 file you just generated. 
 
-    This HTML page was created using the instructions provided under Option 1, and a section added to list and display Viewables.
 
-    ![Show in Web page](../images/tutorial_4_urn_in_html_page.png "Show in Web page")
+1. Display the webpage by clicking the link in the relevant column from the following table:
+
+| SVF                                                                                      | SVF2                                                                                      |
+|:----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
+| [Show Web page](https://autodesk-forge.github.io/forge-tutorial-postman/display_svf.html)|[Show Web page](https://autodesk-forge.github.io/forge-tutorial-postman/display_svf2.html) |
+| ![SVF Web Page](../../ModelDerivative_04/images/tutorial_4_urn_in_html_page.png)                              | ![SVF2 Web Page](../../ModelDerivative_04/images/tutorial_4_urn_in_html_page_svf2.png)                         |
+| [Show Source](../../docs/display_svf.html)                                               |[Show Source](../../docs/display_svf2.html)                                                |
+
+
 
 2. In the **Access Token** box, specify the access token you obtained in task 1 of this tutorial.
 

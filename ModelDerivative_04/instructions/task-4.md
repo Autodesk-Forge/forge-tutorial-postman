@@ -10,6 +10,20 @@ There are two ways by which you can display the model in the Viewer.
 
     b. [Intialize Viewer](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/initialization/)
 
+    **Note:**
+
+    SVF and SVF2 require different settings for the `api` and `env` parameters at initialization. 
+    See the following table for the values to use for this tutorial:
+
+
+    | Parameter       | SVF                   | SVF2                   |
+    |-----------------|-----------------------|------------------------|  
+    | `api`           | derivativeV2          | streamingV2            |
+    | `env`           | AutodeskProduction    | AutodeskProduction2    |
+
+
+
+
 2. Embed the URL safe Base64-encoded URN of the source file, which you obtained in the previous task, as described in the topic [Load a Model](https://forge.autodesk.com/en/docs/viewer/v7/developers_guide/viewer_basics/load-a-model/)
 
 Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you embed it in the JavaScript code, as shown in the following image.
@@ -18,11 +32,17 @@ Note: You must prepend ``urn:`` to the URL safe Base64-encoded URN, when you emb
 
 ## Option 2: Provide source file URN as an input to an existing HTML page
 
-We have created a web page based on the instructions provided in Option 1. You can use this web page to verify the SVF file you just created. Click [this link](../../docs/display_svf.html) to see the source of this web page. 
+We have created two web pages based on the instructions provided in Option 1. One page is for SVF, and the other for SVF2. You can use them to verify the SVF/SVF2 file you just generated. 
 
-1. Open the webpage at https://jayanathp.github.io/forge-tutorial-postman/display_svf.html, which is published as a Github page of this repository.  (To be changed to AutodeskForge github page later)
 
-    ![Show in Web page](../images/tutorial_4_urn_in_html_page.png "Show in Web page")
+1. Display the webpage by clicking the link in the relevant column from the following table:
+
+| SVF                                                                                      | SVF2                                                                                      |
+|:----------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|
+| [Show Web page](https://autodesk-forge.github.io/forge-tutorial-postman/display_svf.html)|[Show Web page](https://autodesk-forge.github.io/forge-tutorial-postman/display_svf2.html) |
+| ![SVF Web Page](../images//tutorial_4_urn_in_html_page.png)                              | ![SVF2 Web Page](../images//tutorial_4_urn_in_html_page_svf2.png)                         |
+| [Show Source](../../docs/display_svf.html)                                               |[Show Source](../../docs/display_svf2.html)                                                |
+
 
 2. In the **Access Token** box, specify the access token you obtained in task 1 of this tutorial.
 

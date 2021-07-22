@@ -1,6 +1,6 @@
 # Task 4 - Extract Metadata
 
-In this task, you extract metadata from the manifest that was generated in Task 3. Initially you retrieve a list of 3D views or 2D sheets (Viewables) that can be displayed in the viewer. Unlike Inventor and Fusion 360, which contain only one Viewable per source file, Revit files can contain multiple Viewables. The Revit file you used for this tutorial contains seven Viewables. After you retrieve the Viewables, you select one and use its metadata GUID to extract metadata (a list of properties) of the objects in the Viewable.
+In this task, you extract metadata that was generated in Task 3. Initially you retrieve a list of model views (Viewables) that can be displayed in the viewer. Unlike Inventor and Fusion 360, which contain only one Viewable per source file, Revit files can contain multiple Viewables. The Revit file you used for this tutorial contains seven Viewables. After you retrieve the Viewables, you select one and use its ID to extract the properties of the objects in the Viewable.
 
 ## Retrieve a list of Viewables
 
@@ -16,7 +16,7 @@ To obtain a list of Viewables, you will use the URL safe Base64-encoded URN of t
 
    ![list Viewables](../images/task4_list_model_view_guids.png "list viewables")
 
-## Retrieve Properties of the Objects in a Viewable
+## Retrieve Properties of All Objects in a Viewable
 
 The Viewable you will query in the next request is the Viewable labeled `A001 - Title Sheet`. The GUID of this Viewable was stored in the Postman environment variable `dv_guid_6`.
 
@@ -36,4 +36,3 @@ The Viewable you will query in the next request is the Viewable labeled `A001 - 
 
 The response body contains the list of object properties.
 
-[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")
