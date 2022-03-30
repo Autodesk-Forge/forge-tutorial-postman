@@ -26,6 +26,13 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
     ![Successful Bucket Creation](../images/task2-sucessfull_bucket_creation.png "Successful Bucket Creation")
+    
+## Obtain Signed URL
+
+1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+
+2. Use the following HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration=
+
 
 ## Upload source file to OSS
 
