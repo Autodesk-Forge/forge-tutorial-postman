@@ -29,20 +29,18 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
     
 ## Obtain Signed URL
 
-1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
-
-2. Use the following HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration=
+1. Use the following GET HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration=
    i. 
 
-3. Provide an Access token Authorization in Headers.
+2. Provide an Access token Authorization in Headers.
 
-4. Define URI Parameters for Bucket key, Object key, and Upload key.
+3. Define URI Parameters for Bucket key, Object key, and Upload key.
 
 Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
-5. Define minutes expiration in Query Parameters.
+4. Define minutes expiration in Query parameters.
 
-6. Click the **Body** tab.
+5. Click the **Body** tab.
 
 6. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
@@ -53,6 +51,30 @@ Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
    | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.            
    | UploadKey | The URN to upload the file. 
    You should see a screen similar to the following image:
+   
+## Upload the file
+
+1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+
+2. Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+
+3. 
+
+
+3. Click **Send** to upload the file
+You should see a screen similar to the following image:
+
+## Finalize Upload
+
+1. Use the following POST HTTP request to obtain the signed URL.
+https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload
+
+2. Define URI Parameters for Bucket key, Object key, and Upload key.
+
+3. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+
+4. Click **Send** to finalize the upload.
+You should see a screen similar to the following image:
 
 ## Upload source file to OSS
 
