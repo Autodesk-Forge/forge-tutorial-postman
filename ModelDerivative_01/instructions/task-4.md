@@ -2,7 +2,7 @@
 
 Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file that was generated in a variable named `dv_urn_0`
 
-## Download the STL file.
+## Download the OBJ file.
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Download OBJ File**. The request loads.
 
