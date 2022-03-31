@@ -58,7 +58,9 @@ Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
 2. Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
-3. 
+3. Click **Select File** and select the file *box.ipt*, which you downloaded in step 1.
+
+    ![Select file button](../images/task2-select_files_button.png "Select file button")
 
 
 3. Click **Send** to upload the file
