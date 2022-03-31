@@ -32,7 +32,27 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
 2. Use the following HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration=
+   i. 
 
+3. Provide an Access token Authorization in Headers.
+
+4. Define URI Parameters for Bucket key, Object key, and Upload key.
+
+Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+
+5. Define minutes expiration in Query Parameters.
+
+6. Click the **Body** tab.
+
+6. Click **Send**. This sends the request, and updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | t1_ossSourceFileObjectKey  | Object Key of the source file. Should be `box.ipt`.                                         |
+   | t1_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
+   | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.            
+   | UploadKey | The URN to upload the file. 
+   You should see a screen similar to the following image:
 
 ## Upload source file to OSS
 
