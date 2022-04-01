@@ -12,8 +12,8 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 2. Click the **Body** tab and take note of the JSON payload.
 
-    ![Create Translation Job JSON Payload](../images/task3-translation_job_json_payload.png "Create Translation Job JSON Payload")
-
+    ![Create Translation Job JSON Payload](../images/task3_translate_a_job_new.png "Create Translation Job JSON Payload")
+    
     The main attributes on the JSON payload are:
 
     - `urn` - The Base64-encoded URN of the source file.
@@ -22,9 +22,13 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
     - `type` - The file type that the source file will be translated to.
 
-3. Click **Send**. If the request is successful you should see a screen similar to the following image.
+3. Click the **Headers** tab and define the `Content-Type`, `Authorization`, and `x-ads-force_all` headers.
 
-    ![Successful Submission of Translation Job](../images/task3-translation_job_successfull_submission.png "Successful Submission of Translation Job")
+![Define headers](../images/task3_headers_new.png "Define headers")
+
+4. Click **Send**. If the request is successful you should see a screen similar to the following image.
+
+    ![Successful Submission of Translation Job](../images/task3_send_new.png "Successful Submission of Translation Job")
 
     Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t1_url_safe_urn_of_source`.
 
@@ -40,13 +44,15 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
-   ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
+2. Click the **Headers** tab and define the `Authorization` header.
+
+   ![Check Status of Job](../images/task3_check_status_1_new.png "Check Status of Job")
 
    Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t1_url_safe_urn_of_source` variable)
 
-2. Click **Send**. You will see a screen similar to the following image.
+3. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
+   ![Successful Job](../images/task3_check_status_2_new.png "Successful Job")
 
    When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 
