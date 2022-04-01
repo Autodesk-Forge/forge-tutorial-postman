@@ -49,8 +49,8 @@ Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
    |----------------------------|---------------------------------------------------------------------------------------------|
    | t1_ossSourceFileObjectKey  | Object Key of the source file. Should be `box.ipt`.                                         |
    | t1_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
-   | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.            
-   | UploadKey | The URN to upload the file. 
+   | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
+   | UploadKey | The URN to upload the file.                                                                                  |  
    
 You should see a screen similar to the following image:
    
@@ -62,15 +62,15 @@ You should see a screen similar to the following image:
 
 2. Use the PUT request Note the use of `ContentUploadSignedURL` as URI parameter.
 
-3. Click the **Body** tab
+3. Click the **Body** tab.
 
 4. Select the **binary** option from the drop-down menu.
 
-3. Click **Select File** and select the file *box.ipt*, which you downloaded in step 1.
+5. Click **Select File** and select the file *box.ipt*, which you downloaded in step 1.
 
 ![Select file button](../images/task2_upload_file_2.png "Select file button")
    
-4. Click **Send** to upload the file
+6. Click **Send** to upload the file.
 
 
 ## Finalize Upload
@@ -80,20 +80,18 @@ https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{oss
 
 2. Define URI Parameters for Bucket key, Object key, and Upload key.
 
-4. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+3. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
-![Body attribute](..images/task2_finalize_upload_body.png "Body attribute")
+![Body attribute](../images/task2_body_attribute_new.png "Body attribute")
 
-3. Define Authorization and Content-Type Headers
+4. Define Authorization and Content-Type Headers.
+
+![Task headers](../images/task2_header_new.png "Task headers")
 
 5. Click **Send** to finalize the upload.
 You should see a screen similar to the following image:
-![Finalize upload](..images/(..images/finalize_upload.png "Finalize upload")
 
+![Finalize upload](../images/task2_finalize_upload_new.png "Finalize upload")
 
-
-   You should see a screen similar to the following image:
-
-    ![Successful upload of input file](../images/task2-successful_upload.png "Successful upload of input file")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
