@@ -29,20 +29,17 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
     
 ## Obtain Signed URL
 
-1. Use the following GET HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration=
-   i. 
+1. Use the following GET HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration= 
 
 2. Provide an Access token Authorization in Headers.
 
-3. Define URI Parameters for Bucket key, Object key, and Upload key.
-
 Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+
+3. Set the Postman environment variable `ossSourceFileObjectKey` to `box.ipt`, which you will use as the Object Key.
 
 4. Define minutes expiration in Query parameters.
 
-5. Click the **Body** tab.
-
-6. Click **Send**. This sends the request, and updates the following Postman environment variables:
+5. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
@@ -56,14 +53,17 @@ Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
 1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+2. Use the PUT request Note the use of `ContentUploadSignedURL` as URI parameter.
+
+3. Click the **Body** tab
+
+4. Select the **binary** option from the drop-down menu.
 
 3. Click **Select File** and select the file *box.ipt*, which you downloaded in step 1.
 
     ![Select file button](../images/task2-select_files_button.png "Select file button")
 
-
-3. Click **Send** to upload the file
+4. Click **Send** to upload the file
 You should see a screen similar to the following image:
 
 ## Finalize Upload
@@ -73,9 +73,11 @@ https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{oss
 
 2. Define URI Parameters for Bucket key, Object key, and Upload key.
 
-3. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+3. Define Authorization and Content-Type Headers
 
-4. Click **Send** to finalize the upload.
+4. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+
+5. Click **Send** to finalize the upload.
 You should see a screen similar to the following image:
 
 ## Upload source file to OSS
