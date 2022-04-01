@@ -41,6 +41,8 @@ Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
 4. Define minutes expiration in Query parameters.
 
+![Minutes expiration](../images/task2_minutes_expiration_new.png "Minutes expiration")
+
 5. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
@@ -49,9 +51,10 @@ Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
    | t1_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
    | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.            
    | UploadKey | The URN to upload the file. 
-   You should see a screen similar to the following image:
    
-![Obtain signed URL]((../images/task2_obtain_URL.png "Obtain signed URL")
+You should see a screen similar to the following image:
+   
+![Signed url](../images/task2_obtain_signed_url_new.png "Signed url")
    
 ## Upload the file
 
