@@ -60,7 +60,7 @@ You should see a screen similar to the following image:
 
 1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Use the PUT request Note the use of `ContentUploadSignedURL` as URI parameter.
+2. Use the PUT request. Note the use of `ContentUploadSignedURL` as URI parameter.
 
 3. Click the **Body** tab.
 
