@@ -24,7 +24,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 3. Click the **Headers** tab and define the `Content-Type`, `Authorization`, and `x-ads-force_all` headers.
 
-![Define headers](../images/task3_headers_new.png "Define headers")
+    ![Define headers](../images/task3_headers_new.png "Define headers")
 
 4. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
