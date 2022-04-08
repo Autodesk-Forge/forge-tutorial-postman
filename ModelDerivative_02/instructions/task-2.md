@@ -25,7 +25,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-   ![Successful Bucket Creation](../images/task2-sucessfull_bucket_creation.png "Successful Bucket Creation")
+   ![Successful Bucket Creation](../images/task2_creat_bucket_tt2.png "Successful Bucket Creation")
     
 ## Obtain Signed URL
 
