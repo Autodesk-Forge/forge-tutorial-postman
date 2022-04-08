@@ -12,7 +12,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 2. Click the **Body** tab and take note of the JSON payload.
 
-    ![Create Translation Job JSON Payload](../images/task3-translation_job_json_payload.png "Create Translation Job JSON Payload")
+    ![Create Translation Job JSON Payload](../images/task3_translation_job_json_payload_tt2.png "Create Translation Job JSON Payload")
 
     Note the difference in the JSON payload from the same task in the previous tutorial:
 
@@ -24,7 +24,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
-    ![Successful Submission of Translation Job](../images/task3-translation_job_successfull_submission.png "Successful Submission of Translation Job")
+    ![Successful Submission of Translation Job](../images/task3_translation_job_successfull_submission_tt2.png "Successful Submission of Translation Job")
 
     Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t2_url_safe_urn_of_source`.
 
@@ -40,13 +40,13 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
-   ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
+   ![Check Status of Job](../images/task3_check_status_of_job_tt2.png "Check Status of Job")
 
    Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t2_url_safe_urn_of_source` variable)
 
 2. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
+   ![Successful Job](../images/task3_sucessfull_job_tt2.png "Successful Job")
 
    When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 
