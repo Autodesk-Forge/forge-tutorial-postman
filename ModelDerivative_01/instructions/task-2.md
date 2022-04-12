@@ -25,32 +25,28 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful Bucket Creation](../images/task2-sucessfull_bucket_creation.png "Successful Bucket Creation")
+![Successful Bucket Creation](../images/tutorial_01_task_02_create_a_bucket.png "Successful Bucket Creation")
     
 ## Obtain Signed URL
 
-1. Use the following GET HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration= 
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL**. The request loads.
 
-2. Provide an Access token Authorization in Headers.
+   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` in URI.
 
-Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+2. Click the **Environment quick look** button and set the Postman environment variable `ossSourceFileObjectKey` to `box.ipt`, which you will use as the Object Key.
 
-3. Click the **Environment quick look** button and set the Postman environment variable `ossSourceFileObjectKey` to `box.ipt`, which you will use as the Object Key.
+![Set Object key](../images/tutorial_01_task_02_obtain_signed_url_01.png "Set Object Key")
 
-![Set Object key](../images/task2_variable_for_URL.png "Set Object Key")
-
-4. Define minutes expiration in Query parameters.
+3. Click **Params** tab, and note the `minutesExpiration` is defined as 5 minutes, you can put the desired value such as 5 or 10 minutes.
 
 ![Minutes expiration](../images/task2_minutes_expiration_new.png "Minutes expiration")
 
-5. Click **Send**. This sends the request, and updates the following Postman environment variables:
+4. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | t1_ossSourceFileObjectKey  | Object Key of the source file. Should be `box.ipt`.                                         |
-   | t1_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
-   | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
-   | UploadKey | The URN to upload the file.                                                                                  |  
+   | UploadKey | The upload key to upload the file.                                                                           |
+   | ContentUploadSignedURL | URN to upload source file                                                                       |
    
 You should see a screen similar to the following image:
    
@@ -60,7 +56,9 @@ You should see a screen similar to the following image:
 
 1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Use the PUT request. Note the use of `ContentUploadSignedURL` as URI parameter.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload the File**. The request loads.
+
+   Note the use of `ContentUploadSignedURL` in URI.
 
 3. Click the **Body** tab.
 
@@ -75,20 +73,27 @@ You should see a screen similar to the following image:
 
 ## Finalize Upload
 
-1. Use the following POST HTTP request to obtain the signed URL.
-https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
-2. Define URI Parameters for Bucket key, Object key, and Upload key.
+   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` in URI.
 
-3. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
 ![Body attribute](../images/task2_body_attribute_new.png "Body attribute")
 
-4. Define Authorization and Content-Type Headers.
+3. Click **Headers** tab, and note the `Authorization` and `Content-Type` Headers.
 
 ![Task headers](../images/task2_header_new.png "Task headers")
 
-5. Click **Send** to finalize the upload.
+4. Click **Send** to finalize the upload. This sends the request, and updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | t1_ossSourceFileObjectKey  | Object Key of the source file. Should be `box.ipt`.                                         |
+   | t1_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
+   | t1_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
+
+
 You should see a screen similar to the following image:
 
 ![Finalize upload](../images/task2_finalize_upload_new.png "Finalize upload")
