@@ -8,7 +8,7 @@ Postman environments are named configurations that implement environment variabl
 
 To import the Postman Collection and environment you need for this tutorial:
 
-1. Download the following zip file from the [*collections* folder](../collections) and extract it on your local machine.
+1. Download the following zip file from the [*collections* folder](../collections) and expand it on your local machine.
 
     - _model_derivative_collections.zip_
 
