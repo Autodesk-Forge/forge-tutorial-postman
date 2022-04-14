@@ -19,38 +19,34 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
     3. Click the **Environment quick look** icon to hide the variables.
 
-4. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Create a Bucket**. The request loads.
 
-5. Click the **Body** tab, and verify that the `bucketkey` attribute has been set to the variable `ossBucketKey`.
+3. Click the **Body** tab, and verify that the `bucketkey` attribute has been set to the variable `ossBucketKey`.
 
-5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
+4. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
    ![Successful Bucket Creation](../images/task2_creat_bucket_tt2.png "Successful Bucket Creation")
     
 ## Obtain Signed URL
 
-1. Use the following GET HTTP request to obtain the signed URL. https://developer.api.autodesk.com/oss/v2/buckets//objects//signeds3upload?minutesExpiration= 
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL**. The request loads.
 
-2. Provide an Access token Authorization in Headers.
+   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
-Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+2. Click the **Environment quick look** button and set the Postman environment variable `ossSourceFileObjectKey` to `Tuner.zip`, which you will use as the Object Key.
 
-3. Click the **Environment quick look** button and set the Postman environment variable `ossSourceFileObjectKey` to `Tuner.zip`, which you will use as the Object Key.
+   ![Set Object key](../images/tutorial_02_task2_variable_for_URL.png "Set Object Key")
 
-   ![Set Object key](../images/task2_variable_for_URL_tt2.png "Set Object Key")
-
-4. Define minutes expiration in Query parameters.
+3. Click **Params** tab, and note the `minutesExpiration` is defined as 5 minutes. Change this value to 10.
 
    ![Minutes expiration](../images/task2_minutes_expiration_tt2.png "Minutes expiration")
 
-5. Click **Send**. This sends the request, and updates the following Postman environment variables:
+4. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | t2_ossSourceFileObjectKey  | Object Key of the source file. Should be `Tuner.zip`.                                         |
-   | t2_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
-   | t2_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
-   | UploadKey | The URN to upload the file.                                                                                  |  
+   | UploadKey | The upload key to upload the file.                                                                           |
+   | ContentUploadSignedURL | URN to upload source file                                                                       |
    
 You should see a screen similar to the following image,
     
@@ -60,13 +56,13 @@ You should see a screen similar to the following image,
 
 1. Download the file *Tuner.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Use the PUT request. Note the use of `ContentUploadSignedURL` as URI parameter.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload the File**. The request loads.
+
+   Note the use of `ContentUploadSignedURL` in URI.
 
 3. Click the **Body** tab.
 
-4. Select the **binary** option from the drop-down menu.
-
-5. Click **Select File** and select the file *Tuner.zip*, which you downloaded in step 1.
+4. Click **Select File** and select the file *Tuner.zip*, which you downloaded in step 1.
 
    ![Select file button](../images/task2_upload_file_tt2.png "Select file button")
    
@@ -74,23 +70,29 @@ You should see a screen similar to the following image,
 
 ## Finalize Upload
 
-1. Use the following POST HTTP request to obtain the signed URL.
-https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
-2. Define URI Parameters for Bucket key, Object key, and Upload key.
+   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
 
-3. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
    ![Body attribute](../images/task2_body_attribute_tt2.png "Body attribute")
 
-4. Define Authorization and Content-Type Headers.
+3. Click **Headers** tab, and note the `Authorization` and `Content-Type` Headers.
 
    ![Task headers](../images/task2_header_tt2.png "Task headers")
 
-5. Click **Send** to finalize the upload.
+4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | t2_ossSourceFileObjectKey  | Object Key of the source file. Should be `Tuner.zip`.                                         |
+   | t2_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
+   | t2_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
+
 You should see a screen similar to the following image:
 
-   ![Finalize upload](../images/task2_finalize_upload_tt2.png "Finalize upload")
+   ![Finalize upload](../images/tutorial_02_task2_finalize_upload.png "Finalize upload")
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
