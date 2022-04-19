@@ -15,11 +15,11 @@ This folder contains a Postman Collection that contains the requests used in the
 
 In the Postman sidebar, requests are stored in folders that have the same name as the corresponding task in the tutorial on the Forge portal.
 
-![Forge portal menu to Postman](images/forge_portal_menu_2_postman_menu_01.png "Forge portal task to Postman mapping")
+![Forge portal menu to Postman](images/tutorial_03_postman_forge_menu_01.png "Forge portal task to Postman mapping")
 
 Individual requests in Postman have been named such that the corresponding step in the tutorial (on the Forge portal) can be figured out easily.
 
-![Forge portal steps to Postman](images/forge_portal_menu_2_postman_menu_02.png "Forge portal task to Postman mapping")
+![Forge portal steps to Postman](images/tutorial_03_postman_forge_menu_02.png "Forge portal task to Postman mapping")
 
 Instructions to run the Postman collection are as follows:
 
