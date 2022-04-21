@@ -10,11 +10,11 @@ To obtain a list of Viewables, you will use the URL safe Base64-encoded URN of t
 
 2. Click **Send**. You should see a screen like the following image.
 
-   ![list Viewables](../images/task4_list_model_views_success.png "list viewables")
+   ![list Viewables](../images/tutorial_05_task_4_retrieve_a_list_of_viewables.png "list viewables")
 
    A script in the **Tests** tab saves the GUIDs of the Viewables to a series of variables: `dv_guid_0` to `dv_guid_6`.
 
-   ![list Viewables](../images/task4_list_model_view_guids.png "list viewables")
+   ![list Viewables](../images/tutorial_05_task_4_guid_of_viewables.png "list viewables")
 
 ## Retrieve Properties of All Objects in a Viewable
 
@@ -22,17 +22,17 @@ The Viewable you will query in the next request is the Viewable labeled `A001 - 
 
 1. In the Postman sidebar, click **Task 4 - Retrieve Metadata > Retrieve Properties of Objects in a  Viewable**. The request loads.
 
-   ![list objects](../images/task4_get_properties.png "list objects")
+   ![list objects](../images/tutorial_05_task_4_retrieve_properties_of_all_objects.png "list objects")
 
    Note the use of the variable `dv_guid_6` as a URI parameter.
 
 2. Click **Send**. If extracting properties takes time, you see a screen like the following.
 
-   ![list objects success](../images/task4_get_properties_success_01.png "list objects success")
+   ![list objects success](../images/tutorial_05_task_4_retrieve_properties_of_all_objects_02.png "list objects success")
 
 3. Click **Send** again. You should see a screen like the following.
 
-   ![list objects success](../images/task4_get_properties_success_02.png "list objects success")
+   ![list objects success](../images/tutorial_05_task_4_retrieve_properties_of_all_objects_03.png "list objects success")
 
 The response body contains the list of object properties.
 
