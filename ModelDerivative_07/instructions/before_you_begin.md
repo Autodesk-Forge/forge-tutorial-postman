@@ -20,7 +20,7 @@ To import the Postman Collection and environment you need for this tutorial:
 
 3. Click the environment drop-down on the upper-right, and select **Model_Derivative**. The environment containing the variables for the tutorial loads.
 
-   ![Postman Environment drop-down](../images/postman_environment_dropdown.png "Postman Environment drop-down")
+   ![Postman Environment drop-down](../images/tutorial_07_task_1_before_you_begin.png "Postman Environment drop-down")
 
 
 [:rewind:](../readme.md "readme.md")  [:arrow_forward:](task-1.md "Next task")
