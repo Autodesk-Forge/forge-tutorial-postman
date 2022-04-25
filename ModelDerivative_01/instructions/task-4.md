@@ -2,21 +2,21 @@
 
 Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file that was generated in a variable named `dv_urn_0`
 
-## Download the STL file.
+## Download the OBJ file.
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Download OBJ File**. The request loads.
 
-    ![Download Request](../images/task4-download_request.png "Download Request")
+     1. Note the use of the variables t1_url_safe_urn_of_source and dv_urn_0 as URI parameters.
 
-    Note the use of the variables `t1_url_safe_urn_of_source` and `dv_urn_0` as URI parameters.
+     2. Click the **Headers** tab and define `Authorization` header.
 
-2. Click **Send**. You should see a screen similar to the following image.
+     3. Click **Send**.
+    
+    ![Download Request](../images/task4_download_OBJ_file.png "Download Request")
 
-    ![Download Result](../images/task4-download_result_1.png "Download Result")
+2. You should see a screen similar to the following image. In the response area, click Save Response > Save to a file. Save the file as box.obj, when prompted.
 
-3. In the response area, click **Save Response > Save to a file**. Save the file as *box.obj*, when prompted.
-
-    ![Download Result](../images/task4-download_result_2.png "Download Result")
+    ![Download Result](../images/task4_download_OBJ_file_2.png "Download Result")
 
 Congratulations! You have completed this tutorial.
 
