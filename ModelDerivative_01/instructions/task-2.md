@@ -37,7 +37,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    ![Set Object key](../images/tutorial_01_task_02_obtain_signed_url_01.png "Set Object Key")
 
-3. Click **Params** tab, and note the `minutesExpiration` is defined as 5 minutes. Change this value to 10.
+3. Click the **Params** tab, and note that the `minutesExpiration` query parameter is defined as 5 minutes. Change this value to 10.
 
    ![Minutes expiration](../images/task2_minutes_expiration_new.png "Minutes expiration")
 
@@ -45,8 +45,8 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | UploadKey | The upload key to upload the file.                                                                           |
-   | ContentUploadSignedURL | URN to upload source file                                                                       |
+   | UploadKey                  | The upload key to upload the file.                                                          |
+   | ContentUploadSignedURL     | URL of the location to upload the source file to.                                           |
    
    You should see a screen similar to the following image:
    
