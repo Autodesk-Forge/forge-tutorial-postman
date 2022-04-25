@@ -48,7 +48,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
    | UploadKey | The upload key to upload the file.                                                                           |
    | ContentUploadSignedURL | URN to upload source file                                                                       |
    
-You should see a screen similar to the following image:
+   You should see a screen similar to the following image:
    
    ![Signed url](../images/task2_obtain_signed_url_new.png "Signed url")
    
