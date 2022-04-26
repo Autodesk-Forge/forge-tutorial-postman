@@ -41,7 +41,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    ![Set Object key](../images/tutorial_03_task_2_obtain_signed_url_01.png "Set Object Key")
 
-3. Click **Params** tab, and note the `minutesExpiration` is defined as 5 minutes. Change this value to 10.
+3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. Change this value to 10.
 
    ![Minutes expiration](../images/tutorial_03_task_2_obtain_signed_url_02.png "Minutes expiration")
 
@@ -62,7 +62,7 @@ You should see a screen similar to the following image:
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload the File**. The request loads.
 
-   Note the use of `ContentUploadSignedURL` in URI.
+   Note the use of `ContentUploadSignedURL` as the URI.
 
 3. Click the **Body** tab.
 
