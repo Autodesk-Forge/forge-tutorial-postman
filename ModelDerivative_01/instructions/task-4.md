@@ -12,11 +12,11 @@ Before you download the OBJ file you must make sure that the translation job is 
 
      3. Click **Send**.
     
-    ![Download Request](../images/task4_download_OBJ_file.png "Download Request")
+    ![Download Request](../images/t1_task4_download_OBJ_file.png "Download Request")
 
 2. You should see a screen similar to the following image. In the response area, click Save Response > Save to a file. Save the file as box.obj, when prompted.
 
-    ![Download Result](../images/task4_download_OBJ_file_2.png "Download Result")
+    ![Download Result](../images/t1_task4_download_OBJ_file_2.png "Download Result")
 
 Congratulations! You have completed this tutorial.
 
