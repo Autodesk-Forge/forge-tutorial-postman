@@ -12,7 +12,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 2. Click the **Body** tab and take note of the JSON payload.
 
-    ![Create Translation Job JSON Payload](../images/task3_translate_a_job_new.png "Create Translation Job JSON Payload")
+    ![Create Translation Job JSON Payload](../images/t1_task3_translate_a_job_new.png "Create Translation Job JSON Payload")
     
     The main attributes on the JSON payload are:
 
@@ -24,11 +24,11 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 3. Click the **Headers** tab and define the `Content-Type`, `Authorization`, and `x-ads-force_all` headers.
 
-    ![Define headers](../images/task3_headers_new.png "Define headers")
+    ![Define headers](../images/t1_task3_headers_new.png "Define headers")
 
 4. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
-    ![Successful Submission of Translation Job](../images/task3_send_new.png "Successful Submission of Translation Job")
+    ![Successful Submission of Translation Job](../images/t1_task3_send_new.png "Successful Submission of Translation Job")
 
     Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t1_url_safe_urn_of_source`.
 
@@ -46,13 +46,13 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 2. Click the **Headers** tab and define the `Authorization` header.
 
-   ![Check Status of Job](../images/task3_check_status_1_new.png "Check Status of Job")
+   ![Check Status of Job](../images/t1_task3_check_status_1_new.png "Check Status of Job")
 
    Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t1_url_safe_urn_of_source` variable)
 
 3. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successful Job](../images/task3_check_status_2_new.png "Successful Job")
+   ![Successful Job](../images/t1_task3_check_status_2_new.png "Successful Job")
 
    When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 
