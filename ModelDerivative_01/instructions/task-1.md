@@ -39,7 +39,7 @@ To send the authenticate request to Forge:
 
 3. Move the cursor over the values for **client_id** and **client_secret** in the **VALUES** column, and verify that the values you specified as environment variables are displayed.
 
-   ![Preview Client Id and Client Secret](../images/tutorial_01_task1-preview_environment_variables.png "Preview Client Id and Client Secret")
+   ![Preview Client Id and Client Secret](../images/t1_tutorial_01_task1-preview_environment_variables.png "Preview Client Id and Client Secret")
 
 4. Click **Send**. This sends the HTTP request to Forge. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
 
