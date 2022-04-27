@@ -43,7 +43,7 @@ To send the authenticate request to Forge:
 
 4. Click **Send**. This sends the HTTP request to Forge. If your request authenticates successfully, you should see a return status of **200 OK**, and the response will be similar to the following:
 
-    ![Successful authentication](../images/tutorial_01_task1-authenticate_successfull.png "Successful authentication")
+    ![Successful authentication](../images/t1_tutorial_01_task1-authenticate_successfull.png "Successful authentication")
 
 Postman saves the Access Token in the Postman environment variable `access_token`. Postman will pick up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to Forge once again. 
 
