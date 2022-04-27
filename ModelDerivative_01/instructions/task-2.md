@@ -25,7 +25,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-   ![Successful Bucket Creation](../images/tutorial_01_task_02_create_a_bucket.png "Successful Bucket Creation")
+   ![Successful Bucket Creation](../images/t1_tutorial_01_task_02_create_a_bucket.png "Successful Bucket Creation")
     
 ## Obtain Signed URL
 
@@ -35,11 +35,11 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 2. Click the **Environment quick look** button and set the Postman environment variable `ossSourceFileObjectKey` to `box.ipt`, which you will use as the Object Key.
 
-   ![Set Object key](../images/tutorial_01_task_02_obtain_signed_url_01.png "Set Object Key")
+   ![Set Object key](../images/t1_tutorial_01_task_02_obtain_signed_url_01.png "Set Object Key")
 
 3. Click the **Params** tab, and note that the `minutesExpiration` query parameter is defined as 5 minutes. Change this value to 10.
 
-   ![Minutes expiration](../images/task2_minutes_expiration_new.png "Minutes expiration")
+   ![Minutes expiration](../images/t1_task2_minutes_expiration_new.png "Minutes expiration")
 
 4. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
 
@@ -50,7 +50,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
    
    You should see a screen similar to the following image:
    
-   ![Signed url](../images/task2_obtain_signed_url_new.png "Signed url")
+   ![Signed url](../images/t1_task2_obtain_signed_url_new.png "Signed url")
    
 ## Upload the file
 
@@ -64,7 +64,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 4. Click **Select File** and select the file *box.ipt*, which you downloaded in step 1.
 
-   ![Select file button](../images/task2_upload_file_2.png "Select file button")
+   ![Select file button](../images/t1_task2_upload_file_2.png "Select file button")
    
 5. Click **Send** to upload the file.
 
@@ -77,11 +77,11 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
-   ![Body attribute](../images/task2_body_attribute_new.png "Body attribute")
+   ![Body attribute](../images/t1_task2_body_attribute_new.png "Body attribute")
 
 3. Click **Headers** tab, and note the `Authorization` and `Content-Type` Headers.
 
-   ![Task headers](../images/task2_header_new.png "Task headers")
+   ![Task headers](../images/t1_task2_header_new.png "Task headers")
 
 4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
 
@@ -94,7 +94,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
     You should see a screen similar to the following image:
 
-    ![Finalize upload](../images/task2_finalize_upload_new.png "Finalize upload")
+    ![Finalize upload](../images/t1_task2_finalize_upload_new.png "Finalize upload")
 
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
