@@ -44,7 +44,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
-2. Click the **Headers** tab. Notice that the `Authorization` header already defined.
+2. Click the **Headers** tab. Notice that the `Authorization` header is already defined.
 
    ![Check Status of Job](../images/t1_task3_check_status_1_new.png "Check Status of Job")
 
