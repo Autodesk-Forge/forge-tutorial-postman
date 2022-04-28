@@ -8,7 +8,7 @@ Before you download the OBJ file you must make sure that the translation job is 
 
      1. Note the use of the variables t1_url_safe_urn_of_source and dv_urn_0 as URI parameters.
 
-     2. Click the **Headers** tab and define `Authorization` header.
+     2. Click the **Headers** tab. Notice that the `Authorization` header is already defined.
 
      3. Click **Send**.
     
