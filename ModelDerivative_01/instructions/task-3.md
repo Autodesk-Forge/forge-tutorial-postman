@@ -22,7 +22,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
     - `type` - The file type that the source file will be translated to.
 
-3. Click the **Headers** tab and define the `Content-Type`, `Authorization`, and `x-ads-force_all` headers.
+3. Click the **Headers** tab.  Notice that the `Content-Type`, `Authorization`, and `x-ads-force_all` headers are already defined.
 
     ![Define headers](../images/t1_task3_headers_new.png "Define headers")
 
@@ -44,7 +44,7 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
-2. Click the **Headers** tab and define the `Authorization` header.
+2. Click the **Headers** tab. Notice that the `Authorization` header already defined.
 
    ![Check Status of Job](../images/t1_task3_check_status_1_new.png "Check Status of Job")
 
