@@ -58,7 +58,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload the File**. The request loads.
 
-   Note the use of `ContentUploadSignedURL` in URI.
+   Note the use of `ContentUploadSignedURL` as the URI.
 
 3. Click the **Body** tab.
 
