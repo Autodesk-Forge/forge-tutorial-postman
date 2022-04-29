@@ -79,7 +79,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    ![Body attribute](../images/t1_task2_body_attribute_new.png "Body attribute")
 
-3. Click **Headers** tab, and note the `Authorization` and `Content-Type` Headers.
+3. Click the **Headers** tab.  Notice that the `Authorization` and `Content-Type` Headers are already defined.
 
    ![Task headers](../images/t1_task2_header_new.png "Task headers")
 
