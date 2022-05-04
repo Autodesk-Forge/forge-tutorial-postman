@@ -1,4 +1,4 @@
-# Task 2 - Upload Zip FIle to OSS
+# Task 2 - Upload Source FIle to OSS
 
 The Object Storage Service (OSS) is a generic Cloud Storage Service that is part of the Forge Data Management API. In this task, you upload a zip file containing the model to translate to OSS. While you can use any zip file containing a model, for the purpose of this tutorial we recommend that you use the file *Tuner.zip*, which is available in the [*tutorial_data*](../tutorial_data) folder.
 
@@ -78,7 +78,7 @@ You should see a screen similar to the following image,
 
    ![Body attribute](../images/task2_body_attribute_tt2.png "Body attribute")
 
-3. Click **Headers** tab, and note the `Authorization` and `Content-Type` Headers.
+3. Click **Headers** tab, and note the `Authorization` and `Content-Type` Headers are already defined.
 
    ![Task headers](../images/task2_header_tt2.png "Task headers")
 
