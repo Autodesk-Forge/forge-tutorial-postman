@@ -35,7 +35,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 2. Click the **Environment quick look** button and set the Postman environment variable `ossSourceFileObjectKey` to `Tuner.zip`, which you will use as the Object Key.
 
-   ![Set Object key](../images/tutorial_02_task2_variable_for_URL.png "Set Object Key")
+   ![Set Object key](../images/task2_variable_for_URL_tt2.png "Set Object Key")
 
 3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. Change this value to 10.
 
