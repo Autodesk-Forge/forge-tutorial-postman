@@ -79,7 +79,7 @@ You should see a screen similar to the following image:
 
    ![Body attribute](../images/tutorial_07_task_2_finalize_upload_01.png "Body attribute")
 
-3. Click **Headers** tab, and note the `Authorization` and `Content-Type` Headers.
+3. Click **Headers** tab. Notice the `Authorization` and `Content-Type` Headers are already defined.
 
    ![Task headers](../images/tutorial_07_task_2_finalize_upload_02.png "Task headers")
 
