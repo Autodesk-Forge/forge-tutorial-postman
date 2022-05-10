@@ -198,7 +198,7 @@ You should see a screen similar to the following image:
    
 You should see a screen similar to the following image:
    
-   ![Signed url](../images/tutorial_03_task_02_upload_file_secondpartoss_03.png "Signed url")
+   ![Signed url](../images/tutorial_03_task_02_obtain_signed_url_secondpartoss_03.png "Signed url")
    
 ## Upload Second Part File
 
@@ -267,7 +267,7 @@ You should see a screen similar to the following image:
    
 You should see a screen similar to the following image:
    
-   ![Signed url](../images/tutorial_03_task_02_upload_file_thirdpartoss_03.png "Signed url")
+   ![Signed url](../images/tutorial_03_task_02_obtain_signed_url_thirdpartoss_03.png "Signed url")
    
 ## Upload Third Part File
 
