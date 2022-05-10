@@ -128,7 +128,7 @@ The [*tutorial_data*](../tutorial_data) folder contains another folder named [*C
    
 You should see a screen similar to the following image:
    
-   ![Signed url](../images/tutorial_03_task_02_upload_file_firstpartoss_03.png "Signed url")
+   ![Signed url](../images/tutorial_03_task_02_obtain_signed_url_firstpartoss_03.png "Signed url")
    
 ## Upload First Part File
 
