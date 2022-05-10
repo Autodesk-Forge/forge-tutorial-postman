@@ -237,7 +237,7 @@ You should see a screen similar to the following image:
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
    | t3_ossSourceFileObjectKey  | Object Key of the source file. Should be `blade_top.ipt`.                                                       |
    | t3_ossPart_02_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *blade_top.ipt*. |
-   | t3_ossEncodedPart_02_URN   | The URN of the first part file, converted to a Base64-encoded URN.                                               |
+   | t3_ossEncodedPart_02_URN   | The URN of the second part file, converted to a Base64-encoded URN.                                               |
 
 
     You should see a screen similar to the following image:
@@ -306,7 +306,7 @@ You should see a screen similar to the following image:
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
    | t3_ossSourceFileObjectKey  | Object Key of the source file. Should be `scissor_spring.ipt`.                                                       |
    | t3_ossPart_03_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *scissor_spring.ipt*. |
-   | t3_ossEncodedPart_03_URN   | The URN of the first part file, converted to a Base64-encoded URN.                                               |
+   | t3_ossEncodedPart_03_URN   | The URN of the third part file, converted to a Base64-encoded URN.                                               |
 
 
     You should see a screen similar to the following image:
