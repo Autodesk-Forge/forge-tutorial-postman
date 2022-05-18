@@ -29,6 +29,8 @@ In this tutorial, you  use a Postman environment variable named `ossBucketKey` t
     
 ## Obtain Signed URL
 
+Before you upload a file to OSS, you must obtain a signed upload URL for the file. To obtain a signed upload URL:
+
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL**. The request loads.
 
    Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
@@ -46,13 +48,15 @@ In this tutorial, you  use a Postman environment variable named `ossBucketKey` t
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
    | UploadKey | The upload key to upload the file.                                                                           |
-   | ContentUploadSignedURL | URN to upload source file                                                                       |
+   | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
    
 You should see a screen similar to the following image:
    
    ![Signed url](../images/tutorial_06_task_2_obtain_signed_url_03.png "Signed url")
    
 ## Upload the file
+
+Now that you have obtained a signed upload URL, you can go ahead and upload the zip file to OSS.
 
 1. Download the file *Stapler.zip* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
@@ -70,6 +74,8 @@ You should see a screen similar to the following image:
 
 
 ## Finalize Upload
+
+Although you uploaded the source file in one go, it is possible to split a file into chunks and upload the file one chunk at a time. Once all the chunks are uploaded you must inform OSS that the upload operation is complete. Even though you uploaded the file in one go, you must finalize the upload by informing OSS that the upload is done. To finalize the upload:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
