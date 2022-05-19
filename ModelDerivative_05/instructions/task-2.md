@@ -4,7 +4,7 @@ The Object Storage Service (OSS) is a generic Cloud Storage Service that is part
 
 ## Create a Bucket
 
-For this task, you use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), follow step 1, and ignore the rest.
+In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -39,7 +39,7 @@ Before you upload a file to OSS, you must obtain a signed upload URL for the fil
 
    ![Set Object key](../images/tutorial_05_task_2_obtain_signed_url_01.png "Set Object Key")
 
-3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. Change this value to 10.
+3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes.
 
    ![Minutes expiration](../images/tutorial_05_task_2_obtain_signed_url_02.png "Minutes expiration")
 
@@ -47,7 +47,7 @@ Before you upload a file to OSS, you must obtain a signed upload URL for the fil
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | UploadKey | The upload key to upload the file.                                                                           |
+   | UploadKey | The upload key assigned to the file you want to upload.                                                      |
    | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
    
 You should see a screen similar to the following image:
