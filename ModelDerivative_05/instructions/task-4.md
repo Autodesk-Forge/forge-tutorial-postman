@@ -36,3 +36,5 @@ The Viewable you will query in the next request is the Viewable labeled `A001 - 
 
 The response body contains the list of object properties.
 
+[:rewind:](../readme.md "readme.md") [:arrow_backward:](task-3.md "Previous task")
+
