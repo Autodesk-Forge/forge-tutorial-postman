@@ -43,7 +43,7 @@ Before you upload a file to OSS, you must obtain a signed upload URL for the fil
 
    ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_ossassembly_01.png "Set Object Key")
 
-3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. Change this value to 10.
+3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. 
 
    ![Minutes expiration](../images/tutorial_03_task_02_obtain_signed_url_ossassembly_03.png "Minutes expiration")
 
