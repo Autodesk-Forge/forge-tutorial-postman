@@ -15,11 +15,11 @@ To set the environment variables:
 
 1. Click the **Environment quick look** icon on the upper right corner of Postman. 
 
-   ![Environment quick look icon](../images/task1-environment_quick_look_icon.png "Environment quick look icon")
+   ![Environment quick look icon](../images/tutorial_05_task_1_environment_quick_look.png "Environment quick look icon")
 
 2. Click in the **CURRENT VALUE** column on the **client_id** row. The Edit icon displays.
 
-    ![Edit Environment Variable](../images/task1-envoronment_edit_variable.png "Edit Environment Variable")
+    ![Edit Environment Variable](../images/tutorial_05_task_1_environment_variable_value.png "Edit Environment Variable")
 
 3. Click the Edit icon, and enter the *Client ID* you jotted down earlier.
 
@@ -39,11 +39,11 @@ To send the authenticate request to Forge:
 
 3. Move the cursor over the values for **client_id** and **client_secret** in the **VALUES** column, and verify that the values you specified as environment variables are displayed.
 
-   ![Preview Client Id and Client Secret](../images/task1-preview_environment_variables.png "Preview Client Id and Client Secret") 
+   ![Preview Client Id and Client Secret](../images/tutorial_05_task_1_client_id_view.png "Preview Client Id and Client Secret") 
 
 4. Click **Send**. Postman sends the HTTP request to Forge. If the request authenticates successfully, you should see a return status of **200 OK**. Expect a response similar to the following:
 
-    ![Successful authentication](../images/task1-authenticate_successfull.png "Successful authentication") 
+    ![Successful authentication](../images/tutorial_05_task_1_access_token_authentication.png "Successful authentication") 
 
 Postman saves the Access Token in the Postman environment variable `access_token`. Postman picks up the Access Token from this variable for all subsequent requests, eliminating the need for you to repeatedly specify the value of the token. The token remains valid for one hour.  If the token expires, you must obtain a fresh token by sending an `authenticate` request to Forge once again. 
 
