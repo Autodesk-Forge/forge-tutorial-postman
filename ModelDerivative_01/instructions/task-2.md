@@ -13,7 +13,8 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
     2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
 
         **Notes:**  
-        - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified already exists, the system will return a `409` conflict error in step 5. If you recieve this error, change the value of this variable and try again.
+        
+        - The Bucket name needs to be unique throughout the OSS service. if a Bucket with the name you specified exists, the system returns a `409` conflict error in step 5. If you receive this error, change the value of this variable and try again.
 
         - The Bucket name must consist of only lower-case characters, numbers 0-9, and the underscore (_) character.
 
@@ -28,6 +29,8 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
    ![Successful Bucket Creation](../images/t1_tutorial_01_task_02_create_a_bucket.png "Successful Bucket Creation")
     
 ## Obtain Signed URL
+
+Before you upload a file to OSS, you must obtain a signed upload URL for the file. To obtain a signed upload URL:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL**. The request loads.
 
@@ -45,14 +48,16 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | UploadKey                  | The upload key to upload the file.                                                          |
-   | ContentUploadSignedURL     | URL of the location to upload the source file to.                                           |
+   | UploadKey                  | The upload key assigned to the file you want to upload.                                     |
+   | ContentUploadSignedURL     | The signed upload URL you must use to upload the source file.                               |
    
    You should see a screen similar to the following image:
    
    ![Signed url](../images/t1_task2_obtain_signed_url_new.png "Signed url")
    
 ## Upload the file
+
+Now that you have obtained a signed upload URL, you can go ahead and upload the file _box.ipt_ to OSS.
 
 1. Download the file *box.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
@@ -70,6 +75,8 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 
 ## Finalize Upload
+
+Although you uploaded the source file in one go, it is possible to split a file into chunks and upload the file one chunk at a time. Once all the chunks are uploaded you must inform OSS that the upload operation is complete. Even though you uploaded the file in one go, you must finalize the upload by informing OSS that the upload is done. To finalize the upload:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
