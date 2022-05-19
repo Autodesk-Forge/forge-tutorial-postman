@@ -121,15 +121,11 @@ The [*tutorial_data*](../tutorial_data) folder contains another folder named [*C
 
    ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_firstpartoss_01.png "Set Object Key")
 
-3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. Change this value to 10.
-
-   ![Minutes expiration](../images/tutorial_03_task_02_obtain_signed_url_firstpartoss_02.png "Minutes expiration")
-
-4. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
+3. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | UploadKey | The upload key to upload the file.                                                                           |
+   | UploadKey | The upload key assigned to the file you want to upload.                                                       |
    | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
    
 You should see a screen similar to the following image:
@@ -163,11 +159,7 @@ You should see a screen similar to the following image:
 
    ![Body attribute](../images/tutorial_03_task_02_finalize_upload_firstpartoss_01.png "Body attribute")
 
-3. Click **Headers** tab. Notice the `Authorization` Header is already defined.
-
-   ![Task headers](../images/tutorial_03_task_02_finalize_upload_firstpartoss_02.png "Task headers")
-
-4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+3. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                                      |
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -191,15 +183,11 @@ You should see a screen similar to the following image:
 
    ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_secondpartoss_01.png "Set Object Key")
 
-3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. Change this value to 10.
-
-   ![Minutes expiration](../images/tutorial_03_task_02_obtain_signed_url_secondpartoss_02.png "Minutes expiration")
-
-4. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
+3. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | UploadKey | The upload key to upload the file.                                                                           |
+   | UploadKey | The upload key assigned to the file you want to upload.                                                       |
    | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
    
 You should see a screen similar to the following image:
@@ -233,11 +221,7 @@ You should see a screen similar to the following image:
 
    ![Body attribute](../images/tutorial_03_task_02_finalize_upload_secondpartoss_01.png "Body attribute")
 
-3. Click **Headers** tab. Notice the `Authorization` Header is already defined.
-
-   ![Task headers](../images/tutorial_03_task_02_finalize_upload_secondpartoss_02.png "Task headers")
-
-4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+3. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                                      |
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
@@ -260,15 +244,11 @@ You should see a screen similar to the following image:
 
    ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_thirdpartoss_01.png "Set Object Key")
 
-3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. Change this value to 10.
+3. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
 
-   ![Minutes expiration](../images/tutorial_03_task_02_obtain_signed_url_thirdpartoss_02.png "Minutes expiration")
-
-4. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
-
-  | Variable Name              | Description                                                                                 |
+   | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | UploadKey | The upload key to upload the file.                                                                           |
+   | UploadKey | The upload key assigned to the file you want to upload.                                                      |
    | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
    
 You should see a screen similar to the following image:
@@ -302,11 +282,7 @@ You should see a screen similar to the following image:
 
    ![Body attribute](../images/tutorial_03_task_02_finalize_upload_thirdpartoss_01.png "Body attribute")
 
-3. Click **Headers** tab. Notice the `Authorization` Header is already defined.
-
-   ![Task headers](../images/tutorial_03_task_02_finalize_upload_thirdpartoss_02.png "Task headers")
-
-4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+3. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                                      |
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
