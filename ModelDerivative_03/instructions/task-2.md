@@ -51,7 +51,7 @@ Before you upload a file to OSS, you must obtain a signed upload URL for the fil
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
-   | UploadKey | The upload key to upload the file.                                                                           |
+   | UploadKey | The upload key assigned to the file you want to upload.                                                      |
    | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file.                                      |
    
 You should see a screen similar to the following image:
