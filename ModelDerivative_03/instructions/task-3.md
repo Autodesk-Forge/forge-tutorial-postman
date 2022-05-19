@@ -14,13 +14,13 @@ The assembly file *scissors.iam* expects its part files to be placed in a sub-fo
 
 2. Click the **Body** tab.
 
-   ![Link Part Files to Assembly](../images/task3-link_references.png "Link Part Files to Assembly")
+   ![Link Part Files to Assembly](../images/tutorial_03_task_03_translate_file_01.png "Link Part Files to Assembly")
 
    Note how this request uses a mix of raw URNs, and Base64-Encoded URNs. The URI parameter uses a Base64-Encoded URN while the JSON payload uses the raw URN. Also note the use of the `relativePath` attribute to specify the location of the referenced files (part files) relative to the source file (assembly file).
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
-   ![Part Files sucessfully linked to Assembly file](../images/task3-link_references_success.png "Part Files sucessfully linked to Assembly file")
+   ![Part Files sucessfully linked to Assembly file](../images/tutorial_03_task_03_translate_file_02.png "Part Files sucessfully linked to Assembly file")
 
 ## Start a translation job
 
@@ -28,13 +28,13 @@ The assembly file *scissors.iam* expects its part files to be placed in a sub-fo
 
 2. Click the **Body** tab and take note of the JSON payload.
 
-    ![Create Translation Job JSON Payload](../images/task3-translation_job_json_payload.png "Create Translation Job JSON Payload")
+    ![Create Translation Job JSON Payload](../images/tutorial_03_task_03_start_translation_01.png "Create Translation Job JSON Payload")
 
     Note the use of the `checkReferences` attribute to instruct Forge that the source file contains references that must be downloaded at translation time.
 
 3. Click **Send**. If the request is successful you should see a screen similar to the following image.
 
-    ![Successful Submission of Translation Job](../images/task3-translation_job_successfull_submission.png "Successful Submission of Translation Job")
+    ![Successful Submission of Translation Job](../images/tutorial_03_task_03_start_translation_02.png "Successful Submission of Translation Job")
 
     Note the `urn` attribute in the JSON response. This is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t3_url_safe_urn_of_source`.
 
@@ -50,13 +50,13 @@ For the purpose of this tutorial you will check the status of the translation jo
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Translation Job**. The request loads.
 
-   ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
+   ![Check Status of Job](../images/tutorial_03_task_03_check_status_of_translation_01.png "Check Status of Job")
 
    Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t3_url_safe_urn_of_source` variable)
 
 2. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
+   ![Successful Job](../images/tutorial_03_task_03_check_status_of_translation_02.png "Successful Job")
 
    When a job is complete, the `progress` attribute becomes `complete`. Repeat this step until the job is complete.
 

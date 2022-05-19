@@ -6,17 +6,17 @@ Before you download the STL file you must make sure that the translation job is 
 
 1. In the Postman sidebar, click **Task 4 - Download STL File > GET Download STL File**. The request loads.
 
-    ![Download Request](../images/task4-download_request.png "Download Request")
+    ![Download Request](../images/tutorial_03_task_04_download_file_01.png "Download Request")
 
     Note the use of the variables `t3_url_safe_urn_of_source` and `dv_urn_0` as URI parameters.
 
 2. Click **Send**. You should see a screen similar to the following image.
 
-    ![Download Result](../images/task4-download_result_1.png "Download Result")
+    ![Download Result](../images/tutorial_03_task_04_download_file_02.png "Download Result")
 
 3. In the response area, click **Save Response > Save to a file**. Save the file as *scissors.stl*, when prompted.
 
-    ![Download Result](../images/task4-download_result_2.png "Download Result")
+    ![Download Result](../images/tutorial_03_task_04_download_file_03.png "Download Result")
 
 Congratulations! You have completed this tutorial.
 
