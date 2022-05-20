@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "99489f47-6ca0-4a13-bd6e-b61efd58cd86",
+		"_postman_id": "590c8530-ef6b-49a6-adf0-34a921f9d276",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8f8bde31-1796-42c1-bfa3-fcc2243568f8",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
@@ -83,7 +82,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ea59775c-3b23-4e57-b0e9-f4bab9f017e4",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -93,16 +91,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "b0ae27e1-b87b-49db-aba1-8a5036bac791",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 2 - Upload Source File to OSS",
@@ -113,7 +108,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d045cec2-06ed-4f74-82c7-d22323afffb9",
 										"exec": [
 											""
 										],
@@ -157,39 +151,31 @@
 							"response": []
 						},
 						{
-							"name": "Upload Zip File to OSS",
+							"name": "Obtain Signed URL",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "f5d51379-13cd-46d4-8e60-cefd69e71576",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"t4_ossSourceFileObjectKey\", body[\"objectKey\"]);",
-											"pm.environment.set(\"t4_ossSourceFileURN\", body[\"objectId\"]);",
-											"var encoded_urn=btoa(body[\"objectId\"]);",
-											"pm.environment.set(\"t4_ossEncodedSourceFileURN\", encoded_urn);"
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
 							"request": {
-								"method": "PUT",
+								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
+										"value": "Bearer {{access_token}}",
+										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "file",
-									"file": {
-										"src": ""
-									}
-								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload?minutesExpiration=5",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -203,10 +189,104 @@
 										"buckets",
 										"{{ossBucketKey}}",
 										"objects",
-										"{{ossSourceFileObjectKey}}"
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									],
+									"query": [
+										{
+											"key": "minutesExpiration",
+											"value": "5"
+										}
 									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload the File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
 								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+								"url": {
+									"raw": "{{ContentUploadSignedURL}}",
+									"host": [
+										"{{ContentUploadSignedURL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Finalize Upload",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t4_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+											"pm.environment.set(\"t4_ossSourceFileURN\", body[\"objectId\"]);",
+											"var encoded_urn=btoa(body[\"objectId\"]);",
+											"pm.environment.set(\"t4_ossEncodedSourceFileURN\", encoded_urn);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"oss",
+										"v2",
+										"buckets",
+										"{{ossBucketKey}}",
+										"objects",
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									]
+								}
 							},
 							"response": []
 						}
@@ -215,7 +295,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "aedc4478-0c5f-464f-a3c7-c0b355154c7d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -225,16 +304,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "39b12724-b86c-4836-b7b0-dd46187264df",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 3 - Translate Source File",
@@ -248,7 +324,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "3a0b8f46-3f4b-4008-984d-de6bc966b9d5",
 												"exec": [
 													"var body = JSON.parse(responseBody);",
 													"pm.environment.set(\"t4_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -306,9 +381,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Option 2 - Translate to SVF2",
@@ -319,7 +392,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "1fba10fb-c11d-48b4-bf00-054a8164ad8c",
 												"exec": [
 													"var body = JSON.parse(responseBody);",
 													"pm.environment.set(\"t4_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -377,9 +449,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Check Status of Job",
@@ -387,7 +457,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0822825c-66f6-455a-b5c9-a8cfdfbf8c8e",
 										"exec": [
 											""
 										],
@@ -429,7 +498,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "dd44f0d9-7430-498d-9989-536025a5ea00",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -439,23 +507,19 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "889902a7-e207-4096-ab76-8446ac1d72fa",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bd003bd9-7c7c-4835-94ff-4c54c883234d",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -465,15 +529,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9615ec13-8a2c-4cde-a4c3-2b5a555e87e4",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Extras",
@@ -548,7 +610,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d177f59a-0e65-4416-85dd-b60409e4051e",
 								"exec": [
 									""
 								],
@@ -591,7 +652,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4c15c6ca-8703-4a39-a5c0-1e2291e5998d",
 								"exec": [
 									""
 								],
@@ -665,10 +725,61 @@
 						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
 					},
 					"response": []
+				},
+				{
+					"name": "Upload Zip File to OSS",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"t4_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+									"pm.environment.set(\"t4_ossSourceFileURN\", body[\"objectId\"]);",
+									"var encoded_urn=btoa(body[\"objectId\"]);",
+									"pm.environment.set(\"t4_ossEncodedSourceFileURN\", encoded_urn);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossSourceFileObjectKey}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+					},
+					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f88ba6e4-8b36-49e7-ae9d-b0c5185ddbdc",
+		"_postman_id": "c3baed19-8dcd-4a70-bb35-c204ebf53a8a",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cbeef3d8-ec31-4701-bf60-2ad4332742f0",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
@@ -83,7 +82,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e46c0f9a-5b13-4e1e-80cc-ddb265a50d8f",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -93,16 +91,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "190c87ad-b1a7-4325-a0ac-6f0d3696f254",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 2 - Upload Source File to OSS",
@@ -113,7 +108,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7d06b1fc-9b81-4fc5-85ed-e300a221a5a2",
 										"exec": [
 											""
 										],
@@ -157,39 +151,31 @@
 							"response": []
 						},
 						{
-							"name": "Upload Input File to OSS",
+							"name": "Obtain Signed URL",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "31d5eaf8-fa17-430c-b310-160e4974199a",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"t6_ossSourceFileObjectKey\", body[\"objectKey\"]);",
-											"pm.environment.set(\"t6_ossSourceFileURN\", body[\"objectId\"]);",
-											"var encoded_urn=btoa(body[\"objectId\"]);",
-											"pm.environment.set(\"t6_ossEncodedSourceFileURN\", encoded_urn);"
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
 							"request": {
-								"method": "PUT",
+								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
+										"value": "Bearer {{access_token}}",
+										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "file",
-									"file": {
-										"src": ""
-									}
-								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload?minutesExpiration=5",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -203,10 +189,104 @@
 										"buckets",
 										"{{ossBucketKey}}",
 										"objects",
-										"{{ossSourceFileObjectKey}}"
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									],
+									"query": [
+										{
+											"key": "minutesExpiration",
+											"value": "5"
+										}
 									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload the File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
 								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+								"url": {
+									"raw": "{{ContentUploadSignedURL}}",
+									"host": [
+										"{{ContentUploadSignedURL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Finalize Upload",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t6_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+											"pm.environment.set(\"t6_ossSourceFileURN\", body[\"objectId\"]);",
+											"var encoded_urn=btoa(body[\"objectId\"]);",
+											"pm.environment.set(\"t6_ossEncodedSourceFileURN\", encoded_urn);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"oss",
+										"v2",
+										"buckets",
+										"{{ossBucketKey}}",
+										"objects",
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									]
+								}
 							},
 							"response": []
 						}
@@ -215,7 +295,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "cde179d1-d5b1-4d34-9269-a09564e10788",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -225,16 +304,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ab50f8e3-67fa-4073-9515-8df8a83ffd73",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 3 - Translate to SVF",
@@ -245,7 +321,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4a039931-7c26-4436-8292-82b245b2b42e",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"t6_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -309,7 +384,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b53495f7-87fc-4fde-86b6-207f0d769beb",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"d_data=body[\"derivatives\"];",
@@ -368,7 +442,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "0581f3a0-5163-4cf2-9e28-78332b8ce589",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -378,16 +451,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "ad9ab42e-67e1-4166-afc3-1b42fe1a264d",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 4 - Retrieve Metadata",
@@ -398,7 +468,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "70be2d2e-4328-4cbd-9c2b-3ae9c70ef2b2",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"var body_data=body[\"data\"];",
@@ -456,7 +525,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b92daaf3-ef1f-47fa-a9d8-c411b0ef7245",
 										"exec": [
 											""
 										],
@@ -495,9 +563,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 5 - Extract Geometry",
@@ -508,7 +574,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9aa3d90e-2525-49ee-b543-0eafc232a918",
 										"exec": [
 											""
 										],
@@ -571,7 +636,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4c95e80d-b0b1-4d19-aff1-2bcae429eb11",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"d_data = body[\"derivatives\"];",
@@ -626,18 +690,39 @@
 							"response": []
 						},
 						{
-							"name": "Download Extracted Geometry",
+							"name": "Obtain Signed Cookie to Download Extracted Geometry",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"ContentDownloadSignedURL\", body.url);",
+											"var responseHeader = pm.response.headers.all()",
+											"var j=1;",
+											"for (let i=0; responseHeader.length, i < responseHeader.length; i++){",
+											"    console.log(responseHeader[i].key);",
+											"    if (responseHeader[i].key==\"Set-Cookie\"){",
+											"        let envariable='set-cookie-header_'+ j++;",
+											"        postman.setEnvironmentVariable(envariable, responseHeader[i].value);",
+											"    } ",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{access_token}}"
+										"value": "Bearer {{access_token}}",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t6_url_safe_urn_of_source}}/manifest/{{t6_obj_urn_0}}",
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t6_url_safe_urn_of_source}}/manifest/{{t6_obj_urn_0}}/signedcookies",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -651,10 +736,32 @@
 										"designdata",
 										"{{t6_url_safe_urn_of_source}}",
 										"manifest",
-										"{{t6_obj_urn_0}}"
+										"{{t6_obj_urn_0}}",
+										"signedcookies"
 									]
 								},
 								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
+							},
+							"response": []
+						},
+						{
+							"name": "Download Extracted Geometry",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{set-cookie-header_1}};{{set-cookie-header_2}};{{set-cookie-header_3}}",
+										"description": "CloudFront-Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLmRlcml2YXRpdmUuYXV0b2Rlc2suY29tL2RYSnVPbUZrYzJzdWIySnFaV04wY3pwdmN5NXZZbXBsWTNRNmFuQXRNakF5TWkwd05TMHhOeTlDYjNndWFYQjAvb3V0cHV0L2ZlYzEwMTQ0LTgxYjYtNGNmZi05NmRmLTdhOTgwNDkxNmQyNS9Cb3gub2JqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUyODc4MDM3fX19XX0_; Path=/; Domain=cdn.derivative.autodesk.com; HTTPOnly",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ContentDownloadSignedURL}}",
+									"host": [
+										"{{ContentDownloadSignedURL}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -663,7 +770,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "78a5b6a7-5e01-41fd-bdf5-31b6be8f6e5c",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -673,23 +779,19 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "dc1b0efc-d4ac-4da9-a5a3-8e958316a296",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b9732c81-951d-475d-8f34-10222478ec0f",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -699,15 +801,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "88fc9957-e04c-42a8-8ebb-cfd3b0364ce5",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Extras",
@@ -782,7 +882,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1158b8af-6bab-4810-ac88-be022e1fa5fa",
 								"exec": [
 									""
 								],
@@ -820,12 +919,64 @@
 					"response": []
 				},
 				{
+					"name": "Upload Input File to OSS (Deprecated)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"t6_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+									"pm.environment.set(\"t6_ossSourceFileURN\", body[\"objectId\"]);",
+									"var encoded_urn=btoa(body[\"objectId\"]);",
+									"pm.environment.set(\"t6_ossEncodedSourceFileURN\", encoded_urn);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossSourceFileObjectKey}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+					},
+					"response": []
+				},
+				{
 					"name": "Delete OSS Bucket",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "f36bbad9-860f-4a75-8be6-fac7f024dada",
 								"exec": [
 									""
 								],
@@ -870,6 +1021,39 @@
 					"response": []
 				},
 				{
+					"name": "Download Extracted Geometry (Deprecated)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t6_url_safe_urn_of_source}}/manifest/{{t6_obj_urn_0}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"modelderivative",
+								"v2",
+								"designdata",
+								"{{t6_url_safe_urn_of_source}}",
+								"manifest",
+								"{{t6_obj_urn_0}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
+					},
+					"response": []
+				},
+				{
 					"name": "Get Supported Formats",
 					"request": {
 						"method": "GET",
@@ -900,9 +1084,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
