@@ -455,39 +455,6 @@
 					"name": "Task 4 - Download OBJ File",
 					"item": [
 						{
-							"name": "Download OBJ file (To be deleted)",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Authorization",
-										"value": "Bearer {{access_token}}",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
-									"protocol": "https",
-									"host": [
-										"developer",
-										"api",
-										"autodesk",
-										"com"
-									],
-									"path": [
-										"modelderivative",
-										"v2",
-										"designdata",
-										"{{t1_url_safe_urn_of_source}}",
-										"manifest",
-										"{{dv_urn_0}}"
-									]
-								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
-							},
-							"response": []
-						},
-						{
 							"name": "Obtain Signed Cookie",
 							"event": [
 								{
@@ -773,6 +740,39 @@
 							]
 						},
 						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Download OBJ file (Deprecated)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"modelderivative",
+								"v2",
+								"designdata",
+								"{{t1_url_safe_urn_of_source}}",
+								"manifest",
+								"{{dv_urn_0}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
 					},
 					"response": []
 				}
