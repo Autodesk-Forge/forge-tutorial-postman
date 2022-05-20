@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6eecc697-9d15-4259-bf68-b9f04ed33c61",
+		"_postman_id": "7e8d01c7-6cd0-42a3-a1fc-4892bf386dc3",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2f45eeec-a3b3-4d9b-b519-ab36bb025650",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
@@ -83,7 +82,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "84199a59-86df-4304-a65a-ce6edb243076",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -93,16 +91,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5eef7310-5451-4eff-b247-ecc67f647792",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 2 - Upload Source File to OSS",
@@ -113,7 +108,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6d21d31d-fa8d-40b2-a108-b823d3aacd6a",
 										"exec": [
 											""
 										],
@@ -157,39 +151,31 @@
 							"response": []
 						},
 						{
-							"name": "Upload Revit File to OSS",
+							"name": "Obtain Signed URL",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "87e26356-3f4e-4d74-892a-6d5db02287a4",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"t7_ossSourceFileObjectKey\", body[\"objectKey\"]);",
-											"pm.environment.set(\"t7_ossSourceFileURN\", body[\"objectId\"]);",
-											"var encoded_urn=btoa(body[\"objectId\"]);",
-											"pm.environment.set(\"t7_ossEncodedSourceFileURN\", encoded_urn);"
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
 							"request": {
-								"method": "PUT",
+								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
+										"value": "Bearer {{access_token}}",
+										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "file",
-									"file": {
-										"src": ""
-									}
-								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload?minutesExpiration=5",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -203,10 +189,104 @@
 										"buckets",
 										"{{ossBucketKey}}",
 										"objects",
-										"{{ossSourceFileObjectKey}}"
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									],
+									"query": [
+										{
+											"key": "minutesExpiration",
+											"value": "5"
+										}
 									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload the File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
 								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+								"url": {
+									"raw": "{{ContentUploadSignedURL}}",
+									"host": [
+										"{{ContentUploadSignedURL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Finalize Upload",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t7_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+											"pm.environment.set(\"t7_ossSourceFileURN\", body[\"objectId\"]);",
+											"var encoded_urn=btoa(body[\"objectId\"]);",
+											"pm.environment.set(\"t7_ossEncodedSourceFileURN\", encoded_urn);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"oss",
+										"v2",
+										"buckets",
+										"{{ossBucketKey}}",
+										"objects",
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									]
+								}
 							},
 							"response": []
 						}
@@ -215,7 +295,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e133862f-8dfd-4b27-afd2-2c365757c58f",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -225,16 +304,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "19e5ecba-01ab-47a5-8928-f6d7a2a5c14f",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 3 - Translate Source File",
@@ -248,7 +324,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "0fdb1ac2-01f4-4364-a9cb-35149763767d",
 												"exec": [
 													"var body = JSON.parse(responseBody);",
 													"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -312,7 +387,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "22fb6027-41cf-4fd9-a575-a64b2f5bc38f",
 												"exec": [
 													"var body = JSON.parse(responseBody);",
 													"d_data=body[\"derivatives\"];",
@@ -366,9 +440,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Option 2 - Translate to SVF2",
@@ -379,7 +451,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "e2809c73-3cc5-45e3-94cb-b0ef49298162",
 												"exec": [
 													"var body = JSON.parse(responseBody);",
 													"pm.environment.set(\"t7_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -443,7 +514,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "37b10914-29f0-49df-958f-5ea0d2195496",
 												"exec": [
 													"var body = JSON.parse(responseBody);",
 													"d_data=body[\"derivatives\"];",
@@ -497,16 +567,13 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						}
 					],
 					"event": [
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "6525a712-51ba-40af-9574-97dd7a226642",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -516,23 +583,19 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "03dfffeb-e684-48dc-aa69-2b5d40caff95",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "433786d0-3939-43ad-ae62-779c7198bd86",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -542,15 +605,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "be178086-4d85-40d8-a881-b53494eaf392",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Extras",
@@ -625,7 +686,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d660d423-316d-429b-a4b4-046d335e20d0",
 								"exec": [
 									""
 								],
@@ -668,7 +728,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0621ea88-c70e-4eda-89f6-bb47cc556725",
 								"exec": [
 									""
 								],
@@ -718,7 +777,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "bbaa8b43-030c-49ce-97de-e4facce0e79a",
 								"exec": [
 									"var body = JSON.parse(responseBody);",
 									"var meta_data = body[\"data\"][\"metadata\"];",
@@ -767,6 +825,59 @@
 					"response": []
 				},
 				{
+					"name": "Upload Revit File to OSS (Deprecated)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"t7_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+									"pm.environment.set(\"t7_ossSourceFileURN\", body[\"objectId\"]);",
+									"var encoded_urn=btoa(body[\"objectId\"]);",
+									"pm.environment.set(\"t7_ossEncodedSourceFileURN\", encoded_urn);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossSourceFileObjectKey}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+					},
+					"response": []
+				},
+				{
 					"name": "Get Supported Formats",
 					"request": {
 						"method": "GET",
@@ -797,9 +908,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
