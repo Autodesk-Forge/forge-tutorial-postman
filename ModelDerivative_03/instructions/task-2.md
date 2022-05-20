@@ -45,7 +45,7 @@ Before you upload a file to OSS, you must obtain a signed upload URL for the fil
 
 3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. 
 
-   ![Minutes expiration](../images/tutorial_03_task_02_obtain_signed_url_ossassembly_03.png "Minutes expiration")
+   ![Minutes expiration](../images/tutorial_03_task_02_obtain_signed_url_ossassembly_02.png "Minutes expiration")
 
 4. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
 
