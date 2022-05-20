@@ -37,7 +37,7 @@ Before you upload a file to OSS, you must obtain a signed upload URL for the fil
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for Assembly File**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossAssemblyFile_OKey` as URI parameters.
 
 2. Click the **Environment quick look** button and set the Postman environment variable `ossAssemblyFile_OKey` to `scissors.iam`, which you will use as the Object Key.
 
@@ -83,7 +83,7 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossAssemblyFile_OKey` as URI parameters.
 
 2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
@@ -97,7 +97,6 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
    | Variable Name              | Description                                                                                                  |
    |----------------------------|--------------------------------------------------------------------------------------------------------------|
-   | t3_ossSourceFileObjectKey  | Object Key of the source file. Should be `scissors.iam`.                                                     |
    | t3_ossAssemblyFileURN      | Value of the `objectId` attribute in the JSON response. This is the URN of the assembly file *scissors.iam*. |
    | t3_ossEncodedSourceFileURN | The URN of the assembly file, converted to a Base64-encoded URN.                                             |
 
@@ -115,7 +114,7 @@ The [*tutorial_data*](../tutorial_data) folder contains another folder named [*C
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for First Part File**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossPart_01_OKey` as URI parameters.
 
 2. Click the **Environment quick look** button and set the Postman environment variable `ossPart_01_OKey` to `blade_main.ipt`, which you will use as the Object Key.
 
@@ -153,7 +152,7 @@ You should see a screen similar to the following image:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossPart_01_OKey` as URI parameters.
 
 2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
@@ -163,7 +162,6 @@ You should see a screen similar to the following image:
 
    | Variable Name              | Description                                                                                                      |
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
-   | t3_ossSourceFileObjectKey  | Object Key of the source file. Should be `blade_main.ipt`.                                                       |
    | t3_ossPart_01_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *blade_main.ipt*. |
    | t3_ossEncodedPart_01_URN   | The URN of the first part file, converted to a Base64-encoded URN.                                               |
 
@@ -177,7 +175,7 @@ You should see a screen similar to the following image:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for Second Part File**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossPart_02_OKey` as URI parameters.
 
 2. Click the **Environment quick look** button and set the Postman environment variable `ossPart_02_OKey` to `blade_top.ipt`, which you will use as the Object Key.
 
@@ -215,7 +213,7 @@ You should see a screen similar to the following image:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossPart_02_OKey` as URI parameters.
 
 2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
@@ -225,7 +223,6 @@ You should see a screen similar to the following image:
 
    | Variable Name              | Description                                                                                                      |
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
-   | t3_ossSourceFileObjectKey  | Object Key of the source file. Should be `blade_top.ipt`.                                                       |
    | t3_ossPart_02_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *blade_top.ipt*. |
    | t3_ossEncodedPart_02_URN   | The URN of the second part file, converted to a Base64-encoded URN.                                               |
 
@@ -238,7 +235,7 @@ You should see a screen similar to the following image:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for Third Part File**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossPart_03_OKey` as URI parameters.
 
 2. Click the **Environment quick look** button and set the Postman environment variable `ossPart_03_OKey` to `scissor_spring.ipt`, which you will use as the Object Key.
 
@@ -276,7 +273,7 @@ You should see a screen similar to the following image:
 
 1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
 
-   Note the use of `ossBucketkey` and `ossSourceFileObjectKey` as URI parameters.
+   Note the use of `ossBucketkey` and `ossPart_03_OKey` as URI parameters.
 
 2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
@@ -286,7 +283,6 @@ You should see a screen similar to the following image:
 
    | Variable Name              | Description                                                                                                      |
    |----------------------------|------------------------------------------------------------------------------------------------------------------|
-   | t3_ossSourceFileObjectKey  | Object Key of the source file. Should be `scissor_spring.ipt`.                                                       |
    | t3_ossPart_03_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *scissor_spring.ipt*. |
    | t3_ossEncodedPart_03_URN   | The URN of the third part file, converted to a Base64-encoded URN.                                               |
 
