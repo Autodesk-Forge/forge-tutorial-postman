@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "aff49e83-d8bf-402e-958b-3df4cff77a69",
+		"_postman_id": "35f2e4c2-1c09-4139-907c-b26325aba36c",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -622,6 +622,39 @@
 					"response": []
 				},
 				{
+					"name": "Download OBJ file (Deprecated)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"modelderivative",
+								"v2",
+								"designdata",
+								"{{t1_url_safe_urn_of_source}}",
+								"manifest",
+								"{{dv_urn_0}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Manifest",
 					"event": [
 						{
@@ -740,39 +773,6 @@
 							]
 						},
 						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
-					},
-					"response": []
-				},
-				{
-					"name": "Download OBJ file (Deprecated)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{access_token}}",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
-							"protocol": "https",
-							"host": [
-								"developer",
-								"api",
-								"autodesk",
-								"com"
-							],
-							"path": [
-								"modelderivative",
-								"v2",
-								"designdata",
-								"{{t1_url_safe_urn_of_source}}",
-								"manifest",
-								"{{dv_urn_0}}"
-							]
-						},
-						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
 					},
 					"response": []
 				}
