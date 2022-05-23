@@ -4,11 +4,11 @@ Before you download the OBJ file you must make sure that the translation job is 
 
 ## Obtain Signed Cookie
 
-You must use signed cookies to securely download derfivatives. To obtain the download URL and signed cookies for the OBJ file:
+Signed cookies give you the ability to securely download the generated OBJ file for a short period of time. To obtain the download URL and signed cookies for the OBJ file:
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Obtain Signed Cookie**. The request loads.
 
-   Note the use of the variables `t1_url_safe_urn_of_source` and `dv_urn_0` as URI parameters.
+   Note the use of the Postman environment variables `t1_url_safe_urn_of_source` and `dv_urn_0` as URI parameters.
 
 2. Click the **Headers** tab. Notice that the `Authorization` header is already defined.
 
@@ -16,11 +16,11 @@ You must use signed cookies to securely download derfivatives. To obtain the dow
 
 3. Click **Send**. You should see a screen similar to the following image.
 
-   Note the response body contains the download URL. A script in the **Tests** tab updates the `ContentDownloadSignedURL` variable.
+   Note the response body contains the download URL. A script in the **Tests** tab captures the download URL to the `ContentDownloadSignedURL` Postman environment variable.
 
     ![Obtained Cookie](../images/tutorial01_obtain_signed_cookies_03.png "Obtained Cookie")
     
-4. Click on the Response **Headers** tab. Notice how the response **Headers** contains 3 parameters are named `set-cookie`. A script in the **Tests** tab updates these environment variables.
+4. Click on the Response **Headers** tab. Notice how the response **Headers** contains 3 parameters named `set-cookie`. A script in the **Tests** saves the values of these parameters to the `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3` environment variables.
 
     ![Response Headers](../images/tutorial01_obtain_signed_cookies_04.png "Response Headers")
     
@@ -30,7 +30,7 @@ Now you have obtained the download URL and signed cookie, you can download the O
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Download OBJ File**. The request loads.
 
-   Note the use of the variables `ContentDownloadSignedURL` as URI.
+   Note the use of the variables `ContentDownloadSignedURL` as the URI.
 
 2. Click the **Headers** tab. Notice that the `Cookie` header is made up of `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3`
 
