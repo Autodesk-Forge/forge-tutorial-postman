@@ -16,11 +16,11 @@ Signed cookies give you the ability to securely download the generated OBJ file 
 
 3. Click **Send**. You should see a screen similar to the following image.
 
-   Note the response body contains the download URL. A script in the **Tests** tab captures the download URL to the `ContentDownloadSignedURL` Postman environment variable.
+   Notice how the response body contains the download URL. A script in the **Tests** tab captures the download URL to the `ContentDownloadSignedURL` Postman environment variable.
 
     ![Obtained Cookie](../images/tutorial01_obtain_signed_cookies_03.png "Obtained Cookie")
     
-4. Click on the Response **Headers** tab. Notice how the response **Headers** contains 3 parameters named `set-cookie`. A script in the **Tests** saves the values of these parameters to the `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3` environment variables.
+4. Click on the Response **Headers** tab. Notice how the response contains 3 header parameters named `set-cookie`. A script in the **Tests** saves the values of these parameters to the `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3` environment variables.
 
     ![Response Headers](../images/tutorial01_obtain_signed_cookies_04.png "Response Headers")
     
