@@ -2,9 +2,9 @@
 
 Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file that was generated in a variable named `dv_urn_0`
 
-## Obtain the Download URL and Signed Cookie.
+## Obtain the Download URL and Signed Cookie
 
-In order to download the OBJ file, you need to obtain the download signed URL and signed cookies required to access the OBJ file.
+In order to download the OBJ file, you need to obtain the download URL and signed cookies required to access the OBJ file.
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Obtain Signed Cookie**. The request loads.
 
@@ -16,11 +16,11 @@ In order to download the OBJ file, you need to obtain the download signed URL an
 
 3. Click **Send**. You should see a screen similar to the following image.
 
-   Note the `ContentDownloadSignedURL` is obtained in the response body.
+   Note the response body contains the download URL. A script in the **Tests** tab updates the `ContentDownloadSignedURL` variable.
 
     ![Obtained Cookie](../images/tutorial01_obtain_signed_cookies_03.png "Obtained Cookie")
     
-4. Click on the **Response Headers** tab. Notice that 3 `set-cookie-header`parameters are obtained as variables.
+4. Click on the Response **Headers** tab. Notice how the response **Headers** contains 3 parameters are named `set-cookie`. A script in the **Tests** tab updates these environment variables.
 
     ![Response Headers](../images/tutorial01_obtain_signed_cookies_04.png "Response Headers")
     
@@ -30,9 +30,9 @@ Now you have obtained the download URL and signed cookie, you can download the O
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Download OBJ File**. The request loads.
 
-   Note the use of the variables `ContentDownloadSignedURL` as URI parameters.
+   Note the use of the variables `ContentDownloadSignedURL` as URI.
 
-2. Click the **Headers** tab. Notice that the `Cookie` header is set as `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3`
+2. Click the **Headers** tab. Notice that the `Cookie` header is made up of `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3`
 
     ![Cookie Headers Download](../images/tutorial01_download_obj_file_01.png "Cookie Headers Download")
 
