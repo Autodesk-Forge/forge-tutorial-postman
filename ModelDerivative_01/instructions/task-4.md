@@ -2,9 +2,9 @@
 
 Before you download the OBJ file you must make sure that the translation job is complete. In the previous task you captured the URN of the OBJ file that was generated in a variable named `dv_urn_0`
 
-## Obtain the Download URL and Signed Cookie
+## Obtain Signed Cookie
 
-In order to download the OBJ file, you need to obtain the download URL and signed cookies required to access the OBJ file.
+You must use signed cookies to securely download derfivatives. To obtain the download URL and signed cookies for the OBJ file:
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Obtain Signed Cookie**. The request loads.
 
