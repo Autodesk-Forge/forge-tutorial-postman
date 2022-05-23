@@ -8,7 +8,7 @@ In order to download the OBJ file, you need to obtain the download URL and signe
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Obtain Signed Cookie**. The request loads.
 
-   Note the use of the variables t1_url_safe_urn_of_source and dv_urn_0 as URI parameters.
+   Note the use of the variables `t1_url_safe_urn_of_source` and `dv_urn_0` as URI parameters.
 
 2. Click the **Headers** tab. Notice that the `Authorization` header is already defined.
 
@@ -36,7 +36,7 @@ Now you have obtained the download URL and signed cookie, you can download the O
 
     ![Cookie Headers Download](../images/tutorial01_download_obj_file_01.png "Cookie Headers Download")
 
-3. Click **Send**. You should see a screen similar to the following image. In the response area, click Save Response > Save to a file. Save the file as box.obj, when prompted.
+3. Click **Send**. You should see a screen similar to the following image. In the response area, click Save Response > Save to a file. Save the file as *box.obj*, when prompted.
 
     ![Download Result](../images/tutorial01_download_obj_file_02.png "Download Result")
 
