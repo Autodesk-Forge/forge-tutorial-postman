@@ -3,9 +3,9 @@
 Before you download the STL file you must make sure that the translation job is complete. In the previous task a script captured the URN of the STL file in a variable named `dv_urn_0`
 
 
-## Obtain the Download URL and Signed Cookie
+## Obtain Signed Cookie
 
-In order to download the OBJ file, you need to obtain the download URL and signed cookies required to access the OBJ file.
+Signed cookies give you the ability to securely download the generated OBJ file for a short period of time. To obtain the download URL and signed cookies for the STL file:
 
 1. In the Postman sidebar, click **Task 4 - Download STL File > GET Obtain Signed Cookie**. The request loads.
 
@@ -17,11 +17,11 @@ In order to download the OBJ file, you need to obtain the download URL and signe
 
 3. Click **Send**. You should see a screen similar to the following image.
 
-   Note the response body contains the download URL. A script in the **Tests** tab updates the `ContentDownloadSignedURL` variable.
+  Notice how the response body contains the download URL. A script in the **Tests** tab captures the download URL to the `ContentDownloadSignedURL` Postman   environment variable.
 
     ![Obtained Cookie](../images/tutorial02_obtain_signed_cookies_02.png "Obtained Cookie")
     
-4. Click on the Response **Headers** tab. Notice how the response **Headers** contains 3 parameters are named `set-cookie`. A script in the **Tests** tab updates these environment variables.
+4. Click on the Response **Headers** tab. Notice how the response contains 3 header parameters named `set-cookie`. A script in the **Tests** saves the values of these parameters to the `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3` environment variables.
 
     ![Response Headers](../images/tutorial02_obtain_signed_cookies_03.png "Response Headers")
     
