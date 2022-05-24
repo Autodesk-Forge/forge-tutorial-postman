@@ -17,7 +17,7 @@ Signed cookies give you the ability to securely download the generated OBJ file 
 
 3. Click **Send**. You should see a screen similar to the following image.
 
-  Notice how the response body contains the download URL. A script in the **Tests** tab captures the download URL to the `ContentDownloadSignedURL` Postman   environment variable.
+   Notice how the response body contains the download URL. A script in the **Tests** tab captures the download URL to the `ContentDownloadSignedURL`  Postman   environment variable.
 
     ![Obtained Cookie](../images/tutorial02_obtain_signed_cookies_02.png "Obtained Cookie")
     
