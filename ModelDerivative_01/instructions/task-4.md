@@ -24,7 +24,7 @@ Signed cookies give you the ability to securely download the generated OBJ file 
 
     ![Response Headers](../images/tutorial01_obtain_signed_cookies_04.png "Response Headers")
     
- ## Download OBJ file.
+ ## Download OBJ File
 
 Now you have obtained the download URL and signed cookie, you can download the OBJ file now. To download the OBJ file:
 
