@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3fc2de19-de5d-4f53-9014-736a5e6db5d6",
+		"_postman_id": "ab3c8a37-4e26-4449-b481-ffa91fd141b9",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -151,6 +151,19 @@
 						},
 						{
 							"name": "Obtain Signed URL for Assembly FIle",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
@@ -266,6 +279,19 @@
 						},
 						{
 							"name": "Obtain Signed URL for First Part File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
@@ -381,6 +407,19 @@
 						},
 						{
 							"name": "Obtain Signed URL for Second Part File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
@@ -496,6 +535,19 @@
 						},
 						{
 							"name": "Obtain Signed URL for Third Part File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
@@ -824,17 +876,39 @@
 					"name": "Task 4 - Download STL File",
 					"item": [
 						{
-							"name": "Download STL FIle",
+							"name": "Obtain Signed Cookie",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"ContentDownloadSignedURL\", body.url);",
+											"var responseHeader = pm.response.headers.all()",
+											"var j=1;",
+											"for (let i=0; responseHeader.length, i < responseHeader.length; i++){",
+											"    console.log(responseHeader[i].key);",
+											"    if (responseHeader[i].key==\"Set-Cookie\"){",
+											"        let envariable='set-cookie-header_'+ j++;",
+											"        postman.setEnvironmentVariable(envariable, responseHeader[i].value);",
+											"    } ",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
+										"value": "Bearer {{access_token}}",
+										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t3_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t3_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}/signedcookies",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -848,10 +922,32 @@
 										"designdata",
 										"{{t3_url_safe_urn_of_source}}",
 										"manifest",
-										"{{dv_urn_0}}"
+										"{{dv_urn_0}}",
+										"signedcookies"
 									]
 								},
 								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
+							},
+							"response": []
+						},
+						{
+							"name": "Download OBJ File",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{set-cookie-header_1}};{{set-cookie-header_2}};{{set-cookie-header_3}}",
+										"description": "CloudFront-Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLmRlcml2YXRpdmUuYXV0b2Rlc2suY29tL2RYSnVPbUZrYzJzdWIySnFaV04wY3pwdmN5NXZZbXBsWTNRNmFuQXRNakF5TWkwd05TMHhOeTlDYjNndWFYQjAvb3V0cHV0L2ZlYzEwMTQ0LTgxYjYtNGNmZi05NmRmLTdhOTgwNDkxNmQyNS9Cb3gub2JqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUyODc4MDM3fX19XX0_; Path=/; Domain=cdn.derivative.autodesk.com; HTTPOnly",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ContentDownloadSignedURL}}",
+									"host": [
+										"{{ContentDownloadSignedURL}}"
+									]
+								}
 							},
 							"response": []
 						}
@@ -1085,6 +1181,38 @@
 							]
 						},
 						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Download STL FIle (Deprecated)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t3_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"modelderivative",
+								"v2",
+								"designdata",
+								"{{t3_url_safe_urn_of_source}}",
+								"manifest",
+								"{{dv_urn_0}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
 					},
 					"response": []
 				}
