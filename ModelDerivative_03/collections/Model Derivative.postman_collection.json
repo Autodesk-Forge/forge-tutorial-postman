@@ -931,7 +931,7 @@
 							"response": []
 						},
 						{
-							"name": "Download OBJ File",
+							"name": "Download STL File",
 							"request": {
 								"method": "GET",
 								"header": [
