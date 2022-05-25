@@ -30,7 +30,7 @@ Now you have obtained the download URL and signed cookie, you can download the O
 
 1. In the Postman sidebar, click **Task 4 - Download OBJ File > GET Download OBJ File**. The request loads.
 
-   Note the use of the variables `ContentDownloadSignedURL` as the URI.
+   Note the use of the variable `ContentDownloadSignedURL` as the URI.
 
 2. Click the **Headers** tab. Notice that the `Cookie` header is made up of `set-cookie-header_1`, `set-cookie-header_2` and `set-cookie-header_3`
 
