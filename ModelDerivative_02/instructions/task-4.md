@@ -5,7 +5,7 @@ Before you download the STL file you must make sure that the translation job is 
 
 ## Obtain Signed Cookie
 
-Signed cookies give you the ability to securely download the generated OBJ file for a short period of time. To obtain the download URL and signed cookies for the STL file:
+Signed cookies give you the ability to securely download the generated STL file for a short period of time. To obtain the download URL and signed cookies for the STL file:
 
 1. In the Postman sidebar, click **Task 4 - Download STL File > GET Obtain Signed Cookie**. The request loads.
 
