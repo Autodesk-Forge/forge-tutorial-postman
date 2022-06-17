@@ -10,7 +10,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 2. Click the **Body** tab and take note of the JSON payload.
 
-    ![Create Translation Job JSON Payload](../images/task3_op2-translation_job_json_payload.png "Create Translation Job JSON Payload")
+    ![Create Translation Job JSON Payload](../images/tutorial_04_task_3_start_a_translation_svf_2_01.png "Create Translation Job JSON Payload")
 
     Note the following:
 
@@ -22,7 +22,7 @@ For this task, you will use the Base64-encoded URN of the source file. In the pr
 
 3. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful Submission of Translation Job](../images/task3_op2-translation_job_successfull_submission.png "Successful Submission of Translation Job")
+    ![Successful Submission of Translation Job](../images/tutorial_04_task_3_start_a_translation_svf_2_02.png "Successful Submission of Translation Job")
 
     Note the `urn` attribute in the JSON response. The value of this attribute is the URL-safe Base64 encoded URN of the source file. A script in the **Tests** tab, saves this value to a variable named `t4_url_safe_urn_of_source`.
 
@@ -38,13 +38,13 @@ For this tutorial, you check the status of the translation job. For more informa
 
 1. In the Postman sidebar, click **Task 3 - Translate Source File > Check Status of Job**. The request loads.
 
-   ![Check Status of Job](../images/task3-check_status_of_job.png "Check Status of Job")
+   ![Check Status of Job](../images/tutorial_04_task_3_check_status_of_job_01.png "Check Status of Job")
 
    Note the use of the URL-safe Base64-encoded URN of the source file as a URI parameter (the `t4_url_safe_urn_of_source` variable)
 
 2. Click **Send**. You will see a screen similar to the following image.
 
-   ![Successful Job](../images/task3-sucessfull_job.png "Successful Job")
+   ![Successful Job](../images/tutorial_04_task_3_check_status_of_job_03.png "Successful Job")
 
    Repeat this step until the `progress` attribute becomes `complete`, as shown in the image.
 

@@ -8,7 +8,7 @@ These files are available in the [*tutorial_data*](../tutorial_data) folder.
 
 ## Create a Bucket
 
-In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), carry out step 1, and ignore the rest.
+In this tutorial, you will use a Postman environment variable named `ossBucketKey` to hold the Object Key of the Bucket that contains your files in the cloud. If you already have a bucket (from a previous tutorial), set the `ossBucketKey` variable to the Object Key of that bucket by following step 1, and ignore the rest of the steps in this section.
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
@@ -29,72 +29,272 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 5. Click **Send**. If the request is successful, you should see a screen similar to the following image.
 
-    ![Successful Bucket Creation](../images/task2-sucessfull_bucket_creation.png "Successful Bucket Creation")
+    ![Successful Bucket Creation](../images/tutorial_03_task_2_create_a_bucket.png "Successful Bucket Creation")
+    
+## Obtain Signed URL for Assembly File
 
-## Upload assembly file to OSS
+Before you upload a file to OSS, you must obtain a signed upload URL for the file. To obtain a signed upload URL:
+
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for Assembly File**. The request loads.
+
+   Note the use of `ossBucketkey` and `ossAssemblyFile_OKey` as URI parameters.
+
+2. Click the **Environment quick look** button and set the Postman environment variable `ossAssemblyFile_OKey` to `scissors.iam`, which you will use as the Object Key.
+
+   ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_ossassembly_01.png "Set Object Key")
+
+3. Click **Params** tab, and note the `minutesExpiration` parameter is defined as 5 minutes. 
+
+   ![Minutes expiration](../images/tutorial_03_task_02_obtain_signed_url_ossassembly_02.png "Minutes expiration")
+
+4. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | UploadKey | The upload key assigned to the file you want to upload.                                                      |
+   | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file.                                      |
+   
+You should see a screen similar to the following image:
+   
+   ![Signed url](../images/tutorial_03_task_02_obtain_signed_url_ossassembly_03.png "Signed url")
+   
+## Upload Assembly File
+
+Now that you have obtained a signed upload URL, you can go ahead and upload the zip file to OSS.
 
 1. Download the file *scissors.iam* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-2. Set the Postman environment variable `ossAssemblyFile_OKey` to `scissors.iam`, which you will use as the Object Key for the assembly file you downloaded in the previous step. 
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Assembly File**. The request loads.
 
-   1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
-
-   2. In the **CURRENT VALUE** column, in the **ossAssemblyFile_OKey** row, specify `scissors.iam` as the value for that variable. 
-
-   3. Click the **Environment quick look** icon to hide the variables.
-
-2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Assembly File to OSS**. The request loads.
-
-    Note the use of `ossBucketkey` and `ossAssemblyFile_OKey` as URI parameters.
+   Note the use of `ContentUploadSignedURL` as the URI.
 
 3. Click the **Body** tab.
 
 4. Click **Select File** and select the file *scissors.iam*, which you downloaded in step 1.
 
-    ![Select file button](../images/task2-select_files_button.png "Select file button")
+   ![Select file button](../images/tutorial_03_task_02_upload_file_ossassembly_01.png "Select file button")
+   
+5. Click **Send** to upload the file.
 
-5. Click **Send**. This sends the request, and updates the following Postman environment variables:
 
-   | Variable Name                | Description                                                                                                   |
-   |------------------------------|---------------------------------------------------------------------------------------------------------------|
-   | t3_ossAssemblyFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the assembly file *scissors.iam*.  |
-   | t3_ossEncodedAssemblyFileURN | The URN of the assembly file, converted to a Base64-encoded URN.                                              |
+## Finalize Upload
 
-   You should see a screen similar to the following image:
+Although you uploaded the source file in one go, it is possible to split a file into chunks and upload the file one chunk at a time. Once all the chunks are uploaded you must inform OSS that the upload operation is complete. Even though you uploaded the file in one go, you must finalize the upload by informing OSS that the upload is done. To finalize the upload:
 
-    ![Successful upload of input file](../images/task2-successful_upload.png "Successful upload of input file")
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
+
+   Note the use of `ossBucketkey` and `ossAssemblyFile_OKey` as URI parameters.
+
+2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+
+   ![Body attribute](../images/tutorial_03_task_02_finalize_upload_ossassembly_01.png "Body attribute")
+
+3. Click **Headers** tab. Notice the `Authorization` Header is already defined.
+
+   ![Task headers](../images/tutorial_03_task_02_finalize_upload_ossassembly_02.png "Task headers")
+
+4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                                  |
+   |----------------------------|--------------------------------------------------------------------------------------------------------------|
+   | t3_ossAssemblyFileURN      | Value of the `objectId` attribute in the JSON response. This is the URN of the assembly file *scissors.iam*. |
+   | t3_ossEncodedSourceFileURN | The URN of the assembly file, converted to a Base64-encoded URN.                                             |
+
+
+    You should see a screen similar to the following image:
+
+    ![Finalize upload](../images/tutorial_03_task_02_finalize_upload_ossassembly_03.png "Finalize upload")
+
 
 ## Upload part files to OSS
 
 The [*tutorial_data*](../tutorial_data) folder contains another folder named [*Components*](../tutorial_data/Components). This folder contains three part files, which you must upload to OSS. The instructions in this sections walk you through the process of uploading the first part file, *blade_main.ipt*. Use the same process to upload the other two part files to OSS.
 
-1. Download a part file from the [*tutorial_data/Components* folder of this repository](../tutorial_data/Components).
+## Obtain Signed URL for First Part File
 
-2. Set the Postman environment variable `ossPart_01_OKey` to the name of the part file you downloaded in the previous step. 
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for First Part File**. The request loads.
 
-   1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
+   Note the use of `ossBucketkey` and `ossPart_01_OKey` as URI parameters.
 
-   2. In the **CURRENT VALUE** column, in the **ossPart_01_OKey** row, specify the name of the part file as the value for that variable. 
+2. Click the **Environment quick look** button and set the Postman environment variable `ossPart_01_OKey` to `blade_main.ipt`, which you will use as the Object Key.
 
-   3. Click the **Environment quick look** icon to hide the variables.
+   ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_firstpartoss_01.png "Set Object Key")
 
-3. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT First Part to OSS**. The request loads.
+3. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
 
-4. Click the **Body** tab.
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | UploadKey | The upload key assigned to the file you want to upload.                                                       |
+   | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
+   
+You should see a screen similar to the following image:
+   
+   ![Signed url](../images/tutorial_03_task_02_obtain_signed_url_firstpartoss_03.png "Signed url")
+   
+## Upload First Part File
 
-5. Click **Select File** and select the file part file you downloaded in step 1.
+1. Download the file *blade_main.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
 
-6. Click **Send**. This sends the request, and updates a Postman environment variable named "t3_ossPart_01_URN" with the `objectId` from the JSON response.
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload First Part File**. The request loads.
 
-7. Repeat steps 1 through 5 for the remaining part files, setting the variables `ossPart_02_OKey`, and `ossPart_03_OKey` to each of the part file names, and using the following HTTP requests:
+   Note the use of `ContentUploadSignedURL` as the URI.
 
-    1. **Task 2 - Upload Source File to OSS > PUT Second Part to OSS**.
+3. Click the **Body** tab.
 
-    2. **Task 2 - Upload Source File to OSS > PUT Third Part to OSS**.
+4. Click **Select File** and select the file *blade_main.ipt*, which you downloaded in step 1.
+
+   ![Select file button](../images/tutorial_03_task_02_upload_file_firstpartoss_01.png "Select file button")
+   
+5. Click **Send** to upload the file.
+
+
+## Finalize Upload
+
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
+
+   Note the use of `ossBucketkey` and `ossPart_01_OKey` as URI parameters.
+
+2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+
+   ![Body attribute](../images/tutorial_03_task_02_finalize_upload_firstpartoss_01.png "Body attribute")
+
+3. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                                      |
+   |----------------------------|------------------------------------------------------------------------------------------------------------------|
+   | t3_ossPart_01_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *blade_main.ipt*. |
+   | t3_ossEncodedPart_01_URN   | The URN of the first part file, converted to a Base64-encoded URN.                                               |
+
+
+    You should see a screen similar to the following image:
+
+    ![Finalize upload](../images/tutorial_03_task_02_finalize_upload_firstpartoss_03.png "Finalize upload")
+    
+    
+    ## Obtain Signed URL for Second Part File
+
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for Second Part File**. The request loads.
+
+   Note the use of `ossBucketkey` and `ossPart_02_OKey` as URI parameters.
+
+2. Click the **Environment quick look** button and set the Postman environment variable `ossPart_02_OKey` to `blade_top.ipt`, which you will use as the Object Key.
+
+   ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_secondpartoss_01.png "Set Object Key")
+
+3. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | UploadKey | The upload key assigned to the file you want to upload.                                                       |
+   | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
+   
+You should see a screen similar to the following image:
+   
+   ![Signed url](../images/tutorial_03_task_02_obtain_signed_url_secondpartoss_03.png "Signed url")
+   
+## Upload Second Part File
+
+1. Download the file *blade_top.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Second Part File**. The request loads.
+
+   Note the use of `ContentUploadSignedURL` as the URI.
+
+3. Click the **Body** tab.
+
+4. Click **Select File** and select the file *blade_top.ipt*, which you downloaded in step 1.
+
+   ![Select file button](../images/tutorial_03_task_02_upload_file_secondpartoss_01.png "Select file button")
+   
+5. Click **Send** to upload the file.
+
+
+## Finalize Upload
+
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
+
+   Note the use of `ossBucketkey` and `ossPart_02_OKey` as URI parameters.
+
+2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+
+   ![Body attribute](../images/tutorial_03_task_02_finalize_upload_secondpartoss_01.png "Body attribute")
+
+3. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                                      |
+   |----------------------------|------------------------------------------------------------------------------------------------------------------|
+   | t3_ossPart_02_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *blade_top.ipt*. |
+   | t3_ossEncodedPart_02_URN   | The URN of the second part file, converted to a Base64-encoded URN.                                               |
+
+
+    You should see a screen similar to the following image:
+
+    ![Finalize upload](../images/tutorial_03_task_02_finalize_upload_secondpartoss_03.png "Finalize upload")
+    
+    ## Obtain Signed URL for Third Part File
+
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > GET Obtain Signed URL for Third Part File**. The request loads.
+
+   Note the use of `ossBucketkey` and `ossPart_03_OKey` as URI parameters.
+
+2. Click the **Environment quick look** button and set the Postman environment variable `ossPart_03_OKey` to `scissor_spring.ipt`, which you will use as the Object Key.
+
+   ![Set Object key](../images/tutorial_03_task_02_obtain_signed_url_thirdpartoss_01.png "Set Object Key")
+
+3. Click **Send**. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                 |
+   |----------------------------|---------------------------------------------------------------------------------------------|
+   | UploadKey | The upload key assigned to the file you want to upload.                                                      |
+   | ContentUploadSignedURL | The signed upload URL you must use to upload the zip file                                       |
+   
+You should see a screen similar to the following image:
+   
+   ![Signed url](../images/tutorial_03_task_02_obtain_signed_url_thirdpartoss_03.png "Signed url")
+   
+## Upload Third Part File
+
+1. Download the file *scissor_spring.ipt* from the [*tutorial_data* folder of this tutorial](../tutorial_data).
+
+2. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > PUT Upload Third Part File**. The request loads.
+
+   Note the use of `ContentUploadSignedURL` as the URI.
+
+3. Click the **Body** tab.
+
+4. Click **Select File** and select the file *scissor_spring.ipt*, which you downloaded in step 1.
+
+   ![Select file button](../images/tutorial_03_task_02_upload_file_thirdpartoss_01.png "Select file button")
+   
+5. Click **Send** to upload the file.
+
+
+## Finalize Upload
+
+1. In the Postman sidebar, click **Task 2 - Upload Source File to OSS > POST Finalize Upload**. The request loads.
+
+   Note the use of `ossBucketkey` and `ossPart_03_OKey` as URI parameters.
+
+2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
+
+   ![Body attribute](../images/tutorial_03_task_02_finalize_upload_thirdpartoss_01.png "Body attribute")
+
+3. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+
+   | Variable Name              | Description                                                                                                      |
+   |----------------------------|------------------------------------------------------------------------------------------------------------------|
+   | t3_ossPart_03_URN          | Value of the `objectId` attribute in the JSON response. This is the URN of the first part file *scissor_spring.ipt*. |
+   | t3_ossEncodedPart_03_URN   | The URN of the third part file, converted to a Base64-encoded URN.                                               |
+
+
+    You should see a screen similar to the following image:
+
+    ![Finalize upload](../images/tutorial_03_task_02_finalize_upload_thirdpartoss_03.png "Finalize upload")
+    
 
     You should see a screen similar to the following, when you click the **Environment quick look** icon. 
 
-    ![Variables with Object Keys for Part Files](../images/task3-part_file_object_keys.png "Variables with Object Keys for Part Files")
+    ![Variables with Object Keys for Part Files](../images/tutorial_03_task_02_part_file_object_keys.png "Variables with Object Keys for Part Files")
 
 
 

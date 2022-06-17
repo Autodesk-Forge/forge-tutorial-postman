@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ae1175e1-c6f4-443b-ba50-efb51f6110a5",
+		"_postman_id": "35f2e4c2-1c09-4139-907c-b26325aba36c",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -17,7 +17,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3df16796-5a03-47e5-a63f-00989847157c",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"access_token\", body[\"access_token\"]);"
@@ -83,7 +82,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "a7ea41ca-578d-47c2-82a6-1b87b0fae80d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -93,16 +91,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "487811da-12dc-473d-9b13-58dd3dad29ca",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 2 - Upload Source File to OSS",
@@ -113,7 +108,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b8f08e2f-9a04-4e7f-a273-34119fb024cf",
 										"exec": [
 											""
 										],
@@ -157,39 +151,34 @@
 							"response": []
 						},
 						{
-							"name": "Upload Source File to OSS",
+							"name": "Obtain Signed URL",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "4bff56ac-f537-44ea-8154-d0012b635d52",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
-											"pm.environment.set(\"t1_ossSourceFileObjectKey\", body[\"objectKey\"]);",
-											"pm.environment.set(\"t1_ossSourceFileURN\", body[\"objectId\"]);",
-											"var encoded_urn=btoa(body[\"objectId\"]);",
-											"pm.environment.set(\"t1_ossEncodedSourceFileURN\", encoded_urn);"
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
 										],
 										"type": "text/javascript"
 									}
 								}
 							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
 							"request": {
-								"method": "PUT",
+								"method": "GET",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
+										"value": "Bearer {{access_token}}",
+										"type": "text"
 									}
 								],
-								"body": {
-									"mode": "file",
-									"file": {
-										"src": ""
-									}
-								},
 								"url": {
-									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload?minutesExpiration=5",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -203,16 +192,111 @@
 										"buckets",
 										"{{ossBucketKey}}",
 										"objects",
-										"{{ossSourceFileObjectKey}}"
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									],
+									"query": [
+										{
+											"key": "minutesExpiration",
+											"value": "5"
+										}
 									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload the File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"console.log(pm.request.body.file.src)"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
 								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+								"url": {
+									"raw": "{{ContentUploadSignedURL}}",
+									"host": [
+										"{{ContentUploadSignedURL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Finalize upload",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"t1_ossSourceFileObjectKey\", body.objectKey);",
+											"pm.environment.set(\"t1_ossSourceFileURN\", body.objectId);",
+											"var encoded_urn=btoa(body.objectId);",
+											"pm.environment.set(\"t1_ossEncodedSourceFileURN\", encoded_urn);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"disabledSystemHeaders": {}
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
+								},
+								"url": {
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"oss",
+										"v2",
+										"buckets",
+										"{{ossBucketKey}}",
+										"objects",
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									]
+								}
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 3 - Translate Source File",
@@ -223,7 +307,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "49e8b7f4-29ec-45ee-abe9-1b46749f16ff",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"pm.environment.set(\"t1_url_safe_urn_of_source\", body[\"urn\"]);"
@@ -245,6 +328,17 @@
 										"key": "Authorization",
 										"value": "Bearer {{access_token}}",
 										"type": "text"
+									},
+									{
+										"key": "x-ads-force-all",
+										"value": "true",
+										"type": "text"
+									},
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
@@ -282,7 +376,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
 										"exec": [
 											"var body = JSON.parse(responseBody);",
 											"d_data=body[\"derivatives\"];",
@@ -341,7 +434,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8ce910c3-4744-43f4-a660-98e5b9dab98d",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -351,22 +443,40 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "462bc58c-2f71-4c9e-8936-f95998fe5acc",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Task 4 - Download OBJ File",
 					"item": [
 						{
-							"name": "Download OBJ file",
+							"name": "Obtain Signed Cookie",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"ContentDownloadSignedURL\", body.url);",
+											"var responseHeader = pm.response.headers.all()",
+											"var j=1;",
+											"for (let i=0; responseHeader.length, i < responseHeader.length; i++){",
+											"    console.log(responseHeader[i].key);",
+											"    if (responseHeader[i].key==\"Set-Cookie\"){",
+											"        let envariable='set-cookie-header_'+ j++;",
+											"        postman.setEnvironmentVariable(envariable, responseHeader[i].value);",
+											"    } ",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
 							"request": {
 								"method": "GET",
 								"header": [
@@ -377,7 +487,7 @@
 									}
 								],
 								"url": {
-									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
+									"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}/signedcookies",
 									"protocol": "https",
 									"host": [
 										"developer",
@@ -391,23 +501,42 @@
 										"designdata",
 										"{{t1_url_safe_urn_of_source}}",
 										"manifest",
-										"{{dv_urn_0}}"
+										"{{dv_urn_0}}",
+										"signedcookies"
 									]
 								},
 								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
 							},
 							"response": []
+						},
+						{
+							"name": "Download OBJ File",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Cookie",
+										"value": "{{set-cookie-header_1}};{{set-cookie-header_2}};{{set-cookie-header_3}}",
+										"description": "CloudFront-Policy=eyJTdGF0ZW1lbnQiOiBbeyJSZXNvdXJjZSI6Imh0dHBzOi8vY2RuLmRlcml2YXRpdmUuYXV0b2Rlc2suY29tL2RYSnVPbUZrYzJzdWIySnFaV04wY3pwdmN5NXZZbXBsWTNRNmFuQXRNakF5TWkwd05TMHhOeTlDYjNndWFYQjAvb3V0cHV0L2ZlYzEwMTQ0LTgxYjYtNGNmZi05NmRmLTdhOTgwNDkxNmQyNS9Cb3gub2JqIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNjUyODc4MDM3fX19XX0_; Path=/; Domain=cdn.derivative.autodesk.com; HTTPOnly",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ContentDownloadSignedURL}}",
+									"host": [
+										"{{ContentDownloadSignedURL}}"
+									]
+								}
+							},
+							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "fa1483d6-83a2-4a15-abf2-b9132daa64a3",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -417,15 +546,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ea5c8f91-be98-49b8-bcf7-05d06fb8cf12",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Extras",
@@ -495,12 +622,44 @@
 					"response": []
 				},
 				{
+					"name": "Download OBJ file (Deprecated)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://developer.api.autodesk.com/modelderivative/v2/designdata/{{t1_url_safe_urn_of_source}}/manifest/{{dv_urn_0}}",
+							"protocol": "https",
+							"host": [
+								"developer",
+								"api",
+								"autodesk",
+								"com"
+							],
+							"path": [
+								"modelderivative",
+								"v2",
+								"designdata",
+								"{{t1_url_safe_urn_of_source}}",
+								"manifest",
+								"{{dv_urn_0}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-manifest-derivativeurn-GET/)"
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Manifest",
 					"event": [
 						{
 							"listen": "test",
 							"script": {
-								"id": "c582d2cb-1e33-49cd-a6e8-8d12cbaaa74a",
 								"exec": [
 									""
 								],
@@ -543,7 +702,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "87cf6349-8950-428a-ae7a-59a5ff157444",
 								"exec": [
 									""
 								],
@@ -618,9 +776,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

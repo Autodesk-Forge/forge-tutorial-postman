@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "40d73772-f326-4179-97f3-58b4ede54e0f",
+		"_postman_id": "aa1af816-7a7e-46ab-8668-89a5671d1ba8",
 		"name": "Model Derivative",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -147,7 +147,90 @@
 							"response": []
 						},
 						{
-							"name": "Upload Revit File to OSS",
+							"name": "Obtain Signed URL",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var body = JSON.parse(responseBody);",
+											"pm.environment.set(\"UploadKey\", body.uploadKey);",
+											"pm.environment.set(\"ContentUploadSignedURL\", body.urls[0]);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload?minutesExpiration=5",
+									"protocol": "https",
+									"host": [
+										"developer",
+										"api",
+										"autodesk",
+										"com"
+									],
+									"path": [
+										"oss",
+										"v2",
+										"buckets",
+										"{{ossBucketKey}}",
+										"objects",
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
+									],
+									"query": [
+										{
+											"key": "minutesExpiration",
+											"value": "5"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Upload the File",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "file",
+									"file": {
+										"src": ""
+									}
+								},
+								"url": {
+									"raw": "{{ContentUploadSignedURL}}",
+									"host": [
+										"{{ContentUploadSignedURL}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Finalize Upload",
 							"event": [
 								{
 									"listen": "test",
@@ -164,23 +247,31 @@
 								}
 							],
 							"request": {
-								"method": "PUT",
+								"method": "POST",
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{access_token}}"
+										"value": "Bearer {{access_token}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
 									}
 								],
 								"body": {
-									"mode": "file",
-									"file": {
-										"src": ""
-									}
+									"mode": "raw",
+									"raw": "{\n    \"uploadKey\":\"{{UploadKey}}\"\n}"
 								},
 								"url": {
-									"raw": "{{host}}/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+									"raw": "https://developer.api.autodesk.com/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}/signeds3upload",
+									"protocol": "https",
 									"host": [
-										"{{host}}"
+										"developer",
+										"api",
+										"autodesk",
+										"com"
 									],
 									"path": [
 										"oss",
@@ -188,10 +279,10 @@
 										"buckets",
 										"{{ossBucketKey}}",
 										"objects",
-										"{{ossSourceFileObjectKey}}"
+										"{{ossSourceFileObjectKey}}",
+										"signeds3upload"
 									]
-								},
-								"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
+								}
 							},
 							"response": []
 						}
@@ -414,7 +505,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}",
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_0}}",
 									"host": [
 										"{{host}}"
 									],
@@ -424,7 +515,7 @@
 										"designdata",
 										"{{t5_url_safe_urn_of_source}}",
 										"metadata",
-										"{{dv_guid_6}}"
+										"{{dv_guid_0}}"
 									]
 								},
 								"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/urn-metadata-GET/)"
@@ -454,7 +545,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_0}}?objectid=2099",
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_0}}?objectid=2030",
 									"host": [
 										"{{host}}"
 									],
@@ -469,7 +560,7 @@
 									"query": [
 										{
 											"key": "objectid",
-											"value": "2099"
+											"value": "2030"
 										}
 									]
 								},
@@ -489,7 +580,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}/properties",
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_0}}/properties",
 									"host": [
 										"{{host}}"
 									],
@@ -499,7 +590,7 @@
 										"designdata",
 										"{{t5_url_safe_urn_of_source}}",
 										"metadata",
-										"{{dv_guid_6}}",
+										"{{dv_guid_0}}",
 										"properties"
 									]
 								},
@@ -520,7 +611,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"filter\": {\n        \"list\": {\n            \"externalId\": [\n                \"doc_e7530028-3dc6-4baf-9d6b-21db89433205\"\n            ]\n        }\n    },\n    \"select\": [\n        \"objectid\",\n        \"name\",\n        \"externalId\",\n        \"properties.Other\"\n    ],\n    \"pagination\": {\n        \"offset\": 0,\n        \"limit\": 20\n    }\n}",
+									"raw": "{\n    \"filter\": {\n        \"list\": {\n            \"externalId\": [\n                \"5e8712a2-e372-44b6-9e73-0aaa430558ee-0008656f\"\n            ]\n        }\n    },\n    \"select\": [\n        \"objectid\",\n        \"name\",\n        \"externalId\",\n        \"properties.Other\"\n    ],\n    \"pagination\": {\n        \"offset\": 0,\n        \"limit\": 20\n    }\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -528,7 +619,7 @@
 									}
 								},
 								"url": {
-									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_6}}/properties:query",
+									"raw": "{{host}}/modelderivative/v2/designdata/{{t5_url_safe_urn_of_source}}/metadata/{{dv_guid_0}}/properties:query",
 									"host": [
 										"{{host}}"
 									],
@@ -538,7 +629,7 @@
 										"designdata",
 										"{{t5_url_safe_urn_of_source}}",
 										"metadata",
-										"{{dv_guid_6}}",
+										"{{dv_guid_0}}",
 										"properties:query"
 									]
 								},
@@ -756,6 +847,55 @@
 							]
 						},
 						"description": "[See documentation](https://forge.autodesk.com/en/docs/model-derivative/v2/reference/http/formats-GET/)"
+					},
+					"response": []
+				},
+				{
+					"name": "Upload Revit File to OSS (Deprecated)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);",
+									"pm.environment.set(\"t5_ossSourceFileObjectKey\", body[\"objectKey\"]);",
+									"pm.environment.set(\"t5_ossSourceFileURN\", body[\"objectId\"]);",
+									"var encoded_urn=btoa(body[\"objectId\"]);",
+									"pm.environment.set(\"t5_ossEncodedSourceFileURN\", encoded_urn);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": ""
+							}
+						},
+						"url": {
+							"raw": "{{host}}/oss/v2/buckets/{{ossBucketKey}}/objects/{{ossSourceFileObjectKey}}",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"oss",
+								"v2",
+								"buckets",
+								"{{ossBucketKey}}",
+								"objects",
+								"{{ossSourceFileObjectKey}}"
+							]
+						},
+						"description": "[See documentation](https://forge.autodesk.com/en/docs/data/v2/reference/http/buckets-:bucketKey-objects-:objectName-PUT/)"
 					},
 					"response": []
 				}

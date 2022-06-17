@@ -11,7 +11,7 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
 2. Click **Send**. You should see a screen like the following image.
 
-   ![list viewables](../images/task4_list_model_views_success.png "list viewables")
+   ![list viewables](../images/tutorial_06_task_4_retrieve_list_of_viewables_01.png "list viewables")
 
    Notice that the model has only one Viewable. (Inventor and Fusion 360 models have only one Viewable. Revit models can have multiple Viewables.) A script in the **Tests** tab saves the metadata GUID of the Viewable to a variable named `metadata_guid_0`.
 
@@ -19,17 +19,17 @@ In order to obtain a list of Viewables, you will use the URL safe Base64-encoded
 
 1. In the Postman sidebar, click **Task 4 - Retrieve Metadata > List Object Tree**. The request loads.
 
-   ![list objects](../images/task4_get_properties.png "list objects")
+   ![list objects](../images/tutorial_06_task_4_retrieve_object_tree_of_viewables_01.png "list objects")
 
    Note the use of the variable `metadata_guid_0` as a URI parameter.
 
 2. Click **Send**. If extracting properties takes time, you see a screen like the following. 
 
-   ![list objects success](../images/task4_get_properties_success_01.png "list objects success")
+   ![list objects success](../images/tutorial_06_task_4_retrieve_object_tree_of_viewables_02.png "list objects success")
 
 3. Click **Send** again. You should see a screen like the following. 
 
-   ![list objects success](../images/task4_get_properties_success_02.png "list objects success")
+   ![list objects success](../images/tutorial_06_task_4_retrieve_object_tree_of_viewables_03.png "list objects success")
 
 The response body contains the list of object properties.
 
