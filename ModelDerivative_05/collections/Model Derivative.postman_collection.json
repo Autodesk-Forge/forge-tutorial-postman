@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "aa1af816-7a7e-46ab-8668-89a5671d1ba8",
+		"_postman_id": "80ee7bc6-5437-4498-ae54-79f7ba54eac5",
 		"name": "Model Derivative",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15936144"
 	},
 	"item": [
 		{
@@ -611,7 +612,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"filter\": {\n        \"list\": {\n            \"externalId\": [\n                \"5e8712a2-e372-44b6-9e73-0aaa430558ee-0008656f\"\n            ]\n        }\n    },\n    \"select\": [\n        \"objectid\",\n        \"name\",\n        \"externalId\",\n        \"properties.Other\"\n    ],\n    \"pagination\": {\n        \"offset\": 0,\n        \"limit\": 20\n    }\n}",
+									"raw": "{\n    \"query\": {\n        \"$prefix\": [\n            \"name\",\n            \"Floor \"\n        ]\n    },\n    \"fields\": [\n        \"objectid\",\n        \"name\",\n        \"externalId\",\n        \"properties.Dimensions\"\n    ],\n    \"pagination\": {\n        \"offset\": 0,\n        \"limit\": 20\n    },\n    \"payload\": \"text\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
