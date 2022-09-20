@@ -8,7 +8,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
-    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
+    1. Click the **Environment quick look** icon (![icon](../images/icon_env_quick_look.png)) on the upper right corner of Postman.
 
     2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
 
@@ -83,13 +83,13 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
 2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
-   ![Body attribute](../images/tutorial_05_task_2_finalize_upload.png "Body attribute")
+   ![Body attribute](../images/tutorial_05_task_2_finalize_upload_02.png "Body attribute")
 
-3. Click **Headers** tab. notice the `Authorization` Header is already defined.
+4. Click **Send** to finalize the upload. You should see a screen similar to the following image.
 
-   ![Task headers](../images/tutorial_05_task_2_finalize_upload_02.png "Task headers")
+   ![Finalize screen](../images/tutorial_05_task_2_finalize_upload_03.png "Finalize screen")
 
-4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
+   A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
    |----------------------------|---------------------------------------------------------------------------------------------|
@@ -97,9 +97,5 @@ Although you uploaded the source file in one go, it is possible to split a file 
    | t5_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
    | t5_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
 
-
-    You should see a screen similar to the following image:
-
-    ![Finalize upload](../images/tutorial_05_task_2_finalize_upload_03.png "Finalize upload")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
