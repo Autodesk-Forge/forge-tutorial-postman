@@ -83,11 +83,11 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
 2. Click the **Body** tab, and verify that the `uploadKey` attribute has been set to the variable `UploadKey`.
 
-   ![Body attribute](../images/tutorial_05_task_2_finalize_upload.png "Body attribute")
+   ![Body attribute](../images/tutorial_05_task_2_finalize_upload_02.png "Body attribute")
 
 4. Click **Send** to finalize the upload. You should see a screen similar to the following image.
 
-   ![Finalize screen](../images/tutorial_05_task_3_finalize_upload.png "Finalize screen")
+   ![Finalize screen](../images/tutorial_05_task_2_finalize_upload-03.png "Finalize screen")
 
    A script in the **Tests** tab updates the following Postman environment variables:
 
