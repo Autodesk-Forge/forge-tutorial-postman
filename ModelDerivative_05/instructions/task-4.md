@@ -4,7 +4,7 @@ In this task, you extract metadata that was generated in Task 3. Initially you r
 
 ## Retrieve a List of Viewables
 
-To obtain a list of Viewables, you will use the URL safe Base64-encoded URN of the source file in the next request. Postman saved this URN to the variable `t5_url_safe_urn_of_source` in the previous task.
+To obtain a list of Viewables, you will use the URL safe Base64-encoded Universal Resource Name (URN) of the source file in the next request. Postman saved this URN to the variable `t5_url_safe_urn_of_source` in the previous task.
 
 1. In the Postman sidebar, click **Task 4 - Retrieve Metadata > Retrieve a List of Viewables**. The request loads.
 
