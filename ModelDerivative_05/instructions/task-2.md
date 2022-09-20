@@ -85,10 +85,6 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
    ![Body attribute](../images/tutorial_05_task_2_finalize_upload.png "Body attribute")
 
-3. Click **Headers** tab. notice the `Authorization` Header is already defined.
-
-   ![Task headers](../images/tutorial_05_task_2_finalize_upload_02.png "Task headers")
-
 4. Click **Send** to finalize the upload. A script in the **Tests** tab updates the following Postman environment variables:
 
    | Variable Name              | Description                                                                                 |
@@ -97,9 +93,5 @@ Although you uploaded the source file in one go, it is possible to split a file 
    | t5_ossSourceFileURN        | Value of the `objectId` attribute in the JSON response. This is the URN of the source file. |
    | t5_ossEncodedSourceFileURN | The URN of the source file, converted to a Base64-encoded URN.                              |
 
-
-    You should see a screen similar to the following image:
-
-    ![Finalize upload](../images/tutorial_05_task_2_finalize_upload_03.png "Finalize upload")
 
 [:rewind:](../readme.md "readme.md") [:arrow_backward:](task-1.md "Previous task") [:arrow_forward:](task-3.md "Next task")
