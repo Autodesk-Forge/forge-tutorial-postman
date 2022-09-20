@@ -8,7 +8,7 @@ In this tutorial, you will use a Postman environment variable named `ossBucketKe
 
 1. Specify a value for the Bucket Key in the Postman Environment Variable named `ossBucketKey`:
 
-    1. Click the **Environment quick look** icon (the eye icon) on the upper right corner of Postman.
+    1. Click the **Environment quick look** icon (![icon](../images/icon_env_quick_look.png)) on the upper right corner of Postman.
 
     2. In the **CURRENT VALUE** column, in the **ossBucketKey** row, specify a name for the Bucket that stores your files.
 
