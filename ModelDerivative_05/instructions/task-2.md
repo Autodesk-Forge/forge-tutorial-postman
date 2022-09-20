@@ -87,7 +87,7 @@ Although you uploaded the source file in one go, it is possible to split a file 
 
 4. Click **Send** to finalize the upload. You should see a screen similar to the following image.
 
-   ![Finalize screen](../images/tutorial_05_task_2_finalize_upload-03.png "Finalize screen")
+   ![Finalize screen](../images/tutorial_05_task_2_finalize_upload_03.png "Finalize screen")
 
    A script in the **Tests** tab updates the following Postman environment variables:
 
